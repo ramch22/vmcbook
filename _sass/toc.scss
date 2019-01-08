@@ -1,0 +1,31 @@
+.toc > em{
+  color: #555;
+  font-weight: 300;
+  font-size: 2em;
+  line-height: .75em;
+  margin-bottom: .5em;
+}
+.toc a {
+  text-decoration: none;
+}
+.toc ul, .toc ol {
+  color: #555;
+  margin: 0;
+  padding: 0;
+}
+.toc ul{
+  list-style: none;
+}
+.toc ol{
+  counter-reset: item;
+}
+.toc li {
+  display: block;
+  margin: .25em 0;
+  padding-left: 2em;
+
+}
+.toc ol li:before {
+  content: counters(item, ".")") ";
+  counter-increment: item;
+}

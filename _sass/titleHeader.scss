@@ -1,0 +1,29 @@
+.titleHeader {
+  margin-top: 20%;
+  margin-left: 5%;
+}
+.titleHeader em{
+  display: block;
+  color: #555;
+  font-weight: 300; 
+  max-width: 90%
+}
+.titleHeader hr{
+  width: 90%;
+  margin-right:10%
+}
+.titleHeader .title{
+  font-size: 3em;
+}
+.titleHeader .subtitle{
+  font-size: 1.75em;
+}
+.titleHeader .authors{
+  color: #555;
+  text-align: right;
+  width: 90%;
+  margin-right:10%
+}
+.titleHeader .toc{
+  padding-top: 10%;
+}

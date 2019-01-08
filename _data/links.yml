@@ -1,0 +1,21 @@
+vmw:
+  my: "https://my.vmware.com"
+  cloud: "https://cloud.vmware.com"
+  cloud_console: "https://console.cloud.vmware.com"
+  cloud_blog: "https://cloud.vmware.com/community/"
+  vmc: "https://vmc.vmware.com"
+  vmcaws: "https://cloud.vmware.com/vmc-aws"
+  vmcaws_get_started: "https://cloud.vmware.com/vmc-aws/get-started"
+  vmcaws_docs: "https://docs.vmware.com/en/VMware-Cloud-on-AWS"
+  vmcaws_sizer: "http://vmcsizer.vmware.com/"
+  vmcaws_status: "https://status.vmware-services.io"
+  vmcaws_roadmap: "https://cloud.vmware.com/vmc-aws/roadmap"
+
+aws:
+  cloudformation: "https://aws.amazon.com/cloudformation/"
+  create_acct: "https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account"
+  data_transfer: "https://aws.amazon.com/govcloud-us/pricing/data-transfer/"
+  eni: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html"
+  iam: "https://aws.amazon.com/iam/"
+  regions_az: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html"
+  vpc_subnets: "https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html"

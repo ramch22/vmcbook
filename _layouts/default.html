@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+
+  <body>
+    {% assign chapter = nil %}
+    {% assign book = site.data.book.books[page.dir] %}
+    {% assign i = 0 %}{% assign prev = -1 %}{% assign next = -1 %}
+    {% assign last = book.chapters.size | minus:1 %}
+    {% for ch in book.chapters %}
+      {% if ch.file == page.url %}
+        {% if i > 0 %}{% assign prev = i | minus:1 %}{% endif %}
+        {% if i < last %}{% assign next = i | plus:1 %}{% endif %}
+        {% assign chapter = ch %}
+        {% break %}
+      {% endif %}
+      {% assign i = i | plus:1 %}
+    {% endfor %}
+    <header>
+      <span><a href="/">Home</a></span>
+      <span>{{ site.title }}</span>
+      <span><a href="/book/">Contents</a></span>
+    </header>
+    
+    <article>
+        <aside></aside>
+        <section>
+          <h1>{% if chapter %}{{ chapter.title }}{% else %}{{ book.title }}{% endif %}</h1>
+          {{ content }}
+        </section>
+        <aside></aside>
+    </article>
+    
+    <footer>
+      <span>{% if prev != -1 %}<a href="{{ book.chapters[prev].file }}">&laquo; {{ book.chapters[prev].title }}</a>{% endif %}</span>
+      <span>{% if chapter %}<a href="{{ page.dir }}">Topics</a>{% else %}<a href="../">Up</a>{% endif %}</span>
+      <span>{% if next != -1 %}<a href="{{ book.chapters[next].file }}">{{ book.chapters[next].title }} &raquo;</a>{% endif %}</span>
+    </footer>
+    
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+
+  <body>
+    
+    <header>
+      <span><a href="/">Home</a></span>
+      <span>{{ site.title }}</span>
+      <span><a href="/book/">Contents</a></span>
+    </header>
+    
+    <article>
+        <aside></aside>
+        <section>
+          <div class="titleHeader">
+            <em class="title">{{ site.data.book.title }}</em>
+            <em class="subtitle">{{ site.data.book.subtitle }}</em>
+            <hr>
+            <p class="authors">
+            {% for author in site.data.book.authors %}
+              {{ author }}<br>
+            {% endfor %}
+            </p>
+            {{ content }}
+          </div>
+        </section>
+        <aside></aside>
+    </article>
+    
+    <footer>
+      <span>&nbsp;</span>
+      <span><a href="/book/">Contents</a></span>
+      <span>&nbsp;</span>
+    </footer>
+    
+  </body>
+</html>
