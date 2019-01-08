@@ -5,9 +5,9 @@
   <body>
     
     <header>
-      <span><a href="/">Home</a></span>
+      <span><a href="{{ "/" | relative_url }}">Home</a></span>
       <span>{{ site.title }}</span>
-      <span><a href="/book/">Contents</a></span>
+      <span><a href="{{ "/book/" | relative_url }}">Contents</a></span>
     </header>
     
     <article>
@@ -30,7 +30,7 @@
     
     <footer>
       <span>&nbsp;</span>
-      <span><a href="/book/">Contents</a></span>
+      <span><a href="{{ "/book/" | relative_url }}">Contents</a></span>
       <span>&nbsp;</span>
     </footer>
     

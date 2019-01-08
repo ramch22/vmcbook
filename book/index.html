@@ -9,15 +9,15 @@ layout: default
     <li>
       {% if item.section %}
         {% assign section = site.data.book.sections[item.section] %}
-        <a href="{{ item.section }}">{{ section.title }}</a>
+        <a href="{{ item.section | relative_url }}">{{ section.title }}</a>
         <ol>
         {% for book in section.books%}
           <li>
-            <a href="{{ book.book }}">{{ site.data.book.books[book.book].title }}</a>
+            <a href="{{ book.book | relative_url }}">{{ site.data.book.books[book.book].title }}</a>
             <ol>
             {% for chapter in site.data.book.books[book.book].chapters %}
               <li>
-                <a href="{{ chapter.file }}">{{ chapter.title }}</a>
+                <a href="{{ chapter.file | relative_url }}">{{ chapter.title }}</a>
               </li>
             {% endfor %}
             </ol>
@@ -26,11 +26,11 @@ layout: default
         </ol>
       {% else %}
         {% assign book = site.data.book.books[item.book] %}
-        <a href="{{ item.book }}">{{ book.title }}</a>
+        <a href="{{ item.book | relative_url }}">{{ book.title }}</a>
         <ol>
         {% for chapter in book.chapters %}
           <li>
-            <a href="{{ chapter.file }}">{{ chapter.title }}</a>
+            <a href="{{ chapter.file | relative_url }}">{{ chapter.title }}</a>
           </li>
         {% endfor %}
         </ol>

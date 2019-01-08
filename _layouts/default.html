@@ -17,9 +17,9 @@
       {% assign i = i | plus:1 %}
     {% endfor %}
     <header>
-      <span><a href="/">Home</a></span>
+      <span><a href="{{ "/" | relative_url }}">Home</a></span>
       <span>{{ site.title }}</span>
-      <span><a href="/book/">Contents</a></span>
+      <span><a href="{{ "/book/" | relative_url }}">Contents</a></span>
     </header>
     
     <article>
@@ -32,9 +32,9 @@
     </article>
     
     <footer>
-      <span>{% if prev != -1 %}<a href="{{ book.chapters[prev].file }}">&laquo; {{ book.chapters[prev].title }}</a>{% endif %}</span>
-      <span>{% if chapter %}<a href="{{ page.dir }}">Topics</a>{% else %}<a href="../">Up</a>{% endif %}</span>
-      <span>{% if next != -1 %}<a href="{{ book.chapters[next].file }}">{{ book.chapters[next].title }} &raquo;</a>{% endif %}</span>
+      <span>{% if prev != -1 %}<a href="{{ book.chapters[prev].file | relative_url }}">&laquo; {{ book.chapters[prev].title }}</a>{% endif %}</span>
+      <span>{% if chapter %}<a href="{{ page.dir | relative_url }}">Topics</a>{% else %}<a href="../">Up</a>{% endif %}</span>
+      <span>{% if next != -1 %}<a href="{{ book.chapters[next].file | relative_url }}">{{ book.chapters[next].title }} &raquo;</a>{% endif %}</span>
     </footer>
     
   </body>

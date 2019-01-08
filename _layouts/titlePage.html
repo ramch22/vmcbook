@@ -10,9 +10,9 @@
       {% assign item = site.data.book.sections[page.dir] %}
     {% endif %}
     <header>
-      <span><a href="/">Home</a></span>
+      <span><a href="{{ "/" | relative_url }}">Home</a></span>
       <span>{{ site.title }}</span>
-      <span><a href="/book/">Contents</a></span>
+      <span><a href="{{ "/book/" | relative_url }}">Contents</a></span>
     </header>
     
     <article>
@@ -38,7 +38,7 @@
     <footer>
       <span>&nbsp;</span>
       <span><a href="../">Up</a></span>
-      <span>{% if chapter %}<a href="{{ chapter.file }}">{{ chapter.title }} &raquo;</a>{% endif %}</span>
+      <span>{% if chapter %}<a href="{{ chapter.file | relative_url }}">{{ chapter.title }} &raquo;</a>{% endif %}</span>
     </footer>
     
   </body>
