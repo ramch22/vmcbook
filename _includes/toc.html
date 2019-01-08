@@ -5,11 +5,11 @@
   <ol>
   {% for book in section.books %}
     <li>
-      <a href="{{ book.book }}">{{ site.data.book.books[book.book].title }}</a>
+      <a href="{{ book.book | relative_url }}">{{ site.data.book.books[book.book].title }}</a>
       <ol>
       {% for chapter in site.data.book.books[book.book].chapters %}
         <li>
-          <a href="{{ chapter.file }}">{{ chapter.title }}</a>
+          <a href="{{ chapter.file | relative_url }}">{{ chapter.title }}</a>
         </li>
       {% endfor %}
       </ol>
@@ -22,7 +22,7 @@
   <ol>
   {% for chapter in book.chapters %}
     <li>
-      <a href="{{ chapter.file }}">{{ chapter.title }}</a>
+      <a href="{{ chapter.file | relative_url }}">{{ chapter.title }}</a>
     </li>
   {% endfor %}
   </ol>
