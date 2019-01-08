@@ -31,7 +31,7 @@ aside{
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.4);
   background: linear-gradient(to right, #dddddd 0%, #fafafa 2%, #fafafa 98%, #dddddd 100%);
   max-width: 60em;
-  overflow: scroll;
+  overflow: auto;
   overflow-x: hidden;
 }
 section a{
