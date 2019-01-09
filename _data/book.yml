@@ -5,9 +5,10 @@ authors:
 
 
 toc:
-  - book: "/book/preface/"
+  - book: "/book/introduction/"
   - book: "/book/gettingStarted/"
   - section: "/book/vmcOnAWS/"
+  - section: "/book/cloudServices/"
 #  - section: "/book/networkAndSecurity/"
   - section: "/book/appendix/"
 
@@ -17,7 +18,12 @@ sections:
     title: "VMware Cloud on AWS"
     books:
       - book: "/book/vmcOnAWS/aTechnicalOverview/"
-      
+
+  "/book/cloudServices/":
+    title: "Cloud Services"
+    books:
+      - book: "/book/cloudServices/hcx/"
+  
 #  "/book/networkAndSecurity/":
 #    title: "Network and Security"
 #    books:
@@ -30,8 +36,8 @@ sections:
 
 
 books:
-  "/book/preface/":
-    title: "Preface"
+  "/book/introduction/":
+    title: "Introduction"
     
   "/book/gettingStarted/":
     title: "Getting Started"
@@ -66,6 +72,32 @@ books:
         title: "Preparing to On-Board"
     
 
+  "/book/cloudServices/hcx/":
+    title: "Hybrid Cloud Exchange (HCX)"
+    chapters:
+      - file: "/book/cloudServices/hcx/introduction.html"
+        title: "Introduction"
+      - file: "/book/cloudServices/hcx/technicalOverview.html"
+        title: "Technical Overview"
+      - file: "/book/cloudServices/hcx/prereqsAndRequirements.html"
+        title: "Prerequisites and Requirements"
+      - file: "/book/cloudServices/hcx/mgrInstallation.html"
+        title: "HCX Manager Installation"
+      - file: "/book/cloudServices/hcx/ixInstallation.html"
+        title: "Interconnect Appliance Installation"
+      - file: "/book/cloudServices/hcx/wanOptInstallation.html"
+        title: "WAN Optimization Appliance Installation"
+      - file: "/book/cloudServices/hcx/l2cInstallation.html"
+        title: "Network Extension Appliance Installation"
+      - file: "/book/cloudServices/hcx/networkExtension.html"
+        title: "Network Extension"
+      - file: "/book/cloudServices/hcx/workloadMigration.html"
+        title: "Workload Migration"
+      - file: "/book/cloudServices/hcx/networkCutover.html"
+        title: "Network Cutover"
+      - file: "/book/cloudServices/hcx/knownCaveats.html"
+        title: "Known Caveates"
+    
 #  "/book/networkAndSecurity/managingIPSecVPN/":
 #    title: "IPSec VPN"
 #    chapters:
