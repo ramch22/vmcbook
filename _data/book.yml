@@ -73,7 +73,7 @@ books:
     
 
   "/book/cloudServices/hcx/":
-    title: "Hybrid Cloud Exchange (HCX)"
+    title: "HCX"
     chapters:
       - file: "/book/cloudServices/hcx/introduction.html"
         title: "Introduction"
