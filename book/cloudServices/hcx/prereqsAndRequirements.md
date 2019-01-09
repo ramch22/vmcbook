@@ -130,7 +130,8 @@ The HCX Manager within the SDDC is protected by the gateway firewall of the MGW.
 #### Downloading the HCX Manager
 The on-premises HCX Manager may be downloaded from the cloud-side HCX manager once the service has been activated. To do so:
 
-1. Open the HCX Manager within the SDDC. This is done from the "Add Ons" tab of the SDDC in the VMC Console. Use the cloudadmin creditials of the SDDC to log into the Manager.
+##### Step 1
+Open the HCX Manager within the SDDC. This is done from the "Add Ons" tab of the SDDC in the VMC Console. Use the cloudadmin creditials of the SDDC to log into the Manager.
 
 <figure>
   <img src="./illustrations/activateHCX/step01.png">
@@ -138,7 +139,8 @@ The on-premises HCX Manager may be downloaded from the cloud-side HCX manager on
 </figure>
 
 
-2. Download the on-premises HCX Manager. A download link is availble from the HCX Manager. Be sure to note the FQDN of the cloud-side HCX Manager. This will be needed as part of the installation process for the on-premises HCX Manager.
+##### Step 2
+Download the on-premises HCX Manager. A download link is availble from the HCX Manager. Be sure to note the FQDN of the cloud-side HCX Manager. This will be needed as part of the installation process for the on-premises HCX Manager.
 
 <figure>
   <img src="./illustrations/activateHCX/step02.png">
