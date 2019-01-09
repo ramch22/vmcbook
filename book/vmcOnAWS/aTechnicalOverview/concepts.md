@@ -3,7 +3,7 @@ layout: default
 ---
 
 #### Introduction
-Prior to getting started with the VMware Cloud on AWS service, it is critical to understand the prerequisites needed in order to successfully on-board. As a starting point, the following items should be well understood by all users of the service:
+Prior to getting started with the VMware Cloud on AWS service, it is critical to understand the basic components of the service. As a starting point, the following items should be well understood:
 * the Software Defined Data Center (SDDC)
 * the VMware Cloud Org
 * the customer AWS account
