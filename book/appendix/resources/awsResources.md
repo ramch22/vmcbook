@@ -27,6 +27,8 @@ Resource | Description
 ---------|------------
 [{{ site.data.links.aws.vpc_subnets }}]({{ site.data.links.aws.vpc_subnets }}) | VPC and Subnets
 [{{ site.data.links.aws.eni }}]({{ site.data.links.aws.eni }}) | Elastic Network Interface (ENI)
+[{{ site.data.links.aws.dx }}]({{ site.data.links.aws.dx }}) | Direct Connect
+[{{ site.data.links.aws.dx_vif }}]({{ site.data.links.aws.dx_vif }}) | Direct Connect VIF
 
 
 ##### Regions & Availability Zones

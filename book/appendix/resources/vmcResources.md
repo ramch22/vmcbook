@@ -26,3 +26,10 @@ Resource | Description
 [{{ site.data.links.vmw.vmcaws_sizer }}]({{ site.data.links.vmw.vmcaws_sizer }}) | SDDC sizer tool
 
 
+##### VMware Cloud on AWS
+
+Resource | Description
+---------|------------
+[{{ site.data.links.vmw.site_recovery }}]({{ site.data.links.vmw.site_recovery }}) | Site Recovery
+[{{ site.data.links.vmw.hcx }}]({{ site.data.links.vmw.hcx }}) | Hybrid Cloud Exchange (HCX)
+[{{ site.data.links.vmw.lint }}]({{ site.data.links.vmw.lint }}) | Log Intelligence (LINT)

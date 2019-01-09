@@ -140,6 +140,9 @@ footer span{
   flex: 1;
 }
  
+ul.task-list{
+  list-style: none
+}
  
 @media all and (max-width: 640px) {
   aside {

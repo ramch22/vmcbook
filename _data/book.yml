@@ -7,16 +7,16 @@ authors:
 toc:
   - book: "/book/preface/"
   - book: "/book/gettingStarted/"
-#  - section: "/book/vmcOnAWS/"
+  - section: "/book/vmcOnAWS/"
 #  - section: "/book/networkAndSecurity/"
   - section: "/book/appendix/"
 
 
 sections:
-#  "/book/vmcOnAWS/":
-#    title: "VMware Cloud on AWS"
-#    books:
-#      - book: "/book/vmcOnAWS/aTechnicalOverview/"
+  "/book/vmcOnAWS/":
+    title: "VMware Cloud on AWS"
+    books:
+      - book: "/book/vmcOnAWS/aTechnicalOverview/"
       
 #  "/book/networkAndSecurity/":
 #    title: "Network and Security"
@@ -45,25 +45,25 @@ books:
       - file: "/book/gettingStarted/supportModel.html"
         title: "Support Model"
     
-#  "/book/vmcOnAWS/aTechnicalOverview/":
-#   title: "A Technical Overview"
-#    chapters:
-#      - file: "/book/vmcOnAWS/aTechnicalOverview/prerequisites.html"
-#        title: "Prerequisites"
-#      - file: "/book/vmcOnAWS/aTechnicalOverview/computeAndStorage.html"
-#        title: "Compute and Storage"
-#      - file: "/book/vmcOnAWS/aTechnicalOverview/sddcNetworking.html"
-#        title: "SDDC Networking"
-#      - file: "/book/vmcOnAWS/aTechnicalOverview/sddcInterconnectivity.html"
-#        title: "SDDC Interconnectivity"
-#      - file: "/book/vmcOnAWS/aTechnicalOverview/workloadOnBoarding.html"
-#        title: "Workload Onboarding"
-#      - file: "/book/vmcOnAWS/aTechnicalOverview/disasterRecovery.html"
-#        title: "Disaster Recovery"
-#      - file: "/book/vmcOnAWS/aTechnicalOverview/loggingAndMonitoring.html"
-#        title: "Logging and Monitoring"
-#      - file: "/book/vmcOnAWS/aTechnicalOverview/prepToOnBoard.html"
-#        title: "Preparing to On-Board"
+  "/book/vmcOnAWS/aTechnicalOverview/":
+    title: "A Technical Overview"
+    chapters:
+      - file: "/book/vmcOnAWS/aTechnicalOverview/prerequisites.html"
+        title: "Prerequisites"
+      - file: "/book/vmcOnAWS/aTechnicalOverview/computeAndStorage.html"
+        title: "Compute and Storage"
+      - file: "/book/vmcOnAWS/aTechnicalOverview/sddcNetworking.html"
+        title: "SDDC Networking"
+      - file: "/book/vmcOnAWS/aTechnicalOverview/sddcInterconnectivity.html"
+        title: "SDDC Interconnectivity"
+      - file: "/book/vmcOnAWS/aTechnicalOverview/workloadOnBoarding.html"
+        title: "Workload Onboarding"
+      - file: "/book/vmcOnAWS/aTechnicalOverview/disasterRecovery.html"
+        title: "Disaster Recovery"
+      - file: "/book/vmcOnAWS/aTechnicalOverview/loggingAndMonitoring.html"
+        title: "Logging and Monitoring"
+      - file: "/book/vmcOnAWS/aTechnicalOverview/prepToOnBoard.html"
+        title: "Preparing to On-Board"
     
 
 #  "/book/networkAndSecurity/managingIPSecVPN/":
