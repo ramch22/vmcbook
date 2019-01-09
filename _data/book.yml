@@ -54,8 +54,8 @@ books:
   "/book/vmcOnAWS/aTechnicalOverview/":
     title: "A Technical Overview"
     chapters:
-      - file: "/book/vmcOnAWS/aTechnicalOverview/prerequisites.html"
-        title: "Prerequisites"
+      - file: "/book/vmcOnAWS/aTechnicalOverview/concepts.html"
+        title: "Concepts"
       - file: "/book/vmcOnAWS/aTechnicalOverview/computeAndStorage.html"
         title: "Compute and Storage"
       - file: "/book/vmcOnAWS/aTechnicalOverview/sddcNetworking.html"
