@@ -25,11 +25,10 @@ The process for configuring HCX for Private VIF will be as follows:
 
 There is one additional change that the customer must make, and this is with the site-pairing. Normally, the site-pairing will be done to the public IP of the cloud-side HCX Manager, over the Internet. However, this is not typically desirable in the case of Private VIF. In this case, the customer will want to establish the pairing with the private IP of the HCX manager such that the traffic will ride over the Direct Connect. This IP may be found directly within vCenter by looking at the HCX Manager which has been deployed within the SDDC, under the Management Resource Pool. Then the customer will need to connect to the on-prem HCX Manager by ensuring that SSH is enabled through the web interface, then ssh into it as the admin user, and run su - to access the root account. Create an entry within /etc/hosts of the on-prem HCX Manager using an editor such as vi. This entry should reflect the FQDN of the cloud-side HCX Manager (e.g. hcx-sddc.xx-xx-xx-xx.vmwarevmc.com), for example:
 
-```
-
+<pre class="mycode"><code>
 10.10.10.123	hcx.sddc-x-x-x-x.vmwarevmc.com
 
-```
+</code></pre>
 
 
 ##### IP assignment for additional WAN Interconnect/Extension appliances requires VMware assistance.

@@ -95,28 +95,32 @@ The following are things to consider when configuring VPN:
 
 ### Route-Based VPN Sample Device Configurations
 The following sample configurations are designed to provide examples of known working configurations. However, they will require modification to your specific setup in order to actually work. These configurations are based on the following setup in the SDDC:
-* Local IP Address - edge public IP 52.39.110.92
-* Remote Private IP - in the case of this setup, the remote VPN was behind a NAT gateway and had a private iP of 192.168.250.43
-* Advanced - These are the crypto settings for the VPN.
-  - IKE Type - configs provided for both IKEv1 and IKEv2
-  - Tunnel Encryption and Tunnel Digest Algorithm - AES 256 and SHA2
-  - IKE Encryption and IKE Digest Algorithm - AES 256 and SHA2
-  - Perfect Forward Secrecy - enabled
-  - Preshared Key - myverysecretkey
-  - Diffie Hellman - Group 14
-* BGP Local IP/Prefix Length - 169.254.255.1/30
-* BGP Remote IP - 169.254.255.2
-* BGP Remote ASN - 64512
 
-The BGP ASN used by the SDDC was 64513.
+Setting | Value
+--------|-------
+Local IP Address | edge public IP 52.39.110.92
+Remote Private IP | in the case of this setup, the remote VPN was behind a NAT gateway and had a private iP of 192.168.250.43
+IKE Type | configs provided for both IKEv1 and IKEv2
+Tunnel Encryption | AES 256
+Tunnel Digest Algorithm | SHA2
+IKE Encryption | AES 256
+IKE Digest Algorithm | SHA2
+Perfect Forward Secrecy | enabled
+Preshared Key | myverysecretkey
+Diffie Hellman | Group 14
+BGP Local IP/Prefix Length | 169.254.255.1/30
+BGP Remote IP | 169.254.255.2
+BGP Remote ASN | 64512
+SDDC ASN Setting | 64513
 
-Testing was performed to an EC2 instance in AWS. EC2 instances use NAT, so we must be sure to open up IP protocol 50 (ESP) as well as UDP 500/4500 inbound in the security group for the device.
+<figcaption>SDDC VPN Settings</figcaption> 
+
+Testing was performed to an EC2 instance in AWS. EC2 instances use NAT, so we must be sure to open up UDP 500/4500 (for NAT-t) inbound in the security group for the device.
 
 
 #### Route-Based VPN: Cisco CSR (IOS XR) IKEv1
 
-```
-
+<pre class="mycode"><code>
 ! specify the pre-share key for the remote sddc edge
 crypto keyring sddc
   ! the local private ip address
@@ -197,14 +201,11 @@ router bgp 64512
 
   exit
 exit
-
-
-```
+</code></pre>
 
 #### Route-Based VPN: Cisco CSR (IOS XR) IKEv2
 
-```
-
+<pre class="mycode"><code>
 ! ikev2 crypto - AWS-256-CBC SHA-256
 crypto ikev2 proposal ikev2-prop-sddc 
  encryption aes-cbc-256
@@ -288,6 +289,5 @@ router bgp 64512
     neighbor 169.254.255.1 soft-reconfiguration inbound
   exit
 exit
-
-```
+</code></pre>
 

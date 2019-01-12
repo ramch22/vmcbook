@@ -146,6 +146,17 @@ ul.task-list{
   list-style: none
 }
  
+pre.mycode{
+  border: thin #888 solid;
+  white-space: no-wrap;
+  overflow-x: auto;
+  background: #FDF6E3;
+  padding: 0.5em 1em;
+  font-size: .7rem;
+  font-family: monospace;
+  user-select: all;
+} 
+
 @media all and (max-width: 640px) {
   aside {
     flex:0;
