@@ -94,8 +94,7 @@ The following are things to consider when configuring VPN:
 
 
 ### Route-Based VPN Sample Device Configurations
-The following sample configurations are designed to provide examples of known working configurations. However, they will require modification to your specific setup in order to actually work. These configurations are based on the following setup in the SDDC.
-
+The following sample configurations are designed to provide examples of known working configurations. However, they will require modification to your specific setup in order to actually work. These configurations are based on the following setup in the SDDC:
 * Local IP Address - edge public IP 52.39.110.92
 * Remote Private IP - in the case of this setup, the remote VPN was behind a NAT gateway and had a private iP of 192.168.250.43
 * Advanced - These are the crypto settings for the VPN.
@@ -105,6 +104,11 @@ The following sample configurations are designed to provide examples of known wo
   - Perfect Forward Secrecy - enabled
   - Preshared Key - myverysecretkey
   - Diffie Hellman - Group 14
+* BGP Local IP/Prefix Length - 169.254.255.1/30
+* BGP Remote IP - 169.254.255.2
+* BGP Remote ASN - 64512
+
+The BGP ASN used by the SDDC was 64513.
 
 Testing was performed to an EC2 instance in AWS. EC2 instances use NAT, so we must be sure to open up IP protocol 50 (ESP) as well as UDP 500/4500 inbound in the security group for the device.
 
