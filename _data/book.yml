@@ -9,7 +9,7 @@ toc:
   - book: "/book/gettingStarted/"
   - section: "/book/vmcOnAWS/"
   - section: "/book/cloudServices/"
-  - section: "/book/networkAndSecurity/"
+  - section: "/book/networking/"
   - section: "/book/appendix/"
 
 
@@ -18,16 +18,17 @@ sections:
     title: "VMware Cloud on AWS"
     books:
       - book: "/book/vmcOnAWS/aTechnicalOverview/"
+      - book: "/book/vmcOnAWS/networkAndSecurity/"
 
   "/book/cloudServices/":
     title: "Cloud Services"
     books:
       - book: "/book/cloudServices/hcx/"
   
-  "/book/networkAndSecurity/":
-    title: "Network and Security"
+  "/book/networking/":
+    title: "Networking"
     books:
-      - book: "/book/networkAndSecurity/ipsecVPN/"
+      - book: "/book/networking/ipsecVPN/"
       
   "/book/appendix/":
     title: "Appendix"
@@ -70,6 +71,12 @@ books:
         title: "Logging and Monitoring"
       - file: "/book/vmcOnAWS/aTechnicalOverview/prepToOnBoard.html"
         title: "Preparing to On-Board"
+        
+  "/book/vmcOnAWS/networkAndSecurity/":
+    title: "Network and Security"
+    chapters:
+      - file: "/book/vmcOnAWS/networkAndSecurity/ipsecVPN.html"
+        title: "IPSec VPN"
     
 
   "/book/cloudServices/hcx/":
@@ -98,12 +105,12 @@ books:
       - file: "/book/cloudServices/hcx/knownCaveats.html"
         title: "Known Caveates"
     
-  "/book/networkAndSecurity/ipsecVPN/":
+  "/book/networking/ipsecVPN/":
     title: "IPSec VPN"
     chapters:
-      - file: "/book/networkAndSecurity/ipsecVPN/technicalOverview.html"
+      - file: "/book/networking/ipsecVPN/technicalOverview.html"
         title: "Technical Overview"
-      - file: "/book/networkAndSecurity/ipsecVPN/typesOfVPNs.html"
+      - file: "/book/networking/ipsecVPN/typesOfVPNs.html"
         title: "Types of VPNs"
         
   "/book/appendix/resources/":

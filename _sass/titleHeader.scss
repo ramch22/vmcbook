@@ -1,6 +1,8 @@
 .titleHeader {
-  margin-top: 20%;
+  height: 85%;
+  margin-top: 15%;
   margin-left: 5%;
+  position: relative;
 }
 .titleHeader em{
   display: block;
@@ -26,4 +28,9 @@
 }
 .titleHeader .toc{
   padding-top: 10%;
+}
+.titleHeader .bookVersion{
+  position: absolute;
+  bottom: 0;
+  font: italic;
 }

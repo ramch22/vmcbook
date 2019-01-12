@@ -22,7 +22,7 @@
               {{ author }}<br>
             {% endfor %}
             </p>
-            {{ content }}
+            <em class="bookVersion">{% assign time = site.time | split: " " %}Version: {{ time[0] | replace: "-", "." }}</em>
           </div>
         </section>
         <aside></aside>

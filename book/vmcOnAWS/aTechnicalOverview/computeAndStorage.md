@@ -37,7 +37,7 @@ FTT |  FTM  | Hosts Required | Required Capacity
 2   | RAID6 | 6              | 1.5X
 3   | RAID1 | 7              | 4X
 
- *Table 1* 
+<figcaption>vSAN FTT/FTM Configurations</figcaption> 
 
 Each combination requires a certain minimum number of hosts and has an associated "cost" in terms of storage overhead required to implement. For example, we can see that the first policy in the table requires twice the storage space to implement the policy. This is because RAID1 mirroring is duplicated each storage object twice in order to implement the FTT value of 1.
 

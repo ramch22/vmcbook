@@ -12,8 +12,6 @@ Resource | Description
 [{{ site.data.links.vmw.cloud_blog }}]({{ site.data.links.vmw.cloud_blog }}) | VMware Cloud blog
 
 
-
-
 ##### VMware Cloud on AWS
 
 Resource | Description
@@ -24,6 +22,8 @@ Resource | Description
 [{{ site.data.links.vmw.vmcaws_status }}]({{ site.data.links.vmw.vmcaws_status }}) | service status
 [{{ site.data.links.vmw.vmcaws_roadmap }}]({{ site.data.links.vmw.vmcaws_roadmap }}) | product roadmap
 [{{ site.data.links.vmw.vmcaws_sizer }}]({{ site.data.links.vmw.vmcaws_sizer }}) | SDDC sizer tool
+[https://www.twitch.tv/vmwarecloud/events](https://www.twitch.tv/vmwarecloud/events) | live webinars
+[https://www.youtube.com/channel/UCpv9_RvYYB-j_YrWrWDuKfg](https://www.youtube.com/channel/UCpv9_RvYYB-j_YrWrWDuKfg) | youtube videos
 
 
 ##### VMware Cloud on AWS

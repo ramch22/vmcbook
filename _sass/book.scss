@@ -8,6 +8,7 @@ html,body {
 body{
   display: flex;
   flex-direction: column;
+  font-family: Sans-Serif;
   overflow: hidden;
 }
 article {
@@ -63,7 +64,7 @@ figure {
 }
 figcaption {
   color: #555;
-  font: italic smaller sans-serif;
+  font: italic;
   margin-top: 10px;
   text-align: center;
 }
@@ -98,6 +99,7 @@ table + figcaption{
   color: #555;
   width: 90%;
   margin: .5em 5% 1.75em 5%;
+  text-align: center;
 }
    
 header, footer {
