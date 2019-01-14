@@ -18,7 +18,7 @@ sections:
     title: "VMware Cloud on AWS"
     books:
       - book: "/book/vmcOnAWS/aTechnicalOverview/"
-      - book: "/book/vmcOnAWS/networkAndSecurity/"
+      - book: "/book/vmcOnAWS/ipsecVPN/"
 
   "/book/cloudServices/":
     title: "Cloud Services"
@@ -72,11 +72,17 @@ books:
       - file: "/book/vmcOnAWS/aTechnicalOverview/prepToOnBoard.html"
         title: "Preparing to On-Board"
         
-  "/book/vmcOnAWS/networkAndSecurity/":
-    title: "Network and Security"
+  "/book/vmcOnAWS/ipsecVPN/":
+    title: "IPSec VPN"
     chapters:
-      - file: "/book/vmcOnAWS/networkAndSecurity/ipsecVPN.html"
-        title: "IPSec VPN"
+      - file: "/book/vmcOnAWS/ipsecVPN/overview.html"
+        title: "Overview"
+      - file: "/book/vmcOnAWS/ipsecVPN/configuration.html"
+        title: "Configuration"
+      - file: "/book/vmcOnAWS/ipsecVPN/troubleshooting.html"
+        title: "Troubleshooting"
+      - file: "/book/vmcOnAWS/ipsecVPN/samples.html"
+        title: "Sample Device Configurations"
     
 
   "/book/cloudServices/hcx/":
