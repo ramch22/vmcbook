@@ -11,18 +11,21 @@ Resource | Description
 
 
 ##### Identity and Access Management
+
 Resource | Description
 ---------|------------
 [{{ site.data.links.aws.iam }}]({{ site.data.links.aws.iam }}) | IAM
 
 
 ##### Automation
+
 Resource | Description
 ---------|------------
 [{{ site.data.links.aws.cloudformation }}]({{ site.data.links.aws.cloudformation }}) | CloudFormation
 
 
 ##### Networking
+
 Resource | Description
 ---------|------------
 [{{ site.data.links.aws.vpc_subnets }}]({{ site.data.links.aws.vpc_subnets }}) | VPC and Subnets
@@ -32,6 +35,7 @@ Resource | Description
 
 
 ##### Regions & Availability Zones
+
 Resource | Description
 ---------|------------
-[{{ site.data.links.aws.regions_az }}]({{ site.data.links.aws.regions_az }}) | 
+[{{ site.data.links.aws.regions_az }}]({{ site.data.links.aws.regions_az }}) | Regions & AZs
