@@ -26,7 +26,7 @@ Resource | Description
 [https://www.youtube.com/channel/UCpv9_RvYYB-j_YrWrWDuKfg](https://www.youtube.com/channel/UCpv9_RvYYB-j_YrWrWDuKfg) | youtube videos
 
 
-##### VMware Cloud on AWS
+##### VMware Cloud Services
 
 Resource | Description
 ---------|------------
