@@ -5,37 +5,35 @@ layout: default
 <div class="toc">
   <em>Table of Contents</em>
   <ul>
-  {% for item in site.data.book.toc %}
+  {% for item in site.data.book.contents %}
     <li>
-      {% if item.section %}
-        {% assign section = site.data.book.sections[item.section] %}
-        <a href="{{ item.section | relative_url }}">{{ section.title }}</a>
-        <ol>
-        {% for book in section.books%}
-          <li>
-            <a href="{{ book.book | relative_url }}">{{ site.data.book.books[book.book].title }}</a>
-            <ol>
-            {% for chapter in site.data.book.books[book.book].chapters %}
-              <li>
-                <a href="{{ chapter.file | relative_url }}">{{ chapter.title }}</a>
-              </li>
-            {% endfor %}
-            </ol>
-          </li>
-        {% endfor %}
-        </ol>
+      {% if item.title %}{% assign title = item.title %}{% else %}{% assign title = site.data.book.pages[item.href].title %}{% endif %}
+      <a href="{{ item.href | relative_url }}">{{ title }}</a>
+      {% if item.pages %}
+      <ol>
+      {% for filename in item.pages%}
+        {% assign page = site.data.book.pages[filename] %}
+        <li>
+          <a href="{{ filename | relative_url }}">{{ page.title }}</a>
+          <ol>
+          {% for section in page.sections %}
+            <li>
+              <a href="{{ filename | append: '#' | append: section.id  | relative_url }}">{{ section.title }}</a>
+            </li>
+          {% endfor %}
+          </ol>
+        </li>
+      {% endfor %}
+      </ol>
       {% else %}
-        {% assign book = site.data.book.books[item.book] %}
-        <a href="{{ item.book | relative_url }}">{{ book.title }}</a>
+        {% assign page = site.data.book.pages[item.href] %}
         <ol>
-        {% for chapter in book.chapters %}
+        {% for section in page.sections %}
           <li>
-            <a href="{{ chapter.file | relative_url }}">{{ chapter.title }}</a>
+            <a href="{{ item.href | append: '#' | append: section.id  | relative_url }}">{{ section.title }}</a>
           </li>
         {% endfor %}
         </ol>
-        
-        
       {% endif %}
     </li>
   {% endfor %}
