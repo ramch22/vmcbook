@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<h2 id="drawingsAndOtherFiles">Drawings and Files</h2>
+<h2 id="drawings-and-other-files">Drawings and Other Files</h2>
 
 Resource | Description
 ---------|------------
@@ -10,7 +10,7 @@ Resource | Description
 
 
 
-<h2 id="vmwareCloudResources">VMware Cloud Resources</h2>
+<h2 id="vmware-cloud-resources">VMware Cloud Resources</h2>
 
 Resource | Description
 ---------|------------
@@ -46,7 +46,7 @@ Resource | Description
 
 
 
-<h2 id="awsResources">AWS Resources</h2>
+<h2 id="aws-resources">AWS Resources</h2>
 
 
 Resource | Description

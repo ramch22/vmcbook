@@ -20,7 +20,7 @@ The [VMware Cloud]({{ site.data.links.vmw.vmc }}) Organization (Org) may be thou
 Typically, the first task of the Fund Owner will be to add additional users to the Org. This may be performed from the Identity & Access Management section of the [cloud console]({{ site.data.links.vmw.cloud_console }}).
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'getting-started/iam.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/getting-started/iam.png' | relative_url }}">
   <figcaption>Identity & Access Management</figcaption>
 </figure>
 
@@ -32,7 +32,7 @@ Users within VMware Cloud are associated with 1 or more Orgs and, within each Or
 The Fund Owner will be given the role of Org Owner within the newly created Org.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'getting-started/vmcOrg.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/getting-started/vmcOrg.png' | relative_url }}">
   <figcaption>VMware Cloud Organization (Org)</figcaption>
 </figure>
 

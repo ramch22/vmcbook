@@ -2,6 +2,8 @@
 layout: default
 ---
 
+
+
 <h2 id="introduction">Introduction</h2>
 
 This guide is intended to provide supplemental documentation to the [official HCX user guide]({{ site.data.links.vmw.hcx_doc }}) by summarizing the installation procedures and highlighting know caveats. This document will also discuss the process of planning, deploying, testing, documenting, and managing an HCX installation.
@@ -49,7 +51,7 @@ The process for workload migration is roughly as follows:
 Let's walk through some of the details using the following diagram.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/workloadMigration.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/workloadMigration.png' | relative_url }}">
   <figcaption>Workload Migration</figcaption>
 </figure>
 
@@ -74,7 +76,7 @@ HCX Disaster Recovery replicates and protects Virtual Machines to an SDDC, and p
 Consider the following illustration.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/dr.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/dr.png' | relative_url }}">
   <figcaption>Disaster Recovery</figcaption>
 </figure>
 
@@ -202,14 +204,14 @@ Installation of HCX within an SDDC is performed from the "Add Ons" tab in the SD
 You should ensure that if you are running an add blocker in your browser that you whitelist connect.hcx.vmware.com.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/activate/activateHCX.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/activate/activateHCX.png' | relative_url }}">
   <figcaption>Activate HCX</figcaption>
 </figure>
 
 The HCX Manager within the SDDC is protected by the gateway firewall of the MGW. You must permit access by adding a rule within the [VMC Console]({{ site.data.links.vmw.vmc }}).
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/activate/permitAccess.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/activate/permitAccess.png' | relative_url }}">
   <figcaption>Permit Access</figcaption>
 </figure>
 
@@ -221,7 +223,7 @@ The on-premises HCX Manager may be downloaded from the cloud-side HCX manager on
 Open the HCX Manager within the SDDC. This is done from the "Add Ons" tab of the SDDC in the VMC Console. Use the cloudadmin creditials of the SDDC to log into the Manager.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/activate/step01.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/activate/step01.png' | relative_url }}">
   <figcaption>Step 1</figcaption>
 </figure>
 
@@ -230,7 +232,7 @@ Open the HCX Manager within the SDDC. This is done from the "Add Ons" tab of the
 Download the on-premises HCX Manager. A download link is availble from the HCX Manager. Be sure to note the FQDN of the cloud-side HCX Manager. This will be needed as part of the installation process for the on-premises HCX Manager.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/activate/step02.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/activate/step02.png' | relative_url }}">
   <figcaption>Step 2</figcaption>
 </figure>
 
@@ -273,7 +275,7 @@ Connect to the web UI of the on-premises HCX appliance. Use the IP address provi
 Provide the activation key acquired from the cloud-side HCX Manager.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/manager-install/step03.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step03.png' | relative_url }}">
   <figcaption>Step 3</figcaption>
 </figure>
 
@@ -284,7 +286,7 @@ Configure HCX manager with the location of the on-premises network by entering a
 Enter the admin credentials of the local vCenter. You may optionally provide credentials for your NSX manager, if applicable. Be sure to specify the FQDN for both. Following this, you will be asked to specify your SSO/PSC source. Restart the appliance when finished.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/manager-install/step05.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step05.png' | relative_url }}">
   <figcaption>Step 5</figcaption>
 </figure>
 
@@ -292,7 +294,7 @@ Enter the admin credentials of the local vCenter. You may optionally provide cre
 HCX will install UI components within vCenter. In order to see these, you must ensure that role mapping has been completed. Configure this from the on-premises HCX Manager.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/manager-install/step06.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step06.png' | relative_url }}">
   <figcaption>Step 6</figcaption>
 </figure>
 
@@ -300,7 +302,7 @@ HCX will install UI components within vCenter. In order to see these, you must e
 From the HCX Manager, navigate to Administration -> Certificate-> Trust CA Certificate. Click on "import" and select "URL". Import the certificate for the SDDC HCX Manager by entering its URL (https://fqdn.of.hcx.manager).
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/manager-install/step07.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step07.png' | relative_url }}">
   <figcaption>Step 7</figcaption>
 </figure>
 
@@ -311,7 +313,7 @@ If logged into vCenter, then log out. After logging back into vCenter, you will 
 From the "home" menu on the top navigation of vCenter, open HCX.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/manager-install/step09.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step09.png' | relative_url }}">
   <figcaption>Step 9</figcaption>
 </figure>
 
@@ -319,7 +321,7 @@ From the "home" menu on the top navigation of vCenter, open HCX.
 Click on the New Site Pairing link on the dashboard, then Register new connection.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/manager-install/step10.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step10.png' | relative_url }}">
   <figcaption>Step 10</figcaption>
 </figure>
 
@@ -327,7 +329,7 @@ Click on the New Site Pairing link on the dashboard, then Register new connectio
 Enter the FQDN of the SDDC HCX Manager and the cloudadmin@vmc.local account and password from the SDDC. Do not install any additional services at this time.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/manager-install/step11.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step11.png' | relative_url }}">
   <figcaption>Step 11</figcaption>
 </figure>
 
@@ -335,7 +337,7 @@ Enter the FQDN of the SDDC HCX Manager and the cloudadmin@vmc.local account and 
 Registration may take a few moments. You may hit the refresh button periodically to check the status of the registration.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/manager-install/step12.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step12.png' | relative_url }}">
   <figcaption>Step 12</figcaption>
 </figure>
 
@@ -351,7 +353,7 @@ The WAN Interconnect Appliance enables workload replication between sites. It is
 From vCenter, navigate to the HCX dashboard. Click on Interconnect -> Install HCX Components. Choose the HCX Interconnect Service from the list of services and hit "next".
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/ix-install/step01.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/ix-install/step01.png' | relative_url }}">
   <figcaption>Step 1</figcaption>
 </figure>
 
@@ -359,7 +361,7 @@ From vCenter, navigate to the HCX dashboard. Click on Interconnect -> Install HC
 Provide the storage and network properties for the appliance, as well as the passwords. Note that if your vMotion network is not accessible from the management network (e.g. a non-routable vMotion network), then you must configure the optional, 2nd network interface of the appliance and connect it directly to the vMotion network.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/ix-install/step02.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/ix-install/step02.png' | relative_url }}">
   <figcaption>Step 2</figcaption>
 </figure>
 
@@ -367,7 +369,7 @@ Provide the storage and network properties for the appliance, as well as the pas
 Finish the install to deploy the appliance. Note that a matching appliance will be automatically installed within the SDDC. Once both are up and ready, then they will establish a tunnel between one another. If the tunnel fails to come up, then the most common culprit is a firewall blocking the connectivity.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/ix-install/step03.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/ix-install/step03.png' | relative_url }}">
   <figcaption>Step 3</figcaption>
 </figure>
 
@@ -383,7 +385,7 @@ The WAN Optimization Appliance installs as an optional companion component to th
 From vCenter, navigate to the HCX dashboard. Click on Interconnect -> Install HCX Components. Choose the WAN Optimization Service from the list of services and hit "next".
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/ix-install/step01.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/ix-install/step01.png' | relative_url }}">
   <figcaption>Step 1</figcaption>
 </figure>
 
@@ -391,7 +393,7 @@ From vCenter, navigate to the HCX dashboard. Click on Interconnect -> Install HC
 You may specify a bandwidth limit for replication as part of the appliance install. Hitting next will complete the installation and deploy a matching appliance in the SDDC.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/wanopt-install/step02.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/wanopt-install/step02.png' | relative_url }}">
   <figcaption>Step 2</figcaption>
 </figure>
 
@@ -408,7 +410,7 @@ The Network Extension appliance enables port-groups of a VDS to be extended to t
 From vCenter, navigate to the HCX dashboard. Click on Interconnect -> Install HCX Components. Choose the Network Extension Service from the list of services and hit "next".
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/ix-install/step01.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/ix-install/step01.png' | relative_url }}">
   <figcaption>Step 1</figcaption>
 </figure>
 
@@ -416,7 +418,7 @@ From vCenter, navigate to the HCX dashboard. Click on Interconnect -> Install HC
 Provide the VDS which contains port-groups to be extended to the SDDC. Be sure to keep the uplink MTU at the default value of 1500. Provide the storage and network properties for the appliance, as well as the passwords.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/l2c-install/step02.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/l2c-install/step02.png' | relative_url }}">
   <figcaption>Step 2</figcaption>
 </figure>
 
@@ -424,7 +426,7 @@ Provide the VDS which contains port-groups to be extended to the SDDC. Be sure t
 Finish the install to deploy the appliance. Note that a matching appliance will be automatically installed within the SDDC. Once both are up and ready, then they will establish a tunnel between one another. If the tunnel fails to come up, then the most common culprit is a firewall blocking the connectivity.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/l2c-install/step03.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/l2c-install/step03.png' | relative_url }}">
   <figcaption>Step 3</figcaption>
 </figure>
 
@@ -443,7 +445,7 @@ These steps are performed from the HCX Dashboard within vCenter.
 From the HCX Dashboard, click Extend Network from the "Interconnect" tab.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/extend-net/step01.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/extend-net/step01.png' | relative_url }}">
   <figcaption>Step 1</figcaption>
 </figure>
 
@@ -451,7 +453,7 @@ From the HCX Dashboard, click Extend Network from the "Interconnect" tab.
 Select the network to extend, and provide the default gateway IP of that network along with the netmask (in CIDR format).
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/extend-net/step02.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/extend-net/step02.png' | relative_url }}">
   <figcaption>Step 2</figcaption>
 </figure>
 
@@ -459,7 +461,7 @@ Select the network to extend, and provide the default gateway IP of that network
 Upon completion, the network will show up under the list of extended networks. The duplicate network which was created within the SDDC will be visible as the "Destination Network".
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/extend-net/step03.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/extend-net/step03.png' | relative_url }}">
   <figcaption>Step 3</figcaption>
 </figure>
 
@@ -489,7 +491,7 @@ You may find more information on the different types of migrations in the HCX [u
 Migrations are typically performed from the HCX dashboard within vCenter, by navigating to the Migration tab and clicking Migrate Virtual Machines. The following screenshot shows an example of the dialog.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/migrate/migrate.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/migrate/migrate.png' | relative_url }}">
   <figcaption>Migrate</figcaption>
 </figure>
 
@@ -517,7 +519,7 @@ Unstretching a network is performed from the HCX dashboard within vCenter.
 From the HCX Dashboard, click Extended Networks from the "Interconnect" tab.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/extend-net/step01.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/extend-net/step01.png' | relative_url }}">
   <figcaption>Step 1</figcaption>
 </figure>
 
@@ -525,7 +527,7 @@ From the HCX Dashboard, click Extended Networks from the "Interconnect" tab.
 Click on "unstretch" for the desired network.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/net-cutover/step02.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/net-cutover/step02.png' | relative_url }}">
   <figcaption>Step 2</figcaption>
 </figure>
 
@@ -533,7 +535,7 @@ Click on "unstretch" for the desired network.
 Check the box to plumb the network into the routing infrastructure of the SDDC, and hit "Unstretch".
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/net-cutover/step03.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/net-cutover/step03.png' | relative_url }}">
   <figcaption>Step 3</figcaption>
 </figure>
 
@@ -541,7 +543,7 @@ Check the box to plumb the network into the routing infrastructure of the SDDC, 
 The status of the network will change to reflect the tear-down of the extension.
 
 <figure>
-  <img src="{{ "/book/illustrations/" | append: 'cloud-services/hcx/net-cutover/step04.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/cloud-services/hcx/net-cutover/step04.png' | relative_url }}">
   <figcaption>Step 4</figcaption>
 </figure>
 
