@@ -49,7 +49,7 @@ Phase 1 provides mutual authentication between peers and establishes the session
 Main mode is the more verbose of the two modes and consists of 6 messages sent between peers.
 
 <figure>
-  <img src="{{ "'/book/illustrations/networking/ipsec-vpn/ikePhase1MM.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/networking/ipsec-vpn/ikePhase1MM.png' | relative_url }}">
   <figcaption>IKE Phase1 Main Mode</figcaption>
 </figure>
 
@@ -68,7 +68,7 @@ Perfect Forward Secrecy (PFS) is used in order to force IKE Phase 1 to regenerat
 Phase 2 uses the ISAKMP SA resulting from Phase 1 to establish the IPSec SAs used to carry IP traffic through the VPN. This phase establishes IPSec SAs (one in each direction) for the VPN connection, and is referred to as Quick Mode. At the conclusion of Phase 2 each peer will be ready to pass data-plane traffic through the VPN. Quick mode consists of 3 messages sent between peers (with an optional 4th message). All messages in phase 2 are secured using the ISAKMP SA established in Phase 1.
 
 <figure>
-  <img src="{{ "'/book/illustrations/networking/ipsec-vpn/ikePhase2.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/networking/ipsec-vpn/ikePhase2.png' | relative_url }}">
   <figcaption>IKE Phase2 Quick Mode</figcaption>
 </figure>
 
@@ -81,7 +81,7 @@ In many ways IKEv2 is a simpler protocol than IKEv1. IKEv2 dispenses with the no
 * Create Child SA and Informational - These exchanges are used to manage Security Associations (for example, creating additional ones or re-keying existing) and perform other "housekeeping" duties.
 
 <figure>
-  <img src="{{ "'/book/illustrations/networking/ipsec-vpn/ikeV2.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/networking/ipsec-vpn/ikeV2.png' | relative_url }}">
   <figcaption>IKEv2 Exchange</figcaption>
 </figure>
 
@@ -103,7 +103,7 @@ In tunnel mode the VPN peers encapsulates data packets within an new IP packet. 
 Authentication Header provides for authentication, data integrity, and anti-replay services. It does not provided confidentiality (encryption). The following diagram illustrates the structure of an AH packet in both transport and tunnel modes.
 
 <figure>
-  <img src="{{ "'/book/illustrations/networking/ipsec-vpn/ah.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/networking/ipsec-vpn/ah.png' | relative_url }}">
   <figcaption>Authentication Header</figcaption>
 </figure>
 
@@ -112,7 +112,7 @@ AH packets are identified by IP protocol 51. The AH header provides a security p
 Encapsulating Security Payload provides for authentication, data integrity, confidentiality (encryption), and anti-replay services. The following diagram illustrates the structure of an ESP packet in both transport and tunnel modes.
 
 <figure>
-  <img src="{{ "'/book/illustrations/networking/ipsec-vpn/esp.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/networking/ipsec-vpn/esp.png' | relative_url }}">
   <figcaption>Encapsulating Security Payload</figcaption>
 </figure>
 
@@ -156,7 +156,7 @@ If a NAT device is detected then the initiator must change ports of all subseque
 Policy-based VPN operates on the notion of creating a policy which defines "interesting" traffic which should be sent through the VPN. These policies are created based on source/destination [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) pair definitions representing groups of IP networks which should be allowed to communicate through the VPN. This policy is then applied to an outbound (or uplink) interface on the VPN device. Any traffic which passes through this interface is checked for a match against the policy, and if the IP source/destination of the packet matches, then the packet is sent through the VPN. If no match occurs, then the traffic is routed through the interface normally.
 
 <figure>
-  <img src="{{ "'/book/illustrations/networking/ipsec-vpn/policyBasedVPN.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/networking/ipsec-vpn/policyBasedVPN.png' | relative_url }}">
   <figcaption>Policy-Based VPN</figcaption>
 </figure>
 
@@ -175,7 +175,7 @@ Route-based VPN was developed as a more flexible means of implementing VPN. With
 Route-based VPN operates on the notion of creating a "virtual wire" between VPN peers, which may then be treated as if it were a general purpose cross-link between routers. This allows the routers to exchange routes dynamically between VPN peers such that the "virtual wire" is seen as just another routed-hop in the network.
 
 <figure>
-  <img src="{{ "'/book/illustrations/networking/ipsec-vpn/routeBasedVPN.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/networking/ipsec-vpn/routeBasedVPN.png' | relative_url }}">
   <figcaption>Route-Based VPN</figcaption>
 </figure>
 
