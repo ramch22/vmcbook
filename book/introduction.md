@@ -1,8 +1,6 @@
 ---
-layout: default
+layout: chapterNoTOC
 ---
-
-<h2 id="section1">Introduction</h2>
 
 This book is designed as a technical resource for anyone planning on implementing services on [VMware Cloud]({{ site.data.links.vmw.cloud }}), and has the following high-level goals:
 * To provide a business case and technical overview of each cloud service.

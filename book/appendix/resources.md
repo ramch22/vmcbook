@@ -1,16 +1,28 @@
 ---
-layout: default
+layout: chapter
 ---
 
-<h2 id="drawings-and-other-files">Drawings and Other Files</h2>
+<section markdown="1">
+<h2 class="section-header" id="drawings-and-other-files">Drawings and Other Files</h2>
+
+<figure markdown="1" class="full-width">
 
 Resource | Description
 ---------|------------
 [{{ site.data.links.other.book_assets }}]({{ site.data.links.other.book_assets }}) | Drawings & files for this book
 
+</figure>
+</section>
 
 
-<h2 id="vmware-cloud-resources">VMware Cloud Resources</h2>
+
+
+<section markdown="1">
+<h2 class="section-header" id="vmware-cloud-resources">VMware Cloud Resources</h2>
+
+#### VMware Cloud
+
+<figure markdown="1" class="full-width">
 
 Resource | Description
 ---------|------------
@@ -19,22 +31,30 @@ Resource | Description
 [{{ site.data.links.vmw.vmc }}]({{ site.data.links.vmw.vmc }}) | VMC console
 [{{ site.data.links.vmw.cloud_blog }}]({{ site.data.links.vmw.cloud_blog }}) | VMware Cloud blog
 
-<figcaption>VMware Cloud</figcaption> 
+</figure>
 
+
+#### VMware Cloud on AWS
+
+<figure markdown="1" class="full-width">
 
 Resource | Description
 ---------|------------
 [{{ site.data.links.vmw.vmcaws }}]({{ site.data.links.vmw.vmcaws }}) | VMware Cloud on AWS main site
-[{{ site.data.links.vmw.vmcaws_get_started }}]({{ site.data.links.vmw.vmcaws_get_started }}) | activation site
-[{{ site.data.links.vmw.vmcaws_docs }}]({{ site.data.links.vmw.vmcaws_docs }}) | official documentation
-[{{ site.data.links.vmw.vmcaws_status }}]({{ site.data.links.vmw.vmcaws_status }}) | service status
-[{{ site.data.links.vmw.vmcaws_roadmap }}]({{ site.data.links.vmw.vmcaws_roadmap }}) | product roadmap
+[{{ site.data.links.vmw.vmcaws_get_started }}]({{ site.data.links.vmw.vmcaws_get_started }}) | Activation site
+[{{ site.data.links.vmw.vmcaws_docs }}]({{ site.data.links.vmw.vmcaws_docs }}) | Official documentation
+[{{ site.data.links.vmw.vmcaws_status }}]({{ site.data.links.vmw.vmcaws_status }}) | Service status
+[{{ site.data.links.vmw.vmcaws_roadmap }}]({{ site.data.links.vmw.vmcaws_roadmap }}) | Product roadmap
 [{{ site.data.links.vmw.vmcaws_sizer }}]({{ site.data.links.vmw.vmcaws_sizer }}) | SDDC sizer tool
-[https://www.twitch.tv/vmwarecloud/events](https://www.twitch.tv/vmwarecloud/events) | live webinars
-[https://www.youtube.com/channel/UCpv9_RvYYB-j_YrWrWDuKfg](https://www.youtube.com/channel/UCpv9_RvYYB-j_YrWrWDuKfg) | youtube videos
+[https://www.twitch.tv/vmwarecloud/events](https://www.twitch.tv/vmwarecloud/events) | Live webinars
+[https://www.youtube.com/channel/UCTyn5jK3SmJiNSJpKxuup4w](https://www.youtube.com/channel/UCTyn5jK3SmJiNSJpKxuup4w) | Videos
 
-<figcaption>VMware Cloud on AWS</figcaption> 
+</figure>
 
+
+#### VMware Cloud Services
+
+<figure markdown="1" class="full-width">
 
 Resource | Description
 ---------|------------
@@ -42,34 +62,52 @@ Resource | Description
 [{{ site.data.links.vmw.hcx }}]({{ site.data.links.vmw.hcx }}) | Hybrid Cloud Exchange (HCX)
 [{{ site.data.links.vmw.lint }}]({{ site.data.links.vmw.lint }}) | Log Intelligence (LINT)
 
-<figcaption>VMware Cloud Services</figcaption> 
+</figure>
+</section>
 
 
 
-<h2 id="aws-resources">AWS Resources</h2>
 
+<section markdown="1">
+<h2 class="section-header" id="aws-resources">AWS Resources</h2>
+
+#### Accounts and Billing
+
+<figure markdown="1" class="full-width">
 
 Resource | Description
 ---------|------------
 [{{ site.data.links.aws.create_acct }}]({{ site.data.links.aws.create_acct }}) | Account activation process
 [{{ site.data.links.aws.data_transfer }}]({{ site.data.links.aws.data_transfer }}) | Data transfer rates
 
-<figcaption>Accounts and Billing</figcaption> 
+</figure>
 
+
+#### Identity and Access Management
+
+<figure markdown="1" class="full-width">
 
 Resource | Description
 ---------|------------
 [{{ site.data.links.aws.iam }}]({{ site.data.links.aws.iam }}) | IAM
 
-<figcaption>Identity and Access Management</figcaption> 
+</figure>
 
+
+#### Automation
+
+<figure markdown="1" class="full-width">
 
 Resource | Description
 ---------|------------
 [{{ site.data.links.aws.cloudformation }}]({{ site.data.links.aws.cloudformation }}) | CloudFormation
 
-<figcaption>Automation</figcaption> 
+</figure>
 
+
+#### Networking
+
+<figure markdown="1" class="full-width">
 
 Resource | Description
 ---------|------------
@@ -78,12 +116,16 @@ Resource | Description
 [{{ site.data.links.aws.dx }}]({{ site.data.links.aws.dx }}) | Direct Connect
 [{{ site.data.links.aws.dx_vif }}]({{ site.data.links.aws.dx_vif }}) | Direct Connect VIF
 
-<figcaption>Networking</figcaption> 
+</figure>
 
 
+#### Regions & Availability Zones
+
+<figure markdown="1" class="full-width">
 
 Resource | Description
 ---------|------------
 [{{ site.data.links.aws.regions_az }}]({{ site.data.links.aws.regions_az }}) | Regions & AZs
 
-<figcaption>Regions & Availability Zones</figcaption> 
+</figure>
+</section>

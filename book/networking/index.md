@@ -1,5 +1,4 @@
 ---
-layout: titlePage
+layout: index
 ---
 
-{% include toc.html %}

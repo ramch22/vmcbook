@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+
+  <body>
+    {% include header.html %}
+    
+    <article>
+        <aside></aside>
+        <main>
+          <section id="top-of-page">
+            <div class="title">
+              <div class="titles">
+                <h1>{{ urldata.title }}</h1>
+              </div>
+            </div>
+            <nav id="chapter-toc" class="toc"><h2>Contents</h2>
+              <ol></ol>
+              <a href="./" class="up-one-level">Up One Level</a>
+            </nav>
+          </section>
+            
+          {{ content }}
+          
+        </main>
+        <aside></aside>
+    </article>
+  </body>
+</html>

@@ -1,9 +1,9 @@
 ---
-layout: default
+layout: chapter
 ---
 
-
-<h2 id="activation">Activation</h2>
+<section markdown="1">
+<h2 class="section-header" id="activation">Activation</h2>
 
 Activation of VMware Cloud services requires 2 things:
 1. At least one person with a valid [My VMware]({{ site.data.links.vmw.my }}) account. The profile for this account **must** have all required fields populated. See [this](https://kb.vmware.com/s/article/2086266) kb for instructions on updating the profile.
@@ -11,9 +11,11 @@ Activation of VMware Cloud services requires 2 things:
 
 For [VMware Cloud on AWS]({{ site.data.links.vmw.vmcaws }}), activation may either be performed in a [self-serve]({{ site.data.links.vmw.vmcaws_get_started }}) manner or through an Account Manager. The activation will be associated to a My VMware profile and the owner of this profile will be considered to be the **"Fund Owner"** for VMware Cloud services. Once you have been approved for services an activation email will be sent to the email address configured under the  Fund Owner's My VMware profile. Clicking this link will activate your VMware Cloud account.
 
+</section>
 
 
-<h2 id="the-vmware-cloud-organization">The VMware Cloud Organization</h2>
+<section markdown="1">
+<h2 class="section-header" id="the-vmware-cloud-organization">The VMware Cloud Organization</h2>
 
 The [VMware Cloud]({{ site.data.links.vmw.vmc }}) Organization (Org) may be thought of as a top-level construct which owns 1 or more cloud services. There will be 1 or more users associated with an org, the first of which being the Fund Owner who activated the Org.
 
@@ -45,9 +47,11 @@ Key points to remember about an Org :
 
 Please refer to the [User Guide]({{ site.data.links.vmw.vmcaws_docs }}) for more information on creating and managing the cloud services Org.
 
+</section>
 
 
-<h2 id="the-customer-success-team">The Customer Success Team</h2>
+<section markdown="1">
+<h2 class="section-header" id="the-customer-success-team">The Customer Success Team</h2>
 
 The purpose of the VMware Customer Success (CS) team is to act as a customer advocate, and is a resource which is available throughout the entire lifetime of the customer's relationship with VMware. The VMware Cloud CS team is divided into two functions:
 1. Customer Success management team
@@ -73,9 +77,11 @@ The function of the CSA is to help refine customer business cases, provide desig
 
 Once key attribute of the technical team is that they provide technical **guidance** to customers and do not have the ability to provide hands-on-keyboard type activities. The CS Technical team is meant to act as a resource for customers who want to "do it themselves, but with guidance". For hands-on-keyboard services, the VMware Professional Services team is a more suitable resource and offer design/deploy services which are geared toward customers who need a scoped engagement with defined deliverables.
 
+</section>
 
 
-<h2 id="support-model">Support Model</h2>
+<section markdown="1">
+<h2 class="section-header" id="support-model">Support Model</h2>
 
 Support in VMware Cloud is broken up into two functions:
 1. Front-end support
@@ -87,6 +93,8 @@ Back-end support is delivered in the form of one or more VMware Site Reliablilit
 
 Since VMware Cloud is an As-A-Service offering, the support model is designed to be 24x7x365. The target response times, however, depend on the severity of the issue. The following table outlines these target response times:
 
+<figure markdown="1">
+
 Severity     | Target Response Time
 -------------|---------------------
 1            | 30 minutes or less
@@ -94,4 +102,7 @@ Severity     | Target Response Time
 3            | 8 business hours
 4            | 12 business hours
 
-<figcaption>Targeted Support Response Times</figcaption>
+  <figcaption>Targeted Support Response Times</figcaption>
+</figure>
+
+</section>

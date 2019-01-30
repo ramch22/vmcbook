@@ -1,0 +1,8 @@
+    {% assign urldata = site.data.book.urls[page.url] %}
+    <header>
+      <span><a href="{{ "/" | relative_url }}">Cover</a></span>
+      <span id="print-button" style="display:none;"><a href="#" onclick="document.title='{{site.title}}'; window.print();">Print</a></span>
+      <span class="site-title">{{ site.title }}</span>
+      <span id="contents-button" style="display:none;"><a href="#top-of-page">Top</a></span>
+      <span><a href="{{ "/book/" | relative_url }}">Contents</a></span>
+    </header>

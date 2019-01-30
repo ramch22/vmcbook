@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: chapter
 ---
 
-<h2 id="technical-overview">Technical Overview</h2>
+<section markdown="1">
+<h2 class="section-header" id="technical-overview">Technical Overview</h2>
 
 ### An Overview of IPSec Components
 IPSec is not a single protocol, but rather a suite of protocols designed to provide confidentiality, authentication, and integrity for a VPN. The following are used by IPSec to implement VPN:
@@ -147,9 +148,11 @@ If a NAT device is detected then the initiator must change ports of all subseque
 * https://tools.ietf.org/html/rfc3715
 * http://www.ciscopress.com/store/ipsec-vpn-design-9781587051111
 
+</section>
 
 
-<h2 id="types-of-vpns">Types of VPNs</h2>
+<section markdown="1">
+<h2 class="section-header" id="types-of-vpns">Types of VPNs</h2>
 
 
 ### Policy-Based VPN
@@ -184,4 +187,6 @@ In the illustration, a route-based VPN has been configured between the edge rout
 Since BGP is dynamically exchanging routes, there is no need to "force" traffic through an interface as there is with policy-based VPN. If a user attempts to access a network which is being learned via BGP, then their traffic will simply be routed through the VTI of the VPN. The return traffic from the remote network would follow an identical process.
 
 Route-based VPN offers considerable advantages over policy-based VPN including the ability to configure redundant VPNs, using separate devices, which will automatically fail-over (due to BGP routing) in the event of a failure of the primary tunnel. Route-based VPN may also be easier to manage and troubleshoot in the majority of deployments, despite the additional BGP configurations required.
+
+</section>
 

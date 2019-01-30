@@ -1,8 +1,9 @@
 ---
-layout: default
+layout: chapter
 ---
 
-<h2 id="overview">Overview</h2>
+<section markdown="1">
+<h2 class="section-header" id="overview">Overview</h2>
 
 Each SDDC supports the termination of both policy-based and route-based VPNs to the tier-0 edge gateway. Although the choice of which type of VPN to implement is ultimately a matter of preference, in general, the recommendation is to use route-based VPN whenever possible. The reasons for this recommendation will be discussed in the sections below.
 
@@ -31,9 +32,11 @@ Within the SDDC, the VTI interfaces are created on the tier-0 edge as a type of 
 
 The added flexiblity and configurability of route-based VPN is one of the main reasons for it being the preferred solution for IPSec VPN configurations.
 
+</section>
 
 
-<h2 id="configuration">Configuration</h2>
+<section markdown="1">
+<h2 class="section-header" id="configuration">Configuration</h2>
 
 IPSec VPN is configured from within the [VMC console](https://vmc.vmware.com) by navigating to the Network & Security tab of the SDDC. The public VPN IP of the tier-0 edge is visible on the Overview page. The VPN item on the left-hand navigation will provide options for configuring both Policy and Route Based VPN.
 
@@ -93,9 +96,11 @@ The following are things to consider when configuring VPN:
 * The most common problem with VPN is mismatching configurations. Triple check your settings if your VPN fails to come up. You can get an idea of where the mismatch is based on which phase of the VPN failed.
 * The second most common problem with VPN is firewall or NAT. If your VPN device is behind a no-NAT firewall then make sure that UDP 500 and IP protocol 50 are permitted inbound/outbound. If your device is behind a NAT firewall then make sure that UDP 500/4500 are permitted inbound/outbound (for NAT-t).
 
+</section>
 
 
-<h2 id="troubleshooting">Troubleshooting</h2>
+<section markdown="1">
+<h2 class="section-header" id="troubleshooting">Troubleshooting</h2>
 
 The vast majority of issues with the initail setup of IPSec VPN are due to misconfigurations on the remote end. The following are sample error messages captured from the VMC console which are intended to help the reader identify errors due to misconfiguration of their end of the VPN. These error messages are visible by clicking on the "i" pop-up of the Status section of a saved VPN.
 
@@ -111,6 +116,7 @@ There are 3 parts to consider:
 
 **Important Tip** - If you make changes to the VPN, it is sometimes helpful to disable and re-enable it from the dropdown menu of the vpn. This seems to force the configuration changes to sync in a more timely manner.
 
+<figure markdown="1">
 
 Status | Channel Status | Tunnel Status | Possible Problem
 -------|----------------|---------------|------------------
@@ -118,7 +124,9 @@ Down   | Negotiating    | Down (Error Message: IPSec negotiation not started) | 
 Down   | Down (Error Message: No proposal chosen) | Down (Error Message: IKE SA down) | IKE version mismatch or phase1 crypto mismatch
 In Progress | Up | Down (Error Message: No proposal chosen) | phase2 crypto mismatch
 
-<figcaption>Common Errors</figcaption>
+  <figcaption>Common Errors</figcaption>
+</figure>
+
 
 For route-based VPN there is also a BGP component required. The status messages for BGP in the VMC console are not very helpful, but if the status is yellow then it means that there is a problem with establishing a BGP session with the peer. Here are a few things to check:
 * verify the Local ASN setting in the SDDC matches the remote peer's BGP neighbor configuration.
@@ -129,12 +137,16 @@ Again, if you make changes to the BGP configuration then it is best to disable a
 
 If BGP is up but nothing is being routed across the VTI, then check that you are receiving/advertising BGP prefixes on the remote device. If not, then it could be that a prefix-list or other filter is in place.
 
+</section>
 
 
-<h2 id="sample-device-configurations">Sample Device Configurations</h2>
+<section markdown="1">
+<h2 class="section-header" id="sample-device-configurations">Sample Device Configurations</h2>
 
 ### Route-Based VPN Sample Device Configurations
 The following sample configurations are designed to provide examples of known working configurations. However, they will require modification to your specific setup in order to actually work. These configurations are based on the following setup in the SDDC:
+
+<figure markdown="1">
 
 Setting | Value
 --------|-------
@@ -152,7 +164,8 @@ BGP Remote IP | 169.254.255.2
 BGP Remote ASN | 64512
 SDDC ASN Setting | 64513
 
-<figcaption>SDDC VPN Settings</figcaption> 
+  <figcaption>SDDC VPN Settings</figcaption> 
+</figure>
 
 Testing was performed to an EC2 instance in AWS. EC2 instances use NAT, so we must be sure to open up UDP 500/4500 (for NAT-t) inbound in the security group for the device.
 
@@ -329,3 +342,5 @@ router bgp 64512
   exit
 exit
 </code></pre>
+
+</section>

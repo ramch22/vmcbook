@@ -6,24 +6,61 @@ html,body {
   height:100%;
 }
 body{
-  display: flex;
-  flex-direction: column;
+  background-color: #999;
   font-family: Sans-Serif;
+  overflow: auto;
+  counter-reset: figurenum;
+}
+header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  color: #ccc;
+  height: 3.5em;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 99%);
+  background-color: #555;
+  text-align: center;
+}
+header span{
+  background-color: #333;
+  box-shadow: inset -1px 0 rgba(255, 255, 255, 0.2), inset -2px 0 rgba(0, 0, 0, 0.24);
+  display: inline-block;
+  text-align: center;
+  min-width: 6em;
+}
+header span.site-title{
+  background-color: #555;
+  flex: 1;
+  display: inline-block;
+  text-align: center;
+  font-size: 1.16667em;
+  line-height: 3.5em;
   overflow: hidden;
+  white-space: no-wrap;
+}
+header a{
+  color: #ccc;
+  line-height: 3.5em;
+  text-decoration: none;
+}
+header a:hover{
+  color: white;
 }
 article {
   display: flex;
   flex-flow: row;
   height:100%;
-  overflow: hidden;
+  padding-top: 3.5em;
 }
-
 aside{
   flex: 1;
-  background-color: #999;
 }
- section {
+main{
   flex: 15;
+}
+section {
   background-color: #fafafa;
   color: #888;
   font: 100%/1.618 sans-serif;
@@ -32,137 +69,57 @@ aside{
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.4);
   background: linear-gradient(to right, #dddddd 0%, #fafafa 2%, #fafafa 98%, #dddddd 100%);
   max-width: 60em;
-  overflow: auto;
-  overflow-x: hidden;
+  margin: 1em 0 2em 0;
+  min-height: 90%;
 }
 section a{
   color: #333;
 }
-
-h1,h2,h3,h4,h5 {
-  font-weight: 500;
-  margin: 1.75em auto 0 auto ;
-}
-h1 {font-size: 2.5em;}
-h2 {font-size: 2.25em;}
-h3 {font-size: 1.75em;}
-h4 {font-size: 1.5em;}
-h5 {font-size: 1.25em;}
-
-p {
-  margin: .25em auto 1.75em auto;
-}
-img {
-  background: #fff;
-  width: 100%;
-}
-figure {
-  display: flex;
-  flex-flow: column;
-  width: 90%;
-  margin: .25em 5% 1.75em 5%;
-}
-figcaption {
-  color: #555;
-  font: italic;
-  margin-top: 10px;
-  text-align: center;
-}
-figure > img{
-  border: thin #555 solid;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.4);
-  padding: 5px;
-}
-
 section > ol,ul{
   width: 90%;
   margin: 0 5% 1.75em 5%;
 }
-table{
-  border: thin #555 solid;
-  border-collapse: collapse;
-  width: 90%;
-  margin: 0 5%;
+
+a, a:active, a:focus {
+   outline: none;
 }
-th{
-  background-color: #555;
-  color: white;
-  font-weight: 400;
-}
-tr:nth-child(odd) { background-color: #eee; }
-tr:nth-child(even) { background-color: #fff; }
-td{
-  border: thin #555 solid;
-  padding: .25em;
-}
-table + figcaption{
-  color: #555;
-  width: 90%;
-  margin: .5em 5% 1.75em 5%;
-  text-align: center;
-}
-   
-header, footer {
-  display: flex;
-  flex-flow: row;
-  color: #ccc;
-  height: 3.5em;
-  box-shadow: 0 0.25em rgba(0, 0, 0, 0.2), inset 0 -1px rgba(0, 0, 0, 0.6), inset 0 -2px rgba(255, 255, 255, 0.15);
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 99%);
-  background-color: #555;
-  text-align: center;
-}
-header a ,footer a{
-  color: #ccc;
-  line-height: 3.5em;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  min-width: 8em;
-}
-header a:hover, footer a:hover {
-  color: white;
-}
-header a{
-  box-shadow: inset -1px 0 rgba(255, 255, 255, 0.2), inset -2px 0 rgba(0, 0, 0, 0.24);
-  background-color: rgba(0, 0, 0, 0.13);
-}
-footer span{
-  box-shadow: inset -1px 0 rgba(255, 255, 255, 0.2), inset -2px 0 rgba(0, 0, 0, 0.24);
-  width: 33.3333%;
-}
-header span:nth-child(2){
-  flex: 1;
-  display: inline-block;
-  text-align: center;
-  font-size: 1.16667em;
-  line-height: 3.5em;
-}
-footer span{
-  flex: 1;
-}
- 
-ul.task-list{
-  list-style: none
-}
- 
-pre.mycode{
-  border: thin #888 solid;
-  white-space: no-wrap;
-  overflow-x: auto;
-  background: #FDF6E3;
-  padding: 0.5em 1em;
-  font-size: .7rem;
-  font-family: monospace;
-  user-select: all;
-} 
+
+
 
 @media all and (max-width: 640px) {
   aside {
     flex:0;
   }
-  header,footer {
-    min-height: 50px;
-    max-height: 50px;
+  header {
+    height: 2em;
   }
+  header span.site-title, header a{
+    line-height: 2em;
+  }
+}
+
+@media print{
+  header,aside{
+    display: none;
+  }
+  article{
+    display: block;
+    padding: 0;
+  }
+  section{
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    page-break-after: always;
+  }
+  h1,h2,h3,h4,h5 {
+    page-break-after: avoid;
+  }
+  figure,table{
+   page-break-inside: avoid; 
+  }
+}
+
+@page {
+  size: A4;
 }

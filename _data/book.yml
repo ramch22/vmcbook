@@ -1,125 +1,95 @@
-title: "VMware Cloud"
-subtitle: "A Hands-On Guide"
-authors:
-  - "Dustin Spinhirne"
-
-
-contents:
-  - href: "/book/introduction.html"
-  
-  - href: "/book/getting-started.html"
-  
-  - href: "/book/vmconaws/"
-    title: "VMware Cloud on AWS"
-    pages:
-      - "/book/vmconaws/a-technical-overview.html"
-      - "/book/vmconaws/ipsec-vpn.html"
-      
-  - href: "/book/cloud-services/"
-    title: "Cloud Services"
-    pages:
-      - "/book/cloud-services/hcx.html"
-      
-  - href: "/book/networking/"
-    title: "Networking"
-    pages:
-      - "/book/networking/ipsec-vpn.html"
-      
-  - href: "/book/appendix/"
-    title: "Appendix"
-    pages:
-      - "/book/appendix/resources.html"
-      
-
-pages:
+# all urls of the book arranged in hierarchy
+urls:
+  "/":
+    title: "VMware Cloud"
+    subtitle: "A Hands-On Guide"
+    authors:
+      - "Dustin Spinhirne"
+    
+  "/book/":
+    title: "Table of Contents"
+    
   "/book/introduction.html":
     title: "Introduction"
     
   "/book/getting-started.html":
     title: "Getting Started"
-    sections:
-      - title: "Activation"
-        id: "activation"
-      - title: "The VMware Cloud Organization"
-        id: "the-vmware-cloud-organization"
-      - title: "The Customer Success Team"
-        id: "the-customer-success-team"
-      - title: "Support Model"
-        id: "support-model"
-        
+    
+  "/book/vmconaws/":
+    title: "VMware Cloud on AWS"
+    children:
+      - "/book/vmconaws/a-technical-overview.html"
+      - "/book/vmconaws/preparing-to-on-board.html"
+      - "/book/vmconaws/sddc-network-and-security/"  
+   
   "/book/vmconaws/a-technical-overview.html":
-    title: "A Technical Overview"
-    sections:
-      - title: "Concepts"
-        id: "concepts"
-      - title: "Compute and Storage"
-        id: "compute-and-storage"
-      - title: "SDDC Networking"
-        id: "sddc-networking"
-      - title: "SDDC Interconnectivity"
-        id: "sddc-interconnectivity"
-      - title: "Workload Onboarding"
-        id: "workload-onboarding"
-      - title: "Disaster Recovery"
-        id: "disaster-recovery"
-      - title: "Logging and Monitoring"
-        id: "logging-and-monitoring"
-      - title: "Preparing to On-Board"
-        id: "preparing-to-on-board"
-  
-  "/book/vmconaws/ipsec-vpn.html":
-    title: "IPSec VPN"
-    sections:
-      - title: "Overview"
-        id: "overview"
-      - title: "Configuration"
-        id: "configuration"
-      - title: "Troubleshooting"
-        id: "troubleshooting"
-      - title: "Sample Device Configurations"
-        id: "sample-device-configurations"
-  
-  "/book/cloud-services/hcx.html":
-    title: "HCX"
-    sections:
-      - title: "Introduction"
-        id: "introduction"
-      - title: "Technical Overview"
-        id: "technical-overview"
-      - title: "Prerequisites and Requirements"
-        id: "prerequisites-and-requirements"
-      - title: "HCX Manager Installation"
-        id: "hcx-manager-installation"
-      - title: "Interconnect Appliance Installation"
-        id: "interconnect-appliance-installation"
-      - title: "WAN Optimization Appliance Installation"
-        id: "wan-optimization-appliance-installation"
-      - title: "Network Extension Appliance Installation"
-        id: "network-extension-appliance-installation"
-      - title: "Network Extension"
-        id: "network-extension"
-      - title: "Workload Migration"
-        id: "workload-migration"
-      - title: "Network Cutover"
-        id: "network-cutover"
-      - title: "Known Caveates"
-        id: "known-caveates"
+    title: "A Technical Overview"  
+   
+  "/book/vmconaws/preparing-to-on-board.html":
+    title: "Preparing to On-Board"
 
+  "/book/vmconaws/sddc-network-and-security/":
+    title: "SDDC Network and Security"
+    children:
+      - "/book/vmconaws/sddc-network-and-security/ipsec-vpn.html"
+      - "/book/vmconaws/sddc-network-and-security/direct-connect.html"
+      
+  "/book/vmconaws/sddc-network-and-security/ipsec-vpn.html":
+    title: "IPSec VPN"
+    
+  "/book/vmconaws/sddc-network-and-security/direct-connect.html":
+    title: "Direct Connect"
+
+  "/book/cloud-services/":
+    title: "Cloud Services"
+    children:
+      - "/book/cloud-services/hcx/"
+  
+  "/book/cloud-services/hcx/":
+    title: "HCX"
+    children:
+      - "/book/cloud-services/hcx/introduction.html"
+      - "/book/cloud-services/hcx/installation.html"
+      - "/book/cloud-services/hcx/operations.html"
+      - "/book/cloud-services/hcx/caveats.html"
+    
+  "/book/cloud-services/hcx/introduction.html":
+    title: "Introduction"
+    
+  "/book/cloud-services/hcx/installation.html":
+    title: "Installation"
+    
+  "/book/cloud-services/hcx/operations.html":
+    title: "Operations"
+  
+  "/book/cloud-services/hcx/caveats.html":
+    title: "Caveats"
+   
+  "/book/networking/":
+    title: "Networking"
+    children:
+      - "/book/networking/ipsec-vpn.html"
+      
   "/book/networking/ipsec-vpn.html":
     title: "IPSec VPN"
-    sections:
-      - title: "Technical Overview"
-        id: "technical-overview"
-      - title: "Types of VPNs"
-        id: "types-of-vpns"
-
+   
+  "/book/appendix/":
+    title: "Appendix"
+    children:
+      - "/book/appendix/resources.html"
+   
   "/book/appendix/resources.html":
     title: "Resources"
-    sections:
-      - title: "Drawings and Other Files"
-        id: "drawings-and-other-files"
-      - title: "VMware Cloud Resources"
-        id: "vmware-cloud-resources"
-      - title: "AWS Resources"
-        id: "aws-resources"
-        
+
+  
+  
+# ordered list of urls for generating table of contents
+contents:
+  - "/book/introduction.html"
+  - "/book/getting-started.html"
+  - "/book/vmconaws/"
+  - "/book/cloud-services/"
+  - "/book/networking/"
+  - "/book/appendix/"
+    
+           

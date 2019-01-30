@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="5; URL='{{ "/book/" | relative_url }}'" />
+    <title>{{ site.title | escape }}</title>
+    <link rel="stylesheet" href="{{ "/css/main.css" | relative_url }}">
+  </head>
+
+  <body>
+    {% include header.html %}
+    
+    <article>
+        <aside></aside>
+        <main>
+          <section>
+            <p>
+            The page you requested does not exist or has moved.<br />
+            You will be automatically redirected to the <a href="{{ "/book/" | relative_url }}">Table of Contents</a>.
+            </p>
+          </section>
+        </main>
+        <aside></aside>
+    </article>
+    
+  </body>
+</html>

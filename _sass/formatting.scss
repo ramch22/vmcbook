@@ -1,0 +1,148 @@
+h1,h2,h3,h4,h5 {
+  color: #555;
+  font-style: italic;
+  font-weight: 500;
+  margin: .5em auto;
+}
+h1 {font-size: 2.5em;}
+h2 {font-size: 2em;}
+h3 {font-size: 1.6em;}
+h4 {font-size: 1.3em;}
+h5 {font-size: 1em;}
+
+p {
+  margin: .5em auto;
+}
+
+table{
+  border: thin #555 solid;
+  border-collapse: collapse;
+  color: #555;
+  margin: 0 auto;
+}
+tr:nth-child(odd) { background-color: #eee; }
+tr:nth-child(even) { background-color: #fff; }
+td,th{
+  border: thin #555 solid;
+  padding: .25em .4em;
+}
+th{
+  background-color: #555;
+  color: white;
+  font-weight: 400;
+}
+
+figure {
+  width: 100%;
+  margin: 2em 0;
+}
+figure img {
+  background: #fff;
+  border: thin #555 solid;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.4);
+  margin: 0 5%;
+  padding: 5px;
+  width: 90%;
+}
+figure.full-width > *{
+  width: 100%;
+}
+figcaption {
+  color: #555;
+  font-style: italic;
+  margin: .5em auto;
+  text-align: center;
+}
+figcaption:before {
+  counter-increment: figurenum;
+  content: "Figure " counter(figurenum) ". ";
+}
+a.xref:after {
+  content: "Figure " counter(figurenum);
+}
+
+
+.mycode{
+  border: thin #888 solid;
+  white-space: no-wrap;
+  overflow-x: auto;
+  background: #FDF6E3;
+  padding: 0.5em 1em;
+  font-size: .7rem;
+  font-family: monospace;
+  user-select: all;
+} 
+
+.title-page {
+  height: 85%;
+  margin-top: 15%;
+  position: relative;
+}
+.version{
+  color: #555;
+  position: absolute;
+  bottom: 0;
+  font-style: italic;
+  margin: 0 0 1em 1em;
+}
+
+.title{
+  color: #555;
+  margin: 2em 0 4em 0;
+}
+.title h1{
+  font-size: 3em;
+  margin: 0;
+}
+.title h2{
+  font-size: 1.75em;
+  margin: 0;
+}
+.title .titles{
+  border-bottom: 2px solid #555;
+  font-weight: 300;
+  padding-left: 1em;
+  white-space: nowrap;
+}
+.title .authors{
+  margin-top: 1em;
+  text-align: right;
+  width: 98%;
+}
+
+.toc{
+  color: #555;
+  padding-bottom: 6em;
+}
+.toc h2{
+  font-weight: 300;
+  margin: 0;
+}
+.toc a {
+  text-decoration: none;
+}
+.toc > ol{
+ margin: .5em 0 2em 0; 
+}
+.toc ol{
+  counter-reset: item;
+}
+.toc li {
+  display: block;
+  margin: .25em 0;
+  padding-left: 2em;
+
+}
+.toc ol li:before {
+  content: counters(item, ".")") ";
+  counter-increment: item;
+}
+.toc .up-one-level{
+  padding-left: 2em;
+  font-style: italic;
+}
+
+
+ul.task-list{
+  list-style: none
+}

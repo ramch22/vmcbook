@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+
+  <body>
+    {% include header.html %}
+    
+    <article>
+        <aside></aside>
+        <main>
+          <section>
+            <div class="title">
+              <div class="titles">
+                <h1>{{ urldata.title }}</h1>
+              </div>
+            </div>
+            
+            <nav class="toc">
+              <h2>Contents</h2>
+              <ol>
+              {% for childurl in urldata.children %}
+                {% assign childdata = site.data.book.urls[childurl] %}
+                <li>
+                  <a href="{{ childurl | relative_url }}">{{ childdata.title }}</a>
+                  {% if childdata.children %}
+                  <ol>
+                  {% for childurl in childdata.children %}
+                    {% assign childdata = site.data.book.urls[childurl] %}
+                    <li>
+                      <a href="{{ childurl | relative_url }}">{{ childdata.title }}</a>
+                    </li>
+                  {% endfor %}
+                  </ol>
+                  {% endif %}
+                </li>
+              {% endfor %}
+              </ol>
+              <a href="../" class="up-one-level">Up One Level</a>
+            </nav>
+          </section>
+        </main>
+        <aside></aside>
+    </article>
+    
+  </body>
+</html>
