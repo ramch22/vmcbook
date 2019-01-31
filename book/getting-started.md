@@ -2,8 +2,8 @@
 layout: chapter
 ---
 
-<section markdown="1">
-<h2 class="section-header" id="activation">Activation</h2>
+<section markdown="1" id="activation">
+## Activation
 
 Activation of VMware Cloud services requires 2 things:
 1. At least one person with a valid [My VMware]({{ site.data.links.vmw.my }}) account. The profile for this account **must** have all required fields populated. See [this](https://kb.vmware.com/s/article/2086266) kb for instructions on updating the profile.
@@ -14,8 +14,8 @@ For [VMware Cloud on AWS]({{ site.data.links.vmw.vmcaws }}), activation may eith
 </section>
 
 
-<section markdown="1">
-<h2 class="section-header" id="the-vmware-cloud-organization">The VMware Cloud Organization</h2>
+<section markdown="1" id="the-vmware-cloud-organization">
+## The VMware Cloud Organization
 
 The [VMware Cloud]({{ site.data.links.vmw.vmc }}) Organization (Org) may be thought of as a top-level construct which owns 1 or more cloud services. There will be 1 or more users associated with an org, the first of which being the Fund Owner who activated the Org.
 
@@ -50,8 +50,8 @@ Please refer to the [User Guide]({{ site.data.links.vmw.vmcaws_docs }}) for more
 </section>
 
 
-<section markdown="1">
-<h2 class="section-header" id="the-customer-success-team">The Customer Success Team</h2>
+<section markdown="1" id="the-customer-success-team">
+## The Customer Success Team
 
 The purpose of the VMware Customer Success (CS) team is to act as a customer advocate, and is a resource which is available throughout the entire lifetime of the customer's relationship with VMware. The VMware Cloud CS team is divided into two functions:
 1. Customer Success management team
@@ -80,8 +80,8 @@ Once key attribute of the technical team is that they provide technical **guidan
 </section>
 
 
-<section markdown="1">
-<h2 class="section-header" id="support-model">Support Model</h2>
+<section markdown="1" id="support-model">
+## Support Model
 
 Support in VMware Cloud is broken up into two functions:
 1. Front-end support

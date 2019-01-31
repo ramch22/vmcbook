@@ -7,11 +7,17 @@
     
     <article>
         <aside></aside>
-        <main>
-          <section id="top-of-page">
+        <main id="main-content">
+          <section>
             <div class="title">
               <div class="titles">
+              {% if urldata.parent %}
+                {% assign parentdata = site.data.book.urls[urldata.parent] %}
+                <h1>{{ parentdata.title }}</h1>
+                <h2>{{ urldata.title }}</h2>
+              {% else %}
                 <h1>{{ urldata.title }}</h1>
+              {% endif %}
               </div>
             </div>
             {{ content }}
@@ -19,5 +25,6 @@
         </main>
         <aside></aside>
     </article>
+    {% include footer.html %}
   </body>
 </html>

@@ -2,12 +2,11 @@
 layout: chapter
 ---
 
-<section markdown="1">
-<h2 class="section-header" id="known-caveates">Known Caveates</h2>
+<section markdown="1" id="networking">
+## Networking
 
-#### Networking
-
-##### HCX over Direct Connect Private VIF requires manual configuration
+<section markdown="1" id="net-hcx-over-dx">
+### HCX over Direct Connect Private VIF
 HCX over Direct Connect Private VIF requires manual configuration by VMware. In order for HCX traffic to ride over Direct Connect Private VIF, the cloud-side appliances must bind to a private IP. For this, customers must allocate an additional private IP range for HCX to use. A unique subnet should be used, that will be advertised by the SDDC over the private VIF in addition to the Management & Compute networks. This subnet cannot be taken from nor overlap the existing Management or Compute networks.
 The size of this subnet will depend on how many vCenters HCX will deployed to on-prem, and how many L2C appliances will be deployed. One IP is required per interconnect or L2C appliance.  One Interconnect appliance is required per vCenter, and a minimum of 1 L2C per vDS with networks to be extended, and a maximum of 8 networks can be extended per L2C appliance.  It is also possible to deploy additional L2Cs for higher scale requirements (up to 1 per extended network). In most cases, a /29 will be sufficient, however if there are many networks and/or vDS or vCenters to extend networks on, a larger subnet should be provided.
 
@@ -31,17 +30,24 @@ There is one additional change that the customer must make, and this is with the
 10.10.10.123	hcx.sddc-x-x-x-x.vmwarevmc.com
 
 </code></pre>
+</section>
 
-
-##### IP assignment for additional WAN Interconnect/Extension appliances requires VMware assistance.
+<section markdown="1" id="net-extra-ips">
+### IP assignment for additional appliances
 When using HCX over the public internet, the cloud-side appliances will use public EIPs provided by AWS. There are 2 of these allocated by default for the WAN Interconnect/Extension appliances. If additional appliances are required by the customer, as described above, then they must contact VMware via live-chat and request additional EIPs be allocated to their SDDC for HCX. Once these have been allocated then the customer may continue with the deployment of the additional appliances.
 
+</section>
+
+</section>
 
 
 
-#### vMotion
 
-##### Virtual Machine Restrictions for vMotion
+<section markdown="1" id="vmotion">
+## vMotion
+
+<section markdown="1" id="vmotion-vm-restrictions">
+### VM Restrictions
 The following are summarized from the HCX user guide. Please refer to that document for details.
 * VMs must be running vm hardware version vmx-09 or higher.
 * underlying architecture, regardless of OS, must be x86 on Intel CPUs
@@ -51,6 +57,8 @@ The following are summarized from the HCX user guide. Please refer to that docum
 * cannot have change block tracking enabled
 
 Note: Only 1 vMotion operation at a time can be running, and it is not recommended to perform migrations using vMotion while bulk migration replication is also in progress.
+
+</section>
 
 </section>
 

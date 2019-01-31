@@ -2,9 +2,10 @@
 layout: chapter
 ---
 
-<section markdown="1">
-<h2 class="section-header" id="technical-overview">Technical Overview</h2>
+<section markdown="1" id="technical-overview">
+## Technical Overview
 
+<section markdown="1" id="overview-of-ipsec-components">
 ### An Overview of IPSec Components
 IPSec is not a single protocol, but rather a suite of protocols designed to provide confidentiality, authentication, and integrity for a VPN. The following are used by IPSec to implement VPN:
 * Security Associations - a basic component of IPSec and contains information about the security parameters negotiated between peers.
@@ -12,8 +13,9 @@ IPSec is not a single protocol, but rather a suite of protocols designed to prov
 * Diffie-Hellman (DH) - the public key exchange algorithm used by IKE to create a secure channel for the control-plane.
 * Security Protocols - determine how data-plan traffic is carried through the VPN tunnel.
 
+</section>
 
-
+<section markdown="1" id="security-associations">
 ### Security Associations
 A Security Association (SA) is a basic component of IPSec and contains information about the security parameters negotiated between peers. There are two types of SAs:
 * IKE (or ISAKMP) SA
@@ -33,14 +35,15 @@ IPSec SAs are used for the data-plane of the VPN and are stored internally withi
 * Mode (tunnel or transport)
 * AH or ESP settings
 
+</section>
 
-
+<section markdown="1" id="ike">
 ### Internet Key Exchange
 Internet Key Exchange (IKE) is used as a control plane protocol for the VPN tunnel. There are currently 2 versions of the protocol: IKE (or IKEv1) and IKEv2. IKEv2 was developed in order to address the many shortcomings of IKE. These include lack of standardization in certain areas of IKE, enhanced security and reliability, and addressing vulnerabilitys to DOS attacks by IKE implementations. In general, IKEv2 is the preferred protocol when available.
 
 IKE communications are performed using UDP port 500 for both the source and destination. 
 
-##### IKEv1
+#### IKEv1
 IKEv1 operates in two phases:
 
 **Phase 1**
@@ -75,7 +78,7 @@ Phase 2 uses the ISAKMP SA resulting from Phase 1 to establish the IPSec SAs use
 
 The 1st message is sent by the initiator and is used to advertise sets of parameters which it is willing to support for the IPSec SA. The receiver will select a set of parameters and will echo them back to the initiator as part of the 2nd message (or rejects if it finds no acceptable proposals). The 3rd message is used by the initiator to verify the channel, and an optional 4th message is used by the receiver to signal that it is ready to receive data-plane traffic through the VPN. This "signal when ready" mechanism is used to allow the receiver time to complete the setup on its end prior to accepting any data. If the receiver wishes to implement this feature then it signals this intention as part of the 2nd message.
 
-##### IKEv2
+#### IKEv2
 In many ways IKEv2 is a simpler protocol than IKEv1. IKEv2 dispenses with the notion of "phases" and instead breaks the protocol exchange process into 3 groups:
 * IKE SA Init - This exchange negotiates cryptographic algorithms, exchanges nonces, and performs Diffie-Hellman exchange. The end result is an encrypted channel for use by the IKE Auth exchange.
 * IKE Auth - This exchange is used to authenticate the remote peer. It performs authentication of the previous messages, exchange identities and certificates, and establish the first (and possibly only) IPSec SA.
@@ -88,8 +91,9 @@ In many ways IKEv2 is a simpler protocol than IKEv1. IKEv2 dispenses with the no
 
 At minimum, there will be an IKE SA Init and IKE Auth exchange. These exchanges normally consist of four messages but in some scenarios there may be additional messages.
 
+</section>
 
-
+<section markdown="1" id="security-protocols">
 ### Security Protocols
 IPSec defines two security protocols which determine how data-plane traffic is sent through the VPN tunnel. These are:
 * Authentication Header (AH)
@@ -119,14 +123,16 @@ Encapsulating Security Payload provides for authentication, data integrity, conf
 
 ESP packets are identified by IP protocol 50. Like the AH header, the ESP header provides both a security parameter index and sequence number which serve the same purpose as with AH. Since ESP provides encryption, the header also contains several fields required by the encryption protocols. Additionally, the ESP header provides an authentication digest which is calculated, post-encryption, on the contained data. It is important to note that this digest covers only the encrypted portion of the packet and does not include the outer IP or ESP headers. Unlike with AH, NAT and ESP can coexist in certain situations. When using transport mode ESP will only function behind a NAT gateway if the NAT translation is 1:1. When operating in tunnel mode ESP can function without issue behind a NAT gateway.
 
+</section>
 
- 
+<section markdown="1" id="dh">
 ### Diffie-Hellman
 Diffie-Hellman (DH) is the public key exchange algorithm used by IKE to calculate the shared session key. DH defines a number of groups, which refer to the Oakley protocol, and define the overal strength (security) of the key exchange. The DH group used between peers is determined from the IKE proposal exchange.
 
+</section>
 
-
-#### IPSec VPN and NAT
+<section markdown="1" id="ipsec-and-nat">
+### IPSec VPN and NAT
 NAT can cause problems with IKE due to the fact that NAT devices tend to modify source IP addresses and TCP/UDP ports. As mentioned previously, IKE requires that peers exchange messages using UDP 500 for both source and destination port. Additionally, IKE authentication is often performed using the source IP of the peer and this authentication tends to fail when modified by NAT. In order to get around these issues IKE makes use of NAT Traversal (NAT-T) when the initiator is located behind a NAT device.
  
 NAT-T performs three functions:
@@ -138,8 +144,9 @@ For IKEv1, the 1st and 2nd functions are performed as part of the phase 1 negoti
 
 If a NAT device is detected then the initiator must change ports of all subsequent exchanges to UDP 4500 (for both source and destination). The receiver will also adjust to use UDP a destination port of 4500 on packets destined for the initiator. As part of the NAT-T function, all data-plane packets sent through the VPN will be encapsulated using UDP 4500 between peers. Typically, peers of a NAT-T VPN will also send periodic keepalive messages in order to keep the NAT translation for the VPN from expiring.
 
+</section>
 
-
+<section markdown="1" id="references">
 ### References
 * https://tools.ietf.org/html/rfc2407
 * https://tools.ietf.org/html/rfc2408
@@ -150,11 +157,15 @@ If a NAT device is detected then the initiator must change ports of all subseque
 
 </section>
 
-
-<section markdown="1">
-<h2 class="section-header" id="types-of-vpns">Types of VPNs</h2>
+</section>
 
 
+
+
+<section markdown="1" id="types-of-vpns">
+## Types of VPNs
+
+<section markdown="1" id="policy-based-vpn">
 ### Policy-Based VPN
 Policy-based VPN operates on the notion of creating a policy which defines "interesting" traffic which should be sent through the VPN. These policies are created based on source/destination [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) pair definitions representing groups of IP networks which should be allowed to communicate through the VPN. This policy is then applied to an outbound (or uplink) interface on the VPN device. Any traffic which passes through this interface is checked for a match against the policy, and if the IP source/destination of the packet matches, then the packet is sent through the VPN. If no match occurs, then the traffic is routed through the interface normally.
 
@@ -171,7 +182,9 @@ Now, assume that the user attempts to access a VM on the 10.1.0.0/24 network. Ag
 
 A key thing to keep in mind with policy-based VPN is that traffic which is indended to pass through the VPN **must** always pass through the interface where the policy is applied. In the above scenario this is guaranteed since the edge router is the only outbound path for traffic. However, in more complex networks with multiple paths, routing may need to be specifically configured in such a way to force traffic through the VPN device (and specifically out through the interface where the policy is applied). 
 
+</section>
 
+<section markdown="1" id="route-based-vpn">
 ### Route-Based VPN
 Route-based VPN was developed as a more flexible means of implementing VPN. With policy-based VPN, there was an administrative burded required to specifically define policies for every source/desination IP range which should pass through the VPN. This made large-scale implementations difficult to manage.
 
@@ -190,3 +203,4 @@ Route-based VPN offers considerable advantages over policy-based VPN including t
 
 </section>
 
+</section>

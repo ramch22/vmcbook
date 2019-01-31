@@ -64,10 +64,12 @@ a.xref:after {
 
 .mycode{
   border: thin #888 solid;
+  color: #000;
   white-space: no-wrap;
   overflow-x: auto;
   background: #FDF6E3;
   padding: 0.5em 1em;
+  margin: 2em 0;
   font-size: .7rem;
   font-family: monospace;
   user-select: all;
@@ -144,5 +146,8 @@ a.xref:after {
 
 
 ul.task-list{
-  list-style: none
+  list-style: none;
+}
+ul.task-list input{
+  margin-right: 1em;
 }

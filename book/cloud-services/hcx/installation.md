@@ -2,8 +2,8 @@
 layout: chapter
 ---
 
-<section markdown="1">
-<h2 class="section-header" id="hcx-manager-installation">HCX Manager Installation</h2>
+<section markdown="1" id="hcx-manager-installation">
+## HCX Manager Installation
 
 The installation of the on-premises HCX Manager is summarized below. It is a required component.
 
@@ -89,8 +89,8 @@ Registration may take a few moments. You may hit the refresh button periodically
 </section>
 
 
-<section markdown="1">
-<h2 class="section-header" id="interconnect-appliance-installation">Interconnect Appliance Installation</h2>
+<section markdown="1" id="interconnect-appliance-installation">
+## Interconnect Appliance Installation
 
 The WAN Interconnect Appliance enables workload replication between sites. It is a required component.
 
@@ -123,8 +123,8 @@ Finish the install to deploy the appliance. Note that a matching appliance will 
 </section>
 
 
-<section markdown="1">
-<h2 class="section-header" id="wan-optimization-appliance-installation">WAN Optimization Appliance Installation</h2>
+<section markdown="1" id="wan-optimization-appliance-installation">
+## WAN Optimization Appliance Installation
 
 The WAN Optimization Appliance installs as an optional companion component to the WAN Interconnect Appliance. Although it is optional, it is recommended.
 
@@ -149,8 +149,8 @@ You may specify a bandwidth limit for replication as part of the appliance insta
 </section>
 
 
-<section markdown="1">
-<h2 class="section-header" id="network-extension-appliance-installation">Network Extension Appliance Installation</h2>
+<section markdown="1" id="network-extension-appliance-installation">
+## Network Extension Appliance Installation
 
 The Network Extension appliance enables port-groups of a VDS to be extended to the SDDC. It is optional unless network extension is a requirement.
 

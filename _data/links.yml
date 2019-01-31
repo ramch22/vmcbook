@@ -19,8 +19,9 @@ vmw:
   vmcaws_roadmap: "https://cloud.vmware.com/vmc-aws/roadmap"
 
 aws:
+  aws: "https://aws.amazon.com/"
   cloudformation: "https://aws.amazon.com/cloudformation/"
-  create_acct: "https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account"
+  create_acct: "https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/"
   data_transfer: "https://aws.amazon.com/govcloud-us/pricing/data-transfer/"
   dx: "https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html"
   dx_vif: "https://docs.aws.amazon.com/directconnect/latest/UserGuide/WorkingWithVirtualInterfaces.html"

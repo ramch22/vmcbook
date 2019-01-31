@@ -2,26 +2,19 @@
 layout: chapter
 ---
 
-<section markdown="1">
-<h2 class="section-header" id="introduction">Introduction</h2>
-
-This guide is intended to provide supplemental documentation to the [official HCX user guide]({{ site.data.links.vmw.hcx_doc }}) by summarizing the installation procedures and highlighting know caveats. This document will also discuss the process of planning, deploying, testing, documenting, and managing an HCX installation.
-
-</section>
-
-<section markdown="1">
-<h2 class="section-header" id="technical-overview">Technical Overview</h2>
+<section markdown="1" id="technical-overview">
+## Technical Overview
 
 At its core, [HCX]({{ site.data.links.vmw.hcx }}) provides the ability to transparently migrate workloads between vSphere environments. Although this function enables a number of different business cases, the primary cases which will be the focus of this document are:
 
 * Data center evacuations and/or workload migrations
 * Disaster recovery
 
-This guide will focus on HCX as applied to [VMware Cloud]({{ site.data.links.vmw.cloud }}).
+This guide will focus on HCX as applied to [VMware Cloud]({{ site.data.links.vmw.cloud }}) and is intended to provide supplemental documentation to the [official HCX user guide]({{ site.data.links.vmw.hcx_doc }}).
 
 
-
-#### HCX Components
+<section markdown="1" id="hcx-components">
+### HCX Components
 HCX requires that a number of appliance be installed both within the SDDC and within the on-premises environment. These appliances are always deployed in pairs, with 1 on the on-premises side and a twin within the SDDC. Appliances within the SDDC are installed automatically while on-premises appliances must be installed and configured manually.
 
 HCX uses the following appliances:
@@ -35,9 +28,10 @@ HCX uses the following appliances:
 
 * Proxy Host - This is a fake ESXi host which is deployed silently by the WAN Interconnect appliance. This host is used to as the target for vmotion/migrations and is used to "trick" vCenter into thinking the migration target host is local. This host will be visible in the inventory of vCenter.
 
+</section>
 
-
-#### An Overview of Workload Migration
+<section markdown="1" id="workload-migration-overview">
+### An Overview of Workload Migration
 The process for workload migration is roughly as follows:
 1. Activate the HCX service within the SDDC and deploy on-premises HCX components.
 2. Determine a list of workloads to migrate and any networks which must be extended.
@@ -68,10 +62,10 @@ Extended networks present an interesting routing scenario. Due to the fact that 
 
 This process of forwarding traffic from SDDC -> on-premises -> SDDC between extended networks is referred to as "tromboning", and can result in unexpected WAN utilization and added latency. Since migrations tend to be a temporary activity, this tromboning effect is not typically a major concern. However, it is important to keep in mind when planning migrations such that it may be reduced as much as possible. For layer-2 extensions that are intended to exist in a more permanent fashion, HCX provides a feature by the name of Proximity Routing, which is designed to eliminate the tromboning effect. This feature is not currently supported in VMware Cloud deployments but is currently planned as a roadmap item.
 
+</section>
 
-
-
-#### An Overview of Disaster Recovery
+<section markdown="1" id="dr-overview">
+### An Overview of Disaster Recovery
 HCX Disaster Recovery replicates and protects Virtual Machines to an SDDC, and provides flexible configuration of recovery point objectives (RPO) for workloads in intervals from 5 minutes to 24 hours. As an HCX feature, it can take advantage of WAN optimization and de-duplication for replication traffic and can utilize network extension as a means of recovering workloads without requiring IP address changes.
 
 Consider the following illustration.
@@ -91,29 +85,35 @@ As a general rule, it is a good practice to maintain a local version of critical
 
 </section>
 
+</section>
 
-<section markdown="1">
-<h2 class="section-header" id="prerequisites-and-requirements">Prerequisites and Requirements</h2>
+
+
+
+<section markdown="1" id="prerequisites-and-requirements">
+## Prerequisites and Requirements
 
 This section covers requirements for activating HCX and installing the on-premises components.
 
 
-
-#### DNS Resolution
+<section markdown="1" id="dns-reqs">
+### DNS Resolution
 The on-premises installation of HCX must be able to connect to central HCX services via their [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Therefore, it is critical that any DNS servers used by HCX be able to resolve the following names:
 * connect.hcx.vmware.com
 * hybridity-depot.vmware.com
 
 If these names are not resolvable by HCX, then the installation will fail.
 
+</section>
 
-
-#### Direct Connect Private VIF Requirements
+<section markdown="1" id="dx-reqs">
+### Direct Connect Private VIF Requirements
 HCX can be configured to ride atop Direct Connect Private VIF. In order to do so, it requires that an additional range of private IP addresses be allocated to the cloud-side appliances within the SDDC. This address range must be unique and something which will be reachable from the on-premises network. A small range, such as a /29, is sufficent for this. A common practice is to allocate this range from the larger block of address space allocated for the Compute Network of the SDDC.
 
+</section>
 
-
-#### On-Premises IP Address Requirements
+<section markdown="1" id="on-prem-ip-reqs">
+### On-Premises IP Address Requirements
 The following appliances need an IP address for management:
 * HCX Manager
 * WAN Interconnect
@@ -123,9 +123,10 @@ It is a recommended practice to allocate these addresses from the vCenter manage
 
 **Important Note** - The WAN Interconnect requires connectivity to the vMotion interfaces of ESXi hosts on the on-premises network. If this network is non-routable or otherwise unreachable from the management network, then the appliance will require a second interface/IP directly attached to the vMotion network. This second interface/IP is optional otherwise.
 
+</section>
 
-
-#### vCenter and ESXi Versions
+<section markdown="1" id="vc-and-esx-version-reqs">
+### vCenter and ESXi Versions
 HCX requires certain minimal vCenter/ESXi versions per a give feature. These are as follows:
 
 <figure markdown="1">
@@ -143,21 +144,26 @@ Disaster Recovery            | vCenter 5.1+, ESXi 5.0+
   <figcaption>vCenter and ESXi Version Requirements</figcaption>
 </figure>
 
+</section>
 
+<section markdown="1" id="vds-reqs">
 #### vSphere Distributed Switch
 If nework extension is required, then you must deploy the WAN Extension appliance. This appliance currently only supports extension of port-groups back by a [vDS](https://www.vmware.com/products/vsphere/distributed-switch.html). In order to avoid creating layer-2 loops, you may only deploy a single appliance per vDS. Once deployed, the WAN Extension appliance will be able to extend any port-group on the vDS (and by definition, the underlying VLAN of that port-group).
 
 **Important Note** - It is possible to have separate vCenter/vDS instances which are backed by the same underlying VLAN infrastructure. In this case, it would be possible to deploy a separate WAN Extension appliance to each. This scenario could create a layer-2 loop which can have a serious impact on your on-premise network. 
 
+</section>
 
-
-#### On-Premises Network Requirements
+<section markdown="1" id="on-prem-net-reqs">
+### On-Premises Network Requirements
 It is assumed that the on-premises environment has been deployed following VMware recommended practices. A key assumption is that dedicated networks are being used for management, vmotion, etc... HCX cannot extend the management network to the SDDC. If you have workloads which need to be migrated to the SDDC (and use network extension), and these networks reside within the management network, then they must be moved to a non-management network.
 
 HCX needs at least 100Mbps of connectivity to the SDDC (through the internet or Direct Connect). While it is possible for it to run on less, performance will suffer.
 
+</section>
 
-#### Appliance LAN Interconnectivity
+<section markdown="1" id="appliance-lan-connectivity">
+### Appliance LAN Interconnectivity
 The on-premises HCX appliances require connectivity to one another on a number of ports. They also require connectivity to/from vCenter and ESXi. If your on-premises network is not restricting internal communications, then you may skip this section. Otherwise, please refer to the following table:
 
 <figure markdown="1">
@@ -178,9 +184,10 @@ users            | HCX Manager      | TCP 443,9443
   <figcaption>On-Premises Connectivity Requirements</figcaption>
 </figure>
 
+</section>
 
-
-#### Appliance WAN Connectivity
+<section markdown="1" id="appliance-wan-connectivity">
+### Appliance WAN Connectivity
 The HCX components in the on-premises environment must be able to communicate to both centeral HCX services as well as components in the SDDC. For connecting to HCX central services the Manager must be able to either:
 * Communicate through a proxy, or
 * NAT outbound to a public IP address. A dedicated public IP is **not** required.
@@ -205,15 +212,27 @@ WAN Extension    | cloud-side WAN Extension    | UDP 500,4500
 
 The public IP addresses of cloud-side HCX components are available within the SDDC after HCX has been activated.
 
+</section>
 
-
-#### Critical Network Services
+<section markdown="1" id="">
+### Critical Network Services
 On-premises HCX will require access to the following network services:
 * DNS
 * NTP
 * Syslog
 
-#### Activating HCX
+</section>
+
+</section>
+
+
+
+
+<section markdown="1" id="activating-hcx">
+## Activating HCX
+
+<section markdown="1" id="cloud-side-activation">
+### Cloud-Side Activation
 Installation of HCX within an SDDC is performed from the "Add Ons" tab in the SDDC view of the [VMC Console]({{ site.data.links.vmw.vmc }}). Clicking on the "Deploy HCX" button for the specific SDDC will trigger the installation of the cloud-side HCX Manager within that SDDC. Activation keys are also generated from this interface. The activation key is required to activate the on-premises HCX Manager.
 
 You should ensure that if you are running an add blocker in your browser that you whitelist connect.hcx.vmware.com.
@@ -230,8 +249,10 @@ The HCX Manager within the SDDC is protected by the gateway firewall of the MGW.
   <figcaption>Permit Access</figcaption>
 </figure>
 
+</section>
 
-#### Downloading the HCX Manager
+<section markdown="1" id="">
+### Downloading the HCX Manager
 The on-premises HCX Manager may be downloaded from the cloud-side HCX manager once the service has been activated. To do so:
 
 ##### Step 1
@@ -251,9 +272,13 @@ Download the on-premises HCX Manager. A download link is availble from the HCX M
   <figcaption>Step 2</figcaption>
 </figure>
 
+</section>
+
+</section>
 
 
-#### Pre-Flight Checklist
+<section markdown="1" id="pre-flight-checklist">
+## Pre-Flight Checklist
 Before getting started, please verify the following:
 
 - [ ] The on-premises vCenter/ESXi/NSX versions meet the minimums

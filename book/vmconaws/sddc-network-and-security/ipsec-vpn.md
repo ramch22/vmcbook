@@ -2,12 +2,14 @@
 layout: chapter
 ---
 
-<section markdown="1">
-<h2 class="section-header" id="overview">Overview</h2>
+<section markdown="1" id="overview">
+## Overview
 
 Each SDDC supports the termination of both policy-based and route-based VPNs to the tier-0 edge gateway. Although the choice of which type of VPN to implement is ultimately a matter of preference, in general, the recommendation is to use route-based VPN whenever possible. The reasons for this recommendation will be discussed in the sections below.
 
-#### Policy-Based VPN
+
+<section markdown="1" id="policy-based-vpn">
+### Policy-Based VPN
 As discussed in the **IPSec VPN** chapter of the section on **Networking**, policy-based VPN relies on defining "interesting" traffic as part of a policy for determining which traffic should be sent through a VPN. This policy is then applied to an interface (typically an uplink port) of the VPN endpoint, and traffic destined for the VPN is then forced through this interface. In the case of the SDDC, this policy is applied to the "internet" uplink of the tier-0 edge router.
 
 As part of its standard configuration, the SDDC is configured with a default route which points to the upstream IGW. This means that all traffic which is non-local to the SDDC will be sent out through the "internet" uplink and will be matched against any IPSec VPN policies which are applied. If the traffic matches a policy, then it is encapsulated and sent through a VPN. Otherwise it is routed normally to the IGW. The notable exception to this rule is in cases where the SDDC knows specific routes through alternative uplinks. The first example of this will be with the cross-linked VPC. Traffic destined for this VPC will not cross the internet uplink and will not be matched against any policies. Similarly, if Direct Connect is attached to the SDDC, then traffic destined to any networks learned via the Direct Connect will also not pass through the internet uplink. 
@@ -19,8 +21,10 @@ As part of its standard configuration, the SDDC is configured with a default rou
 
 This highlights an important caveat to policy-based VPN; if any routes are learned via alternative uplinks (i.e. Direct Connect, cross-linked VPC, other route-based VPNs) which encompass networks configured on the policy-based VPN, then the traffic will not pass through the internet uplink and will not hit the policy. Effectively, this means that you must carefully plan what routes you advertise to the SDDC if you intend to use policy-based VPN in conjunction with Direct Connect or route-based VPN.
 
+</section>
 
-#### Route-Based VPN
+<section markdown="1" id="route-based-vpn">
+### Route-Based VPN
 Route-based VPN works on the notion that a Virtual Tunnel Interface (VTI) exists between the two VPN peers. This VTI is protected by IPSec encryption, but is otherwise treated as a normal uplink, over which BGP peering is established, and over which traffic may be routed.
 
 <figure>
@@ -34,9 +38,13 @@ The added flexiblity and configurability of route-based VPN is one of the main r
 
 </section>
 
+</section>
 
-<section markdown="1">
-<h2 class="section-header" id="configuration">Configuration</h2>
+
+
+
+<section markdown="1" id="configuration">
+## Configuration
 
 IPSec VPN is configured from within the [VMC console](https://vmc.vmware.com) by navigating to the Network & Security tab of the SDDC. The public VPN IP of the tier-0 edge is visible on the Overview page. The VPN item on the left-hand navigation will provide options for configuring both Policy and Route Based VPN.
 
@@ -45,8 +53,8 @@ IPSec VPN is configured from within the [VMC console](https://vmc.vmware.com) by
   <figcaption>Step 1</figcaption>
 </figure>
 
-
-#### Policy-Based VPN
+<section markdown="1" id="config-policy-based-vpn">
+### Configuring Policy-Based VPN
 To create a policy-based VPN, click on the Policy Based menu item on the left-hand navigation pane and then click the Add VPN button.
 
 <figure>
@@ -68,8 +76,10 @@ The fields are as follows:
   - Preshared Key - the secret key for the VPN.
   - Diffie Hellman - the [DH](https://en.wikipedia.org/wiki/Diffie-Hellman_key_exchange) group to use.
 
+</section>
 
-#### Route-Based VPN
+<section markdown="1" id="config-route-based-vpn">
+### Configuring Route-Based VPN
 To create a route-based VPN, click on the Route Based menu item on the left-hand navigation pane and then click the Add VPN button.
 
 <figure>
@@ -85,9 +95,10 @@ Most of the fields are identical to the ones defined for policy-based VPN, howev
 * BGP Remote ASN - The ASN of the remote VPN peer.
 * Advanced BGP Parameters - A secret key for the BGP session.
 
+</section>
 
-
-#### Important Tips
+<section markdown="1" id="important-tips">
+### Important Tips
 Once you have configured and saved the VPN settings a link will appear which allows you to download the configuration for the VPN. Although this configuration is not vendor specific, the information is extremely helpful for configuring the remote VPN peer since it provides additional details not shown in the UI. Once you have downloaded the configuration, the next step will be to configure the remote end of the VPN. 
 
 The following are things to consider when configuring VPN:
@@ -98,9 +109,13 @@ The following are things to consider when configuring VPN:
 
 </section>
 
+</section>
 
-<section markdown="1">
-<h2 class="section-header" id="troubleshooting">Troubleshooting</h2>
+
+
+
+<section markdown="1" id="troubleshooting">
+## Troubleshooting
 
 The vast majority of issues with the initail setup of IPSec VPN are due to misconfigurations on the remote end. The following are sample error messages captured from the VMC console which are intended to help the reader identify errors due to misconfiguration of their end of the VPN. These error messages are visible by clicking on the "i" pop-up of the Status section of a saved VPN.
 
@@ -140,18 +155,25 @@ If BGP is up but nothing is being routed across the VTI, then check that you are
 </section>
 
 
-<section markdown="1">
-<h2 class="section-header" id="sample-device-configurations">Sample Device Configurations</h2>
 
-### Route-Based VPN Sample Device Configurations
-The following sample configurations are designed to provide examples of known working configurations. However, they will require modification to your specific setup in order to actually work. These configurations are based on the following setup in the SDDC:
+
+<section markdown="1" id="sample-device-configurations">
+## Sample Device Configurations
+The following sample configurations are designed to provide examples of known working configurations. However, they will require modification to your specific setup in order to actually work.
+
+Testing was performed to an EC2 instance in AWS. EC2 instances use NAT, so we must be sure to open up UDP 500/4500 (for NAT-t) inbound in the security group for the device.
+
+
+<section markdown="1" id="route-based-vpn-sample-cisco-csr-ikev1">
+### Route-Based VPN: Cisco CSR (IOS XR) IKEv1
+These configurations are based on the following setup in the SDDC:
 
 <figure markdown="1">
 
 Setting | Value
 --------|-------
 Local IP Address | edge public IP 52.39.110.92
-IKE Type | configs provided for both IKEv1 and IKEv2
+IKE Type | IKEv1
 Tunnel Encryption | AES 256
 Tunnel Digest Algorithm | SHA2
 IKE Encryption | AES 256
@@ -166,11 +188,6 @@ SDDC ASN Setting | 64513
 
   <figcaption>SDDC VPN Settings</figcaption> 
 </figure>
-
-Testing was performed to an EC2 instance in AWS. EC2 instances use NAT, so we must be sure to open up UDP 500/4500 (for NAT-t) inbound in the security group for the device.
-
-
-#### Route-Based VPN: Cisco CSR (IOS XR) IKEv1
 
 <pre class="mycode"><code>
 ! specify the pre-share key for the remote sddc edge
@@ -254,8 +271,32 @@ router bgp 64512
   exit
 exit
 </code></pre>
+</section>
 
-#### Route-Based VPN: Cisco CSR (IOS XR) IKEv2
+<section markdown="1" id="route-based-vpn-sample-cisco-csr-ikev2">
+### Route-Based VPN: Cisco CSR (IOS XR) IKEv2
+These configurations are based on the following setup in the SDDC:
+
+<figure markdown="1">
+
+Setting | Value
+--------|-------
+Local IP Address | edge public IP 52.39.110.92
+IKE Type | IKEv2
+Tunnel Encryption | AES 256
+Tunnel Digest Algorithm | SHA2
+IKE Encryption | AES 256
+IKE Digest Algorithm | SHA2
+Perfect Forward Secrecy | enabled
+Preshared Key | myverysecretkey
+Diffie Hellman | Group 14
+BGP Local IP/Prefix Length | 169.254.255.1/30
+BGP Remote IP | 169.254.255.2
+BGP Remote ASN | 64512
+SDDC ASN Setting | 64513
+
+  <figcaption>SDDC VPN Settings</figcaption> 
+</figure>
 
 <pre class="mycode"><code>
 ! ikev2 crypto - AWS-256-CBC SHA-256

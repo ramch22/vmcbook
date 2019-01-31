@@ -2,8 +2,8 @@
 layout: chapter
 ---
 
-<section markdown="1">
-<h2 class="section-header" id="technical-overview">Technical Overview</h2>
+<section markdown="1" id="technical-overview">
+## Technical Overview
 
 Under normal circumstances, customers will access their SDDC via the public internet; either directly to VM public IP addresses, or to private addresses via IPSec VPN. Often times, however, customers wish to avoid using their public internet provider for connectivity to the SDDC. For these cases, AWS offers [Direct Connect]({{ site.data.links.aws.dx }}), which provides direct connectivity into an AWS region via private leased lines. With Direct Connect, users will define virtual interfaces ([VIF]({{ site.data.links.aws.dx_vif }})) which allow them to connect to public or private resources within that Region. These VIFs come in 2 flavors: Public and Private.
  
@@ -20,8 +20,8 @@ The next sections will explore this in more detail.
 
 
 
-<section markdown="1">
-<h2 class="section-header" id="public-vif">Public VIF</h2>
+<section markdown="1" id="public-vif">
+## Public VIF
 
 Public VIF enables a Direct Connect to be used for accessing the public IP address space of  the AWS network. Let's look into the details of how this is implemented.
 
@@ -45,8 +45,8 @@ For these cases, customers may submit a request to AWS for a public IP. AWS will
 
 
 
-<section markdown="1">
-<h2 class="section-header" id="private-vif">Private VIF</h2>
+<section markdown="1" id="private-vif">
+## Private VIF
 
 The standard means of accessing the private address space of an SDDC is via IPSec VPN. This VPN creates a secure virtual tunnel directly between the customer on-premises and the SDDC, either over the public internet or atop Direct Connect Public VIF. Direct Connect Private VIF provides an alternative to IPSec VPN by enabling a direct routed path between the customer on-premises network and a VPC within the AWS environment.
 

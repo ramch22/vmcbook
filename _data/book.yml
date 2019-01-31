@@ -1,4 +1,10 @@
 # all urls of the book arranged in hierarchy
+# title is displayed at top of each page
+# subtitle is used on cover
+# authors will be displayed as part of the title
+# parent, if present, will be used as part of the title
+# children is used to create hierarchy for toc
+
 urls:
   "/":
     title: "VMware Cloud"
@@ -11,9 +17,11 @@ urls:
     
   "/book/introduction.html":
     title: "Introduction"
+    parent: "/"
     
   "/book/getting-started.html":
     title: "Getting Started"
+    parent: "/"
     
   "/book/vmconaws/":
     title: "VMware Cloud on AWS"
@@ -23,22 +31,27 @@ urls:
       - "/book/vmconaws/sddc-network-and-security/"  
    
   "/book/vmconaws/a-technical-overview.html":
-    title: "A Technical Overview"  
+    title: "A Technical Overview"
+    parent: "/book/vmconaws/"
    
   "/book/vmconaws/preparing-to-on-board.html":
     title: "Preparing to On-Board"
+    parent: "/book/vmconaws/"
 
   "/book/vmconaws/sddc-network-and-security/":
     title: "SDDC Network and Security"
+    parent: "/book/vmconaws/"
     children:
       - "/book/vmconaws/sddc-network-and-security/ipsec-vpn.html"
       - "/book/vmconaws/sddc-network-and-security/direct-connect.html"
       
   "/book/vmconaws/sddc-network-and-security/ipsec-vpn.html":
     title: "IPSec VPN"
+    parent: "/book/vmconaws/"
     
   "/book/vmconaws/sddc-network-and-security/direct-connect.html":
     title: "Direct Connect"
+    parent: "/book/vmconaws/"
 
   "/book/cloud-services/":
     title: "Cloud Services"
@@ -55,21 +68,29 @@ urls:
     
   "/book/cloud-services/hcx/introduction.html":
     title: "Introduction"
+    parent: "/book/cloud-services/hcx/"
     
   "/book/cloud-services/hcx/installation.html":
     title: "Installation"
+    parent: "/book/cloud-services/hcx/"
     
   "/book/cloud-services/hcx/operations.html":
     title: "Operations"
+    parent: "/book/cloud-services/hcx/"
   
   "/book/cloud-services/hcx/caveats.html":
     title: "Caveats"
+    parent: "/book/cloud-services/hcx/"
    
   "/book/networking/":
     title: "Networking"
     children:
+      - "/book/networking/ip-subnetting.html"
       - "/book/networking/ipsec-vpn.html"
       
+  "/book/networking/ip-subnetting.html":
+    title: "A Guide to IP Subnetting"
+  
   "/book/networking/ipsec-vpn.html":
     title: "IPSec VPN"
    
