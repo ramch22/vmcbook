@@ -28,7 +28,7 @@ Public VIF enables a Direct Connect to be used for accessing the public IP addre
 Normally, customers will have one or more public internet circuits over which they will receive either default routes, or specific BGP prefixes. These circuits are used to access the public IP address space which AWS advertises to its upstream internet providers. In this example, the on-premises router is receiving a default route to the internet.
 
 <figure>
-  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/dxPublicVIF.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/vmconaws/sddc-network-and-security/direct-connect/dxPublicVIF.png' | relative_url }}">
   <figcaption>Public VIF</figcaption>
 </figure>
 
@@ -51,7 +51,7 @@ For these cases, customers may submit a request to AWS for a public IP. AWS will
 The standard means of accessing the private address space of an SDDC is via IPSec VPN. This VPN creates a secure virtual tunnel directly between the customer on-premises and the SDDC, either over the public internet or atop Direct Connect Public VIF. Direct Connect Private VIF provides an alternative to IPSec VPN by enabling a direct routed path between the customer on-premises network and a VPC within the AWS environment.
 
 <figure id="fig-private-vif">
-  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/dxPrivateVIF.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/vmconaws/sddc-network-and-security/direct-connect/dxPrivateVIF.png' | relative_url }}">
   <figcaption>Private VIF</figcaption>
 </figure>
 

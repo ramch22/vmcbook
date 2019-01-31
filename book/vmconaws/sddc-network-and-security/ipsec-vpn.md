@@ -15,7 +15,7 @@ As discussed in the **IPSec VPN** chapter of the section on **Networking**, poli
 As part of its standard configuration, the SDDC is configured with a default route which points to the upstream IGW. This means that all traffic which is non-local to the SDDC will be sent out through the "internet" uplink and will be matched against any IPSec VPN policies which are applied. If the traffic matches a policy, then it is encapsulated and sent through a VPN. Otherwise it is routed normally to the IGW. The notable exception to this rule is in cases where the SDDC knows specific routes through alternative uplinks. The first example of this will be with the cross-linked VPC. Traffic destined for this VPC will not cross the internet uplink and will not be matched against any policies. Similarly, if Direct Connect is attached to the SDDC, then traffic destined to any networks learned via the Direct Connect will also not pass through the internet uplink. 
 
 <figure>
-  <img src="{{ '/book/illustrations/vmconaws/ipsec-vpn/sddcPolicyBasedVPN.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/vmconaws/sddc-network-and-security/ipsec-vpn/sddcPolicyBasedVPN.png' | relative_url }}">
   <figcaption>Policy-Based VPN</figcaption>
 </figure>
 
@@ -28,7 +28,7 @@ This highlights an important caveat to policy-based VPN; if any routes are learn
 Route-based VPN works on the notion that a Virtual Tunnel Interface (VTI) exists between the two VPN peers. This VTI is protected by IPSec encryption, but is otherwise treated as a normal uplink, over which BGP peering is established, and over which traffic may be routed.
 
 <figure>
-  <img src="{{ '/book/illustrations/vmconaws/ipsec-vpn/sddcRouteBasedVPN.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/vmconaws/sddc-network-and-security/ipsec-vpn/sddcRouteBasedVPN.png' | relative_url }}">
   <figcaption>Route-Based VPN</figcaption>
 </figure>
 
@@ -49,7 +49,7 @@ The added flexiblity and configurability of route-based VPN is one of the main r
 IPSec VPN is configured from within the [VMC console](https://vmc.vmware.com) by navigating to the Network & Security tab of the SDDC. The public VPN IP of the tier-0 edge is visible on the Overview page. The VPN item on the left-hand navigation will provide options for configuring both Policy and Route Based VPN.
 
 <figure>
-  <img src="{{ '/book/illustrations/vmconaws/ipsec-vpn/vmcConsoleVPN.png"' | relative_url }}>
+  <img src="{{ '/book/illustrations/vmconaws/sddc-network-and-security/ipsec-vpn/vmcConsoleVPN.png"' | relative_url }}>
   <figcaption>Step 1</figcaption>
 </figure>
 
@@ -58,7 +58,7 @@ IPSec VPN is configured from within the [VMC console](https://vmc.vmware.com) by
 To create a policy-based VPN, click on the Policy Based menu item on the left-hand navigation pane and then click the Add VPN button.
 
 <figure>
-  <img src="{{ '/book/illustrations/vmconaws/ipsec-vpn/vmcConsolePolicyVPN.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/vmconaws/sddc-network-and-security/ipsec-vpn/vmcConsolePolicyVPN.png' | relative_url }}">
   <figcaption>Step 1</figcaption>
 </figure>
 
@@ -83,7 +83,7 @@ The fields are as follows:
 To create a route-based VPN, click on the Route Based menu item on the left-hand navigation pane and then click the Add VPN button.
 
 <figure>
-  <img src="{{ '/book/illustrations/vmconaws/ipsec-vpn/vmcConsoleRouteVPN.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/vmconaws/sddc-network-and-security/ipsec-vpn/vmcConsoleRouteVPN.png' | relative_url }}">
   <figcaption>Step 1</figcaption>
 </figure>
 
@@ -120,7 +120,7 @@ The following are things to consider when configuring VPN:
 The vast majority of issues with the initail setup of IPSec VPN are due to misconfigurations on the remote end. The following are sample error messages captured from the VMC console which are intended to help the reader identify errors due to misconfiguration of their end of the VPN. These error messages are visible by clicking on the "i" pop-up of the Status section of a saved VPN.
 
 <figure>
-  <img src="{{ '/book/illustrations/vmconaws/ipsec-vpn/vmcConsoleStatus.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/vmconaws/sddc-network-and-security/ipsec-vpn/vmcConsoleStatus.png' | relative_url }}">
   <figcaption>VPN Status</figcaption>
 </figure>
 
