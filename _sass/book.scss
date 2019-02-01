@@ -12,6 +12,8 @@ body{
   counter-reset: figurenum;
 }
 header,footer{
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 99%);
+  background-color: #555;
   position: fixed;
   width: 100%;
   display: flex;
@@ -33,12 +35,6 @@ header nav, footer nav{
   flex: 15;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 99%);
   background-color: #555;
-}
-header span, footer span{
-  background-color: #333;
-  box-shadow: inset -1px 0 rgba(255, 255, 255, 0.2), inset -2px 0 rgba(0, 0, 0, 0.24);
-  display: inline-block;
-  text-align: center;
 }
 header span{
   min-width: 6em;
@@ -84,7 +80,7 @@ aside{
 }
 main{
   flex: 15;
-  max-width: 55rem;
+  max-width: 60em;
 }
 main > section {
   background-color: #fafafa;
@@ -94,7 +90,7 @@ main > section {
   padding: 2em;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.4);
   background: linear-gradient(to right, #dddddd 0%, #fafafa 2%, #fafafa 98%, #dddddd 100%);
-  margin: 0 0 2em 0;
+  margin: 1.5em 0 1.5em 0;
   min-height: 90%;
 }
 section > section{
@@ -110,9 +106,12 @@ a, a:active, a:focus {
 }
 
 
-@media all and (max-width: 640px) {
+@media all and (max-width: 800px) {
   aside {
     flex:0;
+  }
+  main > section {
+    margin: 2px 0 2px 0;
   }
 }
 
