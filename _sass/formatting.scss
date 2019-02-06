@@ -33,16 +33,16 @@ th{
 }
 
 figure {
-  width: 100%;
-  margin: 2em 0;
+  margin: 2em auto;
 }
 figure img {
   background: #fff;
   border: thin #555 solid;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.4);
-  margin: 0 5%;
+  display: block;
+  margin: 0 auto;
   padding: 5px;
-  width: 90%;
+  max-width: 90%;
 }
 figure.full-width > *{
   width: 100%;

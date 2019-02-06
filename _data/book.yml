@@ -28,7 +28,8 @@ urls:
     children:
       - "/book/vmconaws/a-technical-overview.html"
       - "/book/vmconaws/preparing-to-on-board.html"
-      - "/book/vmconaws/sddc-network-and-security/"  
+      - "/book/vmconaws/sddc-network-and-security/" 
+      - "/book/vmconaws/network-design-patterns/" 
    
   "/book/vmconaws/a-technical-overview.html":
     title: "A Technical Overview"
@@ -44,7 +45,7 @@ urls:
     children:
       - "/book/vmconaws/sddc-network-and-security/ipsec-vpn.html"
       - "/book/vmconaws/sddc-network-and-security/direct-connect.html"
-      
+  
   "/book/vmconaws/sddc-network-and-security/ipsec-vpn.html":
     title: "IPSec VPN"
     parent: "/book/vmconaws/"
@@ -52,7 +53,17 @@ urls:
   "/book/vmconaws/sddc-network-and-security/direct-connect.html":
     title: "Direct Connect"
     parent: "/book/vmconaws/"
+      
+  "/book/vmconaws/network-design-patterns/":
+    title: "Network Design Patterns"
+    parent: "/book/vmconaws/"
+    children:
+      - "/book/vmconaws/network-design-patterns/transit-vpc-and-tgw.html"
 
+  "/book/vmconaws/network-design-patterns/transit-vpc-and-tgw.html":
+    title: "Transit VPC and Transit Gateway"
+    parent: "/book/vmconaws/"
+  
   "/book/cloud-services/":
     title: "Cloud Services"
     children:

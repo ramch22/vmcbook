@@ -28,4 +28,6 @@ aws:
   eni: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html"
   iam: "https://aws.amazon.com/iam/"
   regions_az: "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html"
+  tgw: "https://docs.aws.amazon.com/vpc/latest/tgw/index.html"
+  transit_vpc: "https://aws.amazon.com/answers/networking/aws-global-transit-network/"
   vpc_subnets: "https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html"
