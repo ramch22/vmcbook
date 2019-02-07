@@ -3,27 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="refresh" content="5; URL='{{ "/book/" | relative_url }}'" />
+    <meta http-equiv="refresh" content="5; URL='{{ "/" | relative_url }}'" />
     <title>{{ site.title | escape }}</title>
     <link rel="stylesheet" href="{{ "/css/main.css" | relative_url }}">
   </head>
 
   <body>
-    <aside></aside>
+    <header></header>
     <article>
-        {% include header.html %}
-        <main id="main-content">
-          <section>
-            <p>
-            The page you requested does not exist or has moved.<br />
-            You will be automatically redirected to the <a href="{{ "/book/" | relative_url }}">Table of Contents</a>.
-            </p>
-          </section>
-        </main>
-        <footer>
-          <span class="version">{% assign time = site.time | split: " " %}Version: {{ time[0] | replace: "-", "." }}</span>
-        </footer>
+      {% include aside.html %}
+      <main id="main-content">
+        <section>
+          <p>The page you requested does not exist or has moved.</p>
+          <p>You will be automatically redirected to the <a href="{{ "/" | relative_url }}">Book Cover</a>.</p>
+        </section>
+      </main>
     </article>
-    <aside></aside>
   </body>
 </html>

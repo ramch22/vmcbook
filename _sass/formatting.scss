@@ -1,17 +1,9 @@
-h1,h2,h3,h4,h5 {
-  color: #555;
-  font-style: italic;
-  font-weight: 500;
-  margin: .5em auto;
-}
-h1 {font-size: 2.5em;}
-h2 {font-size: 2.25em;}
-h3 {font-size: 1.6em;}
-h4 {font-size: 1.3em;}
-h5 {font-size: 1em;}
-
 p {
   margin: .5em auto;
+}
+p a{
+  font-style: italic;
+  font-weight: bold;
 }
 
 table{
@@ -82,39 +74,7 @@ a.xref:after {
   margin: 10em 0 0 0;
 }
 
-.version{
-  font-style: italic;
-  line-height: 2em;
-}
 
-.title{
-  color: #555;
-  margin: 2em 0 4em 0;
-}
-.title h1{
-  font-size: 3em;
-  margin: 0;
-}
-.title h2{
-  font-size: 1.75em;
-  margin: 0;
-}
-.title .titles{
-  border-bottom: 2px solid #555;
-  font-weight: 300;
-  padding-left: 1em;
-  white-space: nowrap;
-}
-.title .authors{
-  margin-top: 1em;
-  text-align: right;
-  width: 98%;
-}
-
-.toc{
-  color: #555;
-  padding-bottom: 6em;
-}
 .toc h2{
   font-weight: 300;
   margin: 0;

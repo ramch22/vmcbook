@@ -1,54 +1,47 @@
 <!DOCTYPE html>
 <html>
   {% include head.html %}
-
+  
   <body>
-    <aside></aside>
+    <header></header>
     <article>
-        {% include header.html %}
-        <main id="main-content">
-          <section>
-            <div class="title">
-              <div class="titles">
-              {% if urldata.parent %}
-                {% assign parentdata = site.data.book.urls[urldata.parent] %}
-                <h1>{{ parentdata.title }}</h1>
-                <h2>{{ urldata.title }}</h2>
-              {% else %}
-                <h1>{{ urldata.title }}</h1>
-              {% endif %}
-              </div>
-            </div>
-            
-            <nav class="toc">
-              <h2>Contents</h2>
-              <ol>
-              {% for childurl in urldata.children %}
-                {% assign childdata = site.data.book.urls[childurl] %}
-                <li>
-                  <a href="{{ childurl | relative_url }}">{{ childdata.title }}</a>
-                  {% if childdata.children %}
-                  <ol>
-                  {% for childurl in childdata.children %}
-                    {% assign childdata = site.data.book.urls[childurl] %}
-                    <li>
-                      <a href="{{ childurl | relative_url }}">{{ childdata.title }}</a>
-                    </li>
-                  {% endfor %}
-                  </ol>
-                  {% endif %}
-                </li>
-              {% endfor %}
-              </ol>
-              <a href="../" class="up-one-level">Up One Level</a>
-            </nav>
-          </section>
-        </main>
-        <footer>
-          <span class="version">{% assign time = site.time | split: " " %}Version: {{ time[0] | replace: "-", "." }}</span>
-        </footer>
+      {% include aside.html %}
+      <main id="main-content">
+        <header>
+          <div class="titles">
+            <h1>{{ site.data.book.urls["/"].title }}</h1>
+            <h2>{{ site.data.book.urls["/"].subtitle }}</h2>
+          </div>
+          <div class="authors">
+          {% for author in site.data.book.authors %}<p>{{ author }}</p>{% endfor %}
+          </div>
+        </header>
+        {% assign urldata = site.data.book.urls[page.url] %}
+        <section>
+          <nav class="toc">
+            <h2>{{ urldata.title }}</h2>
+            <ol>
+            {% for childurl in urldata.children %}
+              {% assign childdata = site.data.book.urls[childurl] %}
+              <li>
+                <a href="{{ childurl | relative_url }}">{{ childdata.title }}</a>
+                {% if childdata.children %}
+                <ol>
+                {% for childurl in childdata.children %}
+                  {% assign childdata = site.data.book.urls[childurl] %}
+                  <li>
+                    <a href="{{ childurl | relative_url }}">{{ childdata.title }}</a>
+                  </li>
+                {% endfor %}
+                </ol>
+                {% endif %}
+              </li>
+            {% endfor %}
+            </ol>
+          </nav>
+        </section>
+        {{ content }}
+      </main>
     </article>
-    <aside></aside>
-    
   </body>
 </html>

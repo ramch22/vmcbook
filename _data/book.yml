@@ -1,3 +1,6 @@
+authors:
+  - "Dustin Spinhirne"
+
 # all urls of the book arranged in hierarchy
 # title is displayed at top of each page
 # subtitle is used on cover
@@ -9,11 +12,17 @@ urls:
   "/":
     title: "VMware Cloud"
     subtitle: "A Hands-On Guide"
-    authors:
-      - "Dustin Spinhirne"
     
   "/book/":
     title: "Table of Contents"
+    parent: "/"
+    children:
+      - "/book/introduction.html"
+      - "/book/getting-started.html"
+      - "/book/vmconaws/"
+      - "/book/cloud-services/"
+      - "/book/networking/"
+      - "/book/appendix/"
     
   "/book/introduction.html":
     title: "Introduction"
@@ -112,16 +121,4 @@ urls:
    
   "/book/appendix/resources.html":
     title: "Resources"
-
-  
-  
-# ordered list of urls for generating table of contents
-contents:
-  - "/book/introduction.html"
-  - "/book/getting-started.html"
-  - "/book/vmconaws/"
-  - "/book/cloud-services/"
-  - "/book/networking/"
-  - "/book/appendix/"
-    
-           
+    parent: "/book/appendix/"

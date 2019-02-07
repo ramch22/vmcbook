@@ -6,105 +6,194 @@ html,body {
   height:100%;
 }
 body{
-  background-color: #999;
+  background-color: #fff;
   display: flex;
-  flex-flow: row;
+  flex-flow: column;
   font-family: Sans-Serif;
   overflow: hidden;
   counter-reset: figurenum;
 }
 
-aside{
-  flex: 1;
+body > header {
+  background-color: #555;
+  color: #ccc;
+  height: 1.5em;
+  font-size: .75em;
+  line-height: 1.5em;
 }
-article {
-  display: flex;
-  flex-flow: column;
-  flex: 15;
-  max-width: 60em;
-  height:100%;
+body > header a {
+  color: #ccc;
+  float: right;
+  text-decoration: none;
+  margin: 0 1em;
+}
+body > header a:hover{
+  color: #fff;
 }
 
-header,footer{
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 99%);
-  background-color: #555;
-  display: flex;
+article {
+  flex:1;
+  display:flex;
   flex-flow: row;
-  color: #ccc;
-  text-align: center;
-}
-header,footer{
-  height: 2em;
-}
-header span{
-  min-width: 6em;
-}
-header span.large{
-  background-color: #555;
-  flex: 1;
-  display: inline-block;
-  text-align: center;
-  font-size: 1.16667em;
-  line-height: 2em;
+  font-size: .75em;
   overflow: hidden;
-  white-space: no-wrap;
 }
-footer span{
-  box-shadow: 0 0 0 #000;
-  width: 33.333%;
+   
+aside {
+  background-color: #555;
+  color: #ccc;
+  display: flex;
+  flex-flow: column;
+  overflow-y: auto;
+  padding: 0 .25em;
 }
-header a, footer a{
+aside a {
   color: #ccc;
   text-decoration: none;
 }
-header a:hover, footer a:hover{
-  color: white;
+aside a:hover{
+  color: #fff;
 }
-header a, footer a{
-  line-height: 2em;
+aside a.active, aside a.active:hover{
+  color: #ff0;
 }
 
-main{
-  background: linear-gradient(to right, #dddddd 0%, #fafafa 2%, #fafafa 98%, #dddddd 100%);
+
+main {
   background-color: #fafafa;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.4);
-  color: #888;
+  color: #555;
   flex: 1;
-  font: 100%/1.618 sans-serif;
-  overflow: auto;
-  text-shadow: 0 1px #fff;
+  overflow-y: auto;
+}
+
+
+aside header{
+  border-bottom: 1px solid #ccc;
+  color: #ccc;
+  font-weight: 300;
+  margin: 0 0 1.5em 0;
+}
+aside header h1{
+  font-size: 2em;
+  margin: 0;
+}
+aside header h2{
+  font-size: 1.25em;
+  margin: 0;
+}
+aside .version{
+  display: block;
+  margin: 0 0 2em 0;
+}
+aside nav{
+  flex:1;
+}
+aside nav ol{
+  counter-reset: item;
+}
+aside nav li {
+  display: block;
+  margin: .25em 0;
+  padding-left: 1em;
+
+}
+aside nav ol li:before {
+  content: counters(item, ".")") ";
+  counter-increment: item;
+}
+
+main header{
+  color: #555;
+  margin: 2em 1em 4em 1em;
+}
+main header h1{
+  font-size: 3em;
+  font-style: italic;
+  font-weight: 500;
+  margin: 0;
+}
+main header h2{
+  font-size: 1.75em;
+  font-style: italic;
+  font-weight: 500;
+  margin: 0;
+}
+main header div.titles{
+  border-bottom: 2px solid #555;
+  font-weight: 300;
+  padding-left: 1em;
+  white-space: nowrap;
+}
+main header div.authors{
+  margin-top: 1em;
+  text-align: right;
+  width: 98%;
+}
+main > section {
+  padding: 1em;
+  margin: 0 0 4em 0;
 }
 main a {
   color: #333;
+  text-decoration: none;
 }
-main > section {
-  padding: 2em;
-  margin: 0 0 4em 0;
-}
+
 section > section{
-  padding: 2em 0;
+  padding: 3em 0;
 }
 section > ol,ul{
   width: 90%;
   margin: 0 5% 1.75em 5%;
 }
 
+
+section h2,h3,h4,h5{
+  font-style: italic;
+  font-weight: 500;
+  margin: .5em 0;
+  text-decoration: underline;
+}
+section h2 {
+  font-size: 2.25em;
+}
+section h3 {
+  font-size: 1.6em;
+}
+section h4 {
+  font-size: 1.3em;
+}
+section h5 {
+  font-size: 1em;
+}
+
 a, a:active, a:focus {
    outline: none;
 }
+ 
+ 
+ 
+ 
+
+/* Too narrow to support three columns */
+@media all and (max-width: 640px) {
+  article {
+    flex-direction: column;
+  }
+}
+
+
 
 @media print{
-  header,footer,aside{
+  body > header,aside{
     display: none;
   }
-  article{
+  body,article,main{
     display: block;
     padding: 0;
   }
   main > section{
     margin: 0;
     padding: 0;
-    box-shadow: none;
     page-break-after: always;
   }
   figure,table, section > section{

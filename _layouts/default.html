@@ -3,18 +3,12 @@
   {% include head.html %}
 
   <body>
-    <aside></aside>
+    <header></header>
     <article>
-        {% include header.html %}
-        <main id="main-content">
-          <section>
-            {{ content }}
-          </section>
-        </main>
-        <footer>
-          <span class="version">{% assign time = site.time | split: " " %}Version: {{ time[0] | replace: "-", "." }}</span>
-        </footer>
+      {% include aside.html %}
+      <main id="main-content">
+        {{ content }}
+      </main>
     </article>
-    <aside></aside>
   </body>
 </html>

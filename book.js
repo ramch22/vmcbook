@@ -1,9 +1,15 @@
 function createTOC(){
-  var toc = document.getElementById("chapter-toc");
-  if (toc){
-    var ol = toc.getElementsByTagName("OL")[0];
-    var sections = document.querySelectorAll("main > section:not(:first-child)");
-    
+  var main = document.getElementById("main-content");
+  var sections = main.querySelectorAll("main > section");
+  if (sections.length > 1){
+    var toc = document.createElement("SECTION");
+    toc.classList.add("toc");
+    main.insertBefore(toc, sections[0]);
+    var tocTitle = document.createElement("H2");
+    tocTitle.textContent = "Table of Contents";
+    toc.appendChild(tocTitle);
+    var ol = document.createElement("OL");
+    toc.appendChild(ol);
     // create a toc entry for each section using the first h2 as the title
     var i;
     for (i = 0; i < sections.length; i++) {
@@ -37,7 +43,8 @@ function createTOC(){
       }
     }
   }
-}
+} 
+
 
 window.onload = function() {
   createTOC();

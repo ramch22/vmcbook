@@ -3,33 +3,28 @@
   {% include head.html %}
 
   <body>
-    <aside></aside>
+    <header>
+      <a href="#page-header">Top of Page</a>
+      <a href="#" onclick="window.print();">Print</a>
+    </header>
     <article>
-        {% include header.html %}
-        <main id="main-content">
-          <section>
-            <div class="title">
-              <div class="titles">
-              {% if urldata.parent %}
-                {% assign parentdata = site.data.book.urls[urldata.parent] %}
+      {% include aside.html %}
+      <main id="main-content">
+        <header id="page-header">{% assign urldata = site.data.book.urls[page.url] %}
+          <div class="titles">
+              {% if urldata.parent %}{% assign parentdata = site.data.book.urls[urldata.parent] %}
                 <h1>{{ parentdata.title }}</h1>
                 <h2>{{ urldata.title }}</h2>
               {% else %}
                 <h1>{{ urldata.title }}</h1>
               {% endif %}
               </div>
-            </div>
-            <nav id="chapter-toc" class="toc"><h2>Contents</h2>
-              <ol></ol>
-              <a href="./" class="up-one-level">Up One Level</a>
-            </nav>
-          </section>
-            
-          {{ content }}
-          
-        </main>
-        {% include footer.html %}
+          <div class="authors">
+          {% for author in urldata.authors %}<p>{{ author }}</p>{% endfor %}
+          </div>
+        </header>
+        {{ content }}
+      </main>
     </article>
-    <aside></aside>
   </body>
 </html>
