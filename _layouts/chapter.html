@@ -3,10 +3,9 @@
   {% include head.html %}
 
   <body>
-    {% include header.html %}
-    
+    <aside></aside>
     <article>
-        <aside></aside>
+        {% include header.html %}
         <main id="main-content">
           <section>
             <div class="title">
@@ -29,8 +28,8 @@
           {{ content }}
           
         </main>
-        <aside></aside>
+        {% include footer.html %}
     </article>
-    {% include footer.html %}
+    <aside></aside>
   </body>
 </html>

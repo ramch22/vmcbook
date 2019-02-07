@@ -9,10 +9,9 @@
   </head>
 
   <body>
-    {% include header.html %}
-    
+    <aside></aside>
     <article>
-        <aside></aside>
+        {% include header.html %}
         <main id="main-content">
           <section>
             <p>
@@ -21,8 +20,10 @@
             </p>
           </section>
         </main>
-        <aside></aside>
+        <footer>
+          <span class="version">{% assign time = site.time | split: " " %}Version: {{ time[0] | replace: "-", "." }}</span>
+        </footer>
     </article>
-    
+    <aside></aside>
   </body>
 </html>

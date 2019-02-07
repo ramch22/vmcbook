@@ -7,34 +7,34 @@ html,body {
 }
 body{
   background-color: #999;
+  display: flex;
+  flex-flow: row;
   font-family: Sans-Serif;
-  overflow: auto;
+  overflow: hidden;
   counter-reset: figurenum;
 }
+
+aside{
+  flex: 1;
+}
+article {
+  display: flex;
+  flex-flow: column;
+  flex: 15;
+  max-width: 60em;
+  height:100%;
+}
+
 header,footer{
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 99%);
   background-color: #555;
-  position: fixed;
-  width: 100%;
   display: flex;
   flex-flow: row;
   color: #ccc;
   text-align: center;
 }
-header{
+header,footer{
   height: 2em;
-  top: 0;
-}
-footer{
-  bottom: 0;
-  height: 1.5em;
-}
-header nav, footer nav{
-  display: flex;
-  flex-flow: row;
-  flex: 15;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 99%);
-  background-color: #555;
 }
 header span{
   min-width: 6em;
@@ -50,6 +50,7 @@ header span.large{
   white-space: no-wrap;
 }
 footer span{
+  box-shadow: 0 0 0 #000;
   width: 33.333%;
 }
 header a, footer a{
@@ -59,39 +60,26 @@ header a, footer a{
 header a:hover, footer a:hover{
   color: white;
 }
-header a{
+header a, footer a{
   line-height: 2em;
 }
-footer a{
-  line-height: 1.5em;
-}
 
-article {
-  display: flex;
-  flex-flow: row;
-  height:100%;
-  padding: 2em 0 1.5em 0;
+main{
+  background: linear-gradient(to right, #dddddd 0%, #fafafa 2%, #fafafa 98%, #dddddd 100%);
+  background-color: #fafafa;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.4);
+  color: #888;
+  flex: 1;
+  font: 100%/1.618 sans-serif;
+  overflow: auto;
+  text-shadow: 0 1px #fff;
 }
-article a{
+main a {
   color: #333;
 }
-aside{
-  flex: 1;
-}
-main{
-  flex: 15;
-  max-width: 60em;
-}
 main > section {
-  background-color: #fafafa;
-  color: #888;
-  font: 100%/1.618 sans-serif;
-  text-shadow: 0 1px #fff;
   padding: 2em;
-  box-shadow: 0 0 1em rgba(0, 0, 0, 0.4);
-  background: linear-gradient(to right, #dddddd 0%, #fafafa 2%, #fafafa 98%, #dddddd 100%);
-  margin: 0 0 2em 0;
-  min-height: 90%;
+  margin: 0 0 4em 0;
 }
 section > section{
   padding: 2em 0;
@@ -103,16 +91,6 @@ section > ol,ul{
 
 a, a:active, a:focus {
    outline: none;
-}
-
-
-@media all and (max-width: 800px) {
-  aside {
-    flex:0;
-  }
-  main > section {
-    margin: 0 0 2px 0;
-  }
 }
 
 @media print{
