@@ -124,6 +124,8 @@ Resource | Description
 [{{ site.data.links.aws.eni }}]({{ site.data.links.aws.eni }}) | Elastic Network Interface (ENI)
 [{{ site.data.links.aws.dx }}]({{ site.data.links.aws.dx }}) | Direct Connect
 [{{ site.data.links.aws.dx_vif }}]({{ site.data.links.aws.dx_vif }}) | Direct Connect VIF
+[{{ site.data.links.aws.transit_vpc }}]({{ site.data.links.aws.transit_vpc }}) | Transit VPC
+[{{ site.data.links.aws.tgw }}]({{ site.data.links.aws.tgw }}) | Transit Gateway
 
 </figure>
 </section>

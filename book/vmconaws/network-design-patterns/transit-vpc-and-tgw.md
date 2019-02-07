@@ -25,7 +25,7 @@ A [Transit VPC]({{ site.data.links.aws.transit_vpc}}) is a special [VPCs]({{ sit
 </figure>
 
 The hub-and-spoke model enabled with a Transit VPC is advantageous in that it:
-* It simplifies the interconnectivity between large numbers of VPCs by eliminating the need for a full-mesh network. A full-mesh network would otherwise require n(n - 1)/2 interconnects (where n is the number of VPC or other branch networks).
+* It simplifies the interconnectivity between large numbers of VPCs by eliminating the need for a full-mesh network. A full-mesh network would otherwise require n(n-1)/2 interconnects (where n is the number of VPC or other branch networks).
 * It enables a central entry point for Direct Connect or IPSec VPN to on-premises networks.
 * It enables a central point of enforcement for security appliances.
 
