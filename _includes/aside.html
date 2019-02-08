@@ -3,7 +3,7 @@
           <h1>{{ site.data.book.urls["/"].title }}</h1>
           <h2>{{ site.data.book.urls["/"].subtitle }}</h2>
         </header>
-        <em class="version">{% assign time = site.time | split: " " %}Version: {{ time[0] | replace: "-", "." }}</em>
+        <em class="updated-on">{% assign time = site.time | split: " " %}Updated On: {{ time[0] | replace: "-", "." }}</em>
         <nav>
           <a href="{{ "/" | relative_url }}">Cover</a>
           <ol>
