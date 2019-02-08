@@ -18,6 +18,7 @@ function createTOC(){
         var h2a = document.createElement("A");
         h2a.textContent = h2.textContent;
         h2a.href = "#" + sections[i].id;
+        h2.textContent = (i+1).toString() + ") " + h2.textContent; // prepend number to h2
         var li = document.createElement("LI");
         li.appendChild(h2a);
         ol.appendChild(li);
@@ -34,6 +35,7 @@ function createTOC(){
             var h3a = document.createElement("A");
             h3a.textContent = h3.textContent;
             h3a.href = "#" + subsections[i2].id;
+            h3.textContent = (i+1).toString() + "." + (i2+1).toString() + ") " + h3.textContent; // prepend number to h3
             var li2 = document.createElement("LI");
             li2.appendChild(h3a);
             ol2.appendChild(li2);
