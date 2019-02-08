@@ -4,8 +4,8 @@
 
   <body>
     <header>
-      <a href="#page-header">Top of Page</a>
-      <a href="#" onclick="window.print();">Print</a>
+      <span><a href="#page-header">Top of Page</a></span>
+      <span><a href="#" onclick="window.print();">Print</a></span>
     </header>
     <article>
       {% include aside.html %}
@@ -26,5 +26,6 @@
         {{ content }}
       </main>
     </article>
+    {% include footer.html %}
   </body>
 </html>

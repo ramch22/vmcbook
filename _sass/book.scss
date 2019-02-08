@@ -14,20 +14,26 @@ body{
   counter-reset: figurenum;
 }
 
-body > header {
+body > header, body > footer{
   background-color: #555;
   color: #ccc;
   height: 1.5em;
   font-size: .75em;
   line-height: 1.5em;
 }
-body > header a {
-  color: #ccc;
+body > header span, body > footer span{
   float: right;
-  text-decoration: none;
   margin: 0 1em;
 }
-body > header a:hover{
+body > header img, body > footer img{
+  vertical-align: middle;
+}
+body > header a, body > footer a{
+  color: #ccc;
+  text-decoration: none;
+}
+
+body > header a:hover, body > footer a:hover{
   color: #fff;
 }
 
@@ -70,15 +76,18 @@ main {
 aside header{
   border-bottom: 1px solid #ccc;
   color: #ccc;
-  font-weight: 300;
   margin: 0 0 1.5em 0;
 }
 aside header h1{
   font-size: 2em;
+  font-style: italic;
+  font-weight: 500;
   margin: 0;
 }
 aside header h2{
   font-size: 1.25em;
+  font-style: italic;
+  font-weight: 500;
   margin: 0;
 }
 aside .version{
@@ -184,7 +193,7 @@ a, a:active, a:focus {
 
 
 @media print{
-  body > header,aside{
+  body > header,aside,footer{
     display: none;
   }
   body,article,main{
