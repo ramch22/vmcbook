@@ -2,28 +2,40 @@
 layout: chapter
 ---
 
-<section markdown="1" id="pre-flight-checklist">
-## Pre-Flight Checklist
-
-Use the following checklist to help ensure that you are properly prepared to complete the on-boarding process. See the below sections for additional details on checklist items.
-
-- [ ] Identify personnel who are necessary to complete the on-boarding process and deploy an SDDC.
-- [ ] Ensure that the VMware Cloud On AWS account has been fully funded.
-- [ ] Identify or create an AWS account and ensure that all technical personnel have access to the account.
-- [ ] Identify an AWS account for use in linking to VMware Cloud services.
-- [ ] Identify a VPC and Subnet within the AWS account to use for cross-linking to the SDDC.
-- [ ] Plan and allocate IP ranges for the SDDC, and determine a DNS strategy.
-- [ ] Plan connectivity to the SDDC.
-- [ ] Plan the network security policy for the SDDC
-- [ ] Determine a strategy for workload on-boarding or disaster recovery
-
+<section markdown="1" id="Overview">
+## Overview
+The following sections provide sample project plans for deploying various aspects of VMware Cloud on AWS. You should utilize these project plans to help ensure that you are properly prepared to complete the on-boarding process. Use only the project plans which are relevant to your specific needs, however the plans for Pre On-Boarding, On-Boarding, and Security should be reviewed by everyone.
 </section>
 
 
 
 
-<section markdown="1" id="details">
-## Checklist Details
+<section markdown="1" id="pre-on-boarding">
+## Pre On-Boarding
+The Pre On-Boarding phase of the project focuses on education and preparation. Please take the time to review the recommended reading materials and videos.
+
+<section markdown="1" id="pre-on-boarding-plan">
+### Project Plan
+<figure markdown="1" class="full-width">
+
+Owner | Due Date | Status | Task | Comments
+------|----------|--------|------|---------
+      |          |        | Review on-boarding presentations. | https://www.youtube.com/playlist?list=PLJNlZUnysgHHc72wp34SA2-4AjUtgwA91
+      |          |        | Review user guide. | https://docs.vmware.com/en/VMware-Cloud-on-AWS/index.html
+      |          |        | Review hands-on guide. | https://dspinhirne.github.io/vmcbook/
+      |          |        | Identify personnel required for on-boarding. | 
+      |          |        | Fund User/Fund Owner must complete user profile in my.vmware.com account (all items within your profile with red *). | 
+      |          |        | Identify or create a customer-owned AWS account. | 
+      |          |        | Identify AWS region for SDDC deployment. | 
+      |          |        | Identify or create VPC within above region. | This is for SDDC cross-linking.
+      |          |        | Identify or create a dedicated subnet in the desired availability zone within above VPC. | This is for SDDC Cross-Account ENIs. Dedicated /26 minimum.
+      |          |        | Identify SDDC Management IP address range. | /23 scales to 27 hosts, /20 scales to 251 hosts.
+      |          |        | Identify SDDC Compute network IP address range(s). | This is for network segments in the compute network. minimum /30, maxiumum /22 per segment.
+      |          |        | Identify strategy for integrating custom DNS servers with the SDDC. | e.g. create within SDDC or integrate with on-prem.
+      |          |        | Identify strategy for connectivity to the SDDC (i.e. IPSec VPN or Direct Connect) | 
+
+</figure>
+</section>
 
 <section markdown="1" id="personnel">
 ### Personnel Required for On-Boarding
@@ -46,20 +58,20 @@ Once the Fund Owner has completed their my.vmware.com profile, the next step is 
 </section>
 
 <section markdown="1" id="aws-acct">
-### AWS Account
+### Customer-Owned AWS Account
 One of the requirements of the VMware Cloud On AWS service is that all deployed SDDCs be linked to a customer's dedicated  AWS account. If there is a preexisting account then it may be used for the cross-linking. However, if there is no account in place then one must be created prior to on-boarding.
 
 Once an AWS account has been identified, then the next step is to ensure that all technical personnel have been added to the account and that they have been configured with the permissions necessary to properly manage the account. At minimum, there must be one user within the AWS account who has sufficient permissions to execute the CloudFormation template which performs the cross-linking to the SDDC.
 
 </section>
 
-<section markdown="1" id="vpc-and-subnet-selection">
-### VPC and Subnet Selection
-Within the AWS region targeted for the SDDC deployment, a VPC and Subnet are required in order to facilitate cross-linking to the SDDC. Here are some things to consider when selecting these resources:
-* The choice of subnet will determine the Availability Zone (AZ) in which the SDDC will be deployed. The SDDC will be deployed within the same AZ as this subnet.
-* As part of the SDDC deployment, a series of ENIs will be created for use by the hosts of the SDDC. It is recommended that a dedicated subnet be chosen to facilitate the account linking, and that the subnet be large enough to facilitate 1 IP address for every current (and future) host of the SDDC. Typically, a /26 is recommended.
-* These ENIs exist within the customer account, and the customer has full access to apply security groups to them or to delete them outright. These actions can permanently undermine connectivity between the AWS environment and the SDDC.
-* Traffic between the SDDC and the AWS environment will not be billable if the traffic stays within the same AZ; cross-AZ traffic will be billable. This is per the normal [billing policies](https://aws.amazon.com/govcloud-us/pricing/data-transfer/) for details) of AWS.
+<section markdown="1" id="region-vpc-subnet-selection">
+### Region, VPC, and Subnet Selection
+Each SDDC will be deployed within a specific AWS region. Within this region, a VPC and Subnet are required in order to facilitate cross-linking to the SDDC. Here are some things to consider when selecting these resources:
+* The choice of subnet will determine the Availability Zone (AZ) in which the SDDC will be deployed. The base cluster of the SDDC will be deployed within the same AZ as this subnet.
+* As part of the SDDC deployment, a series of Cross-Account ENIs will be created for use by the hosts of the SDDC. It is recommended that a dedicated subnet be chosen to facilitate the account linking and that the subnet be large enough to facilitate 1 IP address for every current (and future) host of the SDDC. Typically, a dedicated /26 is recommended.
+* The Cross-Account ENIs exist within the customer-owned AWS account, and the customer has full access to apply security groups to them or to delete them outright. These actions can permanently undermine connectivity between the AWS environment and the SDDC.
+* Traffic between the SDDC and the AWS environment will not be billable if the traffic stays within the same AZ; cross-AZ traffic will be billable to the customer-owned AWS account. This is per the normal [billing policies](https://aws.amazon.com/govcloud-us/pricing/data-transfer/) for details) of AWS.
 
 </section>
 
@@ -72,9 +84,9 @@ As part of the SDDC deployment process you are required to specify an IP range w
 * Uniqueness - You should ideally provision an IP range which is unique within your organization. This is particularly important if you will be connecting to your SDDC via a VPN or Direct Connect, or if you are cross-linking to a production VPC.
 * Ability to summarize - Ideally this block should be a subnet of some larger space which is allocated to the SDDC as a whole. By subnetting a larger dedicated supernet you will gain the ability to simplify routing between your on-premises environment and the SDDC, and you will potentially simplify network security policies used to secure the SDDC.
 
-Another important aspect to consider is DNS services within the SDDC. By default, the SDDC is configured to used public DNS severs, however, these settings may be changed. Here are a few key considerations for planning DNS services for the SDDC:
+Another important aspect to consider are DNS services within the SDDC. By default, the SDDC is configured to used public DNS severs. These settings may be changed, however. Here are a few key considerations for planning DNS services for the SDDC:
 
-* The DNS servers must be reachable; either via public IPs or via the cross-linked VPC or the on-premise environment. DNS servers may also be deployed within the SDDC itself.
+* The DNS servers must be reachable; either via public IPs or via the cross-linked VPC or IPSec/DirectConnect to the on-premise environment. DNS servers may also be deployed within the SDDC itself.
 * The DNS servers must support recursive queries.
 * The SDDC is pre-configured to internally resolve hosts within the vmc.local domain. All other domains require an external DNS server.
 * Network segments within the Compute Network which have DHCP enabled will use the DNS servers configured on the SDDC.
@@ -92,14 +104,154 @@ Some examples of possible internal resources required per strategy are as follow
 
 </section>
 
-<section markdown="1" id="planning-security">
+</section>
+
+
+
+
+<section markdown="1" id="on-boarding">
+## On-Boarding
+On-Boarding focuses on service activation and SDDC deployment. 
+
+<section markdown="1" id="on-boarding-plan">
+### Project Plan
+<figure markdown="1" class="full-width">
+
+Owner | Due Date | Status | Task | Comments
+------|----------|--------|------|---------
+      |          |        | Create cloud services Organization (Org). | 
+      |          |        | Create Term Subscription. | i.e. 1-year or 3-year reservation.
+      |          |        | Instantiate SDDC with information gathered during Pre-Onboarding stage. | 
+      |          |        | Create Compute network segment(s) within the SDDC. | 
+  
+</figure>
+</section>
+
+</section>
+
+
+
+<section markdown="1" id="security">
+## Security
+Security tasks will be performed during different phases of the deployment. Use your best judgement on when deciding at which phase to perform each task.
+
+
+<section markdown="1" id="security-plan">
+### Project Plan
+<figure markdown="1" class="full-width">
+
+Owner | Due Date | Status | Task | Comments
+------|----------|--------|------|---------
+      |          |        | Plan security policy for SDDC Management network (Gateway Firewall). | 
+      |          |        | Plan security policy for SDDC Compute Network (Gateway Firewall). | 
+      |          |        | Plan security policy for SDDC Compute Network (Distributed Firewall). | 
+      |          |        | Identify or create IAM user to run CloudFormation Template. | 
+      |          |        | Review CloundFormation Temaplate required for account linking.  | 
+      |          |        | Review IAM roles created by CloudFormation Template. | 
+
+</figure>
+</section>
+
+<section markdown="1" id="planning-network-security">
 ### Planning Network Security Policy
-By default, the gateway firewalls of the SDDC are configured to deny all traffic. Firewall rules must be specifically created to permit access; this includes both traffic to and from the public internet as well as traffic between the cross-linked VPC and any VPNs or Direct Connects which have been configured. As such, and important part of the planning process is to determine a basic security policy for use within the SDDC. Here are some things to consider:
+By default, the gateway firewalls of the SDDC are configured to deny all traffic. Firewall rules must be specifically created to permit access; this includes both traffic to and from the public internet as well as traffic between the cross-linked VPC and any VPNs or Direct Connects which have been configured. As such, and important part of the planning process is to determine a basic security policy for use within the SDDC. 
+
+Here are some things to consider:
 * Determine who within your organization is required to review and approve security policy decisions.
 * Determine how the SDDC will be accessed remotely, from where, and what source/destination IP addresses and TCP/UDP ports are required to facilitate the connectivity.
 * Determine what services will be accessed within the on-premises and AWS environments from workloads within the SDDC.
 * Understand that the gateway firewalls filter traffic in both directions. This means that security policy must be explicitly defined for inbound requests as well as for outbound requests initiated from the SDDC.
 
+</section>
+
+</section>
+
+
+
+
+<section markdown="1" id="ipsec-vpn">
+## IPSec VPN
+Planning for IPSec VPN is only required if you plan on implementing it.
+
+<section markdown="1" id="ipsec-vpn-plan">
+### Project Plan
+<figure markdown="1" class="full-width">
+
+Owner | Due Date | Status | Task | Comments
+------|----------|--------|------|---------
+      |          |        | Identify VPN type to create (policy-based or route-based). | 
+      |          |        | Identify VPN endpoint(s) to connect to SDDC edge. | 
+      |          |        | Identify networks within SDDC to include within VPN. | for policy-based vpn only
+      |          |        | Identify remote networks to include within VPN policy. | for policy-based vpn only
+      |          |        | Identify BGP peering address space for the VTI(s). | for route-based vpn only
+      |          |        | Identify BGP ASNs to be used for SDDC. | for route-based vpn only
+      |          |        | Identify on-prem routes to be advertised to the SDDC. | for route-based vpn only
+      |          |        | Create or adjust prefix-lists or other filters for BGP. | for route-based vpn only
+
+</figure>
+</section>
+
+</section>
+
+
+
+
+<section markdown="1" id="dx">
+## Direct Connect
+Planning for Direct Connect is only required if you plan on implementing it.
+
+<section markdown="1" id="dx-plan">
+### Project Plan
+<figure markdown="1" class="full-width">
+
+Owner | Due Date | Status | Task | Comments
+------|----------|--------|------|---------
+      |          |        | Identify Direct Connect circuit(s) to be connecte to the SDDC. | 
+      |          |        | Identify BGP peering address space for the Direct Connect Private VIF(s). | 
+      |          |        | Identify BGP ASNs to be used for Direct Connect Private VIF(s). | 
+      |          |        | Identify BGP ASNs to be used for Direct Connect Private VIF(s). | 
+      |          |        | Identify on-prem routes to be advertised to the SDDC. | 
+      |          |        | Create or adjust prefix-lists or other filters for BGP. | 
+
+</figure>
+</section>
+
+</section>
+
+
+
+
+<section markdown="1" id="vidm">
+## vIDM
+Planning for vIDM is only required if you plan on implementing 2-factor authentication to the VMWare Cloud console itself.
+
+<section markdown="1" id="vidm-plan">
+### Project Plan
+<figure markdown="1" class="full-width">
+
+Owner | Due Date | Status | Task | Comments
+------|----------|--------|------|---------
+      |          |        | Review VMware Identity Manager documentation. | https://docs.vmware.com/en/VMware-Identity-Manager/services/com.vmware.vidm-cloud-deployment/GUID-75670D52-DAB5-404A-9C92-3C35C5DA6438.html
+      |          |        | Identify service account that will be used for binding. | 
+      |          |        | Identify users and groups to be granted access. | 
+      |          |        | Identify IT Admin who will deploy on-prem component and initial configuration tasks. | https://docs.vmware.com/en/VMware-Identity-Manager/services/com.vmware.vidm-cloud-deployment/GUID-3BE4CD76-9AD4-4B7C-BFD9-33B05D0AA244.html
+      |          |        | Identify integration type, Active Directory or 3rd Party IdP. | 
+      |          |        | Create Windows instance for VMware Identity Manager installation. | https://docs.vmware.com/en/VMware-Identity-Manager/services/identitymanager-connector-win/GUID-06085CBA-AF2C-41B6-B2E3-DA65212BAABF.html
+      |          |        | Identify IP address for on-prem connector. | 
+      |          |        | Create DNS records (A and PTR). | https://docs.vmware.com/en/VMware-Identity-Manager/services/com.vmware.vidm-cloud-deployment/GUID-D4AFABF4-5115-4AB1-BEFC-EA5767A34A5C.html#GUID-D4AFABF4-5115-4AB1-BEFC-EA5767A34A5C
+      |          |        | Identify SSL method (self-signed, internal-signed, 3rd party-signed). | 
+      |          |        | Identify corporate proxy requirements. | 
+      |          |        | Verify outbound firewall allows 443 from on-prem appliance. | https://docs.vmware.com/en/VMware-Identity-Manager/services/com.vmware.vidm-cloud-deployment/GUID-90BB7E45-4608-4935-9266-D2D5FABD28CE.html
+      |          |        | Verify port requirements. | https://docs.vmware.com/en/VMware-Identity-Manager/services/com.vmware.vidm-cloud-deployment/GUID-90BB7E45-4608-4935-9266-D2D5FABD28CE.html
+      |          |        | Identify Security Admin who will configure integration to Identity Source | 
+      |          |        | Create backend enablement ticket. | 
+      |          |        | Create VMware Identity Manager tenant. | 
+      |          |        | Configure VMware Identity Manager tenant. | 
+      |          |        | Verify VMware Identity Manager functionality. | 
+      |          |        | Create backend mapping ticket. | 
+      |          |        | Verify successful access to VMware Cloud Services Portal using corporate credentials. | 
+
+</figure>
 </section>
 
 </section>
