@@ -17,16 +17,11 @@ urls:
     title: "Table of Contents"
     parent: "/"
     children:
-      - "/book/introduction.html"
       - "/book/getting-started.html"
       - "/book/vmconaws/"
       - "/book/cloud-services/"
       - "/book/networking/"
       - "/book/appendix/"
-    
-  "/book/introduction.html":
-    title: "Introduction"
-    parent: "/"
     
   "/book/getting-started.html":
     title: "Getting Started"
@@ -52,8 +47,13 @@ urls:
     title: "SDDC Network and Security"
     parent: "/book/vmconaws/"
     children:
+      - "/book/vmconaws/sddc-network-and-security/sddc-network-architecture.html"
       - "/book/vmconaws/sddc-network-and-security/ipsec-vpn.html"
       - "/book/vmconaws/sddc-network-and-security/direct-connect.html"
+  
+  "/book/vmconaws/sddc-network-and-security/sddc-network-architecture.html":
+    title: "SDDC Network Architecture"
+    parent: "/book/vmconaws/"
   
   "/book/vmconaws/sddc-network-and-security/ipsec-vpn.html":
     title: "IPSec VPN"
@@ -68,10 +68,15 @@ urls:
     parent: "/book/vmconaws/"
     children:
       - "/book/vmconaws/network-design-patterns/transit-vpc-and-tgw.html"
+#      - "/book/vmconaws/network-design-patterns/load-balancing.html"
 
   "/book/vmconaws/network-design-patterns/transit-vpc-and-tgw.html":
     title: "Transit VPC and Transit Gateway"
     parent: "/book/vmconaws/"
+
+#  "/book/vmconaws/network-design-patterns/load-balancing.html":
+#    title: "Load Balancing"
+#    parent: "/book/vmconaws/"
   
   "/book/cloud-services/":
     title: "Cloud Services"

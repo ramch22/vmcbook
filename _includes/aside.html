@@ -5,7 +5,7 @@
         </header>
         <em class="updated-on">{% assign time = site.time | split: " " %}Updated On: {{ time[0] | replace: "-", "." }}</em>
         <nav>
-          <a href="{{ "/" | relative_url }}">Cover</a>
+          <a href="{{ "/" | relative_url }}">Foreword</a>
           <ol>
           {% for url in site.data.book.urls["/book/"].children %}
             {% assign urldata = site.data.book.urls[url] %}

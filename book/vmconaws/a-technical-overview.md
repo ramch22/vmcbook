@@ -78,7 +78,7 @@ Each SDDC is provided direct access to AWS services via a connection to a custom
 * By choosing an AWS account which has previously been connected to another SDDC, or
 * By creating a new connection to an AWS account
 
-The term "connected" simply means that the customer has granted permissions for the VMware Cloud On AWS service to enable routing between an SDDC and a [VPC]({{ site.data.links.aws.vpc_subnets }}) within the customer-owned AWS account. These permissions are granted via [IAM]({{ site.data.links.aws.iam }}) roles which are created within the connected account using a [CloudFormation]({{ site.data.links.aws.cloudformation }}) template. It is important to note that the person who is performing the account connection process must have sufficient permissions (eg. admin rights) within the AWS account in order to execute this CloudFormation template.
+The term "connected" simply means that the customer has granted permissions for the VMware Cloud On AWS service to enable routing between an SDDC and a [VPC]({{ site.data.links.aws.vpc_subnets }}) within the customer-owned AWS account. These permissions are granted via [IAM]({{ site.data.links.aws.iam }}) roles which are created within the connected account using a [CloudFormation]({{ site.data.links.aws.cloudformation }}) template. It is important to note that the person who is performing the account connection process must have sufficient permissions (e.g. admin rights) within the AWS account in order to execute this CloudFormation template.
 
 Key points to remember:
 * AWS services are managed through a customer-owned AWS account.
@@ -86,18 +86,18 @@ Key points to remember:
 * Account linking is performed when the user executes a CloudFormation template within their AWS account.
 * The CloudFormation template creates roles which enable VMware to manage SDDC cross-linking.
 
-Once a connection is established to the AWS account, it then becomes possible to configure a cross-link between an SDDC and a VPC within that account. The cross-link itself consists of a series of [Elastic Network Interfaces]({{ site.data.links.aws.eni }}) (ENI) which are attached to a Subnet within the VPC. It is these ENIs which provide the hosts of an SDDC with a network forwarding path to resources within the VPC. 
+Once a connection is established to the AWS account, it then becomes possible to configure a cross-link between an SDDC and a VPC within that account. The cross-link itself consists of a series of Cross-Account [Elastic Network Interfaces]({{ site.data.links.aws.eni }}) (ENI) which are attached to a Subnet within the VPC. It is these ENIs which provide the hosts of an SDDC with a network forwarding path to resources within the VPC. 
 
 <figure>
-  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/awsServiceIntegration.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/aws-service-integration.png' | relative_url }}">
   <figcaption>Integration with AWS Services</figcaption>
 </figure>
 
-The topic of SDDC cross-linking will be explored in more detail later on, but for now it is sufficient to keep the following in mind when selecting a VPC/Subnet for cross-linking:
+The topic of SDDC cross-linking will be explored in more detail in [later chapters]({{ "/book/vmconaws/sddc-network-and-security/" | relative_url }}), but for now it is sufficient to keep the following in mind when selecting a VPC/Subnet for cross-linking:
 
 * The VPC must exist within the same Region which is planned to house the SDDC.
 * The Subnet must be sufficiently large to accommodate one ENI per host within the SDDC. Typically, a /26 is the minimum recommended size for the Subnet.
-* Subnets are associated with an [Availability Zone]({{ site.data.links.aws.regions_az }}) (AZ), therefore the choice of Subnet determines the Availability Zone into which the SDDC hardware is provisioned. The purpose of this is to avoid cross-AZ bandwidth charges between the SDDC and the Subnet used for cross-linking (see AWS [billing policies]({{ site.data.links.aws.data_transfer }}) for details).
+* Subnets are associated with an [Availability Zone]({{ site.data.links.aws.regions_az }}) (AZ), therefore the choice of Subnet determines the Availability Zone into which the base cluster of the SDDC is provisioned. The purpose of this is to avoid cross-AZ bandwidth charges between the SDDC and the Subnet used for cross-linking (see AWS [billing policies]({{ site.data.links.aws.data_transfer }}) for details).
 * It is recommended to use a dedicated Subnet for cross-linking. The purpose of this is to ensure that IP addresses within the Subnet are not consumed by other services (e.g. other EC2 instances) thus preventing ENIs for new hosts from being added as the SDDC grows. Secondary to that, using a dedicated Subnet helps prevent the situation where an AWS admin accidentally deletes or otherwise modifies the ENIs used for cross-linking.
 * It is possible to cross-link multiple SDDCs to the same AWS account. If you plan to do this, then it is vital to ensure that you do not create IP addressing conflicts by using overlapping IP address ranges between the SDDCs. This is particularly relevant if you plan to cross-link multiple SDDCs to the same VPC.
 
@@ -119,7 +119,7 @@ In order to prevent the users from modifying the infrastructure components of th
 Resource management within vCenter is enforced through the use of Resource Pools. Using this model, infrastructure-level appliances exist within one Resource Pool while compute workloads exist within another. The cloudAdmin role does not have permissions to modify the resources within the management pool.
 
 <figure>
-  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/vcenterRP.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/vcenter-rp.png' | relative_url }}">
   <figcaption>Resource Pools</figcaption>
 </figure>
 
@@ -131,7 +131,7 @@ Resource management within vCenter is enforced through the use of Resource Pools
 Access to storage is managed using a similar model as Resource Pools. Within an SDDC, the vSAN cluster has been modified to present two logical Datastores; one for the infrastructure appliances, and another for compute workloads. As with the Resource Pool model, the cloudAdmin role does not have access to the Datastore used by the infrastructure appliances.
 
 <figure>
-  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/vcenterDS.png' | relative_url }}">
+  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/vcenter-ds.png' | relative_url }}">
   <figcaption>vSAN Datastores</figcaption>
 </figure>
 
@@ -228,7 +228,7 @@ vMotion using HLM, while possible, also imposes certain restrictions such as req
 ## Active Directory Integration
 It is common for users to require Active Directory integration with the SDDC. This use case is supported in two ways:
 * Using HLM, backed by an on-premises PSC service, which provides single sign-on for users.
-* Adding an authenication source directly to vCenter within the SDDC. The authentication source may be either an on-premises service or hosted as a workload within the SDDC.
+* Adding an authentication source directly to vCenter within the SDDC. The authentication source may be either an on-premises service or hosted as a workload within the SDDC.
 
 </section>
 
@@ -238,83 +238,46 @@ It is common for users to require Active Directory integration with the SDDC. Th
 <section markdown="1" id="sddc-networking">
 ## SDDC Networking
 
-This section covers the network architecture of the SDDC itself. Network integrations between the SDDC and other environments are discussed in the next section. 
+<section markdown="1" id="sddc-network-architecture">
+### Network Architecture
+VMware utilizes [NSX-t]({{site.data.links.vmw.nsxt}}) to build a logical overlay network on top of the hardware hosts of the SDDC. There are 2 tiers of routing within the SDDC. At the top tier is the tier-0 edge router, which acts as the north-south gateway for the entire SDDC. Below that are the tier-1 routers (the MGW and CGW), which act as the north-south gateways for their respective networks. 
 
-<section markdown="1" id="sddc-as-viewed-by-aws">
-### An SDDC as Viewed by AWS
-In order to understand the networking environment in which the SDDC resides, we must first consider the underlay environment which is provided by AWS. The following diagram illustrates the view of the SDDC from the perspective of AWS.
+There are 2 layers of firewalling in the SDDC. The first layers is provided by the gateway firewalls, which are designed to protect the north-south border of the SDDC. The gateway firewalls have a "default deny" policy and are implemented at the MGW (for the management network) and at the tier-0 edge (for the compute network). The second layer of firewalling is provided by the distributed firewall. The distributed firewall is enforced at the vNIC level of every VM within the compute network and is designed to enable filtering both north-south and east-west. The distributed firewall is part of the NSX Advanced feature set and has a "default permit" policy. This policy effectively disables the distributed firewall unless the SDDC administrator specifically creates "deny" rules.
 
-<figure id="fig-sddc-underlay">
-  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/sddcUnderlay.png' | relative_url }}">
-  <figcaption>An SDDC as Viewed by AWS</figcaption>
+The routing and network security models of the SDDC are illustrated below.
+
+<figure>
+  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/sddc-networking.png' | relative_url }}">
+  <figcaption>SDDC Network Architecture</figcaption>
 </figure>
 
-Despite the fact that the hosts of the SDDC are bare-metal hardware, the AWS infrastructure treats them as if they were EC2 instances. This means that the hosts themselves are tied to an AWS account, and that their networking stack is based upon the VPC technology used within AWS. The AWS account which is used for the hosts of the SDDC is one which is owned by VMware, but is dedicated to the VMware Cloud Org which contains the SDDC.
-
-Per the <a class="xref" href="#fig-sddc-underlay"></a>, each SDDC resides within a dedicated VPC which is owned by this AWS account. As with EC2, the hosts of the SDDC use the Internet Gateway for their public connectivity and the Virtual Private Gateway for access to Direct Connect Private VIF.
-
-</section>
-
-<section markdown="1" id="sddc-overlay-logical-network">
-### SDDC Overlay Logical Network
-Once the hosts of the SDDC have been provisioned, VMware builds the SDDC in such a way as to abstract the details away from the underlying AWS infrastructure.
-The end result is an overlay network which is design as follows:
-
-<figure id="fig-sddc-logical-networking">
-  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/sddcNetworkArch.png' | relative_url }}">
-  <figcaption>SDDC Logical Networking</figcaption>
-</figure>
-
-In <a class="xref" href="#sddc-logical-networking"></a> we see the overlay network of the SDDC has 2 levels of routing. At the top level is an NSX tier-0 router which acts as the north-south border device for the entire SDDC. Below that are the NSX tier-1 routers, known as the Management Gateway (MGW) and Compute Gateway (CGW), which act as the gateways for the management and compute networks respectively.
-
-Internally, the SDDC is utilizing NSX as a means of abstracting its private networks away from the underlying VPC. This abstraction provides the SDDC with additional functionality not normally available to native AWS workloads.
-
-As <a class="xref" href="#sddc-logical-networking"></a> indicates, the Management Network is used by the infrastructure components of the SDDC. Due to the permissions model of the service, the layout of this network may not be altered. The Compute Network, on the other hand,  is used by the compute workloads of the SDDC. Within this network, customers have the ability to add and remove network segments as needed.
-
-</section>
-
-<section markdown="1" id="network-security">
-### Network Security
-The diagram below illustrates the network security implementation within the SDDC. There are 2 layers of firewalling: the NSX Gateway Firewall, and the NSX Distributed Firewall.
-
-<figure id="fig-network-security">
-  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/sddcNetworkSecurity.png' | relative_url }}">
-  <figcaption>Network Security</figcaption>
-</figure>
-
-Gateway firewalling is designed to protect the north-south border of the SDDC and is implemented in 2 places. For the the Management Network gateway, firewalling is implemented at the uplink interface of the MGW. Per the permissions model of the service, users are restricted on which services may be exposed through the management gateway firewall. For the Compute Network, gateway firewalling is enforced at the uplink interface of the tier-0 edge. Users have full permissions to dictate security policy of the gateway firewalling for the Compute Network.
-
-The gateway firewalls have a “default deny” policy, which means that access must be specifically permitted. This applies to both inbound and outbound traffic. This means that in order to initiate communications outbound from the SDDC, the firewall policy must be configured to explicitly permit the connectivity.
-
-Just as the Gateway Firewall is designed to protect the north-south boundary of the SDDC, the Distributed Firewall is designed to filter east-west traffic within the SDDC itself. The Distributed Firewall may be thought of as a centrally-managed, transparent, in-line firewall which protects all workloads within the Compute Network. Its purpose is to enable the administrator to enforce network security at the absolute edge of the network.
-
-In a traditional network, security is enforced by a centralized appliance. This means that, typically, the subnets of a network are designed to reflect application logic.
-
-<a class="xref" href="#fig-network-security"></a> follows this planning logic with separate subnets designed to isolate the 2 tiers of an application. With the Distributed Firewall, since security is enforced at the vNIC level, rules may be defined to control traffic flows east-west without requiring a centralized appliance. This effectively decouples network security from the structure of the underlying network making it possible to completely flatten the network design without impacting network security. This decoupling of network security from network design provides the security administrator with immense flexibility when it comes to implementing security policy within the SDDC.
-
+Additional details on the network and security model of the SDDC are covered in [later chapters]({{ "/book/vmconaws/sddc-network-and-security/" | relative_url }}) of this guide.
 </section>
 
 <section markdown="1" id="dns-and-dhcp">
-#### DNS and DHCP
-DNS forwarding and caching services are provided to the SDDC via NSX. These services are implemeted as a pair of DNS servers; one which serves the Management Network and another which serves the Compute Network. By default, these servers will forward requests to public DNS servers, however, users may configure custom DNS servers if so desired. For the Management Network, a single DNS server may be provided while for the Compute Network, multiple DNS servers may be specified (1 per DNS zone). It should be noted that DNS requests for the SDDC will appear to originate from the DNS service IPs. If custom DNS servers are configured within the SDDC, and these servers are protected by firewalls, then it will be important to ensure that the DNS service IPs are permitted through the firewall.
+### DNS and DHCP
+DNS forwarding and caching services are provided to the SDDC via NSX. These services are implemented as a pair of DNS servers; one which serves the Management Network and another which serves the Compute Network. By default, these servers will forward requests to public DNS servers, however, users may configure custom DNS servers if so desired. For the Management Network, a single DNS server may be provided while for the Compute Network, multiple DNS servers may be specified (1 per DNS zone). It should be noted that DNS requests for the SDDC will appear to originate from the DNS service IPs. If custom DNS servers are configured within the SDDC, and these servers are protected by firewalls, then it will be important to ensure that the DNS service IPs are permitted through those firewalls.
 
-NSX provides basic DHCP services to the Compute Network of the SDDC and these services are enabled on a per-segment basis at the time of its creation. As part of the DHCP lease, clients will be provided the DNS service IP for the Compute Network as their DNS server.
-
+NSX provides basic DHCP services to the Compute Network of the SDDC and these services are enabled on a per-segment basis at the time the segment is created. As part of the DHCP lease, clients will be provided the DNS service IP for the Compute Network as their DNS server.
 </section>
 
+<section markdown="1" id="ipsec-vpn">
+### IPSec VPN
+In the majority of setups, customers wish to maintain some sort of permanent means of direct connectivity between the SDDC and their on-premises environment. IPSec VPN is the most common means of accomplishing this. IPSec VPN provides secure connectivity to the private IP address ranges of the SDDC, and is implemented with a tunnel to the edge router. 
+
+IPSec VPN is detailed in [later chapters]({{ "/book/vmconaws/sddc-network-and-security/" | relative_url }}) of this guide.
 </section>
 
+<section markdown="1" id="direct-connect">
+### Direct Connect
+For customers who want a high-speed private connection into their SDDC, VMware Cloud on AWS supports AWS [Direct Connect]({{ site.data.links.aws.dx }}). As with all AWS services, Direct Connect will be provisioned within the customer-owned AWS account. It is important to note that SDDCs may utilize **existing** Direct Connect services. There is no need to provision a dedicated Direct Connect for the SDDC. Utilizing a Direct Connect is the simple matter of provisioning a new [Private VIF]({{ site.data.links.aws.dx_vif }}) and then allocated it to the VMware-owned AWS account which is associated to the parent Org of the SDDC. This account is visible from the Direct Connect interface of the SDDC within the [VMC console]({{ site.data.links.vmw.vmc }}).
 
-
-
-<section markdown="1" id="sddc-interconnectivity">
-## SDDC Interconnectivity
-
-Now that the high-level details of the SDDC network architecture are understood, the next step is to discuss how the SDDC connects to the outside world.
+Direct Connect integration is detailed in [later chapters]({{ "/book/vmconaws/sddc-network-and-security/" | relative_url }}) of this guide.
+</section>
 
 <section markdown="1" id="ip-admin">
 ### The Importance of Proper IP Administration
-All SDDCs will be cross-linked to a VPC within the customer's AWS account but may also be connected to other networks (such as an on-premises environment). In order to ensure that the SDDC can communicate with other interconnect networks, it is vital that IP addressing be properly planned. IP ranges should be unique and non-overlapping between the SDDC and any networks to which it will be connected. As such, one of the most critical pieces of the design process is proper planning of IP address usage.
+All SDDCs will be cross-linked to a VPC within the customer-owned AWS account but may also be connected to other networks (such as an on-premises environment). In order to ensure that the SDDC can communicate with other interconnect networks, it is vital that IP addressing be properly planned. IP ranges should be unique and non-overlapping between the SDDC and any networks to which it will be connected. As such, one of the most critical pieces of the design process is proper planning of IP address usage.
 
 Though not required, it is a good practice to allocate IP address space in large, contiguous chunks. The following table provides an example IP Administration plan.
 
@@ -333,51 +296,6 @@ Supernet     | Subnet level-1 | Subnet2 level-2 | Description
 
 <figcaption>An IP Administration Plan</figcaption> 
 </figure>
-
-</section>
-
-<section markdown="1" id="vpc-cross-linking">
-### VPC Cross-Linking
-SDDC's are given access to AWS services by cross-linking them to a VPC within a customer-owned AWS account. As indicated by the diagram below, cross-linking is made possible by ENIs which have been attached to a dedicated subnet within that VPC.
-
-<figure>
-  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/vpcCrossLink.png' | relative_url }}">
-  <figcaption>Cross-Link VPC</figcaption>
-</figure>
-
-It should be noted that the first cluster of the SDDC will be deployed within the same availability zone as the cross-link subnet. This is done in order to avoid cross-AZ bandwidth charges between the edge and the cross-link subnet itself. However, keep in mind that if the SDDC communicates with Subnets in other availability zones then cross-AZ bandwidth charges will be incurred within the customer-owned AWS account.
-
-
-Routing between the SDDC and the VPC is enabled by using static routes which are created on-demand as networks are added to the SDDC. These static routes are added to the **main routing table** of the customer VPC and use one of the cross-link ENI as the next-hop for the route. It is important to keep in mind that the next-hop ENI used for the static routes will always be that of the ESXi host which houses the active edge appliance of the SDDC. This means that if the edge were to migrate to a different host (as happens during a failover event or whenever the SDDC is upgraded) then the next-hop of the static routes will be updated to reflect this change.
-
-</section>
-
-<section markdown="1" id="ipsec-vpn">
-### IPSec VPN
-In the majority of setups, customers wish to maintain some sort of permanent means of direct connectivity between the SDDC and their on-premises environment. IPSec VPN is the most common means of accomplishing this.
-
-<figure id="fig-ipsec-vpn">
-  <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/ipsecVPN.png' | relative_url }}">
-  <figcaption>IPSec VPN</figcaption>
-</figure>
-
-IPSec VPN provides secure connectivity to the private IP address ranges of the SDDC, and is implemented with a tunnel to the edge router. There are 2 flavors of IPSec VPN available: policy-based VPN, and route-based VPN.
-
-Policy-based VPN is typically the easiest solution to implement, but requires that the network administrator manually configure the tunnel to permit specific source and destination IP ranges through. From a routing perspective, policy-based VPN is akin to managing static routes on your network. While it is possible to configure redundant tunnels with policy-based VPN, there is no ability to automatically fail over between tunnels.
-
-Route-based VPN is a bit more complex, involving the creation of virtual tunnel interfaces and BGP routing configurations, but is also much more flexible. With route-based VPN, you can create multiple, redundant tunnels and have BGP routing automatically fail over between them when needed. An additional benefit is that routing is dynamic, meaning that there is no need to manually adjust the IPSec configuration every time networks are added or removed from the SDDC.
-
-One note on redundancy. 
-
-In <a class="xref" href="#fig-ipsec-vpn"></a> above, we see 2 physical routers which are providing redundancy to the on-premises side of the connection, but both are terminating to the same edge within the SDDC. Although it isn’t obvious at first glance, the SDDC is providing redundancy as well, albeit at a lower layer. In the case of the SDDC, the edge is a distributed router which is implemented across redundant appliances which reside on separate hosts of the SDDC. In the event of a failure of the primary appliance, the edge router function will activate on the secondary appliance. This redundancy mechanism is built directly into NSX and allows edge routers to failover transparently when needed.
-
-</section>
-
-<section markdown="1" id="direct-connect">
-### Direct Connect
-For customers who want a high-speed private connection into their SDDC, VMware Cloud on AWS supports AWS [Direct Connect]({{ site.data.links.aws.dx }}). As with all AWS services, Direct Connect will be provisioned within the customer-owned AWS account. It is important to note that SDDCs may utilize **existing** Direct Connect services. There is no need to provision a dedicated Direct Connect for the SDDC. Utilizing a Direct Connect is the simple matter of provisioning a new [Private VIF]({{ site.data.links.aws.dx_vif }}) and then allocated it to the VMware-owned AWS account which is associted to the parent Org of the SDDC. This account is visible from the Direct Connect interface of the SDDC within the [VMC console]({{ site.data.links.vmw.vmc }}).
-
-Direct Connect integration is discussed in later sections of this guide.
 </section>
 
 </section>
@@ -386,7 +304,7 @@ Direct Connect integration is discussed in later sections of this guide.
 
 
 <section markdown="1" id="workload-onboarding">
-## Workload Onboarding
+## Workload On-Boarding
 
 In this section we will discuss the high-level process for the two most popular methods of getting workloads into an SDDC. 
 
@@ -396,7 +314,7 @@ A greenfield deployment operates on the notion that the SDDC is a completely new
 
 1. Allocate IP address space for the SDDC - Determine the IP supernet which you will use for the SDDC as a whole. Carve out a portion of this range for the Management Network (the first /20 is a common practice). The remainder may be used piecemeal by the Compute Network. 
 
-2. Deploy the SDDC - Assuming all of the prequisites have been met then the SDDC may be deployed. 
+2. Deploy the SDDC - Assuming all of the prerequisites have been met then the SDDC may be deployed. 
 
 3. Establish secure connectivity - Once the SDDC is online, establish secure connectivity to it via IPSec VPN or Direct Connect. If this is a stand-alone environment then there may be no need to establish secure connectivity. In this case, vCenter may be accessed directly by its public IP address (see the next step).
 
@@ -418,7 +336,7 @@ In order to address data center evacuation scenarios, VMware has developed a ser
 
 
 * Migration scheduling - enables migrations to be scheduled off-hours.
-* WAN optimization and data de-deduplication - greatly reduces the time and network bandwidth required to perform migrations.
+* WAN optimization and data de-duplication - greatly reduces the time and network bandwidth required to perform migrations.
 * [Layer-2](https://en.wikipedia.org/wiki/Data_link_layer) network extension - enables workloads to migrate without requiring IP address changes.
 
 This service is discussed in detail within the [HCX]({{ "/book/cloud-services/hcx/" | relative_url}}) section of this guide.
