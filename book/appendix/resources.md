@@ -7,10 +7,10 @@ layout: chapter
 
 <figure markdown="1" class="full-width">
 <table>
-<thead><tr><th>Resource</th><th>Description</th></tr></thead>
+<thead><tr><th>Description</th><th>Link</th></tr></thead>
 <tbody>
 {% for link in site.data.links.other %}
-<tr><td><a href="{{ link[1].url }}">{{ link[1].title }}</a></td><td>{{ link[1].desc }}</td></tr>
+<tr><td>{{ link[1].desc }}</td><td><a href="{{ link[1].url }}">{{ link[1].url }}</a></td></tr>
 {% endfor %}
 </tbody>
 </table>
@@ -24,10 +24,10 @@ layout: chapter
 ## VMware Cloud
 <figure markdown="1" class="full-width">
 <table>
-<thead><tr><th>Resource</th><th>Description</th></tr></thead>
+<thead><tr><th>Description</th><th>Link</th></tr></thead>
 <tbody>
 {% for link in site.data.links.vmw %}
-<tr><td><a href="{{ link[1].url }}">{{ link[1].title }}</a></td><td>{{ link[1].desc }}</td></tr>
+<tr><td>{{ link[1].desc }}</td><td><a href="{{ link[1].url }}">{{ link[1].url }}</a></td></tr>
 {% endfor %}
 </tbody>
 </table>
@@ -42,10 +42,10 @@ layout: chapter
 
 <figure markdown="1" class="full-width">
 <table>
-<thead><tr><th>Resource</th><th>Description</th></tr></thead>
+<thead><tr><th>Description</th><th>Link</th></tr></thead>
 <tbody>
 {% for link in site.data.links.aws %}
-<tr><td><a href="{{ link[1].url }}">{{ link[1].title }}</a></td><td>{{ link[1].desc }}</td></tr>
+<tr><td>{{ link[1].desc }}</td><td><a href="{{ link[1].url }}">{{ link[1].url }}</a></td></tr>
 {% endfor %}
 </tbody>
 </table>
