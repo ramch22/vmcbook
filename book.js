@@ -55,11 +55,15 @@ function exportCSV(figureID) {
   for (var i = 0; i < rows.length; i++) {
     var row = [], cols = rows[i].querySelectorAll("td, th");
     for (var j = 0; j < cols.length; j++){ 
-      row.push(cols[j].innerText);
+      var txt = cols[j].textContent;
+      txt.replace(/"/g, '""'); // escape quotes
+      txt.replace(/\n/g, ' '); // replace newlines with a space
+      row.push('"' + txt.trim() + '"'); // double quote the value
     }
-    csv.push(row.join("\t"));        
+    csv.push(row.join(","));        
   }
   csvFile = new Blob([csv.join("\n")], {type: "text/csv"});
+  // we create a temporary <a> for the download, click it, then delete it
   var downloadLink = document.createElement("a");
   downloadLink.download = figureID + ".csv";
   downloadLink.href = window.URL.createObjectURL(csvFile);
