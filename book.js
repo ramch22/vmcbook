@@ -45,7 +45,29 @@ function createTOC(){
       }
     }
   }
-} 
+}
+
+
+function exportCSV(figureID) {
+  var fig = document.getElementById(figureID);
+  var rows = fig.querySelectorAll("table tr");;
+  var csv = [];
+  for (var i = 0; i < rows.length; i++) {
+    var row = [], cols = rows[i].querySelectorAll("td, th");
+    for (var j = 0; j < cols.length; j++){ 
+      row.push(cols[j].innerText);
+    }
+    csv.push(row.join("\t"));        
+  }
+  csvFile = new Blob([csv.join("\n")], {type: "text/csv"});
+  var downloadLink = document.createElement("a");
+  downloadLink.download = figureID + ".csv";
+  downloadLink.href = window.URL.createObjectURL(csvFile);
+  downloadLink.style.display = "none";
+  document.body.appendChild(downloadLink);
+  downloadLink.click();
+  downloadLink.parentElement.removeChild(downloadLink);
+}
 
 
 window.onload = function() {

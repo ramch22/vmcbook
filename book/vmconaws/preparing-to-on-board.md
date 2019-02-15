@@ -2,9 +2,11 @@
 layout: chapter
 ---
 
-<section markdown="1" id="Overview">
-## Overview
-The following sections provide sample project plans for deploying various aspects of VMware Cloud on AWS. You should utilize these project plans to help ensure that you are properly prepared to complete the on-boarding process. Use only the project plans which are relevant to your specific needs, however the plans for Pre On-Boarding, On-Boarding, and Security should be reviewed by everyone.
+<section markdown="1" id="usage">
+## Usage
+The following sections provide sample project plans for deploying various aspects of VMware Cloud on AWS. You should utilize these project plans to help ensure that you are properly prepared to complete the on-boarding process. While not all plans may be relevant to your specific needs, the plans for Pre On-Boarding, On-Boarding, and Security should be reviewed by everyone.
+
+Plans are exportable to CSV format which may be imported into a spreadsheet application.
 </section>
 
 
@@ -34,6 +36,7 @@ Owner | Due Date | Status | Task | Comments
       |          |        | Identify strategy for integrating custom DNS servers with the SDDC. | e.g. create within SDDC or integrate with on-prem.
       |          |        | Identify strategy for connectivity to the SDDC (i.e. IPSec VPN or Direct Connect) | 
 
+<button onclick="exportCSV('pre-on-boarding-plan')" style="float:right;">Export</button>
 </figure>
 </section>
 
@@ -124,6 +127,7 @@ Owner | Due Date | Status | Task | Comments
       |          |        | Instantiate SDDC with information gathered during Pre-Onboarding stage. | 
       |          |        | Create Compute network segment(s) within the SDDC. | 
   
+<button onclick="exportCSV('on-boarding-plan')" style="float:right;">Export</button>
 </figure>
 </section>
 
@@ -149,6 +153,7 @@ Owner | Due Date | Status | Task | Comments
       |          |        | Review CloundFormation Temaplate required for account linking.  | 
       |          |        | Review IAM roles created by CloudFormation Template. | 
 
+<button onclick="exportCSV('security-plan')" style="float:right;">Export</button>
 </figure>
 </section>
 
@@ -188,6 +193,7 @@ Owner | Due Date | Status | Task | Comments
       |          |        | Identify on-prem routes to be advertised to the SDDC. | for route-based vpn only
       |          |        | Create or adjust prefix-lists or other filters for BGP. | for route-based vpn only
 
+<button onclick="exportCSV('ipsec-vpn-plan')" style="float:right;">Export</button>
 </figure>
 </section>
 
@@ -213,6 +219,7 @@ Owner | Due Date | Status | Task | Comments
       |          |        | Identify on-prem routes to be advertised to the SDDC. | 
       |          |        | Create or adjust prefix-lists or other filters for BGP. | 
 
+<button onclick="exportCSV('dx-plan')" style="float:right;">Export</button>
 </figure>
 </section>
 
@@ -251,6 +258,7 @@ Owner | Due Date | Status | Task | Comments
       |          |        | Create backend mapping ticket. | 
       |          |        | Verify successful access to VMware Cloud Services Portal using corporate credentials. | 
 
+<button onclick="exportCSV('vidm-plan')" style="float:right;">Export</button>
 </figure>
 </section>
 
