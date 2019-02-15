@@ -5,12 +5,12 @@ layout: chapter
 <section markdown="1" id="technical-overview">
 ## Technical Overview
 
-At its core, [HCX]({{ site.data.links.vmw.hcx }}) provides the ability to transparently migrate workloads between vSphere environments. Although this function enables a number of different business cases, the primary cases which will be the focus of this document are:
+At its core, [HCX]({{ site.data.links.vmw.hcx.url }}) provides the ability to transparently migrate workloads between vSphere environments. Although this function enables a number of different business cases, the primary cases which will be the focus of this document are:
 
 * Data center evacuations and/or workload migrations
 * Disaster recovery
 
-This guide will focus on HCX as applied to [VMware Cloud]({{ site.data.links.vmw.cloud }}) and is intended to provide supplemental documentation to the [official HCX user guide]({{ site.data.links.vmw.hcx_doc }}).
+This guide will focus on HCX as applied to [VMware Cloud]({{ site.data.links.vmw.cloud.url }}) and is intended to provide supplemental documentation to the [official HCX user guide]({{ site.data.links.vmw.hcx_doc.url }}).
 
 
 <section markdown="1" id="hcx-components">
@@ -233,7 +233,7 @@ On-premises HCX will require access to the following network services:
 
 <section markdown="1" id="cloud-side-activation">
 ### Cloud-Side Activation
-Installation of HCX within an SDDC is performed from the "Add Ons" tab in the SDDC view of the [VMC Console]({{ site.data.links.vmw.vmc }}). Clicking on the "Deploy HCX" button for the specific SDDC will trigger the installation of the cloud-side HCX Manager within that SDDC. Activation keys are also generated from this interface. The activation key is required to activate the on-premises HCX Manager.
+Installation of HCX within an SDDC is performed from the "Add Ons" tab in the SDDC view of the [VMC Console]({{ site.data.links.vmw.vmc.url }}). Clicking on the "Deploy HCX" button for the specific SDDC will trigger the installation of the cloud-side HCX Manager within that SDDC. Activation keys are also generated from this interface. The activation key is required to activate the on-premises HCX Manager.
 
 You should ensure that if you are running an add blocker in your browser that you whitelist connect.hcx.vmware.com.
 
@@ -242,7 +242,7 @@ You should ensure that if you are running an add blocker in your browser that yo
   <figcaption>Activate HCX</figcaption>
 </figure>
 
-The HCX Manager within the SDDC is protected by the gateway firewall of the MGW. You must permit access by adding a rule within the [VMC Console]({{ site.data.links.vmw.vmc }}).
+The HCX Manager within the SDDC is protected by the gateway firewall of the MGW. You must permit access by adding a rule within the [VMC Console]({{ site.data.links.vmw.vmc.url }}).
 
 <figure>
   <img src="{{ '/book/illustrations/cloud-services/hcx/activate/permitAccess.png' | relative_url }}">

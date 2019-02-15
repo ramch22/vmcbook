@@ -14,20 +14,20 @@ As part of the partnership with AWS, VMware maintains a master AWS account which
   <figcaption>VMware AWS Accounts</figcaption>
 </figure>
 
-Whenever an SDDC is provisioned, resources for that SDDC are created within the AWS sub-account for the Org. This model allows VMware to manage billing for SDDC consumption (hardware, bandwidth, [EBS]({{site.data.links.aws.ebs}}), etc...).
+Whenever an SDDC is provisioned, resources for that SDDC are created within the AWS sub-account for the Org. This model allows VMware to manage billing for SDDC consumption (hardware, bandwidth, [EBS]({{site.data.links.aws.ebs.url}}), etc...).
 
 </section>
 
 <section markdown="1" id="underlay-vpc">
 ### The SDDC Underlay VPC
-As part of the process for provisioning an SDDC it is required to provide the number of hosts for the SDDC base cluster and an IP address range to use for SDDC management. Using this information, VMware will create a new [VPC]({{site.data.links.aws.vpc_subnets}}) within the VMware-owned AWS account for that SDDC's Org. This VPC will be created using the SDDC management IP address range provided during the provisioning process and several subnets will be created within that VPC. VMware will then allocate hardware hosts for the SDDC and connect them to the subnets of that VPC.
+As part of the process for provisioning an SDDC it is required to provide the number of hosts for the SDDC base cluster and an IP address range to use for SDDC management. Using this information, VMware will create a new [VPC]({{site.data.links.aws.vpc_subnets.url}}) within the VMware-owned AWS account for that SDDC's Org. This VPC will be created using the SDDC management IP address range provided during the provisioning process and several subnets will be created within that VPC. VMware will then allocate hardware hosts for the SDDC and connect them to the subnets of that VPC.
 
 <figure>
   <img src="{{ '/book/illustrations/vmconaws/sddc-network-and-security/sddc-network-architecture/underlay-vpc.png' | relative_url }}">
   <figcaption>The Underlay VPC</figcaption>
 </figure>
 
-An [IGW]({{site.data.links.aws.igw}}) and VGW will also be created for this VPC. These gateways enable internet and Direct Connect connectivity to the VPC. 
+An [IGW]({{site.data.links.aws.igw.url}}) and VGW will also be created for this VPC. These gateways enable internet and Direct Connect connectivity to the VPC. 
 
 </section>
 
@@ -66,7 +66,7 @@ The AWS infrastructure is completely unlike a traditional switched network in th
 
 <section markdown="1" id="vpc-cross-link">
 ### The VPC Cross-Link
-Every SDDC must be cross-linked to a VPC within the customer-owned AWS account. This cross-linking is accomplished using the Cross-Account [ENI]({{site.data.links.aws.eni}}) feature of AWS and creates a connection between every host of the SDDC to a [subnet]({{site.data.links.aws.vpc_subnets}}) within the cross-linked VPC. This cross-link provides the SDDC with a network forwarding path to services maintained within the customer-owned AWS account.
+Every SDDC must be cross-linked to a VPC within the customer-owned AWS account. This cross-linking is accomplished using the Cross-Account [ENI]({{site.data.links.aws.eni.url}}) feature of AWS and creates a connection between every host of the SDDC to a [subnet]({{site.data.links.aws.vpc_subnets.url}}) within the cross-linked VPC. This cross-link provides the SDDC with a network forwarding path to services maintained within the customer-owned AWS account.
 
 <figure>
   <img src="{{ '/book/illustrations/vmconaws/sddc-network-and-security/sddc-network-architecture/cross-account-eni.png' | relative_url }}">
@@ -87,7 +87,7 @@ The Cross-Account ENIs are visible from the customer-owned AWS account (by viewi
 
 <section markdown="1" id="an-overview-of-nsx-networking">
 ### An Overview of NSX Networking
-As part of the standard SDDC software stack, VMware utilizes [NSX-t]({{site.data.links.vmw.nsxt}}) to create an overlay network atop the base-layer provided by AWS. The end result is a logical network architecture which is completely abstracted from the underlying infrastructure.
+As part of the standard SDDC software stack, VMware utilizes [NSX-t]({{site.data.links.vmw.nsxt_docs.url}}) to create an overlay network atop the base-layer provided by AWS. The end result is a logical network architecture which is completely abstracted from the underlying infrastructure.
 
 Network overlays operate on the notion of encapsulation; they hide network traffic between VMs within the overlay from the underlying infrastructure. Networking is full of examples of overlay networks. Older protocols, such as GRE and IPSec ESP, have been around for years and were designed to create network overlays (typically over a WAN). With the introduction of software defined networking, specialty protocols such as VXLAN, STT, and NVGRE were created to help alleviate some of the limitations of VLAN-based data center networks. In recent years a newer overlay protocol known as [GENEVE](https://tools.ietf.org/html/draft-gross-geneve-00) was introduced to address limitations with the first round of data center overlay protocols. NSX-t uses GENEVE as its overlay networking protocol within the SDDC.
 
@@ -134,7 +134,7 @@ As discussed previously, every host of the SDDC is connected to a VPC within the
   <figcaption>Edge Cross-Link</figcaption>
 </figure>
 
-Since we must always pass through the Edge SR whenever traffic leaves the SDDC, all traffic to and from the cross-linked VPC must pass through the active edge appliance of the SDDC. Since this edge appliance is a VM, it resides on a specific ESXi host. As such, it will always use the Cross-Account ENI for that host (as well as the local vDR for that host). It should be noted that the base cluster of the SDDC will be deployed within the same [Availability Zone]({{site.data.links.aws.regions_az}}) (AZ) as the cross-link subnet (the subnet which contains the Cross-Account ENIs). Since the edge appliances reside within the base cluster, cross-AZ bandwidth charges will be avoided between the edge and any resources within that same AZ.
+Since we must always pass through the Edge SR whenever traffic leaves the SDDC, all traffic to and from the cross-linked VPC must pass through the active edge appliance of the SDDC. Since this edge appliance is a VM, it resides on a specific ESXi host. As such, it will always use the Cross-Account ENI for that host (as well as the local vDR for that host). It should be noted that the base cluster of the SDDC will be deployed within the same [Availability Zone]({{site.data.links.aws.regions_az.url}}) (AZ) as the cross-link subnet (the subnet which contains the Cross-Account ENIs). Since the edge appliances reside within the base cluster, cross-AZ bandwidth charges will be avoided between the edge and any resources within that same AZ.
 
 Routing between the SDDC and the VPC is enabled through static routes which are created on-demand as networks are added to the SDDC. These static routes are added to the **main routing table** of the customer VPC and use one of the Cross-Account ENIs as the next-hop for the route. It is important to keep in mind that the next-hop ENI used for the static routes will always be that of the ESXi host which houses the active edge appliance of the SDDC. This means that if the edge were to migrate to a different host (as happens during a failover event or whenever the SDDC is upgraded) then the next-hop of the static routes will be updated to reflect this change. For this reason **it is not recommended** to manually copy these static routes to other routing tables of the VPC.
 
@@ -145,13 +145,13 @@ Routing between the SDDC and the VPC is enabled through static routes which are 
 It is important to understand the various uplinks in the SDDC and what traffic flows through them. This information is useful not only for understanding interconnectivity within the SDDC, but also in understanding how traffic exits the SDDC (and potentially incurs bandwidth charges). There are currently 3 uplinks from the tier-0 edge of the SDDC. These are described below.
 
 #### Internet Uplink
-The internet uplink provides the SDDC with internet connectivity via the [IGW]({{site.data.links.aws.igw}}) within the underlay VPC. The SDDC edge has a default route which points to the IGW as a next-hop, so will use this uplink for all unknown destination networks. Traffic over this uplink is billable and the charges will be passed through as part of the billing for the SDDC.
+The internet uplink provides the SDDC with internet connectivity via the [IGW]({{site.data.links.aws.igw.url}}) within the underlay VPC. The SDDC edge has a default route which points to the IGW as a next-hop, so will use this uplink for all unknown destination networks. Traffic over this uplink is billable and the charges will be passed through as part of the billing for the SDDC.
 
 #### VPC Uplink
 The VPC uplink connects the SDDC edge to the cross-linked VPC in the customer-owned AWS account. There is a static route on the SDDC edge for the private address space of the VPC which points to the VPC router as a next-hop. The SDDC administrator may also enable static routing of certain public AWS services (e.g. S3) over this uplink. Traffic over this uplink is non-billable only for AWS resources which are **within the same availability Zone** as the SDDC. Traffic to resources in other Availability Zones is billable and charges will be accrued on the customer-owned AWS account.
 
 #### Direct Connect Uplink
-This Direct Connect uplink is only used when [Direct Connect]({{site.data.links.aws.dx}}) private VIF is plumbed into the SDDC. The SDDC edge will use this uplink for whatever network prefixes are received via BGP over this uplink. Since Direct Connect is a resource which is managed by the customer-owned AWS account, bandwidth charges over this uplink will be accrued on the customer-owned AWS account.
+This Direct Connect uplink is only used when [Direct Connect]({{site.data.links.aws.dx.url}}) private VIF is plumbed into the SDDC. The SDDC edge will use this uplink for whatever network prefixes are received via BGP over this uplink. Since Direct Connect is a resource which is managed by the customer-owned AWS account, bandwidth charges over this uplink will be accrued on the customer-owned AWS account.
 </section>
 
 </section>

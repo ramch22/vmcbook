@@ -5,8 +5,8 @@ layout: chapter
 <section markdown="1" id="introduction">
 ## Introduction
 Although the SDDC is connected directly to a cross-link VPC, it is commonly required that it be able to securely connect to multiple additional VPCs as well. The most common means of achieving this are using the following solutions from AWS:
-* [Transit VPC]({{ site.data.links.aws.transit_vpc}})
-* [Transit Gateway]({{ site.data.links.aws.tgw}})
+* [Transit VPC]({{ site.data.links.aws.transit_vpc.url}})
+* [Transit Gateway]({{ site.data.links.aws.tgw.url}})
 
 These solutions, and their integration with the SDDC, are discussed in the following sections.
 
@@ -17,7 +17,7 @@ These solutions, and their integration with the SDDC, are discussed in the follo
 
 <section markdown="1" id="transit-vpc">
 ## Transit VPC
-A [Transit VPC]({{ site.data.links.aws.transit_vpc}}) is a special [VPCs]({{ site.data.links.aws.vpc_subnets}}) which enables a hub-and-spoke interconnetivity model for 2 or more branch networks within an AWS installation. It operates on the notion that the customer will create an IPSec VPN "overlay" network which will enable the Transit VPC to act as the hub in the design. This IPSec VPN overlay enables customers to overcome the normal limitations on VPCs which prohibit transitive routing (i.e. one VPC forwarding traffic between 2 other networks).
+A [Transit VPC]({{ site.data.links.aws.transit_vpc.url}}) is a special [VPCs]({{ site.data.links.aws.vpc_subnets.url}}) which enables a hub-and-spoke interconnetivity model for 2 or more branch networks within an AWS installation. It operates on the notion that the customer will create an IPSec VPN "overlay" network which will enable the Transit VPC to act as the hub in the design. This IPSec VPN overlay enables customers to overcome the normal limitations on VPCs which prohibit transitive routing (i.e. one VPC forwarding traffic between 2 other networks).
 
 <figure>
   <img src="{{ '/book/illustrations/vmconaws/network-design-patterns/transit-vpc-and-tgw/transit-vpc.png' | relative_url }}">
@@ -39,7 +39,7 @@ SDDC integration with a Transit VPC is simple and uses route-based IPSec VPN fro
 
 <section markdown="1" id="transit-gateway">
 ## Transit Gateway
-[Transit Gateway]({{ site.data.links.aws.tgw}}) is a new service from AWS which is designed to offer a high-speed hub in a hub-and-spoke design. Transit Gateway has an advantage over Transit VPC in that it dispenses with the need for an IPSec VPN overlay when connecting to branch VPCs. This high-speed direct link simplifies the configuration and eleminates the overhead and throughput limitations of IPSec encryption. 
+[Transit Gateway]({{ site.data.links.aws.tgw.url}}) is a new service from AWS which is designed to offer a high-speed hub in a hub-and-spoke design. Transit Gateway has an advantage over Transit VPC in that it dispenses with the need for an IPSec VPN overlay when connecting to branch VPCs. This high-speed direct link simplifies the configuration and eleminates the overhead and throughput limitations of IPSec encryption. 
 
 For non-VPC branch networks, IPSec VPN is still a requirement. Non-VPC branches would include:
 * On-Premises VPN endpoints

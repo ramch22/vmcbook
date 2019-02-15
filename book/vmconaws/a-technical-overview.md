@@ -7,7 +7,7 @@ layout: chapter
 
 <section markdown="1" id="concepts">
 ### Concepts
-[VMware Cloud on AWS]({{ site.data.links.vmw.vmcaws }}) is a managed cloud offering which provides dedicated VMware vSphere-based Software Defined Data Centers (SDDC) which are hosted within [AWS]({{ site.data.links.aws.aws }}) facilities. Prior to getting started with the service, it is critical to understand a few points.
+[VMware Cloud on AWS]({{ site.data.links.vmw.vmcaws.url }}) is a managed cloud offering which provides dedicated VMware vSphere-based Software Defined Data Centers (SDDC) which are hosted within [AWS]({{ site.data.links.aws.aws.url }}) facilities. Prior to getting started with the service, it is critical to understand a few points.
 * The service utilizes facilities and hardware which are owned and managed by AWS.
 * The service provides dedicated, private cloud environments in the form of an SDDC.
 * The hardware used for each SDDC is dedicated to that SDDC.
@@ -33,7 +33,7 @@ The Org is the top-level "container" for all SDDCs. This topic is discussed in-d
 
 <section markdown="1" id="aws-account">
 ### Amazon Web Services Account
-A major benefit of the service is its ability to provide direct access to AWS services. As such, it is required that all customers maintain a dedicated AWS account which will be used to access and manage these services.  If you are unsure of how to create an AWS account, then please refer to the [AWS Documentation]({{ site.data.links.aws.create_acct }}) for more information on the process.
+A major benefit of the service is its ability to provide direct access to AWS services. As such, it is required that all customers maintain a dedicated AWS account which will be used to access and manage these services.  If you are unsure of how to create an AWS account, then please refer to the [AWS Documentation]({{ site.data.links.aws.create_acct.url }}) for more information on the process.
 
 A few important points on the AWS account:
 
@@ -46,7 +46,7 @@ A few important points on the AWS account:
 
 <section markdown="1" id="aws-regions">
 ### AWS Regional Availability
-VMware Cloud on AWS is not available in all AWS regions. Please refer to the [roadmap]({{ site.data.links.vmw.vmcaws_roadmap }}) for a list of available regions.
+VMware Cloud on AWS is not available in all AWS regions. Please refer to the [roadmap]({{ site.data.links.vmw.vmcaws_roadmap.url }}) for a list of available regions.
 </section>
 
 <section markdown="1" id="sddc">
@@ -78,7 +78,7 @@ Each SDDC is provided direct access to AWS services via a connection to a custom
 * By choosing an AWS account which has previously been connected to another SDDC, or
 * By creating a new connection to an AWS account
 
-The term "connected" simply means that the customer has granted permissions for the VMware Cloud On AWS service to enable routing between an SDDC and a [VPC]({{ site.data.links.aws.vpc_subnets }}) within the customer-owned AWS account. These permissions are granted via [IAM]({{ site.data.links.aws.iam }}) roles which are created within the connected account using a [CloudFormation]({{ site.data.links.aws.cloudformation }}) template. It is important to note that the person who is performing the account connection process must have sufficient permissions (e.g. admin rights) within the AWS account in order to execute this CloudFormation template.
+The term "connected" simply means that the customer has granted permissions for the VMware Cloud On AWS service to enable routing between an SDDC and a [VPC]({{ site.data.links.aws.vpc_subnets.url }}) within the customer-owned AWS account. These permissions are granted via [IAM]({{ site.data.links.aws.iam.url }}) roles which are created within the connected account using a [CloudFormation]({{ site.data.links.aws.cloudformation.url }}) template. It is important to note that the person who is performing the account connection process must have sufficient permissions (e.g. admin rights) within the AWS account in order to execute this CloudFormation template.
 
 Key points to remember:
 * AWS services are managed through a customer-owned AWS account.
@@ -86,7 +86,7 @@ Key points to remember:
 * Account linking is performed when the user executes a CloudFormation template within their AWS account.
 * The CloudFormation template creates roles which enable VMware to manage SDDC cross-linking.
 
-Once a connection is established to the AWS account, it then becomes possible to configure a cross-link between an SDDC and a VPC within that account. The cross-link itself consists of a series of Cross-Account [Elastic Network Interfaces]({{ site.data.links.aws.eni }}) (ENI) which are attached to a Subnet within the VPC. It is these ENIs which provide the hosts of an SDDC with a network forwarding path to resources within the VPC. 
+Once a connection is established to the AWS account, it then becomes possible to configure a cross-link between an SDDC and a VPC within that account. The cross-link itself consists of a series of Cross-Account [Elastic Network Interfaces]({{ site.data.links.aws.eni.url }}) (ENI) which are attached to a Subnet within the VPC. It is these ENIs which provide the hosts of an SDDC with a network forwarding path to resources within the VPC. 
 
 <figure>
   <img src="{{ '/book/illustrations/vmconaws/a-technical-overview/aws-service-integration.png' | relative_url }}">
@@ -97,7 +97,7 @@ The topic of SDDC cross-linking will be explored in more detail in [later chapte
 
 * The VPC must exist within the same Region which is planned to house the SDDC.
 * The Subnet must be sufficiently large to accommodate one ENI per host within the SDDC. Typically, a /26 is the minimum recommended size for the Subnet.
-* Subnets are associated with an [Availability Zone]({{ site.data.links.aws.regions_az }}) (AZ), therefore the choice of Subnet determines the Availability Zone into which the base cluster of the SDDC is provisioned. The purpose of this is to avoid cross-AZ bandwidth charges between the SDDC and the Subnet used for cross-linking (see AWS [billing policies]({{ site.data.links.aws.data_transfer }}) for details).
+* Subnets are associated with an [Availability Zone]({{ site.data.links.aws.regions_az.url }}) (AZ), therefore the choice of Subnet determines the Availability Zone into which the base cluster of the SDDC is provisioned. The purpose of this is to avoid cross-AZ bandwidth charges between the SDDC and the Subnet used for cross-linking (see AWS [billing policies]({{ site.data.links.aws.data_transfer.url }}) for details).
 * It is recommended to use a dedicated Subnet for cross-linking. The purpose of this is to ensure that IP addresses within the Subnet are not consumed by other services (e.g. other EC2 instances) thus preventing ENIs for new hosts from being added as the SDDC grows. Secondary to that, using a dedicated Subnet helps prevent the situation where an AWS admin accidentally deletes or otherwise modifies the ENIs used for cross-linking.
 * It is possible to cross-link multiple SDDCs to the same AWS account. If you plan to do this, then it is vital to ensure that you do not create IP addressing conflicts by using overlapping IP address ranges between the SDDCs. This is particularly relevant if you plan to cross-link multiple SDDCs to the same VPC.
 
@@ -165,7 +165,7 @@ With vSAN, it is required to have a default storage policy and it is this policy
 
 It should be noted that VMware will automatically add hosts to the SDDC when storage utilization crosses the 75% threshold, even when EDRS is disabled. This practice is a preventative measure designed to ensure that vSAN has a minimal amount of "slack" space available to it at all times.
 
-Finally, the [VMC Sizer]({{ site.data.links.vmw.vmcaws_sizer }}) tool has been made available as a means of assisting customers with estimating the number of hosts required to meet their storage demands.
+Finally, the [VMC Sizer]({{ site.data.links.vmw.vmcaws_sizer.url }}) tool has been made available as a means of assisting customers with estimating the number of hosts required to meet their storage demands.
 
 </section>
 
@@ -187,7 +187,7 @@ EDRS supports two modes of operation: optimized for cost, or optimized for perfo
 <section markdown="1" id="logging-and-monitoring">
 ## Logging and Monitoring
 
-Logging within VMware Cloud is provided via the [Log Intelligence]({{ site.data.links.vmw.lint }}) service.
+Logging within VMware Cloud is provided via the [Log Intelligence]({{ site.data.links.vmw.lint.url }}) service.
  This service is activated at the Org level within VMware Cloud and is offered in free as well as paid tiers.
 
 The following table highlights the key features of the free tier.
@@ -240,7 +240,7 @@ It is common for users to require Active Directory integration with the SDDC. Th
 
 <section markdown="1" id="sddc-network-architecture">
 ### Network Architecture
-VMware utilizes [NSX-t]({{site.data.links.vmw.nsxt}}) to build a logical overlay network on top of the hardware hosts of the SDDC. There are 2 tiers of routing within the SDDC. At the top tier is the tier-0 edge router, which acts as the north-south gateway for the entire SDDC. Below that are the tier-1 routers (the MGW and CGW), which act as the north-south gateways for their respective networks. 
+VMware utilizes [NSX-t]({{site.data.links.vmw.nsxt_docs.url}}) to build a logical overlay network on top of the hardware hosts of the SDDC. There are 2 tiers of routing within the SDDC. At the top tier is the tier-0 edge router, which acts as the north-south gateway for the entire SDDC. Below that are the tier-1 routers (the MGW and CGW), which act as the north-south gateways for their respective networks. 
 
 There are 2 layers of firewalling in the SDDC. The first layers is provided by the gateway firewalls, which are designed to protect the north-south border of the SDDC. The gateway firewalls have a "default deny" policy and are implemented at the MGW (for the management network) and at the tier-0 edge (for the compute network). The second layer of firewalling is provided by the distributed firewall. The distributed firewall is enforced at the vNIC level of every VM within the compute network and is designed to enable filtering both north-south and east-west. The distributed firewall is part of the NSX Advanced feature set and has a "default permit" policy. This policy effectively disables the distributed firewall unless the SDDC administrator specifically creates "deny" rules.
 
@@ -270,7 +270,7 @@ IPSec VPN is detailed in [later chapters]({{ "/book/vmconaws/sddc-network-and-se
 
 <section markdown="1" id="direct-connect">
 ### Direct Connect
-For customers who want a high-speed private connection into their SDDC, VMware Cloud on AWS supports AWS [Direct Connect]({{ site.data.links.aws.dx }}). As with all AWS services, Direct Connect will be provisioned within the customer-owned AWS account. It is important to note that SDDCs may utilize **existing** Direct Connect services. There is no need to provision a dedicated Direct Connect for the SDDC. Utilizing a Direct Connect is the simple matter of provisioning a new [Private VIF]({{ site.data.links.aws.dx_vif }}) and then allocated it to the VMware-owned AWS account which is associated to the parent Org of the SDDC. This account is visible from the Direct Connect interface of the SDDC within the [VMC console]({{ site.data.links.vmw.vmc }}).
+For customers who want a high-speed private connection into their SDDC, VMware Cloud on AWS supports AWS [Direct Connect]({{ site.data.links.aws.dx.url }}). As with all AWS services, Direct Connect will be provisioned within the customer-owned AWS account. It is important to note that SDDCs may utilize **existing** Direct Connect services. There is no need to provision a dedicated Direct Connect for the SDDC. Utilizing a Direct Connect is the simple matter of provisioning a new [Private VIF]({{ site.data.links.aws.dx_vif.url }}) and then allocated it to the VMware-owned AWS account which is associated to the parent Org of the SDDC. This account is visible from the Direct Connect interface of the SDDC within the [VMC console]({{ site.data.links.vmw.vmc.url }}).
 
 Direct Connect integration is detailed in [later chapters]({{ "/book/vmconaws/sddc-network-and-security/" | relative_url }}) of this guide.
 </section>
@@ -355,9 +355,9 @@ The term "disaster recovery" is somewhat generic, and may mean different things 
 ### Disaster Recovery Services
 Currently, VMware offers two services for configuring an SDDC as a DR site:
 
-* [Site Recovery]({{ site.data.links.vmw.site_recovery }}) is a specialized tool which has been designed specifically for disaster recovery. It provides workload replication (via vSphere Replication) between sites and offers support for advanced recovery plans. Site Recovery is offered as a service within VMware Cloud, and the cloud-side deployment is as simple as activating the service within an SDDC.
+* [Site Recovery]({{ site.data.links.vmw.site_recovery.url }}) is a specialized tool which has been designed specifically for disaster recovery. It provides workload replication (via vSphere Replication) between sites and offers support for advanced recovery plans. Site Recovery is offered as a service within VMware Cloud, and the cloud-side deployment is as simple as activating the service within an SDDC.
 
-* [HCX]({{ site.data.links.vmw.hcx }}) is a tool which has been designed specifically for workload migration between sites. It provides workload replication (via vSphere Replication) between sites and also provides WAN optimization for replication traffic as well as layer-2 network extension. While not designed specifically as a disaster recovery tool, HCX does provide a basic disaster recovery service. However, HCX does not currently support the advanced recovery plans that are available with Site Recovery.
+* [HCX]({{ site.data.links.vmw.hcx.url }}) is a tool which has been designed specifically for workload migration between sites. It provides workload replication (via vSphere Replication) between sites and also provides WAN optimization for replication traffic as well as layer-2 network extension. While not designed specifically as a disaster recovery tool, HCX does provide a basic disaster recovery service. However, HCX does not currently support the advanced recovery plans that are available with Site Recovery.
 
 </section>
 
@@ -365,7 +365,7 @@ Currently, VMware offers two services for configuring an SDDC as a DR site:
 ### Preparation and Initial Setup
 Disaster recovery in VMware Cloud on AWS may be accomplished using either the HCX or the Site Recovery services.
  With these services, it becomes possible to utilize an SDDC as a recovery site for another production site (or another SDDC).
- When preparing to implement disaster recovery within [VMware Cloud]({{ site.data.links.vmw.vmc }}), the following high-level process will apply:
+ When preparing to implement disaster recovery within [VMware Cloud]({{ site.data.links.vmw.vmc.url }}), the following high-level process will apply:
 
 1. Select and activate the service - As with all cloud services, both HCX and Site Recovery must be activated within the SDDC before they may be used.
  Both HCX and Site Recovery require cloud-side components as well as components in the the on-premises environment. While the installation within the SDDC is automated, the end user is required to install and configure the on-premises portions of the service.

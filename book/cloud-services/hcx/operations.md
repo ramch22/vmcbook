@@ -55,7 +55,7 @@ Workload migration in HCX comes in the following flavors:
 * Cold Migration - A method for replicating powered-off VMs to the destination site.
 * Replication-Assisted vMotion - Combines the features of Bulk Migration (scheduling, etc..) with vMotion (zero downtime).
 
-You may find more information on the different types of migrations in the HCX [user guide]({{ site.data.links.vmw.hcx_doc }}).
+You may find more information on the different types of migrations in the HCX [user guide]({{ site.data.links.vmw.hcx_doc.url }}).
 
 
 ### Performing a Migration
