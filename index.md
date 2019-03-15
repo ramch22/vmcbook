@@ -14,7 +14,7 @@ layout: default
         
 <section markdown="1">
 ## Foreword
-This book is designed as a technical resource for anyone planning on implementing services on [VMware Cloud]({{ site.data.links.vmw.cloud }}) and is a work-in-progress. The content for this book is maintained in the following git repository: [https://github.com/dspinhirne/vmcbook](https://github.com/dspinhirne/vmcbook) 
+This book is designed as a technical resource for anyone planning on implementing services on [VMware Cloud]({{ site.data.links.vmw.cloud.url }}) and is a work-in-progress. The content for this book is maintained in the following git repository: [https://github.com/dspinhirne/vmcbook](https://github.com/dspinhirne/vmcbook) 
 
 Links to reference material, including the source drawings for this book, are available in the Resources section of the Appendix.
 </section>
