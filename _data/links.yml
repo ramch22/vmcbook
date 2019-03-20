@@ -38,6 +38,9 @@ aws:
   transit_vpc:
     url: "https://aws.amazon.com/answers/networking/aws-global-transit-network/"
     desc: "Transit VPC - AWS answers document"
+  vpc_secgroups:
+    url: "https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html"
+    desc: "VPC Security Groups - documentation"
   vpc_subnets:
     url: "https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html"
     desc: "VPCs and Subnets - documentation"
