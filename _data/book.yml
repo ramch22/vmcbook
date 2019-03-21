@@ -48,7 +48,7 @@ urls:
     parent: "/book/vmconaws/"
     children:
       - "/book/vmconaws/sddc-network-and-security/sddc-network-architecture.html"
-      - "/book/vmconaws/sddc-network-and-security/sddc-network-security.html"
+#      - "/book/vmconaws/sddc-network-and-security/sddc-network-security.html"
       - "/book/vmconaws/sddc-network-and-security/ipsec-vpn.html"
       - "/book/vmconaws/sddc-network-and-security/direct-connect.html"
   

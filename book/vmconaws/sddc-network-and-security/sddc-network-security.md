@@ -23,12 +23,8 @@ Network security within an SDDC is configured from the Network & Security tab of
 
 
 
-<section markdown="1" id="groups-and-services">
-## Groups and Services
-Firewall rules in NSX are based upon group and services definitions. While services may be defined "universally" within the VMC console, groups are defined separately between the management and compute networks. 
-
-<section markdown="1" id="concepts">
-### Services
+<section markdown="1" id="services">
+## Services
 A service definition may be thought of as collections of 1 or more protocols (IP, ICMP, UDP, TCP, etc...) and their associated ports/types. Although many of the standard service definitions have been pre-created within the SDDC, it is sometimes necessary or convenient to create custom definitions. The process for doing so is as follows:
 
 #### Create a new service definition
@@ -62,8 +58,11 @@ To set an entry:
 The example shown above illustrates a service definition for a custom application which uses both UDP and TCP. Although possible to specify source ports with UDP and TCP, you will very rarely do so. In the vast majority of cases you should set the destination ports only since source ports for a given connection tend to be randomized over a very broad range of values.
 </section>
 
-<section markdown="1" id="concepts">
-### Groups
+
+
+
+<section markdown="1" id="groups">
+## Groups
 Groups should be thought of as representing 2 classes of resources:
 * VMs within a given network of the SDDC, and
 * IP addresses which are external to a given network within the SDDC
@@ -104,7 +103,6 @@ Currently, Membership Criteria for groups may only be based on VM name and secur
 
 It is also important to understand that Membership Criteria follows a "logical OR" model (a.k.a. "match any"). In the example, you can see that there are 3 criteria defined. Due to the logical OR model, VMs will match this group if they meet any one of the defined criteria. As a future roadmap item a "logical AND" model (a.k.a. "match all") will be supported. This type of model would require that a VM match all defined criteria in order to be considered part of the group.
 </section>
-</section>
 
 
 
@@ -131,7 +129,7 @@ This begs the question of "Why enable the gateway firewall on the MGW?". Since i
 Although it is good to understand the how and why behind the design of the gateway firewalls, these details aren't specifically necessary in order to effectively manage security policy. From the perspective of the end-user, the VMC console abstracts these details away and presents a simplified view which displays a pair of rulesets: one labeled Management Gateway and another labeled Compute Gateway.
 
 <figure>
-  <img src="./sddc-network-security_illustrations/gateway-firewall/gateway-firewalls.png">
+  <img src="./sddc-network-security_illustrations/gateway-firewall/gateway-firewalls.png"> 
 </figure>
 
 This UI layout is designed to focus the security administrator on the policies themselves rather than drawing attention to where and how they are enforced.
