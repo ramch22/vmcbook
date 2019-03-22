@@ -25,7 +25,7 @@ Network security within an SDDC is configured from the Network & Security tab of
 
 <section markdown="1" id="services">
 ## Services
-A service definition may be thought of as collections of 1 or more protocols (IP, ICMP, UDP, TCP, etc...) and their associated ports/types. Although many of the standard service definitions have been pre-created within the SDDC, it is sometimes necessary or convenient to create custom definitions. The process for doing so is as follows:
+A service definition may be thought of as collections of 1 or more protocols (IP, ICMP, UDP, TCP, etc...) and their associated ports. Although many of the standard service definitions have been pre-created within the SDDC, it is sometimes necessary or convenient to create custom definitions. The process for doing so is as follows:
 
 #### Create a new service definition
 1. Navigate to the Network & Security tab of the SDDC.
@@ -40,7 +40,7 @@ A service definition may be thought of as collections of 1 or more protocols (IP
 </figure>
 
 #### Set Service Entries
-Services may be defined for a variety of protocols. The criteria which may be set are specific to the given protocol.
+Services may be defined for a variety of protocols. The additional properties available are specific to the given protocol.
 
 <figure>
   <img src="./sddc-network-security_illustrations/services/service-opts.png">
@@ -55,7 +55,7 @@ To set an entry:
   <img src="./sddc-network-security_illustrations/services/set-services.png">
 </figure>
 
-The example shown above illustrates a service definition for a custom application which uses both UDP and TCP. Although possible to specify source ports with UDP and TCP, you will very rarely do so. In the vast majority of cases you should set the destination ports only since source ports for a given connection tend to be randomized over a very broad range of values.
+The example shown above illustrates a service definition for a custom application which uses both UDP and TCP. Although possible to specify source ports with UDP and TCP, you will very rarely do so. In the vast majority of cases you should set only the destination ports since source ports for a given connection tend to be randomized over a very broad range of values.
 </section>
 
 
@@ -67,7 +67,7 @@ Groups should be thought of as representing 2 classes of resources:
 * VMs within a given network of the SDDC, and
 * IP addresses which are external to a given network within the SDDC
 
-Unlike services, which are defined globally within the SDDC, groups are scoped per the management and compute networks. Groups are managed from the Network & Security tab of the SDDC.
+Unlike services, which are defined globally within the SDDC, groups are scoped per the management and compute networks. As with services, groups are managed from the Network & Security tab of the SDDC.
 
 <figure>
   <img src="./sddc-network-security_illustrations/groups/groups.png">
@@ -78,21 +78,25 @@ As seen in the illustration, the UI separates groups into Management Groups (man
 #### Management Groups
 For Management Groups, you are restricted to defining groups based on IP address. This is because groups for the management appliances have been pre-created within the SDDC and, by definition, anything which is external to the management network may only be reference by IP.
 
+The following example illustrates a new IP-based group which defines the address range used for a hypothetical, remote on-prem network.
+
 <figure>
   <img src="./sddc-network-security_illustrations/groups/mgmt-groups.png">
 </figure>
 
 #### Workload Groups
 With Workload Groups you have more flexibility: groups definitions here may be based on the following constructs:
-* Virtual Machine - with this construct, you explicitly set individual VMs.
+* Virtual Machine - with this construct, you explicitly define individual VM membership.
 * IP Address - here you may specify a comma-delimited list of IP networks in CIDR format.
 * Membership Criteria - this construct supports matching on VM name or security tag.
+
+The following illustration shows the membership type options avalable for Workload Groups.
 
 <figure>
   <img src="./sddc-network-security_illustrations/groups/wkld-groups.png">
 </figure>
 
-Be sure to note the maximums for each type of construct within a group definition. 
+Be sure to note the maximums for each kind of membership type within a group definition. 
 
 #### Membership Criteria
 Currently, Membership Criteria for groups may only be based on VM name and security tag. 
@@ -101,7 +105,7 @@ Currently, Membership Criteria for groups may only be based on VM name and secur
   <img src="./sddc-network-security_illustrations/groups/mbrshp-criteria.png">
 </figure>
 
-It is also important to understand that Membership Criteria follows a "logical OR" model (a.k.a. "match any"). In the example, you can see that there are 3 criteria defined. Due to the logical OR model, VMs will match this group if they meet any one of the defined criteria. As a future roadmap item a "logical AND" model (a.k.a. "match all") will be supported. This type of model would require that a VM match all defined criteria in order to be considered part of the group.
+It is also important to understand that Membership Criteria follows a "logical OR" model (a.k.a. "match any"). In the example, you can see that there are 3 criteria defined. Due to the logical OR model, VMs will match this group if they meet any one of the defined criteria.
 </section>
 
 
@@ -119,7 +123,7 @@ Regarding the second point, it is important to understand how and why the gatewa
 
 The entry point for the entire SDDC is the tier-0 edge router. This is the first point of enforcement for the gateway firewall, and as a result this edge device had the potential to protect all networks within the SDDC. However, a design decision was made to exclude the management network of the SDDC from the gateway firewall of the tier-0 edge. This means that the gateway firewall of the tier-0 edge only protects the compute networks of the SDDC. This design decision makes sense when you consider that the MGW router (which borders the management network) has its own gateway firewall. Since the MGW is already protecting the management network, protection of the management network at the tier-0 edge would be redundant and confusing, and was thus removed.
 
-This begs the question of "Why enable the gateway firewall on the MGW?". Since it is desirable to protect the management network from not only the external world but also from the compute network, enforcement of security policy at the border of the management network is necessary. By enabling the gateway firewall on the MGW, the security administrator has the ability to protect the management network from the entire world from a single point of administration.
+This begs the question of "Why enable the gateway firewall on the MGW?". Since it is desirable to protect the management network from not only the external world but also from the compute network, enforcement of security policy at the border of the management network is necessary. By enabling the gateway firewall on the MGW, the security administrator has the ability to protect the management network from all other networks from a single point of administration.
 
 <figure>
   <img src="./sddc-network-security_illustrations/gateway-firewall/gateway-firewall-design.png">
@@ -193,16 +197,15 @@ The distributed firewall is available from the Network & Security tab of the SDD
   <img src="./sddc-network-security_illustrations/dfw/dfw.png">
 </figure>
 
-The ruleset for DFW is organized around the concept of sections. As highlighted above, there are 4 pre-created sections for DFW. These are conveniences which have been added to the UI in order to direct the security administrator into a the good practice of organizing security policy. The key thing to remember is that sections are an organizational tool only. Rules within NSX firewalls are evaluated top-to-bottom independently of sections. This means that rules in the Emergency Rules section will be evaluated before rules in the sections below it (and so on). Keep this point in mind particularly when creating "deny" or "reject" rules.
+The ruleset for DFW is organized around the concept of sections. As highlighted above, there are 4 pre-created sections for DFW. These are conveniences which have been added to the UI in order to direct the security administrator into the good practice of organizing the rules of the security policy. The key thing to remember is that sections are an organizational tool only. Rules within NSX firewalls are evaluated top-to-bottom independently of sections. This means that rules in the Emergency Rules section will be evaluated before rules in the sections below it (and so on). Keep this point in mind particularly when creating "deny" or "reject" rules.
 
 
 Keep the following points in mind with DFW:
 * It has a "default permit" policy, meaning it is effectively disabled by default.
 * It is applied only to the compute network.
 * It may filter network traffic both north-south and east-west.
-* It is included as part of the NSX Advanced feature set add-on for the SDDC.
 
-In order to prevent confusion with the dual layers of gateway + distributed firewalling, the default security policy of DFW is set such that it is effectively disabled. In order to use DFW, the security administrator must specifically construct "drop" or "reject" rules. Currently, the default policy of DFW cannot be changed but this behavior will change with future releases of the product.
+In order to prevent confusion with the dual layers of gateway + distributed firewalling, the default security policy of DFW is set such that it is effectively disabled. To implement DFW, the security administrator must specifically construct "drop" or "reject" rules. Currently, the default policy of DFW cannot be changed but this behavior will adjust with future releases of the product.
 
 The purpose of DFW is to enable the security administrator to construct security policy which may be applied within the compute network itself. As an example, a typical use of DFW is to provide security between the tiers of a multi-tiered application, or to provide security between separate tenants within the SDDC. DFW is unique in that it is applied at the absolute edge of the network. This feature effectively decouples network security from network architecture. To illustrate this point, imagine a traditional data center network. Typically, if security was needed between tenants or between tiers of an application, then network architecture would be designed to reflect this separation (i.e. a VLAN per tenant or application tier). In this model, if security requirements changed then the network infrastructure would need to be altered and workloads migrated and re-IPed. With DFW, security policy is agnostic of network architecture and may be enforced regardless of VM placement within the SDDC. Due to this decoupling, it is possible to provide security between tenants or application tiers even when the workloads reside within the same subnet. If security policy changes, then workload migrations and IP changes are not necessarily required.
 
@@ -222,11 +225,12 @@ You will note that the fields of DFW rules are similar to the gateway firewall r
 
 In this example a section has been created for web servers. Per the ruleset, HTTPS is permitted inbound with all other traffic being denied. We have chosen to add this policy as part of our Application Rules section.
 
+Like the gateway firewalls, rules must be published before they are applied.
+
 <figure>
   <img src="./sddc-network-security_illustrations/dfw/add-rule.png">
 </figure>
 
-Like the gateway firewalls, rules must be published before they are applied.
 </section>
 
 
@@ -239,7 +243,7 @@ Since network security between the SDDC and the cross-linked customer VPC is man
 * Gateway Firewall - Management Gateway policies would affect connectivity to/from the management network, and Compute Gateway policies would affect connectivity to/from the compute network.
 * AWS Security Groups - The security groups of the VPC itself will impact connectivity to/from the VPC.
 
-The policies of the gateway firewalls and DFW have already been discussed, so this section will focus on [Security Groups]({{ site.data.links.aws.vpc_secgroups.url }}) within the cross-linked VPC itself. As discussed in the chapter on SDDC network architecture, the cross-linking to the customer-owned VPC is enabled via a series of cross-account ENIs which are created within a subnet of that VPC for use by the hosts of the SDDC. As part of this setup, these ENIs are configured to utilize the default Security Group of the VPC. It is important to keep the following points in mind with Security Groups within the cross-linked VPC:
+The policies of the gateway firewalls and DFW have already been discussed, so this section will focus on [Security Groups]({{ site.data.links.aws.vpc_secgroups.url }}) within the cross-linked VPC itself. As discussed in the chapter on SDDC network architecture, the cross-linking to the customer-owned VPC is enabled via a series of cross-account ENIs which are created within a subnet of that VPC, and are for use by the hosts of the SDDC. As part of this setup, these ENIs are configured to utilize the default Security Group of the VPC. It is important to keep the following points in mind with Security Groups within the cross-linked VPC:
 
 #### Direction
 As mentioned, the cross-account ENIs used by the SDDC have the default Security Group applied to them. It is important to visualize this setup and remember that "inbound" rules of the Security Group apply to traffic from the VPC toward the SDDC, and that "outbound" rules apply to traffic from the SDDC toward the VPC.
@@ -279,7 +283,7 @@ Inbound NAT services are provided by first requesting a public EIP...
 In the example we can see that 2 inbound NAT rules have been configured which will NAT specific services from a public EIP to a real IP within the compute network. In this case, the real IP of both rules is the same but each rule could have also utilized different real IPs. Additionally, there is a new rule which is being created which will NAT all traffic from a particular public EIP to a real IP within the compute network. This new rule is effectively creating a *static NAT*.
 
 Keep the following points in mind with NAT:
-* Workloads within the compute network are permitted to NAT outbound by default.
+* Workloads within the compute network are permitted to NAT outbound by default (assuming defined security policy permits this).
 * Outbound NAT utilizes a specific public EIP, which is used by all compute workloads by default.
 * Inbound NAT requires that a dedicated public EIP be requested and that NAT rules be created for that EIP.
 * Inbound NAT rules must be unique based on the combination of EIP and Service.
@@ -299,9 +303,9 @@ The following are some basic recommendations for working with network security w
 There are a great many pre-created service definitions within the SDDC. However, it sometimes makes sense to create custom definitions for custom applications. Consider creating a single service definition which encapsulates a given function of a custom application. For example, if an application utilizes a pair of TCP ports then define both ports as part of the service definition.
 
 #### Using Groups
-There are a few options available for group definitions (with additional new ones on the roadmap) within the SDDC. When creating groups, keep the following in mind:
+There are a few different options available for group definitions (with additional new ones on the roadmap) within the SDDC. When creating groups, keep the following in mind:
 * Anything which is external to a given network within the SDDC (management or compute) may only be referenced by IP. Utilize summary addresses as much as possible when defining IP-based groups.
-* Anything native to a given network within the SDDC may be referenced by higher-level constructs such as VM name or security tag. Utilize the constructs as much as possible. Doing so will make your security policies more resilient if the need ever arises to change the IP of a VM.
+* Anything native to a given network within the SDDC may be referenced by higher-level constructs such as VM name or security tag. Utilize these constructs as much as possible. Doing so will make your security policies more resilient to network changes within the SDDC.
 * Security tags provide an excellent tool for defining security policy. Put some serious though into standardizing your tagging scheme. A common approach is to assume a "lego brick" model for tags: small, atomic tags which may be combined to effectively classify a workload. However, keep the maximum tags-per-VM limit in mind when designing your scheme.
 
 #### Managing Sections
