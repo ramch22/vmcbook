@@ -156,7 +156,7 @@ In the example, a rule is being created which will permit inbound HTTPS traffic 
 * Services - One or more services. In this example we are using a pre-created service for HTTPS.
 * Action - Allow the traffic or Drop the traffic.
 * Applied To - This field is unique to the Compute Gateway ruleset and will be explained later.
-* Logging - Enable or disable logging for matches on this rule. This helps with testing and troubleshooting, but may impact performance. Use logging sparingly.
+* Logging - Enable or disable logging for matches on this rule. Logging may be useful for testing and troubleshooting.
 
 Keep in mind that there is no inherent direction for firewall rules. Since security policy is applied bi-directionally, direction is specified through the use of the source and destination fields.
 
@@ -225,7 +225,7 @@ You will note that the fields of DFW rules are similar to the gateway firewall r
 
 In this example a section has been created for web servers. Per the ruleset, HTTPS is permitted inbound with all other traffic being denied. We have chosen to add this policy as part of our Application Rules section.
 
-Like the gateway firewalls, rules must be published before they are applied.
+Like the gateway firewalls, rules must be published before they are enforced in the data plane.
 
 <figure>
   <img src="./sddc-network-security_illustrations/dfw/add-rule.png">
@@ -238,7 +238,7 @@ Like the gateway firewalls, rules must be published before they are applied.
 
 <section markdown="1" id="cross-linked-vpc">
 ## The Cross-Linked VPC
-Since network security between the SDDC and the cross-linked customer VPC is managed in multiple places, it is worth specifically calling it out as a stand-along topic. Specifically, the security administrator must consider all of the points where security policy may be enforced for traffic between the SDDC and that VPC:
+Since network security between the SDDC and the cross-linked customer VPC is managed in multiple places, it is worth specifically calling it out as a stand-alone topic. Specifically, the security administrator must consider all of the points where security policy may be enforced for traffic between the SDDC and that VPC:
 * DFW - Security policy defined by DFW would be enforced at the vNIC level of all VMs within the compute network.
 * Gateway Firewall - Management Gateway policies would affect connectivity to/from the management network, and Compute Gateway policies would affect connectivity to/from the compute network.
 * AWS Security Groups - The security groups of the VPC itself will impact connectivity to/from the VPC.
@@ -306,7 +306,7 @@ There are a great many pre-created service definitions within the SDDC. However,
 There are a few different options available for group definitions (with additional new ones on the roadmap) within the SDDC. When creating groups, keep the following in mind:
 * Anything which is external to a given network within the SDDC (management or compute) may only be referenced by IP. Utilize summary addresses as much as possible when defining IP-based groups.
 * Anything native to a given network within the SDDC may be referenced by higher-level constructs such as VM name or security tag. Utilize these constructs as much as possible. Doing so will make your security policies more resilient to network changes within the SDDC.
-* Security tags provide an excellent tool for defining security policy. Put some serious though into standardizing your tagging scheme. A common approach is to assume a "lego brick" model for tags: small, atomic tags which may be combined to effectively classify a workload. However, keep the maximum tags-per-VM limit in mind when designing your scheme.
+* Security tags provide an excellent tool for defining security policy. Put some serious thought into standardizing your tagging scheme. A common approach is to assume a "lego brick" model for tags: small, atomic tags which may be combined to effectively classify a workload. However, keep the maximum tags-per-VM limit in mind when designing your scheme.
 
 #### Managing Sections
 DFW utilizes sections as a means of organizing firewall rules. Consider organizing sections around your specific business requirements. For example, create a section per application or per business unit. Always remember that sections are only a means of organizing rules; rules are evaluated top-to-bottom independently of their parent section.
