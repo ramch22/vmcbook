@@ -66,7 +66,7 @@ vmw:
     url: "https://hcx.vmware.com"
     desc: "VMware HCX."
   hcx_doc: 
-    url: "https://docs.vmware.com/en/VMware-NSX-Hybrid-Connect/"
+    url: "https://docs.vmware.com/en/VMware-HCX/index.html"
     desc: "HCX Documentation"
   lint:
     url: "https://cloud.vmware.com/log-intelligence"

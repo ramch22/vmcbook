@@ -92,24 +92,34 @@ urls:
     title: "HCX"
     children:
       - "/book/cloud-services/hcx/introduction.html"
+      - "/book/cloud-services/hcx/planning.html"
+      - "/book/cloud-services/hcx/preparation.html"
       - "/book/cloud-services/hcx/installation.html"
-      - "/book/cloud-services/hcx/operations.html"
-      - "/book/cloud-services/hcx/caveats.html"
+      - "/book/cloud-services/hcx/testing.html"
+      - "/book/cloud-services/hcx/migration.html"
     
   "/book/cloud-services/hcx/introduction.html":
     title: "Introduction"
+    parent: "/book/cloud-services/hcx/"
+  
+  "/book/cloud-services/hcx/planning.html":
+    title: "Planning"
+    parent: "/book/cloud-services/hcx/"
+  
+  "/book/cloud-services/hcx/preparation.html":
+    title: "Preparation"
     parent: "/book/cloud-services/hcx/"
     
   "/book/cloud-services/hcx/installation.html":
     title: "Installation"
     parent: "/book/cloud-services/hcx/"
-    
-  "/book/cloud-services/hcx/operations.html":
-    title: "Operations"
+  
+  "/book/cloud-services/hcx/testing.html":
+    title: "Testing"
     parent: "/book/cloud-services/hcx/"
   
-  "/book/cloud-services/hcx/caveats.html":
-    title: "Caveats"
+  "/book/cloud-services/hcx/migration.html":
+    title: "Migration"
     parent: "/book/cloud-services/hcx/"
    
   "/book/networking/":

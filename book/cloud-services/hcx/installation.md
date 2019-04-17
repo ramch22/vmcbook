@@ -2,184 +2,307 @@
 layout: chapter
 ---
 
-<section markdown="1" id="hcx-manager-installation">
-## HCX Manager Installation
 
-The installation of the on-premises HCX Manager is summarized below. It is a required component.
+<section markdown="1" id="project-plan">
+## Project Plan
 
+<figure markdown="1" class="full-width">
 
-#### Installation Procedure
+Owner | Due Date | Status | Task | Comments
+------|----------|--------|------|---------
+      |          |        | Install the enterprise-side HCX manager. |
+      |          |        | Configure enterprise-side HCX manager. | May require special configuration for Direct Connect.
+      |          |        | Configure Multi-Site Service Mesh. |
 
-##### Step 1
-Deploy the ova to the on-premises vCenter. Note that you must use a Datastore for the appliance and not a Datastore Cluster. Also note that the "prefix length" used for the management IP is expected to be in CIDR format (i.e. 24 for a /24 network). Be sure to specify an NTP server since it is critical that HCX appliances maintain accurate time. Keep note of the passwords provided during installation. These will be used for logging into the appliance later on.
-
-##### Step 2
-Connect to the web UI of the on-premises HCX appliance. Use the IP address provided to the manager during installation and connect via https (it should redirect to 9443). Log in as "admin" using the password provided during installation. Note that it may take 5-10 minutes to come up after the initial installation.
-
-##### Step 3
-Provide the activation key acquired from the cloud-side HCX Manager.
-
-<figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step03.png' | relative_url }}">
-  <figcaption>Step 3</figcaption>
-</figure>
-
-##### Step 4
-Configure HCX manager with the location of the on-premises network by entering a city name. Finish up by specifying the system name for the manager. Select "YES, CONTINUE" to continue with the setup.
-
-##### Step 5
-Enter the admin credentials of the local vCenter. You may optionally provide credentials for your NSX manager, if applicable. Be sure to specify the FQDN for both. Following this, you will be asked to specify your SSO/PSC source. Restart the appliance when finished.
-
-<figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step05.png' | relative_url }}">
-  <figcaption>Step 5</figcaption>
-</figure>
-
-##### Step 6
-HCX will install UI components within vCenter. In order to see these, you must ensure that role mapping has been completed. Configure this from the on-premises HCX Manager.
-
-<figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step06.png' | relative_url }}">
-  <figcaption>Step 6</figcaption>
-</figure>
-
-##### Step 7
-From the HCX Manager, navigate to Administration -> Certificate-> Trust CA Certificate. Click on "import" and select "URL". Import the certificate for the SDDC HCX Manager by entering its URL (https://fqdn.of.hcx.manager).
-
-<figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step07.png' | relative_url }}">
-  <figcaption>Step 7</figcaption>
-</figure>
-
-##### Step 8
-If logged into vCenter, then log out. After logging back into vCenter, you will find that HCX has installed components within the vCenter UI. You may be prompted to reload the browser before the plugin will load.
-
-##### Step 9
-From the "home" menu on the top navigation of vCenter, open HCX.
-
-<figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step09.png' | relative_url }}">
-  <figcaption>Step 9</figcaption>
-</figure>
-
-##### Step 10
-Click on the New Site Pairing link on the dashboard, then Register new connection.
-
-<figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step10.png' | relative_url }}">
-  <figcaption>Step 10</figcaption>
-</figure>
-
-##### Step 11
-Enter the FQDN of the SDDC HCX Manager and the cloudadmin@vmc.local account and password from the SDDC. Do not install any additional services at this time.
-
-<figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step11.png' | relative_url }}">
-  <figcaption>Step 11</figcaption>
-</figure>
-
-##### Step 12
-Registration may take a few moments. You may hit the refresh button periodically to check the status of the registration.
-
-<figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/manager-install/step12.png' | relative_url }}">
-  <figcaption>Step 12</figcaption>
+<button onclick="exportCSV('hcx-installation')" style="float:right;">Export</button>
 </figure>
 
 </section>
 
 
-<section markdown="1" id="interconnect-appliance-installation">
-## Interconnect Appliance Installation
-
-The WAN Interconnect Appliance enables workload replication between sites. It is a required component.
 
 
-#### Installation Procedure
-##### Step 1
-From vCenter, navigate to the HCX dashboard. Click on Interconnect -> Install HCX Components. Choose the HCX Interconnect Service from the list of services and hit "next".
+<section markdown="1" id="install-the-ent-hcx-mgr">
+## Install the Enterprise HCX Manager
+
+The enterprise-side HCX manager appliance is downloaded via a download link provided by the cloud-side manager. Once downloaded, it should be deployed from the enterprise-side vCenter server which manages the workloads targeted for migration.
+
+This appliance will require an IP address for network connectivity, and will ideally be connected to the "management" network of the vSphere environment. Take note of the IP address which you assigned to this appliance, as well as the admin and root user passwords which you set during the deployment. Also, be sure to provide DNS and NTP settings for the appliance.
+
+Once the appliance has deployed, it may be accessed via HTTPS on its assigned IP using port 9443. Note that it may take up to 10 minutes before first-boot scripts finish executing and services are started. Login as the admin user and provide the password set during appliance deployment.
 
 <figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/ix-install/step01.png' | relative_url }}">
-  <figcaption>Step 1</figcaption>
+  <img src="./installation_illustrations/ent-mgr-login.png">
 </figure>
 
-##### Step 2
-Provide the storage and network properties for the appliance, as well as the passwords. Note that if your vMotion network is not accessible from the management network (e.g. a non-routable vMotion network), then you must configure the optional, 2nd network interface of the appliance and connect it directly to the vMotion network.
+Upon the first login, you will need to provide some initial configuration for the HCX manager. The first step is to provide the rough physical location of your datacenter (this is used to provide map illustrations within HCX).
 
 <figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/ix-install/step02.png' | relative_url }}">
-  <figcaption>Step 2</figcaption>
+  <img src="./installation_illustrations/ent-mgr-location.png">
 </figure>
 
-##### Step 3
-Finish the install to deploy the appliance. Note that a matching appliance will be automatically installed within the SDDC. Once both are up and ready, then they will establish a tunnel between one another. If the tunnel fails to come up, then the most common culprit is a firewall blocking the connectivity.
+Next, you must activate HCX by providing the activation key which was generated within the VMC console. Continue with the setup when prompted.
 
 <figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/ix-install/step03.png' | relative_url }}">
-  <figcaption>Step 3</figcaption>
+  <img src="./installation_illustrations/ent-mgr-activate.png">
 </figure>
 
-</section>
-
-
-<section markdown="1" id="wan-optimization-appliance-installation">
-## WAN Optimization Appliance Installation
-
-The WAN Optimization Appliance installs as an optional companion component to the WAN Interconnect Appliance. Although it is optional, it is recommended.
-
-
-### Installation Procedure
-##### Step 1
-From vCenter, navigate to the HCX dashboard. Click on Interconnect -> Install HCX Components. Choose the WAN Optimization Service from the list of services and hit "next".
+HCX will need to connect to the local vCenter Server...
 
 <figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/ix-install/step01.png' | relative_url }}">
-  <figcaption>Step 1</figcaption>
+  <img src="./installation_illustrations/ent-mgr-vc-connect.png">
 </figure>
 
-##### Step 2
-You may specify a bandwidth limit for replication as part of the appliance install. Hitting next will complete the installation and deploy a matching appliance in the SDDC.
+...and to the SSO/PSC appliance.
 
 <figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/wanopt-install/step02.png' | relative_url }}">
-  <figcaption>Step 2</figcaption>
+  <img src="./installation_illustrations/ent-mgr-psc-connect.png">
+</figure>
+
+Finally, a restart is required.
+
+<figure>
+  <img src="./installation_illustrations/ent-mgr-restart.png">
 </figure>
 
 </section>
 
 
-<section markdown="1" id="network-extension-appliance-installation">
-## Network Extension Appliance Installation
-
-The Network Extension appliance enables port-groups of a VDS to be extended to the SDDC. It is optional unless network extension is a requirement.
 
 
-#### Installation Procedure
 
-##### Step 1
-From vCenter, navigate to the HCX dashboard. Click on Interconnect -> Install HCX Components. Choose the Network Extension Service from the list of services and hit "next".
+<section markdown="1" id="config-the-ent-hcx-mgr">
+## Configure the Enterprise HCX Manager
 
-<figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/ix-install/step01.png' | relative_url }}">
-  <figcaption>Step 1</figcaption>
-</figure>
+<section markdown="1" id="role-mapping">
+### Role Mapping
+After installation and initial setup, the HCX manager will be rebooted. It may take several minutes for services to restart.
 
-##### Step 2
-Provide the VDS which contains port-groups to be extended to the SDDC. Be sure to keep the uplink MTU at the default value of 1500. Provide the storage and network properties for the appliance, as well as the passwords.
+Once the manager has finished restarting, login and configure vSphere role mapping. Role mapping is necessary in order to define which vSphere users may access the HCX UI components.
 
 <figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/l2c-install/step02.png' | relative_url }}">
-  <figcaption>Step 2</figcaption>
+  <img src="./installation_illustrations/ent-mgr-role-map.png">
 </figure>
 
-##### Step 3
-Finish the install to deploy the appliance. Note that a matching appliance will be automatically installed within the SDDC. Once both are up and ready, then they will establish a tunnel between one another. If the tunnel fails to come up, then the most common culprit is a firewall blocking the connectivity.
+You should now log out of vCenter and log back in. Once you have logged back in, then you should see the HCX UI component installed within the vCenter web client.
 
 <figure>
-  <img src="{{ '/book/illustrations/cloud-services/hcx/l2c-install/step03.png' | relative_url }}">
-  <figcaption>Step 3</figcaption>
+  <img src="./installation_illustrations/vc-hcx-ui.png">
 </figure>
+
+</section>
+
+<section markdown="1" id="dns-for-dx">
+### DNS Resolution for Direct Connect
+For users who wish to utilize Direct Connect Private VIF for HCX traffic, there is an additional required step.
+
+Since the enterprise-side HCX manager must communicate with the cloud-side manager, and this communication will be via the enterprise-side manager connecting to the FQDN of the cloud-side manager, the enterprise-side manager must be able to resolve the cloud-side FQDN to a private IP. Currently, there is no means to change this resolution within the SDDC itself, so the change must be made locally on the enterprise-side manager. To do this, you must edit the /etc/hosts file of the enterprise-side manager.
+
+Connect via ssh to the enterprise-side manager and login as admin. Sudo to root and edit the /etc/hosts file.
+
+<figure>
+  <img src="./installation_illustrations/ent-mgr-ssh.png">
+</figure>
+
+You must create an entry for the FQDN of the cloud-side manager. The private IP of the cloud-side manager is visible either from the SDDC vCenter server or from the group definition for the HCX manager in the management gateway firewall rule in the Network and Security section of the SDDC.
+
+<figure>
+  <img src="./installation_illustrations/ent-mgr-etc-hosts.png">
+</figure>
+
+Once this step is completed, the enterprise-side manager may utilize the Direct Connect when connecting to the cloud-side manager.
+
+Since the enterprise-side HCX manager is connecting via its private IP, you may need to adjust the MGW gateway firewall rules in the SDDC to permit the connectivity.
+
+</section>
+
+</section>
+
+
+
+
+<section markdown="1" id="config-service-mesh">
+## Configuring the Multi-Site Service Mesh
+Login to vCenter and navigate to the HCX dashboard. 
+
+<figure>
+  <img src="./installation_illustrations/hcx-dashboard.png">
+</figure>
+
+
+<section markdown="1" id="create-cmpt-prof">
+### Create a Compute Profile
+Navigate to the Interconnect screen and click on the Multi-Site Service Mesh tab. The first step will be to create a Compute Profile.
+
+<figure>
+  <img src="./installation_illustrations/hcx-service-mesh.png">
+</figure>
+
+Provide a name for your profile.
+
+<figure>
+  <img src="./installation_illustrations/hcx-cmpt-prof01.png">
+</figure>
+
+Select the HCX services you wish to activate.
+
+<figure>
+  <img src="./installation_illustrations/hcx-cmpt-prof02.png">
+</figure>
+
+Select the target cluster for the additional HCX appliances.
+
+<figure>
+  <img src="./installation_illustrations/hcx-cmpt-prof03.png">
+</figure>
+
+Select the target datastore for the additional HCX appliances.
+
+<figure>
+  <img src="./installation_illustrations/hcx-cmpt-prof04.png">
+</figure>
+
+Create a Network Profile. This will be used for determining network interfaces and IP addresses for the additional HCX appliances.
+
+<figure>
+  <img src="./installation_illustrations/hcx-cmpt-prof05.png">
+</figure>
+
+In this example, a single network (the vSphere management network) will be used for all connectivity. If your setup will utilize multiple networks, then at least 1 of them must provide a default gateway and DNS settings. You must also provide a pool of usable addresses for HCX appliances. In this example setup we will only use a single IX and Network Extension appliance, so will only require 2 addresses.
+
+<figure>
+  <img src="./installation_illustrations/hcx-net-prof01.png">
+</figure>
+
+Once Network Profiles have been created, we may use them within the Compute Profile. In this example, we will use the same profile in multiple places.
+
+Firstly, specify the profile for the management network...
+
+<figure>
+  <img src="./installation_illustrations/hcx-cmpt-prof06.png">
+</figure>
+
+...then the uplink network (the network with access to the internet or Direct Connect)...
+
+<figure>
+  <img src="./installation_illustrations/hcx-cmpt-prof07.png">
+</figure>
+
+...and the vMotion network...
+
+<figure>
+  <img src="./installation_illustrations/hcx-cmpt-prof08.png">
+</figure>
+
+...and the vSphere Replication network.
+
+<figure>
+  <img src="./installation_illustrations/hcx-cmpt-prof09.png">
+</figure>
+
+Since we have chosen to utilize the network extension services for this example, we must specify the vDS which contains networks to be extended. Remember, that there will be one Network Extension appliance required per vDS.
+
+<figure>
+  <img src="./installation_illustrations/hcx-cmpt-prof10.png">
+</figure>
+
+HCX will provide you with a reminder that it requires certain connectivity over both the WAN and between components in the LAN.
+
+<figure>
+  <img src="./installation_illustrations/hcx-cmpt-prof11.png">
+</figure>
+
+Finish the Compute Profile definition.
+
+<figure>
+  <img src="./installation_illustrations/hcx-cmpt-prof12.png">
+</figure>
+
+</section>
+
+
+<section markdown="1" id="create-site-pair">
+### Create a Site Pair
+Define a site pairing for the SDDC.
+
+<figure>
+  <img src="./installation_illustrations/hcx-site-pair01.png">
+</figure>
+
+Specify the FQDN of the cloud-side HCX manager and the credentials for the SDDC cloudadmin user.
+
+<figure>
+  <img src="./installation_illustrations/hcx-site-pair02.png">
+</figure>
+
+HCX will verify connectivity and create the site pair.
+
+<figure>
+  <img src="./installation_illustrations/hcx-site-pair03.png">
+</figure>
+
+</section>
+
+
+<section markdown="1" id="create-service-mesh">
+### Create a Service Mesh
+
+Define a service mesh using the previously created Compute and Network profiles, and the site pairing.
+
+<figure>
+  <img src="./installation_illustrations/hcx-srvc-mesh01.png">
+</figure>
+
+Provide the site pairing.
+
+<figure>
+  <img src="./installation_illustrations/hcx-srvc-mesh02.png">
+</figure>
+
+Specify the Compute Profile which you defined and the Compute Profile of the SDDC (which was automatically created by the cloud-side manager).
+
+<figure>
+  <img src="./installation_illustrations/hcx-srvc-mesh03.png">
+</figure>
+
+Verify the services you want to support. In this example the Disaster Recovery services is deselected.
+
+<figure>
+  <img src="./installation_illustrations/hcx-srvc-mesh04.png">
+</figure>
+
+Define the Network Profiles to use. You should use the one associated with the Compute Profile which was created. For the cloud-side, use a profile for the network path you wish to use toward the SDDC. In this example, we are using the profile associated with the Direct Connect.
+
+<figure>
+  <img src="./installation_illustrations/hcx-srvc-mesh05.png">
+</figure>
+
+Optionally, define the number of additional Network Extension appliances you wish to support.
+
+<figure>
+  <img src="./installation_illustrations/hcx-srvc-mesh06.png">
+</figure>
+
+Provide the bandwidth cap for the WAN-Opt appliance.
+
+<figure>
+  <img src="./installation_illustrations/hcx-srvc-mesh07.png">
+</figure>
+
+Name the Service Mesh and finish.
+
+<figure>
+  <img src="./installation_illustrations/hcx-srvc-mesh08.png">
+</figure>
+
+You can monitor the deployment of the additional HCX appliances. The tunnels for the IX and Network Extension appliances should come up once these appliances have finished deploying, booting, and have started services.
+
+<figure>
+  <img src="./installation_illustrations/hcx-srvc-mesh09.png">
+</figure>
+
+</section>
+
 
 </section>
 
