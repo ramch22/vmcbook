@@ -31,7 +31,7 @@ urls:
     title: "VMware Cloud on AWS"
     children:
       - "/book/vmconaws/a-technical-overview.html"
-      - "/book/vmconaws/preparing-to-on-board.html"
+      - "/book/vmconaws/on-boarding.html"
       - "/book/vmconaws/sddc-network-and-security/" 
       - "/book/vmconaws/network-design-patterns/" 
    
@@ -39,8 +39,8 @@ urls:
     title: "A Technical Overview"
     parent: "/book/vmconaws/"
    
-  "/book/vmconaws/preparing-to-on-board.html":
-    title: "Preparing to On-Board"
+  "/book/vmconaws/on-boarding.html":
+    title: "On-Boarding"
     parent: "/book/vmconaws/"
 
   "/book/vmconaws/sddc-network-and-security/":

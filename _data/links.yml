@@ -62,6 +62,9 @@ vmw:
   cloud_blog:
     url: "https://cloud.vmware.com/community/"
     desc: "VMware Cloud Blog"
+  cloud_support_policies:
+    url: "https://www.vmware.com/support/policies/saas-support.html"
+    desc: "Cloud support policies"
   hcx:
     url: "https://hcx.vmware.com"
     desc: "VMware HCX."

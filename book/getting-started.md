@@ -105,4 +105,6 @@ Severity     | Target Response Time
   <figcaption>Targeted Support Response Times</figcaption>
 </figure>
 
+Additional details on cloud service support policies are available [here]({{ site.data.links.vmw.cloud_support_policies.url }}).
+
 </section>
