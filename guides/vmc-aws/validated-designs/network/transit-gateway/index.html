@@ -145,7 +145,7 @@
 <li><p><strong>Balance</strong> - ECMP typically utilizes a 5-tuple hashing function (protocol, src/dst ip, src/dst port) for binding a given connection to a particular tunnel (and in some cases to a particular CPU core within the device). Note that nowhere in this hashing function is network load considered. This means that it is unreasonable to expect a perfect load balance between tunnels/cores, and that it is quite possible for 1 tunnel/core to be completely maxed out while other tunnels/cores are simultaneously under utilized. This situation will result in some users experiencing degraded network connectivity which will appear to be random to the casual observer. For this reason, it becomes extremely important to monitor the performance of each tunnel in an ECMP configuration in order to help diagnose this type of situation.</p></li>
 </ul>
     
-    <footer class="content-footer"><div>Written by<a href='https://dspinhirne.github.io/vmcbook/site/authors/#dustin-spinhirne'>Dustin Spinhirne</a></div><div>
+    <footer class="content-footer"><div>Written by <a href='https://dspinhirne.github.io/vmcbook/site/authors/#dustin-spinhirne'>Dustin Spinhirne</a></div><div>
           Originally publishedTuesday, Oct 1, 2019.</div></footer>
 
   </article></main>
