@@ -16,11 +16,11 @@
     
     <header class="main-header">
       <div>
-        <a href="https://cloud.vmware.com"><img src="https://dspinhirne.github.io/vmcbook/images/vm.svg"></a>
+        <a href="https://cloud.vmware.com"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/vm.svg"></a>
       </div>
       <div><a href="https://dspinhirne.github.io/vmcbook/">VMware Cloud Knowledge</a></div>
       <div>
-        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://dspinhirne.github.io/vmcbook/images/github.svg"><span>Star</span></a>
+        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/github.svg"><span>Star</span></a>
       </div>
     </header>
 
@@ -123,7 +123,7 @@
 <li>When finished adding rules, publish the ruleset.</li>
 </ol>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/images/add-rule.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/images/add-rule.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/gateway-firewall/add-rule.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/gateway-firewall/add-rule.png" /></figure>
 
 
 <p>In the example, a rule is being created which will permit inbound HTTPS traffic to web servers. Let&rsquo;s examine the fields of the rule in detail.</p>
@@ -142,12 +142,12 @@
 
 <p>Additional options for rules are available from the context menu of each rule.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/images/rule-submenu.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/images/rule-submenu.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/gateway-firewall/rule-submenu.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/gateway-firewall/rule-submenu.png" /></figure>
 
 
 <p>Although it impacts security policy in a very critical way, the Applied To field and its purpose are not always well understood. Firstly, it is important to understand why this field is not available on the Management Gateway ruleset. Since the MGW has a single uplink (its uplink to the tier-0 edge), its ruleset is simply applied to that interface. Security policy for the compute network is a bit more complex, however. Since this policy is enforced on the tier-0 edge itself, and this edge has multiple uplinks, you must select where each individual rule is applied by setting the Applied To field of the rule. By default, the All Uplinks value is selected; however, other options are available.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/images/applied-to.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/images/applied-to.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/gateway-firewall/applied-to.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/gateway-firewall/applied-to.png" /></figure>
 
 
 <p>It is important to understand these options:</p>

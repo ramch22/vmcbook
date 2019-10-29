@@ -16,11 +16,11 @@
     
     <header class="main-header">
       <div>
-        <a href="https://cloud.vmware.com"><img src="https://dspinhirne.github.io/vmcbook/images/vm.svg"></a>
+        <a href="https://cloud.vmware.com"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/vm.svg"></a>
       </div>
       <div><a href="https://dspinhirne.github.io/vmcbook/">VMware Cloud Knowledge</a></div>
       <div>
-        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://dspinhirne.github.io/vmcbook/images/github.svg"><span>Star</span></a>
+        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/github.svg"><span>Star</span></a>
       </div>
     </header>
 
@@ -130,34 +130,34 @@
 
 <p>Installation of HCX within an SDDC is performed from the &ldquo;Add Ons&rdquo; tab in the SDDC view of the <a href="{{ site.data.links.vmw.vmc.url }}">VMC Console</a>. Clicking on the &ldquo;Open Hybrid Cloud Extension&rdquo; link will take you to the deployment screen.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/add-ons.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/add-ons.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/add-ons.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/add-ons.png" /></figure>
 
 
 <p>Clicking on the &ldquo;Deploy HCX&rdquo; link for the specific SDDC will trigger the installation of the cloud-side HCX Manager within that SDDC.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/deploy-hcx.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/deploy-hcx.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/deploy-hcx.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/deploy-hcx.png" /></figure>
 
 
 <p>Deploying HCX will cause a new activation key to be generated, however, this key is immediately consumed by the cloud-side HCX manager. You will be required to generate a new key for the enterprise HCX Manager. This key may be generated from the Activation Keys tab. Take note of the generated key.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/generate-key.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/generate-key.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/generate-key.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/generate-key.png" /></figure>
 
 
 <p>The HCX Manager within the SDDC is protected by the gateway firewall of the MGW. You must permit access by adding a rule within the <a href="{{ site.data.links.vmw.vmc.url }}">VMC Console</a>. If you are using Direct Connect, take note of the private IP address within the HCX manager&rsquo;s security group definition. It will be needed later on.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/permit-access.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/permit-access.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/permit-access.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/permit-access.png" /></figure>
 
 
 <p>Open the cloud-side HCX manager by navigating to the &ldquo;Add Ons&rdquo; tab of the SDDC and clicking on the &ldquo;open HCX&rdquo; link.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/open-hcx.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/open-hcx.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/open-hcx.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/open-hcx.png" /></figure>
 
 
 <p>Use the cloudAdmin credentials of the SDDC to log into the Manager. Note that you are accessing the HCX manager via its FQDN, which resolves to a public IP address.</p>
 
 <p>Be sure to note the FQDN of the cloud-side HCX Manager. This will be needed as part of the installation process for the enterprise HCX Manager.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/log-in.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/log-in.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/log-in.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/log-in.png" /></figure>
 
 
 <h1 id="downloading-the-hcx-manager">Downloading the HCX Manager</h1>
@@ -166,14 +166,14 @@
 
 <p>A download link is available from the cloud-side HCX Manager.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/download.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/download.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/download.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/download.png" /></figure>
 
 
 <h1 id="enable-the-service-mesh">Enable the Service Mesh</h1>
 
 <p>Enable the Multi-Site Service Mesh feature of the cloud-side HCX manager. This will trigger the auto-creation of the Compute and Network profiles required by the cloud-side HCX components</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/enable-service-mesh.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/enable-service-mesh.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/enable-service-mesh.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/enable-service-mesh.png" /></figure>
 
 
 <h1 id="edit-the-cloud-side-network-profile">Edit the Cloud-Side Network Profile</h1>
@@ -182,12 +182,12 @@
 
 <p>Once the service mesh has been activated, navigate to the Network Profiles of the Multi-Site Service Mesh tab and locate the profile for Direct Connect. The exact name of this profile will vary between installations.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/network-profiles.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/network-profiles.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/network-profiles.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/network-profiles.png" /></figure>
 
 
 <p>You will need to provide a range for the cloud-side HCX appliances. In the example, a /28 subnet is provided. Note that the usable set of addresses must exclude the first and last address of the range. No gateway or DNS information are needed. Update the profile when finished.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/edit-network-profile.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/images/edit-network-profile.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/edit-network-profile.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/activate/edit-network-profile.png" /></figure>
 
     
     <footer class="content-footer"><div>

@@ -16,11 +16,11 @@
     
     <header class="main-header">
       <div>
-        <a href="https://cloud.vmware.com"><img src="https://dspinhirne.github.io/vmcbook/images/vm.svg"></a>
+        <a href="https://cloud.vmware.com"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/vm.svg"></a>
       </div>
       <div><a href="https://dspinhirne.github.io/vmcbook/">VMware Cloud Knowledge</a></div>
       <div>
-        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://dspinhirne.github.io/vmcbook/images/github.svg"><span>Star</span></a>
+        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/github.svg"><span>Star</span></a>
       </div>
     </header>
 
@@ -124,32 +124,32 @@
 <h1 id="create-an-sddc">Create an SDDC</h1>
 
 <p>SDDCs are created from the SDDC view of the <a href="https://vmc.vmware.com">vmc console</a>. Click on &ldquo;Create SDDC&rdquo;.
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/create-sddc.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/create-sddc.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/create-sddc.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/create-sddc.png" /></figure>
 </p>
 
 <ol>
 <li>Specify the AWS Region, number of hosts, the host type, and SDDC name.
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/step1.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/step1.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/step1.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/step1.png" /></figure>
 </li>
 <li>If this is your first SDDC then you must establish a link to the customer-owned AWS account. You will be required to log into this AWS account. Please ensure that you have sufficient permissions to run the required CloudFormation template.
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/step2a.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/step2a.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/step2a.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/step2a.png" /></figure>
 
 You will not need to perform account linking again when deploying future SDDCs unless you need to link them to a different AWS account.
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/step2b.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/step2b.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/step2b.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/step2b.png" /></figure>
 </li>
 <li>Specify the VPC and subnet to use for SDDC cross-linking. Remember that the Availability Zone (AZ) of the subnet you choose will determine the AZ of the SDDC. For stretched-cluster deployments you will specify 2 subnets (and 2 AZs as a result).
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/step3.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/step3.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/step3.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/step3.png" /></figure>
 </li>
 <li>Provide the management subnet for the SDDC. Remember that the SDDC will utilize 100% of the address space which you provide for infrastructure. You may not use any part of this subnet for compute workloads.
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/step4.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/step4.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/step4.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/step4.png" /></figure>
 </li>
 <li>Acknowledge payment and deploy the SDDC.
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/step5.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/step5.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/step5.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/step5.png" /></figure>
 </li>
 </ol>
 
 <p>Once the SDDC has been deployed then it will be visible from the SDDC view of the <a href="https://vmc.vmware.com">vmc console</a>.
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/sddc-pane.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/images/sddc-pane.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/sddc-pane.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/on-boarding/howto/sddc/sddc-pane.png" /></figure>
 
 Assuming you have permitted inbound access through the SDDC gateway firewalls, you may access vCenter of the SDDC via its <a href="https://en.wikipedia.org/wiki/Fully_qualified_domain_name">FQDN</a> (which resolves to a public IP address by default).</p>
     

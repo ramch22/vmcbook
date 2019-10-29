@@ -16,11 +16,11 @@
     
     <header class="main-header">
       <div>
-        <a href="https://cloud.vmware.com"><img src="https://dspinhirne.github.io/vmcbook/images/vm.svg"></a>
+        <a href="https://cloud.vmware.com"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/vm.svg"></a>
       </div>
       <div><a href="https://dspinhirne.github.io/vmcbook/">VMware Cloud Knowledge</a></div>
       <div>
-        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://dspinhirne.github.io/vmcbook/images/github.svg"><span>Star</span></a>
+        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/github.svg"><span>Star</span></a>
       </div>
     </header>
 
@@ -149,7 +149,7 @@
 
 <p>As part of the partnership with AWS, VMware maintains a master AWS account which is used as part of the VMware Cloud On AWS service. Whenever a new cloud services Organization (Org) is created, VMware creates a sub-account within this master account which acts as the parent for all AWS resources used by that Org.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/images/aws-accounts.png" alt="VMware AWS Accounts" /><figcaption>VMware AWS Accounts</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-architecture/aws-accounts.png" alt="VMware AWS Accounts" /><figcaption>VMware AWS Accounts</figcaption></figure>
 
 
 <p>Whenever an SDDC is provisioned, resources for that SDDC are created within the AWS sub-account for the Org. This model allows VMware to manage billing for SDDC consumption (hardware, bandwidth, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">EBS</a>, etc&hellip;).</p>
@@ -158,7 +158,7 @@
 
 <p>As part of the process for provisioning an SDDC it is required to provide the number of hosts for the SDDC base cluster and an IP address range to use for SDDC management. Using this information, VMware will create a new <a href="{{site.data.links.aws.vpc_subnets.url}}">VPC</a> within the VMware-owned AWS account for that SDDC&rsquo;s Org. This VPC will be created using the SDDC management IP address range provided during the provisioning process and several subnets will be created within that VPC. VMware will then allocate hardware hosts for the SDDC and connect them to the subnets of that VPC.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/images/underlay-vpc.png" alt="The Underlay VPC" /><figcaption>The Underlay VPC</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-architecture/underlay-vpc.png" alt="The Underlay VPC" /><figcaption>The Underlay VPC</figcaption></figure>
 
 
 <p>An <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">IGW</a> and VGW will also be created for this VPC. These gateways enable internet and Direct Connect connectivity to the VPC.</p>
@@ -185,14 +185,14 @@
 
 <p>The AWS infrastructure is completely unlike a traditional switched network in that it is not based on MAC-learning. Instead, 100% of all IP/MAC pairs must be explicitly programmed by AWS into the infrastructure. This presents a problem for the SDDC; specifically when it comes to vMotion. Although the exact nature of the problem (as well as the details around the solution) are beyond the scope of this document, it is sufficient to understand that each ESXi host utilizes a series of kernel-level (non-NSX managed) virtual routers designed to enable vMotion on top of AWS. These virtual routers are visible in the network path of a VM whenever you perform a traceroute. If you do a traceroute then you will notice that the interconnects between the NSX edges and the host-level routers (vDR) are utilizing a mix of IPv4 addresses from the <a href="https://en.wikipedia.org/wiki/Reserved_IP_addresses">reserved</a> ranges for link-local and carrier-grade NAT.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/images/esx-networking.png" alt="ESXi Host Networking" /><figcaption>ESXi Host Networking</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-architecture/esx-networking.png" alt="ESXi Host Networking" /><figcaption>ESXi Host Networking</figcaption></figure>
 
 
 <h2 id="the-vpc-cross-link">The VPC Cross-Link</h2>
 
 <p>Every SDDC must be cross-linked to a VPC within the customer-owned AWS account. This cross-linking is accomplished using the Cross-Account <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">ENI</a> feature of AWS and creates a connection between every host of the SDDC to a <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">subnet</a> within the cross-linked VPC. This cross-link provides the SDDC with a network forwarding path to services maintained within the customer-owned AWS account.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/images/cross-account-eni.png" alt="SDDC Cross-Account ENIs" /><figcaption>SDDC Cross-Account ENIs</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-architecture/cross-account-eni.png" alt="SDDC Cross-Account ENIs" /><figcaption>SDDC Cross-Account ENIs</figcaption></figure>
 
 
 <p>The Cross-Account ENIs are visible from the customer-owned AWS account (by viewing network interfaces within EC2). You will notice that there are several ENIs created when the SDDC is deployed, but that only a few are active. In addition to ENIs created for active hosts of the SDDC, there will also be ENIs created for future expansion and for upgrades/maintenance. Even though it is possible, you should avoid modifying or deleting these ENIs since doing so may impact the cross-link to the SDDC.</p>
@@ -207,7 +207,7 @@
 
 <p>Higher-level constructs aside, software defined networking defines 2 types of objects: logical switches and logical routers. These objects are designed to mimic the behavior of their counterparts in traditional hardware-based networks. Logical switches operate at <a href="https://en.wikipedia.org/wiki/Data_link_layer">layer-2</a> and will forward traffic between nodes within the same <a href="https://en.wikipedia.org/wiki/Network_segment">network segment</a>. Logical routers operate at <a href="https://en.wikipedia.org/wiki/Network_layer">layer-3</a> and will route traffic between network segments. With NSX, logical switches and logical routers are distributed. This means that each host of the SDDC maintains enough information to understand which VMs belong to which logical switch(es) and how to forward traffic through the underlay network. When 2 VMs communicate with one another, the exact path through the underlay becomes a function of where the VMs reside (i.e. on which host they reside).</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/images/overlay-networking.png" alt="Overlay Networking" /><figcaption>Overlay Networking</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-architecture/overlay-networking.png" alt="Overlay Networking" /><figcaption>Overlay Networking</figcaption></figure>
 
 
 <p>In the figure above, we see several examples of different types of traffic flows. As illustrated, intra-segment traffic will either be switched locally for VMS on the same host, or encapsulated and sent through the underlay for VMs on different hosts. Similarly, for inter-segment traffic the routing will take place locally before being switched or encapsulated and sent through the underlay.</p>
@@ -216,7 +216,7 @@
 
 <p>The SDDC utilizes NSX to create an overlay network with 2 tiers of routing. At the first tier of the network is an NSX tier-0 router which acts as the north-south border device for the entire SDDC. At the second tier are the NSX tier-1 routers which are known as the Management Gateway (MGW) and Compute Gateway (CGW). These tier-1 routers act as the gateways for their respective networks.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/images/sddc-overlay.png" alt="SDDC Overlay Network" /><figcaption>SDDC Overlay Network</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-architecture/sddc-overlay.png" alt="SDDC Overlay Network" /><figcaption>SDDC Overlay Network</figcaption></figure>
 
 
 <p>There are two distinct types of networks within the SDDC: the management network and the compute network. The management network is considered to be part of the SDDC infrastructure and provides network connectivity to the various infrastructure components of the SDDC. Due to the permissions model of the service, the layout of this network may not be altered. The compute network is used by the compute workloads of the SDDC. Customers have the ability to add and remove network segments within the compute network as needed.</p>
@@ -225,7 +225,7 @@
 
 <p>All routers within the SDDC are distributed. This means that routing between segments is performed locally on ESXi host by the appropriate distributed router (DR). Certain functions, however, are not distributed and must be handle centrally by a Service Router (SR) component on the NSX edge appliances. Specifically, gateway firewall and NAT operations are handled in a centralized manner. Also, any traffic which passes between the overlay and underlay networks must be handled by the tier-0 edge SR on the edge appliances. The edge appliances are deployed in a redundant pair, with all SRs running on the active appliance and with SRs on the standby appliance sitting idle. In the event of a failure of 1 or more SRs on the active appliance, all SRs will fail over to the standby appliance. This is an optimization strategy designed to prevent unnecessary traffic flows between the edge appliances.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/images/edge-appliances.png" alt="NSX Edge Appliances" /><figcaption>NSX Edge Appliances</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-architecture/edge-appliances.png" alt="NSX Edge Appliances" /><figcaption>NSX Edge Appliances</figcaption></figure>
 
 
 <p>In the figure above, we see an example traffic flow where a VM is communicating to the internet. It this example, the traffic is routed between the CGW and Edge DRs locally before being sent through the underlay to the Edge SR in the active edge appliance. From there, the traffic is routed through to the vDR on the local ESXi host before finally being sent out to the internet. This routing pattern would be visible in a traceroute from the VM.</p>
@@ -234,7 +234,7 @@
 
 <p>As discussed previously, every host of the SDDC is connected to a VPC within the customer-owned AWS account via Cross-Account ENI connections. These connections are there in order to provide a forwarding path to the tier-0 edge of the SDDC.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/images/edge-cross-link.png" alt="Edge Cross-Link" /><figcaption>Edge Cross-Link</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-architecture/edge-cross-link.png" alt="Edge Cross-Link" /><figcaption>Edge Cross-Link</figcaption></figure>
 
 
 <p>Since we must always pass through the Edge SR whenever traffic leaves the SDDC, all traffic to and from the cross-linked VPC must pass through the active edge appliance of the SDDC. Since this edge appliance is a VM, it resides on a specific ESXi host. As such, it will always use the Cross-Account ENI for that host (as well as the local vDR for that host). It should be noted that the base cluster of the SDDC will be deployed within the same <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zone</a> (AZ) as the cross-link subnet (the subnet which contains the Cross-Account ENIs). Since the edge appliances reside within the base cluster, cross-AZ bandwidth charges will be avoided between the edge and any resources within that same AZ.</p>

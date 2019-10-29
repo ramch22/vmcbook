@@ -16,11 +16,11 @@
     
     <header class="main-header">
       <div>
-        <a href="https://cloud.vmware.com"><img src="https://dspinhirne.github.io/vmcbook/images/vm.svg"></a>
+        <a href="https://cloud.vmware.com"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/vm.svg"></a>
       </div>
       <div><a href="https://dspinhirne.github.io/vmcbook/">VMware Cloud Knowledge</a></div>
       <div>
-        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://dspinhirne.github.io/vmcbook/images/github.svg"><span>Star</span></a>
+        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/github.svg"><span>Star</span></a>
       </div>
     </header>
 
@@ -197,7 +197,7 @@
 
 <p>The Software Defined Data Center (SDDC) is a collection of bare-metal hosts which are installed with a standard set of VMware software. It is important to understand that each SDDC is running atop dedicated hardware, and that billing for an SDDC is based upon the number of hosts dedicated to the SDDC, and is <strong>not</strong> based on the number of VMs running within the SDDC.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/a-technical-overview/images/sddc.png" alt="Software Defined Data Center (SDDC)" /><figcaption>Software Defined Data Center (SDDC)</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/a-technical-overview/sddc.png" alt="Software Defined Data Center (SDDC)" /><figcaption>Software Defined Data Center (SDDC)</figcaption></figure>
 
 
 <p>Since VMware Cloud On AWS is a managed service, full admin-level access to the SDDC is not permitted. This restriction is in place to prevent customers from modifying the infrastructure of the SDDC.  Instead, customers are given a role which allows them to fully manage workloads which they have deployed within the SDDC. Normally, this permissions model does not impact day-to-day use of the service, however, it&rsquo;s important to keep in mind if you are planning on integrating tools directly with infrastructure components such as vCenter. If the integration you are planning requires admin rights, then it may not function properly. It is recommended to review the documentation for your specific application in order to understand its permission and access requirements. The permissions model of vCenter is discussed in more detail in later sections.</p>
@@ -233,7 +233,7 @@
 
 <p>Once a connection is established to the AWS account, it then becomes possible to configure a cross-link between an SDDC and a VPC within that account. The cross-link itself consists of a series of Cross-Account <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">ENI</a> which are attached to a Subnet within the VPC. It is these ENIs which provide the hosts of an SDDC with a network forwarding path to resources within the VPC.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/a-technical-overview/images/aws-service-integration.png" alt="Integration with AWS Services" /><figcaption>Integration with AWS Services</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/a-technical-overview/aws-service-integration.png" alt="Integration with AWS Services" /><figcaption>Integration with AWS Services</figcaption></figure>
 
 
 <p>The topic of SDDC cross-linking will be explored in more detail in <a href="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/">later chapters</a>, but for now it is sufficient to keep the following in mind when selecting a VPC/Subnet for cross-linking:</p>
@@ -286,7 +286,7 @@
 
 <p>Within an SDDC, the vSAN cluster has been modified to present two logical Datastores: one for the management appliances and another for compute workloads. As with the management Resource Pool, the CloudAdmin role does not have access to the Datastore used by the management appliances.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/a-technical-overview/images/vcenter-ds.png" alt="vSAN Datastores" /><figcaption>vSAN Datastores</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/a-technical-overview/vcenter-ds.png" alt="vSAN Datastores" /><figcaption>vSAN Datastores</figcaption></figure>
 
 
 <h2 id="storage-policies">Storage Policies</h2>
@@ -358,7 +358,7 @@
 
 <p>The routing and network security models of the SDDC are illustrated below.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/a-technical-overview/images/sddc-networking.png" alt="SDDC Network Architecture" /><figcaption>SDDC Network Architecture</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/a-technical-overview/sddc-networking.png" alt="SDDC Network Architecture" /><figcaption>SDDC Network Architecture</figcaption></figure>
 
 
 <p>Additional details on the network and security model of the SDDC are covered in later chapters of this guide.</p>

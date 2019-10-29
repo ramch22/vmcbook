@@ -16,11 +16,11 @@
     
     <header class="main-header">
       <div>
-        <a href="https://cloud.vmware.com"><img src="https://dspinhirne.github.io/vmcbook/images/vm.svg"></a>
+        <a href="https://cloud.vmware.com"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/vm.svg"></a>
       </div>
       <div><a href="https://dspinhirne.github.io/vmcbook/">VMware Cloud Knowledge</a></div>
       <div>
-        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://dspinhirne.github.io/vmcbook/images/github.svg"><span>Star</span></a>
+        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/github.svg"><span>Star</span></a>
       </div>
     </header>
 
@@ -140,7 +140,7 @@
 
 <p>Normally, customers will have one or more public internet circuits over which they will receive either default routes, or specific BGP prefixes. These circuits are used to access the public IP address space which AWS advertises to its upstream internet providers. In this example, the on-premises router is receiving a default route to the internet.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/concepts/images/dx-public-vif.png" alt="Public VIF" /><figcaption>Public VIF</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/concepts/dx-public-vif.png" alt="Public VIF" /><figcaption>Public VIF</figcaption></figure>
 
 
 <p>When Direct Connect is enabled, and a Public VIF created, AWS will begin to announce all of their public IP prefixes, via BGP, over the Direct Connect. In this example, due to the specific routes being advertised by AWS, the customer network will prefer the Direct Connect as its path toward AWS public address space. This effectively means that the Direct Connect will be used when connecting to the public IP addresses allocated to the SDDC; for example, the public interface of the edge or the Elastic IP of vCenter.</p>
@@ -153,7 +153,7 @@
 
 <p>The standard means of accessing the private address space of an SDDC is via IPSec VPN. This VPN creates a secure virtual tunnel directly between the customer on-premises and the SDDC, either over the public internet or atop Direct Connect Public VIF. Direct Connect Private VIF provides an alternative to IPSec VPN by enabling a direct routed path between the customer on-premises network and a VPC within the AWS environment.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/concepts/images/dx-private-vif.png" alt="Private VIF" /><figcaption>Private VIF</figcaption></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/concepts/dx-private-vif.png" alt="Private VIF" /><figcaption>Private VIF</figcaption></figure>
 
 
 <p>As mentioned previously, each SDDC resides within a dedicated VPC which is owned by a master VMware account. Because the SDDC resides within a VPC, it is possible to terminate Direct Connect Private VIF directly to that VPC. In order to use Direct Connect with an SDDC, <strong>customers must specifically link the Private VIF to the VMware AWS account used by the SDDC</strong>. This account information is documented within the Network &amp; Security tab of the SDDC within the VMC console.</p>

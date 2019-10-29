@@ -16,11 +16,11 @@
     
     <header class="main-header">
       <div>
-        <a href="https://cloud.vmware.com"><img src="https://dspinhirne.github.io/vmcbook/images/vm.svg"></a>
+        <a href="https://cloud.vmware.com"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/vm.svg"></a>
       </div>
       <div><a href="https://dspinhirne.github.io/vmcbook/">VMware Cloud Knowledge</a></div>
       <div>
-        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://dspinhirne.github.io/vmcbook/images/github.svg"><span>Star</span></a>
+        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/github.svg"><span>Star</span></a>
       </div>
     </header>
 
@@ -144,7 +144,7 @@
 
 <p>A <a href="https://aws.amazon.com/answers/networking/global-transit-network/">Transit VPC</a> is a special <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">VPC</a> which enables a hub-and-spoke connetivity model for 2 or more branch networks within an AWS installation. It operates on the notion that the customer will create an IPSec VPN &ldquo;overlay&rdquo; network which will enable the Transit VPC to act as the hub in the design. This IPSec VPN overlay enables customers to overcome the normal limitations on VPCs which prohibit transitive routing (i.e. one VPC forwarding traffic between 2 other networks).</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/images/transit-vpc.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/images/transit-vpc.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/transit-vpc.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/transit-vpc.png" /></figure>
 
 
 <p>SDDC integration with a Transit VPC is simple and uses route-based IPSec VPN from the tier-0 edge of the SDDC to the VPN endpoints in the Transit VPC. From the perspective of the Transit VPC, an SDDC is just another branch in the hub-and-spoke design.</p>
@@ -155,7 +155,7 @@
 
 <p>Although Transit Gateway is primarily designed as a hub for connecting VPCs, it also supports integration with Direct Connect Gateway and other non-VPC endpoints. For non-VPC endpoints, IPSec VPN is still required.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/images/tgw-ipsec.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/images/tgw-ipsec.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/tgw-ipsec.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/tgw-ipsec.png" /></figure>
 
     
     <footer class="content-footer"><div>Written by<a href='https://dspinhirne.github.io/vmcbook/site/authors/#dustin-spinhirne'>Dustin Spinhirne</a></div><div>

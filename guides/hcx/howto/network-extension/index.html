@@ -16,11 +16,11 @@
     
     <header class="main-header">
       <div>
-        <a href="https://cloud.vmware.com"><img src="https://dspinhirne.github.io/vmcbook/images/vm.svg"></a>
+        <a href="https://cloud.vmware.com"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/vm.svg"></a>
       </div>
       <div><a href="https://dspinhirne.github.io/vmcbook/">VMware Cloud Knowledge</a></div>
       <div>
-        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://dspinhirne.github.io/vmcbook/images/github.svg"><span>Star</span></a>
+        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/github.svg"><span>Star</span></a>
       </div>
     </header>
 
@@ -126,19 +126,19 @@
 
 <p>Identify 1 or more networks to extend and then click on the Network Extension UI from within the HCX dashboard.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/network-extension/images/net-ext01.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/network-extension/images/net-ext01.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/network-extension/net-ext01.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/network-extension/net-ext01.png" /></figure>
 
 
 <p>You will be presented with a list of port groups which are available for extension to the SDDC. You must tell HCX what the gateway/mask is for extended networks, as doing so will allow HCX to &ldquo;reserve&rdquo; this range within the SDDC. This reservation is in place as a means of enabling you to &ldquo;cutover&rdquo; the network (i.e. make the network routable/native within the SDDC) at a future date by preventing anyone from creating a conflicting routed network within the SDDC.</p>
 
 <p>In this example, a network is being extended whose gateway is 192.168.132.1/24. Clicking on the &ldquo;stretch&rdquo; button will cause HCX to create a &ldquo;disconnected&rdquo; (non-routed) network within the SDDC and set up a layer-2 stretch between it and the the on-premises network.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/network-extension/images/net-ext02.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/network-extension/images/net-ext02.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/network-extension/net-ext02.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/network-extension/net-ext02.png" /></figure>
 
 
 <p>Stretched networks are visible from the Network Extension UI.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/network-extension/images/net-ext03.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/network-extension/images/net-ext03.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/network-extension/net-ext03.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/network-extension/net-ext03.png" /></figure>
 
 
 <p>You may now place workloads within the stretched network of the SDDC. Assuming you assign these workloads valid address space from the stretched network, they will be able to connect to their peers within the on-premises network as if they were local.</p>
@@ -147,7 +147,7 @@
 
 <p>Unstretching a network is done by selecting the &ldquo;unstretch&rdquo; option from an extended network.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/network-extension/images/net-unext01.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/network-extension/images/net-unext01.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/network-extension/net-unext01.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/network-extension/net-unext01.png" /></figure>
 
 
 <p>Unstretching will simply disconnect the layer-2 extension. It will not delete the network from the SDDC. You have 2 options for how you unstretch:</p>
@@ -159,7 +159,7 @@
 
 <p>You control the unstretch method using the highlighted checkbox in the below illustration. Checking the box will convert the SDDC network to a routed network.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/network-extension/images/net-unext02.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/network-extension/images/net-unext02.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/network-extension/net-unext02.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/network-extension/net-unext02.png" /></figure>
 
     
     <footer class="content-footer"><div>

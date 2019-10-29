@@ -16,11 +16,11 @@
     
     <header class="main-header">
       <div>
-        <a href="https://cloud.vmware.com"><img src="https://dspinhirne.github.io/vmcbook/images/vm.svg"></a>
+        <a href="https://cloud.vmware.com"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/vm.svg"></a>
       </div>
       <div><a href="https://dspinhirne.github.io/vmcbook/">VMware Cloud Knowledge</a></div>
       <div>
-        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://dspinhirne.github.io/vmcbook/images/github.svg"><span>Star</span></a>
+        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/github.svg"><span>Star</span></a>
       </div>
     </header>
 
@@ -128,7 +128,7 @@
 
 <p>Groups are configured from the Network &amp; Security tab of the SDDC. The VMC console separates groups into Management Groups for the management network, and Workload Groups for the compute network. The Virtual Machines section allows you to set security tags on individual VMs. It should be noted that security tags are a completely separate set of tags and are not related to VM tags in vCenter.</p>
 
-<figure   ><img src="" alt="images/groups.png could not be located" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/groups/groups.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/groups/groups.png" /></figure>
 
 
 <h1 id="management-groups">Management Groups</h1>
@@ -137,7 +137,7 @@
 
 <p>The following example illustrates a new IP-based group which defines the address range used for a hypothetical, remote on-premises network.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/images/mgmt-groups.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/images/mgmt-groups.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/groups/mgmt-groups.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/groups/mgmt-groups.png" /></figure>
 
 
 <h1 id="workload-groups">Workload Groups</h1>
@@ -149,7 +149,7 @@
 
 <p>The following illustration shows the membership type options available for Workload Groups.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/images/wkld-groups.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/images/wkld-groups.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/groups/wkld-groups.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/groups/wkld-groups.png" /></figure>
 
 
 <p>Be sure to note the maximums for each kind of membership type within a group definition.</p>
@@ -158,7 +158,7 @@
 
 <p>Currently, Membership Criteria for groups may only be based on VM name and security tag.</p>
 
-<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/images/mbrshp-criteria.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/images/mbrshp-criteria.png" /></figure>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/groups/mbrshp-criteria.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/groups/mbrshp-criteria.png" /></figure>
 
 
 <p>It is also important to understand that Membership Criteria follows a &ldquo;logical OR&rdquo; model (a.k.a. &ldquo;match any&rdquo;). In the example, you can see that there are 3 criteria defined. Due to the logical OR model, VMs will match this group if they meet any one of the defined criteria.</p>
