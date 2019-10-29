@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HowTo on VMware Cloud Knowledge</title>
+    <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/</link>
+    <description>Recent content in HowTo on VMware Cloud Knowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Services</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/services/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/services/</guid>
+      <description>How to define network services within an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Groups</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/</guid>
+      <description>Defining groups within an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Gateway Firewall</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/</guid>
+      <description>Working with security groups within an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>DFW</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/dfw/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/dfw/</guid>
+      <description>Working with the distributed firewall.</description>
+    </item>
+    
+    <item>
+      <title>NAT</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/nat/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/nat/</guid>
+      <description>Configuring network address translation within an SDDC.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HowTo on VMware Cloud Knowledge</title>
+    <link>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/</link>
+    <description>Recent content in HowTo on VMware Cloud Knowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Activate Services</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/activate-services/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/activate-services/</guid>
+      <description>How to activate VMware Cloud services.</description>
+    </item>
+    
+    <item>
+      <title>Billing</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/billing/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/billing/</guid>
+      <description>How to manage billing.</description>
+    </item>
+    
+    <item>
+      <title>Manage Users</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/manage-users/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/manage-users/</guid>
+      <description>How to manage Organization users.</description>
+    </item>
+    
+  </channel>
+</rss>

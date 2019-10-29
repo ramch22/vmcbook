@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VMware Cloud on AWS on VMware Cloud Knowledge</title>
+    <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/</link>
+    <description>Recent content in VMware Cloud on AWS on VMware Cloud Knowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Technical Overview</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/a-technical-overview/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/a-technical-overview/</guid>
+      <description>Provides a high-level technical overview of VMware Cloud on AWS.</description>
+    </item>
+    
+  </channel>
+</rss>

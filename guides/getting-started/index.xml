@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Getting Started on VMware Cloud Knowledge</title>
+    <link>https://dspinhirne.github.io/vmcbook/guides/getting-started/</link>
+    <description>Recent content in Getting Started on VMware Cloud Knowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 27 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dspinhirne.github.io/vmcbook/guides/getting-started/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/getting-started/introduction/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/introduction/</guid>
+      <description>Describes the concepts needed in order to get started with VMware Cloud.</description>
+    </item>
+    
+    <item>
+      <title>Printable View</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/getting-started/printable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/printable/</guid>
+      <description>A single-page view of this portion of the guide which is designed to enable easy printing. It is not intended for daily use.</description>
+    </item>
+    
+  </channel>
+</rss>

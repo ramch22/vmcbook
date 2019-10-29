@@ -1,2 +1,2 @@
 # vmcbook
-The source repository for the book [VMware Cloud: A Hands-On Guide](https://dspinhirne.github.io/vmcbook/)
+The compiled site code for [VMware Cloud Knowledge](https://dspinhirne.github.io/vmcbook/)

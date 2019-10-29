@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>VMware Cloud Knowledge</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VMware Cloud articles and guides.">
+  <meta name="generator" content="Hugo 0.60.0-DEV" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://dspinhirne.github.io/vmcbook/main.css">
+  <script type="text/javascript" src="https://dspinhirne.github.io/vmcbook/main.js"></script>
+</head>
+
+  <body>
+    
+    <header class="main-header">
+      <div>
+        <a href="https://cloud.vmware.com"><img src="https://dspinhirne.github.io/vmcbook/images/vm.svg"></a>
+      </div>
+      <div><a href="https://dspinhirne.github.io/vmcbook/">VMware Cloud Knowledge</a></div>
+      <div>
+        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://dspinhirne.github.io/vmcbook/images/github.svg"><span>Star</span></a>
+      </div>
+    </header>
+
+    <article class="main-article">
+      <nav class="left-nav">
+        <ul class="top-level"><li >
+        <span onclick="leftNavClick(this)">Getting Started</span><ul class="sub-level">
+        <li><a href="/vmcbook/guides/getting-started/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/getting-started/introduction/" >Introduction</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/getting-started/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/getting-started/howto/activate-services/" >Activate Services</a></li><li ><a href="/vmcbook/guides/getting-started/howto/billing/" >Billing</a></li><li ><a href="/vmcbook/guides/getting-started/howto/manage-users/" >Manage Users</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">HCX</span><ul class="sub-level">
+        <li><a href="/vmcbook/guides/hcx/" >Index</a></li>
+        <li >
+        <span onclick="leftNavClick(this)">A Technical Overview</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/hcx/a-technical-overview/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/hcx/a-technical-overview/introduction/" >Introduction</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/planning/" >Planning</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/preparation/" >Preparation</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/testing/" >Testing</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/migration/" >Migration</a></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/hcx/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/hcx/howto/activate/" >Activate</a></li><li ><a href="/vmcbook/guides/hcx/howto/install/" >Install</a></li><li ><a href="/vmcbook/guides/hcx/howto/network-extension/" >Network Extension</a></li><li ><a href="/vmcbook/guides/hcx/howto/workload-migration/" >Workload Migration</a></li>
+      </ul></li>
+      </ul></li><li class="open parent">
+        <span onclick="leftNavClick(this)">VMware Cloud on AWS</span><ul class="sub-level">
+        <li><a href="/vmcbook/guides/vmc-aws/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/a-technical-overview/" >A Technical Overview</a></li><li >
+        <span onclick="leftNavClick(this)">On-Boarding</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/on-boarding/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/on-boarding/introduction/" >Introduction</a></li><li ><a href="/vmcbook/guides/vmc-aws/on-boarding/requirements/" >Requirements</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/on-boarding/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/on-boarding/howto/term-subscription/" >Term Subscription</a></li><li ><a href="/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/" >SDDC</a></li>
+      </ul></li>
+      </ul></li><li class="open parent">
+        <span onclick="leftNavClick(this)">Networking</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/sddc-architecture/" >SDDC Architecture</a></li><li class="open parent">
+        <span onclick="leftNavClick(this)">IPSec VPN</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/concepts/" >Concepts</a></li><li class="open parent">
+        <span onclick="leftNavClick(this)">Howto</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/configure/" >Configure</a></li><li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/troubleshoot/" >Troubleshoot</a></li><li class="open parent"><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/sample-configs/" class="active">Sample Configs</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Direct Connect</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/concepts/" >Concepts</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/howto/configure/" >Configure</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/howto/network-segments/" >Network Segments</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Network Security</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/network-security/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/network-security/concepts/" >Concepts</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/network-security/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/services/" >Services</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/groups/" >Groups</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/" >Gateway Firewall</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/dfw/" >DFW</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/nat/" >NAT</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Validated Designs</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/validated-designs/" >Index</a></li>
+        <li >
+        <span onclick="leftNavClick(this)">Network</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/validated-designs/network/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/" >Hub-and-Spoke Designs</a></li><li ><a href="/vmcbook/guides/vmc-aws/validated-designs/network/transit-gateway/" >Transit Gateway</a></li>
+      </ul></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Site</span><ul class="sub-level">
+        <li><a href="/vmcbook/site/" >Index</a></li>
+        <li ><a href="/vmcbook/site/authors/" >Authors</a></li><li ><a href="/vmcbook/site/authoring-guide/" >Authoring Guide</a></li><li ><a href="/vmcbook/site/information/" >Information</a></li><li ><a href="/vmcbook/site/links/" >Links</a></li><li ><a href="/vmcbook/site/editor/" >Markdown Editor</a></li><li ><a href="/vmcbook/site/resources/" >Resources</a></li>
+      </ul></li></ul>
+      </nav>
+
+      <main class="main-content">  <div class="TableOfContents">
+    <h1>Page Contents</h1>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#cisco-csr-ios-xr">Cisco CSR (IOS XR)</a>
+<ul>
+<li><a href="#route-based-vpn-ikev1">Route-Based VPN, IKEv1</a></li>
+<li><a href="#route-based-vpn-ikev2">Route-Based VPN, IKEv2</a></li>
+</ul></li>
+<li><a href="#ubiquiti-edgemax">Ubiquiti EdgeMAX</a></li>
+</ul>
+</nav>
+  </div>
+
+  
+  <article class="content with-toc">
+    <header class="content-header">
+      <strong class="heading">VMware Cloud on AWS</strong><strong class="sub-heading">IPSec VPN HowTo:Sample Configs</strong></header>
+
+    
+
+<h1 id="overview">Overview</h1>
+
+<p>The following sample configurations are designed to provide examples of known working configurations. However, they will require modification to your specific setup in order to actually work.</p>
+
+<p>Testing was performed to an EC2 instance in AWS. EC2 instances use NAT, so we must be sure to open up UDP 500/4500 (for NAT-t) inbound in the security group for the device.</p>
+
+<h1 id="cisco-csr-ios-xr">Cisco CSR (IOS XR)</h1>
+
+<h2 id="route-based-vpn-ikev1">Route-Based VPN, IKEv1</h2>
+
+<p>Contributed by: <a href="https://dspinhirne.github.io/vmcbook/site/authors/#dustin-spinhirne">Dustin Spinhirne</a></p>
+
+<figure  class="no-center" ><table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Local IP Address</td>
+<td>edge public IP 52.39.110.92</td>
+</tr>
+
+<tr>
+<td>IKE Type</td>
+<td>IKEv1</td>
+</tr>
+
+<tr>
+<td>Tunnel Encryption</td>
+<td>AES 256</td>
+</tr>
+
+<tr>
+<td>Tunnel Digest Algorithm</td>
+<td>SHA2</td>
+</tr>
+
+<tr>
+<td>IKE Encryption</td>
+<td>AES 256</td>
+</tr>
+
+<tr>
+<td>IKE Digest Algorithm</td>
+<td>SHA2</td>
+</tr>
+
+<tr>
+<td>Perfect Forward Secrecy</td>
+<td>enabled</td>
+</tr>
+
+<tr>
+<td>Preshared Key</td>
+<td>myverysecretkey</td>
+</tr>
+
+<tr>
+<td>Diffie Hellman</td>
+<td>Group 14</td>
+</tr>
+
+<tr>
+<td>BGP Local IP/Prefix Length</td>
+<td>169.254.255.1/30</td>
+</tr>
+
+<tr>
+<td>BGP Remote IP</td>
+<td>169.254.255.2</td>
+</tr>
+
+<tr>
+<td>BGP Remote ASN</td>
+<td>64512</td>
+</tr>
+
+<tr>
+<td>SDDC ASN Setting</td>
+<td>64513</td>
+</tr>
+</tbody>
+</table><figcaption>SDDC Configuration</figcaption></figure>
+
+
+<p><strong>Device Configuration</strong>
+<pre   >
+! specify the pre-share key for the remote sddc edge
+crypto keyring sddc
+  ! the local private ip address
+  local-address 192.168.250.43
+  ! pre-shared key with sddc edge
+  pre-shared-key address 52.39.110.92 key myverysecretkey
+exit
+
+! phase1 crypto - AES 256 SHA2-256
+crypto isakmp policy 1
+  encryption aes 256
+  hash sha256
+  authentication pre-share
+  group 14
+  ! this is typically a default setting
+  lifetime 86400
+exit
+
+! create a profile for the remote sddc edge
+crypto isakmp profile isakmp-sddc
+  keyring sddc
+  ! ip of sddc edge
+  match identity address 52.39.110.92
+  ! the local private ip address
+  local-address 192.168.250.43
+exit
+
+! phase2 crypto - AES 256 SHA2-256. always use tunnel mode
+crypto ipsec transform-set ipsec-sddc esp-aes 256 esp-sha256-hmac 
+  mode tunnel
+exit
+
+! phase2 ipsec profile
+crypto ipsec profile ipsec-profile-sddc
+  set transform-set ipsec-sddc
+  set pfs group14
+  ! this is typically a default setting
+  set security-association lifetime seconds 3600
+exit
+
+crypto ipsec df-bit clear
+crypto isakmp keepalive 60 2 on-demand
+crypto ipsec security-association replay window-size 128
+crypto ipsec fragmentation before-encryption
+
+! a fake network we will use for testing. this is definitely optional
+interface Loopback0
+ ip address 192.168.251.1 255.255.255.0
+exit
+
+! the VTI interface for route-based vpn
+interface Tunnel0
+  ! can use link-local address range here. use a range which is not currently in use on this router or the sddc edge
+  ip address 169.254.255.2 255.255.255.252
+  ip virtual-reassembly
+  ! use the local private ip
+  tunnel source 192.168.250.43
+  ! ip of the sddc edge
+  tunnel destination 52.39.110.92
+  tunnel mode ipsec ipv4
+  ! this enables ipsec encryption for the VTI
+  tunnel protection ipsec profile ipsec-profile-sddc
+  ip tcp adjust-mss 1379
+  no shutdown
+exit
+
+! enable bgp with local asn
+router bgp 64512
+  ! the neighbor should be the VTI address of the sddc edge. use the asn specified in the vmc console
+  neighbor 169.254.255.1 remote-as 64513
+  neighbor 169.254.255.1 activate
+  neighbor 169.254.255.1 timers 60 180 180
+  address-family ipv4 unicast
+    ! as a test, we will advertise the fake network we created on Loopback 0
+    network 192.168.251.0 mask 255.255.255.0
+    neighbor 169.254.255.1 activate
+    neighbor 169.254.255.1 soft-reconfiguration inbound
+
+  exit
+exit
+</pre>
+</p>
+
+<h2 id="route-based-vpn-ikev2">Route-Based VPN, IKEv2</h2>
+
+<p>Contributed by: <a href="https://dspinhirne.github.io/vmcbook/site/authors/#dustin-spinhirne">Dustin Spinhirne</a></p>
+
+<figure  class="no-center" ><table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Local IP Address</td>
+<td>edge public IP 52.39.110.92</td>
+</tr>
+
+<tr>
+<td>IKE Type</td>
+<td>IKEv2</td>
+</tr>
+
+<tr>
+<td>Tunnel Encryption</td>
+<td>AES 256</td>
+</tr>
+
+<tr>
+<td>Tunnel Digest Algorithm</td>
+<td>SHA2</td>
+</tr>
+
+<tr>
+<td>IKE Encryption</td>
+<td>AES 256</td>
+</tr>
+
+<tr>
+<td>IKE Digest Algorithm</td>
+<td>SHA2</td>
+</tr>
+
+<tr>
+<td>Perfect Forward Secrecy</td>
+<td>enabled</td>
+</tr>
+
+<tr>
+<td>Preshared Key</td>
+<td>myverysecretkey</td>
+</tr>
+
+<tr>
+<td>Diffie Hellman</td>
+<td>Group 14</td>
+</tr>
+
+<tr>
+<td>BGP Local IP/Prefix Length</td>
+<td>169.254.255.1/30</td>
+</tr>
+
+<tr>
+<td>BGP Remote IP</td>
+<td>169.254.255.2</td>
+</tr>
+
+<tr>
+<td>BGP Remote ASN</td>
+<td>64512</td>
+</tr>
+
+<tr>
+<td>SDDC ASN Setting</td>
+<td>64513</td>
+</tr>
+</tbody>
+</table><figcaption>SDDC Configuration</figcaption></figure>
+
+
+<p><strong>Device Configuration</strong>
+<pre   >
+! ikev2 crypto - AWS-256-CBC SHA-256
+crypto ikev2 proposal ikev2-prop-sddc 
+ encryption aes-cbc-256
+ integrity sha256
+ group 14
+exit
+
+! define an ikev2 policy
+crypto ikev2 policy ikev2-policy-sddc 
+ match fvrf any
+ proposal ikev2-prop-sddc
+exit
+
+! define keyring for pre-shared key
+crypto ikev2 keyring ikev2-keyring-sddc
+ peer sddc
+  ! ip of sddc edge
+  address 52.39.110.92
+  pre-shared-key myverysecretkey
+  exit
+exit
+
+! ikev2 profile
+crypto ikev2 profile ikev2-profile-sddc
+ ! ip of sddc edge
+ match identity remote address 52.39.110.92 255.255.255.255 
+ ! local private ip of this router
+ identity local address 192.168.250.43
+ authentication remote pre-share
+ authentication local pre-share
+ keyring local ikev2-keyring-sddc
+exit
+
+crypto ikev2 dpd 60 2 on-demand
+crypto ipsec security-association replay window-size 128
+crypto ipsec df-bit clear
+
+! ipsec proposal - AES-256 SHA-256
+crypto ipsec transform-set ipsec-sddc esp-aes 256 esp-sha256-hmac 
+ mode tunnel
+exit
+
+! ipsec profile using previously configured parameters
+crypto ipsec profile ipsec-profile-sddc
+ set transform-set ipsec-sddc 
+ set pfs group14
+ set ikev2-profile ikev2-profile-sddc
+exit
+
+! a fake network we will use for testing. this is definitely optional
+interface Loopback0
+ ip address 192.168.251.1 255.255.255.0
+exit
+
+! the VTI interface for route-based vpn
+interface Tunnel0
+  ! can use link-local address range here. use a range which is not currently in use on this router or the sddc edge
+  ip address 169.254.255.2 255.255.255.252
+  ip virtual-reassembly
+  ! use the local private ip
+  tunnel source 192.168.250.43
+  ! ip of the sddc edge
+  tunnel destination 52.39.110.92
+  tunnel mode ipsec ipv4
+  ! this enables ipsec encryption for the VTI
+  tunnel protection ipsec profile ipsec-profile-sddc
+  ip tcp adjust-mss 1379
+  no shutdown
+exit
+
+! enable bgp with local asn
+router bgp 64512
+  ! the neighbor should be the VTI address of the sddc edge. use the asn specified in the vmc console
+  neighbor 169.254.255.1 remote-as 64513
+  neighbor 169.254.255.1 activate
+  neighbor 169.254.255.1 timers 60 180 180
+  address-family ipv4 unicast
+    ! as a test, we will advertise the fake network we created on Loopback 0
+    network 192.168.251.0 mask 255.255.255.0
+    neighbor 169.254.255.1 activate
+    neighbor 169.254.255.1 soft-reconfiguration inbound
+  exit
+exit
+</pre>
+</p>
+
+<h1 id="ubiquiti-edgemax">Ubiquiti EdgeMAX</h1>
+
+<p>Contributed by: Z House</p>
+
+<figure  class="no-center" ><table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Local IP Address</td>
+<td>edge public IP 52.39.110.92</td>
+</tr>
+
+<tr>
+<td>IKE Type</td>
+<td>IKEv2</td>
+</tr>
+
+<tr>
+<td>Tunnel Encryption</td>
+<td>AES 256</td>
+</tr>
+
+<tr>
+<td>Tunnel Digest Algorithm</td>
+<td>SHA1</td>
+</tr>
+
+<tr>
+<td>IKE Encryption</td>
+<td>AES 256</td>
+</tr>
+
+<tr>
+<td>IKE Digest Algorithm</td>
+<td>SHA1</td>
+</tr>
+
+<tr>
+<td>Perfect Forward Secrecy</td>
+<td>enabled</td>
+</tr>
+
+<tr>
+<td>Preshared Key</td>
+<td>myverysecretkey</td>
+</tr>
+
+<tr>
+<td>Diffie Hellman</td>
+<td>Group 14</td>
+</tr>
+
+<tr>
+<td>BGP Local IP/Prefix Length</td>
+<td>169.254.255.1/30</td>
+</tr>
+
+<tr>
+<td>BGP Remote IP</td>
+<td>169.254.255.2</td>
+</tr>
+
+<tr>
+<td>BGP Remote ASN</td>
+<td>64512</td>
+</tr>
+
+<tr>
+<td>SDDC ASN Setting</td>
+<td>64513</td>
+</tr>
+</tbody>
+</table><figcaption>SDDC Configuration</figcaption></figure>
+
+
+<p><strong>Device Configuration</strong>
+<pre   >
+set vpn ipsec ike-group vmc key-exchange ikev2
+set vpn ipsec ike-group vmc lifetime 28800
+set vpn ipsec ike-group vmc proposal 1 dh-group 14
+set vpn ipsec ike-group vmc proposal 1 encryption aes256
+set vpn ipsec ike-group vmc proposal 1 hash sha1
+
+set vpn ipsec esp-group vmc lifetime 27000
+set vpn ipsec esp-group vmc pfs enable
+set vpn ipsec esp-group vmc proposal 1 encryption aes256
+set vpn ipsec esp-group vmc proposal 1 hash sha1
+
+set interfaces vti vti1 address 169.254.255.2/30
+
+set firewall options mss-clamp interface-type vti
+set firewall options mss-clamp mss 1379
+
+set vpn ipsec site-to-site peer 52.39.110.92 authentication mode pre-shared-secret
+set vpn ipsec site-to-site peer 52.39.110.92 authentication pre-shared-secret myverysecretkey
+set vpn ipsec site-to-site peer 52.39.110.92 description "VMware Cloud on AWS"
+set vpn ipsec site-to-site peer 52.39.110.92 local-address 71.33.133.168
+
+set vpn ipsec site-to-site peer 52.39.110.92 ike-group vmc
+set vpn ipsec site-to-site peer 52.39.110.92 vti bind vti0
+set vpn ipsec site-to-site peer 52.39.110.92 vti esp-group vmc
+
+set protocols bgp 64512 neighbor 169.254.255.1 remote-as 64513
+set protocols bgp 64512 redistribute connected
+set protocols bgp timers holdtime 30
+set protocols bgp timers keepalive 10
+</pre>
+</p>
+    
+    <footer class="content-footer"><div>
+          Originally publishedTuesday, Oct 1, 2019.</div></footer>
+
+  </article></main>
+    </article>
+    
+  </body>
+</html>

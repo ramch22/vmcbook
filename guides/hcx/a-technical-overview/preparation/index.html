@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>VMware Cloud Knowledge</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VMware Cloud articles and guides.">
+  <meta name="generator" content="Hugo 0.60.0-DEV" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://dspinhirne.github.io/vmcbook/main.css">
+  <script type="text/javascript" src="https://dspinhirne.github.io/vmcbook/main.js"></script>
+</head>
+
+  <body>
+    
+    <header class="main-header">
+      <div>
+        <a href="https://cloud.vmware.com"><img src="https://dspinhirne.github.io/vmcbook/images/vm.svg"></a>
+      </div>
+      <div><a href="https://dspinhirne.github.io/vmcbook/">VMware Cloud Knowledge</a></div>
+      <div>
+        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://dspinhirne.github.io/vmcbook/images/github.svg"><span>Star</span></a>
+      </div>
+    </header>
+
+    <article class="main-article">
+      <nav class="left-nav">
+        <ul class="top-level"><li >
+        <span onclick="leftNavClick(this)">Getting Started</span><ul class="sub-level">
+        <li><a href="/vmcbook/guides/getting-started/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/getting-started/introduction/" >Introduction</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/getting-started/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/getting-started/howto/activate-services/" >Activate Services</a></li><li ><a href="/vmcbook/guides/getting-started/howto/billing/" >Billing</a></li><li ><a href="/vmcbook/guides/getting-started/howto/manage-users/" >Manage Users</a></li>
+      </ul></li>
+      </ul></li><li class="open parent">
+        <span onclick="leftNavClick(this)">HCX</span><ul class="sub-level">
+        <li><a href="/vmcbook/guides/hcx/" >Index</a></li>
+        <li class="open parent">
+        <span onclick="leftNavClick(this)">A Technical Overview</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/hcx/a-technical-overview/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/hcx/a-technical-overview/introduction/" >Introduction</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/planning/" >Planning</a></li><li class="open parent"><a href="/vmcbook/guides/hcx/a-technical-overview/preparation/" class="active">Preparation</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/testing/" >Testing</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/migration/" >Migration</a></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/hcx/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/hcx/howto/activate/" >Activate</a></li><li ><a href="/vmcbook/guides/hcx/howto/install/" >Install</a></li><li ><a href="/vmcbook/guides/hcx/howto/network-extension/" >Network Extension</a></li><li ><a href="/vmcbook/guides/hcx/howto/workload-migration/" >Workload Migration</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">VMware Cloud on AWS</span><ul class="sub-level">
+        <li><a href="/vmcbook/guides/vmc-aws/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/a-technical-overview/" >A Technical Overview</a></li><li >
+        <span onclick="leftNavClick(this)">On-Boarding</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/on-boarding/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/on-boarding/introduction/" >Introduction</a></li><li ><a href="/vmcbook/guides/vmc-aws/on-boarding/requirements/" >Requirements</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/on-boarding/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/on-boarding/howto/term-subscription/" >Term Subscription</a></li><li ><a href="/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/" >SDDC</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Networking</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/sddc-architecture/" >SDDC Architecture</a></li><li >
+        <span onclick="leftNavClick(this)">IPSec VPN</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/concepts/" >Concepts</a></li><li >
+        <span onclick="leftNavClick(this)">Howto</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/configure/" >Configure</a></li><li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/troubleshoot/" >Troubleshoot</a></li><li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/sample-configs/" >Sample Configs</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Direct Connect</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/concepts/" >Concepts</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/howto/configure/" >Configure</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/howto/network-segments/" >Network Segments</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Network Security</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/network-security/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/network-security/concepts/" >Concepts</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/network-security/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/services/" >Services</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/groups/" >Groups</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/" >Gateway Firewall</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/dfw/" >DFW</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/nat/" >NAT</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Validated Designs</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/validated-designs/" >Index</a></li>
+        <li >
+        <span onclick="leftNavClick(this)">Network</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/validated-designs/network/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/" >Hub-and-Spoke Designs</a></li><li ><a href="/vmcbook/guides/vmc-aws/validated-designs/network/transit-gateway/" >Transit Gateway</a></li>
+      </ul></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Site</span><ul class="sub-level">
+        <li><a href="/vmcbook/site/" >Index</a></li>
+        <li ><a href="/vmcbook/site/authors/" >Authors</a></li><li ><a href="/vmcbook/site/authoring-guide/" >Authoring Guide</a></li><li ><a href="/vmcbook/site/information/" >Information</a></li><li ><a href="/vmcbook/site/links/" >Links</a></li><li ><a href="/vmcbook/site/editor/" >Markdown Editor</a></li><li ><a href="/vmcbook/site/resources/" >Resources</a></li>
+      </ul></li></ul>
+      </nav>
+
+      <main class="main-content">  <div class="TableOfContents">
+    <h1>Page Contents</h1>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#source-site-audit">Source Site Audit</a>
+<ul>
+<li><a href="#vcenter-and-esxi">vCenter and ESXi</a></li>
+<li><a href="#vsphere-distributed-switch">vSphere Distributed Switch</a></li>
+<li><a href="#other-network-requirements">Other Network Requirements</a></li>
+</ul></li>
+<li><a href="#preparing-required-resources">Preparing Required Resources</a>
+<ul>
+<li><a href="#hcx-required-resources">HCX Required Resources</a></li>
+<li><a href="#direct-connect-private-vif-requirements">Direct Connect Private VIF Requirements</a></li>
+</ul></li>
+<li><a href="#preparing-for-enterprise-installation">Preparing for Enterprise Installation</a>
+<ul>
+<li><a href="#dns-resolution">DNS Resolution</a></li>
+<li><a href="#appliance-lan-interconnectivity">Appliance LAN Interconnectivity</a></li>
+<li><a href="#appliance-wan-connectivity">Appliance WAN Connectivity</a></li>
+<li><a href="#critical-network-services">Critical Network Services</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+
+  
+  <article class="content with-toc">
+    <header class="content-header">
+      <strong class="heading">HCX</strong><strong class="sub-heading">Preparation</strong></header>
+
+    
+
+<h1 id="source-site-audit">Source Site Audit</h1>
+
+<h2 id="vcenter-and-esxi">vCenter and ESXi</h2>
+
+<p>HCX requires certain minimal vCenter/ESXi versions per a given migration technique. It is important to audit the infrastructure to ensure that it supports the desired migration.</p>
+
+<figure   ><table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Versions</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Bulk Migration</td>
+<td>vCenter 5.1+, ESXi 5.0+</td>
+</tr>
+
+<tr>
+<td>vMotion</td>
+<td>vCenter 5.5+, ESXi 5.0+</td>
+</tr>
+
+<tr>
+<td>Cold Migration</td>
+<td>vCenter 5.5+, ESXi 5.0+</td>
+</tr>
+
+<tr>
+<td>Replication Assisted vMotion</td>
+<td>vCenter 5.5+, ESXi 5.5+</td>
+</tr>
+
+<tr>
+<td>Network Extension</td>
+<td>vCenter 5.1+, ESXi 5.1+</td>
+</tr>
+
+<tr>
+<td>Network Extension (NSX)</td>
+<td>vCenter 5.5+, ESXi 5.5+, NSX-v 6.1+</td>
+</tr>
+
+<tr>
+<td>Disaster Recovery</td>
+<td>vCenter 5.1+, ESXi 5.0+</td>
+</tr>
+</tbody>
+</table><figcaption>vCenter and ESXi Version Requirements</figcaption></figure>
+
+
+<p>The enterprise-side HCX manager will also require access to vCenter. Please make note of the vCenter URL, the PSC URL (if external PSC is used), and the vCenter admin username/password.</p>
+
+<h2 id="vsphere-distributed-switch">vSphere Distributed Switch</h2>
+
+<p>The network extension service provided by HCX will only support networks which are backed by a <a href="https://www.vmware.com/products/vsphere/distributed-switch.html">vDS</a>. You must ensure that workloads which are to be migrated reside on hosts with an available vDS. If a vDS is not currently utilized, then it may be possible to create one on the host which houses the WAN Extension appliance and use this host as a temporary location for workloads which are being migrated.</p>
+
+<section  class="callout red" ><header>Important Note</header>In order to avoid creating layer-2 loops, you may only deploy a single appliance per vDS. Once deployed, the WAN Extension appliance will be able to extend any port-group on the vDS (and by definition, the underlying VLAN of that port-group). It is possible to have separate vCenter/vDS instances which are backed by the same underlying VLAN infrastructure. In this case, it would be possible to deploy a separate WAN Extension appliance to each. This scenario could create a layer-2 loop which can have a serious impact to your on-premises network.
+</section>
+
+
+<h2 id="other-network-requirements">Other Network Requirements</h2>
+
+<p>It is assumed that the enterprise environment has been deployed following VMware recommended practices. A key assumption is that dedicated networks are being used for management, vmotion, etc&hellip; HCX cannot extend the management network to the SDDC. If you have workloads which need to be migrated to the SDDC (and use network extension), and these networks reside within the management network, then they must be moved to a non-management network.</p>
+
+<p>HCX needs at least 100Mbps of connectivity to the target SDDC (through the internet or Direct Connect). While it is possible for it to run on less, performance will suffer.</p>
+
+<h1 id="preparing-required-resources">Preparing Required Resources</h1>
+
+<h2 id="hcx-required-resources">HCX Required Resources</h2>
+
+<p>HCX requires that a number of enterprise appliances be installed in the on-premises (source site) environment. It will be required to determine the cluster(s) and datastore(s) which will house the HCX appliances. Please refer to the <a href="https://docs.vmware.com/en/VMware-HCX/index.html">official HCX user guide</a> for CPU, memory, and storage requirements for these appliances.</p>
+
+<p>In most installations, all HCX appliances will use the vCenter management (or similar) network for their connectivity. In this case, each appliance will require only 1 IP. The exception is WAN-Opt appliance, which does not require an address (it relies on IPv4 link-local).</p>
+
+<p>The WAN Interconnect requires connectivity to the vMotion interfaces of ESXi hosts on the enterprise network. If this network is non-routable or otherwise unreachable from the management network, then this appliance will require an additional IP address from the vMotion network.</p>
+
+<h2 id="direct-connect-private-vif-requirements">Direct Connect Private VIF Requirements</h2>
+
+<p>HCX can be configured to ride atop Direct Connect Private VIF. In order to do so, it requires that an additional range of private IP addresses be allocated to the cloud-side appliances within the target SDDC. This address range must be unique, routable from the source network, and should be large enough to provide 1 IP for each planned appliance. A small range, such as a /28, is typically sufficient for this.</p>
+
+<p>Note that this range cannot be taken from the management network of the SDDC. A common practice is to allocate a range from the larger block of address space allocated for the Compute Network of the SDDC.</p>
+
+<h1 id="preparing-for-enterprise-installation">Preparing for Enterprise Installation</h1>
+
+<h2 id="dns-resolution">DNS Resolution</h2>
+
+<p>The enterprise installation of HCX must be able to connect to central HCX services via their <a href="https://en.wikipedia.org/wiki/Fully_qualified_domain_name">FQDN</a>. Therefore, it is critical that any DNS servers used by HCX be able to resolve the following names:</p>
+
+<ul>
+<li>connect.hcx.vmware.com</li>
+<li>hybridity-depot.vmware.com</li>
+</ul>
+
+<p>If these names are not resolvable by HCX, then the installation will fail.</p>
+
+<h2 id="appliance-lan-interconnectivity">Appliance LAN Interconnectivity</h2>
+
+<p>The enterprise HCX appliances require connectivity to one another on a number of ports. They also require connectivity to/from vCenter and ESXi. If your enterprise network is not restricting internal communications, then you may skip this section. Otherwise, please refer to the following table:</p>
+
+<figure   ><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Destination</th>
+<th>Protocol/Port</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>HCX Manager</td>
+<td>WAN Interconnect</td>
+<td>TCP 443,8123,9443</td>
+</tr>
+
+<tr>
+<td>HCX Manager</td>
+<td>WAN Extension</td>
+<td>TCP 443</td>
+</tr>
+
+<tr>
+<td>HCX Manager</td>
+<td>vCenter</td>
+<td>TCP 443,7444,9443</td>
+</tr>
+
+<tr>
+<td>HCX Manager</td>
+<td>ESXi management</td>
+<td>TCP 80,902</td>
+</tr>
+
+<tr>
+<td>HCX Manager</td>
+<td>NSX-v Manager</td>
+<td>TCP 443 (only if NSX is present)</td>
+</tr>
+
+<tr>
+<td>vCenter</td>
+<td>HCX Manager</td>
+<td>TCP 443</td>
+</tr>
+
+<tr>
+<td>WAN Interconnect</td>
+<td>vCenter</td>
+<td>UDP 902</td>
+</tr>
+
+<tr>
+<td>WAN Interconnect</td>
+<td>ESXi management</td>
+<td>TCP 80,902,8000</td>
+</tr>
+
+<tr>
+<td>ESXi management</td>
+<td>WAN Interconnect</td>
+<td>TCP 902,8000,31031,44046</td>
+</tr>
+
+<tr>
+<td>users</td>
+<td>HCX Manager</td>
+<td>TCP 443,9443</td>
+</tr>
+</tbody>
+</table><figcaption>On-Premises Connectivity Requirements</figcaption></figure>
+
+
+<h2 id="appliance-wan-connectivity">Appliance WAN Connectivity</h2>
+
+<p>The HCX components in the enterprise environment must be able to communicate to both central HCX services as well as components in the SDDC. For connecting to HCX central services the Manager must be able to either:</p>
+
+<ul>
+<li>Communicate through a proxy, or</li>
+<li>NAT outbound to a public IP address. A dedicated public IP is <strong>not</strong> required.</li>
+</ul>
+
+<p>For connecting to components in the SDDC, the enterprise appliances must be able to either:</p>
+
+<ul>
+<li>Communicate directly via Direct Connect Private VIF, or</li>
+<li>NAT outbound to a public IP address. Dedicated public IPs are <strong>not</strong> required.</li>
+</ul>
+
+<p>In general, the enterprise appliances must be able to communicate outbound on TCP 443 and UDP 500/4500. If you must explicitly define outbound security policy per-appliance, then please refer to the following table:</p>
+
+<figure   ><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Destination</th>
+<th>Protocol/Port</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>HCX Manager</td>
+<td>central HCX services</td>
+<td>TCP 443</td>
+</tr>
+
+<tr>
+<td>HCX Manager</td>
+<td>cloud-side HCX Manager</td>
+<td>TCP 443</td>
+</tr>
+
+<tr>
+<td>WAN Interconnect</td>
+<td>cloud-side WAN Interconnect</td>
+<td>UDP 500,4500</td>
+</tr>
+
+<tr>
+<td>WAN Extension</td>
+<td>cloud-side WAN Extension</td>
+<td>UDP 500,4500</td>
+</tr>
+</tbody>
+</table><figcaption>WAN Connectivity Requirements</figcaption></figure>
+
+
+<p>The public IP addresses of cloud-side HCX components are available within the SDDC after HCX has been activated.</p>
+
+<h2 id="critical-network-services">Critical Network Services</h2>
+
+<p>On-premises HCX will require access to the following network services:</p>
+
+<ul>
+<li>DNS</li>
+<li>NTP</li>
+<li>Syslog</li>
+</ul>
+    
+    <footer class="content-footer"><div>Written by<a href='https://dspinhirne.github.io/vmcbook/site/authors/#dustin-spinhirne'>Dustin Spinhirne</a></div><div>
+          Originally publishedMonday, Apr 2, 2018.Updated onTuesday, Oct 1, 2019.</div></footer>
+
+  </article></main>
+    </article>
+    
+  </body>
+</html>

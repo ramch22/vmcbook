@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>VMware Cloud Knowledge</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VMware Cloud articles and guides.">
+  <meta name="generator" content="Hugo 0.60.0-DEV" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://dspinhirne.github.io/vmcbook/main.css">
+  <script type="text/javascript" src="https://dspinhirne.github.io/vmcbook/main.js"></script>
+</head>
+
+  <body>
+    
+    <header class="main-header">
+      <div>
+        <a href="https://cloud.vmware.com"><img src="https://dspinhirne.github.io/vmcbook/images/vm.svg"></a>
+      </div>
+      <div><a href="https://dspinhirne.github.io/vmcbook/">VMware Cloud Knowledge</a></div>
+      <div>
+        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://dspinhirne.github.io/vmcbook/images/github.svg"><span>Star</span></a>
+      </div>
+    </header>
+
+    <article class="main-article">
+      <nav class="left-nav">
+        <ul class="top-level"><li >
+        <span onclick="leftNavClick(this)">Getting Started</span><ul class="sub-level">
+        <li><a href="/vmcbook/guides/getting-started/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/getting-started/introduction/" >Introduction</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/getting-started/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/getting-started/howto/activate-services/" >Activate Services</a></li><li ><a href="/vmcbook/guides/getting-started/howto/billing/" >Billing</a></li><li ><a href="/vmcbook/guides/getting-started/howto/manage-users/" >Manage Users</a></li>
+      </ul></li>
+      </ul></li><li class="open parent">
+        <span onclick="leftNavClick(this)">HCX</span><ul class="sub-level">
+        <li><a href="/vmcbook/guides/hcx/" >Index</a></li>
+        <li class="open parent">
+        <span onclick="leftNavClick(this)">A Technical Overview</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/hcx/a-technical-overview/" >Index</a></li>
+        <li class="open parent"><a href="/vmcbook/guides/hcx/a-technical-overview/introduction/" class="active">Introduction</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/planning/" >Planning</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/preparation/" >Preparation</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/testing/" >Testing</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/migration/" >Migration</a></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/hcx/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/hcx/howto/activate/" >Activate</a></li><li ><a href="/vmcbook/guides/hcx/howto/install/" >Install</a></li><li ><a href="/vmcbook/guides/hcx/howto/network-extension/" >Network Extension</a></li><li ><a href="/vmcbook/guides/hcx/howto/workload-migration/" >Workload Migration</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">VMware Cloud on AWS</span><ul class="sub-level">
+        <li><a href="/vmcbook/guides/vmc-aws/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/a-technical-overview/" >A Technical Overview</a></li><li >
+        <span onclick="leftNavClick(this)">On-Boarding</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/on-boarding/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/on-boarding/introduction/" >Introduction</a></li><li ><a href="/vmcbook/guides/vmc-aws/on-boarding/requirements/" >Requirements</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/on-boarding/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/on-boarding/howto/term-subscription/" >Term Subscription</a></li><li ><a href="/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/" >SDDC</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Networking</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/sddc-architecture/" >SDDC Architecture</a></li><li >
+        <span onclick="leftNavClick(this)">IPSec VPN</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/concepts/" >Concepts</a></li><li >
+        <span onclick="leftNavClick(this)">Howto</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/configure/" >Configure</a></li><li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/troubleshoot/" >Troubleshoot</a></li><li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/sample-configs/" >Sample Configs</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Direct Connect</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/concepts/" >Concepts</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/howto/configure/" >Configure</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/howto/network-segments/" >Network Segments</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Network Security</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/network-security/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/network-security/concepts/" >Concepts</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/network-security/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/services/" >Services</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/groups/" >Groups</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/" >Gateway Firewall</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/dfw/" >DFW</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/nat/" >NAT</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Validated Designs</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/validated-designs/" >Index</a></li>
+        <li >
+        <span onclick="leftNavClick(this)">Network</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/validated-designs/network/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/" >Hub-and-Spoke Designs</a></li><li ><a href="/vmcbook/guides/vmc-aws/validated-designs/network/transit-gateway/" >Transit Gateway</a></li>
+      </ul></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Site</span><ul class="sub-level">
+        <li><a href="/vmcbook/site/" >Index</a></li>
+        <li ><a href="/vmcbook/site/authors/" >Authors</a></li><li ><a href="/vmcbook/site/authoring-guide/" >Authoring Guide</a></li><li ><a href="/vmcbook/site/information/" >Information</a></li><li ><a href="/vmcbook/site/links/" >Links</a></li><li ><a href="/vmcbook/site/editor/" >Markdown Editor</a></li><li ><a href="/vmcbook/site/resources/" >Resources</a></li>
+      </ul></li></ul>
+      </nav>
+
+      <main class="main-content">  <div class="TableOfContents">
+    <h1>Page Contents</h1>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#what-is-hcx">What is HCX?</a></li>
+<li><a href="#when-to-use-hcx">When to Use HCX</a>
+<ul>
+<li><a href="#data-center-extension">Data Center Extension</a></li>
+<li><a href="#data-center-replacement">Data Center Replacement</a></li>
+<li><a href="#disaster-recovery">Disaster Recovery</a></li>
+</ul></li>
+<li><a href="#how-to-use-hcx">How to Use HCX</a></li>
+<li><a href="#the-technology">The Technology</a>
+<ul>
+<li><a href="#components">Components</a></li>
+<li><a href="#multi-site-service-mesh">Multi-Site Service Mesh</a></li>
+</ul></li>
+<li><a href="#common-uses">Common Uses</a>
+<ul>
+<li><a href="#workload-migration">Workload Migration</a></li>
+<li><a href="#disaster-recovery-1">Disaster Recovery</a></li>
+</ul></li>
+<li><a href="#project-plans">Project Plans</a>
+<ul>
+<li><a href="#planning">Planning</a></li>
+<li><a href="#preparation">Preparation</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#testing">Testing</a></li>
+<li><a href="#migration">Migration</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+
+  
+  <article class="content with-toc">
+    <header class="content-header">
+      <strong class="heading">HCX</strong><strong class="sub-heading">Introduction</strong></header>
+
+    
+
+<h1 id="what-is-hcx">What is HCX?</h1>
+
+<p>Although <a href="https://hcx.vmware.com">HCX</a> provides a number of technical features, its core function lies within its ability to transparently migrate workloads between vSphere environments. While the concept of &ldquo;workload migration&rdquo; as a core function seems rather simplistic, the services provided by HCX enable a number of business cases which are otherwise highly impractical.</p>
+
+<p>Specifically, HCX addresses the following technical problems which have previously made these business cases unworkable:</p>
+
+<ul>
+<li>Migration from older versions of vSphere to modern versions of vSphere</li>
+<li>Migrations from non-VMware environments to vSphere</li>
+<li>Migration without the need for IP address changes</li>
+<li>Migration which utilize WAN optimization and data de-duplication</li>
+<li>Data security in the form of <a href="https://en.wikipedia.org/wiki/NSA_Suite_B_Cryptography">NSA Suite B</a> cryptography for migration traffic</li>
+</ul>
+
+<p>This guide will focus on HCX as applied to <a href="https://cloud.vmware.com/vmc-aws">VMware Cloud on AWS</a> and is intended to provide supplemental documentation to the <a href="https://docs.vmware.com/en/VMware-HCX/index.html">official HCX user guide</a>.</p>
+
+<h1 id="when-to-use-hcx">When to Use HCX</h1>
+
+<p>The decision of when and if to use HCX should be driven by some &ldquo;trigger&rdquo; event in which a specific business need may best be delivered by the functionality which HCX is designed to provide. These triggers are typically broken into 3 categories.</p>
+
+<h2 id="data-center-extension">Data Center Extension</h2>
+
+<p>Data Center Extension business cases are driven by the desire to quickly expand the capacity of an existing data center; either on temporary or permanent basis. Triggers may include:</p>
+
+<ul>
+<li>Infrastructure update - Driven by the need to perform a refresh of the hardware or software in the existing production environment. Infrastructure updates are commonly driven by organizational changes which prompt &ldquo;modernization&rdquo; projects.</li>
+<li>Capacity expansion - Driven by the need to permanently expand the capacity of a production data center. In this case, HCX provides a means of migrating workloads to and from the SDDC as needed.</li>
+<li>Seasonal bursting - Driven by seasonal expansion. In this case, an SDDC is used to temporarily expand the capacity of a production data center in a transparent manner.</li>
+</ul>
+
+<h2 id="data-center-replacement">Data Center Replacement</h2>
+
+<p>Data Center Replacement business cases are driven by the need to evacuate an existing production data center. In these cases, workloads are permanently migrated to one or more SDDCs. Triggers may include:</p>
+
+<ul>
+<li>Contract renewal - Driven by an expiring contract on a data center.</li>
+<li>Consolidation - Driven by the desire to consolidate 1 or more data centers into a single SDDC (or multiple SDDCs spread across availability zones or regions). Mergers and acquisitions are a common driver for consolidations.</li>
+<li>Vendor replacement - Driven by the desire to migrate a production data center away from an existing service provider.</li>
+</ul>
+
+<h2 id="disaster-recovery">Disaster Recovery</h2>
+
+<p>Disaster Recovery business cases are driven by the need to use one or more SDDCs as a disaster recovery site. Triggers may include:</p>
+
+<ul>
+<li>Compliance - Driven by the need to address disaster recovery in order to meet compliance requirements.</li>
+<li>Availability - Driven by the desire to provide increased availability to an existing data center or another SDDC.</li>
+<li>Replacement - Similar to the Data Center Replacement case, but specific to replacing a DR site.</li>
+</ul>
+
+<h1 id="how-to-use-hcx">How to Use HCX</h1>
+
+<p>Projects involving HCX should roughly follow the process below.</p>
+
+<ol>
+<li>Planning - Determine the target SDDC for workload migration and plan migration &ldquo;waves&rdquo; based around how easily/quickly workloads may be migrated (always migrating in order of easiest to most difficult).</li>
+<li>Preparation - Prepare for enterprise-side HCX installation, and perform minimal networking (e.g. VPN, Direct Connect, etc&hellip;) and firewall configurations required to prepare the SDDC for the migration.</li>
+<li>Installation - Activate cloud-side HCX and install enterprise-side components.</li>
+<li>Testing - Ensure that HCX is working as expected and gather baseline performance metrics.</li>
+<li>Migration - Migrate workloads based on pre-established wave planning.</li>
+<li>Network cutover (optional) - Cut over any networks which are to become native within the SDDC.</li>
+</ol>
+
+<p>Each step in this process will be described in detail within this guide.</p>
+
+<h1 id="the-technology">The Technology</h1>
+
+<h2 id="components">Components</h2>
+
+<p>HCX requires that a number of appliance be installed; both within the SDDC and within the enterprise environment. These appliances are always deployed in pairs, with one component on the enterprise side and a twin within the SDDC. Installation is driven from the enterprise environment and results in appliances being deployed both within the enterprise and the cloud.</p>
+
+<p>HCX uses the following appliances:</p>
+
+<ul>
+<li><p>Manager - This component provides management functionality to HCX. Within the SDDC, this component is installed automatically as soon as HCX is activated. A download link will be provided for the enterprise HCX manager appliance from within the cloud-side manager. This appliance will be manually installed and will be used to deploy all other components and to drive the operations of HCX.</p></li>
+
+<li><p>WAN Interconnect Appliance (IX) - This component facilitates workload replication and migration. The appliance will establish its own dedicated IPSec tunnels for communication to its peer within the SDDC.</p></li>
+
+<li><p>WAN Optimization Appliance (WAN-Opt) - This component provides WAN optimization and data de-duplication for the WAN Interconnect Appliance. It communicates exclusively with the WAN Interconnect Appliance via private IP (uses addresses from IPv4 range reserved for carrier grade NAT).</p></li>
+
+<li><p>Network Extension (L2C) - This component provides <a href="https://en.wikipedia.org/wiki/Data_link_layer">Layer-2</a> network extension for the purposes of &ldquo;extending&rdquo; networks between vSphere environments. It will establish its own dedicated IPSec tunnels for communication to its peer within the SDDC.</p></li>
+
+<li><p>Proxy Host - This is a fake ESXi host which is deployed silently by the WAN Interconnect appliance. This host is used to as the target for vmotion/migrations and is used to &ldquo;trick&rdquo; vCenter into thinking the migration target host is local. This host will be visible in the inventory of vCenter.</p></li>
+</ul>
+
+<h2 id="multi-site-service-mesh">Multi-Site Service Mesh</h2>
+
+<p>The Multi-Site Service Mesh feature represents a major change to how HCX is deployed and managed. In the previous model, HCX used an appliance-based view of the world where appliances were deployed based on the HCX function which was needed. In the new model, HCX takes a service-based view where the user picks the services they need and HCX deploys the appliances required to deliver those services.</p>
+
+<p>All planned new functionality with HCX will be based on Multi-Site Service Mesh, so it is the recommended deployment mechanism for all new installations. If you are a current user of HCX and wish to utilize the service mesh, then you may upgrade your deployment to utilize Multi-Site Service Mesh. Note that you must not have any migrations in progress or networks extended in order to upgrade to Multi-Site Service Mesh.</p>
+
+<h1 id="common-uses">Common Uses</h1>
+
+<h2 id="workload-migration">Workload Migration</h2>
+
+<p>Let&rsquo;s walk through a typical example of a workload migration project using the following diagram. We will operate under the assumption that proper wave planning and testing have already been performed.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/introduction/images/workload-migration.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/introduction/images/workload-migration.png" /></figure>
+
+
+<p>In this example, HCX is being used to migrate application workloads and their associated networks to the SDDC. As indicated, the WAN Interconnect appliance (IX) is responsible for data replication between the enterprise environment and the SDDC. This replication traffic is carried over a dedicated IPSec tunnel which is initiated by the enterprise appliance and is optimized using the WAN Optimization appliance (not shown). The Network Extension appliance (L2C) is responsible for creating a forwarding path for networks which have been extended to the SDDC. Again, this traffic is carried over a dedicated IPSec tunnel which is initiated by the enterprise appliance.</p>
+
+<p>Within the SDDC exists a &ldquo;Services&rdquo; network which contains critical services such as DNS or Active Directory which are designed to serve the local environment. In general, it is a good idea to keep such services as close to the consumers (SDDC workloads in this case) as possible. Doing so will not only cut down on network traffic sent to the WAN, but will also reduce dependencies between sites.</p>
+
+<p>We can see from the diagram that a migration is in progress. In this scenario, we are migrating all of the application servers located in the networks 10.1.8.0/24, 10.1.9.0/24, and 10.1.10.0/24. The network 10.1.8.0/24 has already been completely migrated and, as a result, the L2 extension has been disconnected and the enterprise version of the network has been shut down. This network is now accessible directly through the routing infrastructure of the SDDC. This process of making the SDDC the authority for a migrated network is often referred to as a &ldquo;network cutover&rdquo;.</p>
+
+<p>Workloads from within the networks 10.1.9.0/24 and 10.1.10.0/24 are still in the process of being migrated. As indicated, the L2C is attached to these networks such that it is providing a layer-2 network extension to the SDDC. Due to this network extension, the workloads which have already been migrated have been able to retain their network addresses and, from a routing perspective, appear to reside within the enterprise environment. These &ldquo;extended&rdquo; networks are not tied into the routing infrastructure of the SDDC.</p>
+
+<p>Extended networks present an interesting routing scenario. Due to the fact that they are not tied to the routing infrastructure of the SDDC, the only &ldquo;way out&rdquo; for the workloads is via the layer-2 network extension to the enterprise default-gateway. This means that all traffic which is &ldquo;non-local&rdquo; to the extended network must pass through the L2C and be routed through the enterprise gateway router. This includes not only communications to resources within the enterprise environment, but also to communications between other extended networks, as well as to networks which are native to the SDDC or to resources within the cross-linked VPC.</p>
+
+<p>This process of forwarding traffic from SDDC -&gt; enterprise -&gt; SDDC between extended networks is referred to as &ldquo;tromboning&rdquo;, and can result in unexpected WAN utilization and added latency. Since migrations tend to be a temporary activity, this tromboning effect is not typically a major concern. However, it is important to keep in mind when planning migrations such that it may be reduced as much as possible. For layer-2 extensions that are intended to exist in a more permanent fashion, HCX provides a feature by the name of Proximity Routing, which is designed to eliminate the tromboning effect. This feature is not currently supported in VMware Cloud deployments but is currently planned as a roadmap item.</p>
+
+<h2 id="disaster-recovery-1">Disaster Recovery</h2>
+
+<p>HCX Disaster Recovery replicates and protects Virtual Machines using an SDDC as the recovery site, and provides flexible configuration of recovery point objectives (RPO) for workloads in intervals from 5 minutes to 24 hours. As an HCX feature, it can take advantage of WAN optimization and de-duplication for replication traffic and can utilize network extension as a means of recovering workloads without requiring IP address changes.</p>
+
+<p>Consider the following illustration.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/introduction/images/dr.png" alt="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/introduction/images/dr.png" /></figure>
+
+
+<p>In the above scenario, the application servers are being protected by Disaster Recovery using two separate methods.</p>
+
+<p>Servers in the subnet 10.1.8.0/24 are not required to keep their IP addresses upon recovery, so are being recovered to the 10.2.8.0/24 network which is native to the SDDC. In the event of a failure at the active site, these workloads will be recovered in the SDDC and DHCP will be used to re-assign their IP addresses.</p>
+
+<p>Servers in the subnet 10.1.9.0/24 are operating under a different constraint, and cannot tolerate a change of IP addressing. In this situation, network extension is used to ensure that workloads recovered within the SDDC will not require an IP address change upon recovery.</p>
+
+<p>As a general rule, it is a good practice to maintain a local version of critical services (such as DNS or active directory) which can serve workloads within the SDDC. In this case, servers in the 10.2.8.0/24 subnet would utilize local services in the event of a recovery to the SDDC.</p>
+
+<h1 id="project-plans">Project Plans</h1>
+
+<p>Use the following project plans to create a custom plan which fits your specific needs.</p>
+
+<h2 id="planning">Planning</h2>
+
+<p>The details surrounding the items within this plan may be found in the chapter on <a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/">Planning</a>.</p>
+
+<figure  class="full-width" ><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>References</th>
+<th>Comments</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Identify target completion date for migration project.</td>
+<td></td>
+<td>This is particularly important for migration situations since the target date may impact wave planning.</td>
+</tr>
+
+<tr>
+<td>Select target site.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/#site-selection">https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/#site-selection</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Ensure VMware Cloud services have been activated.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/getting-started/introduction/">https://dspinhirne.github.io/vmcbook/guides/getting-started/introduction/</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Ensure SDDC has been deployed at target site.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/introduction/">https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/introduction/</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Gather list of required services for the target site. Determine a plan for providing these services.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/#networking-and-centralized-services">https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/#networking-and-centralized-services</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Identify strategy for network connectivity to the target site.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/requirements/#planning-connectivity-to-the-sddc">https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/requirements/#planning-connectivity-to-the-sddc</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Identify workloads to be migrated.</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Identify networks which will be migrated to the target SDDC.</td>
+<td></td>
+<td>These are networks used by migrated workloads which will be moved to the SDDC.</td>
+</tr>
+
+<tr>
+<td>Identify &ldquo;anchor&rdquo; workloads which are attached to networks which will be migrated.</td>
+<td></td>
+<td>Anchor workloads, such as hardware appliances, are those which cannot be migrated.</td>
+</tr>
+
+<tr>
+<td>Develop a migration plan to include workload migration waves and migration time estimates.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/#migration-planning">https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/#migration-planning</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Develop a post-migration validation plan.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/#post-migration-validation-planning">https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/#post-migration-validation-planning</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Develop a backout plan for the migration.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/#backout-planning">https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/#backout-planning</a></td>
+<td></td>
+</tr>
+</tbody>
+</table><div class="tab"><a href="#" onclick="exportCSV(this)" >Export Table</a></div></figure>
+
+
+<h2 id="preparation">Preparation</h2>
+
+<p>The details surrounding the items within this plan may be found in the chapter on <a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/">Preparation</a>.</p>
+
+<figure  class="full-width" ><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>References</th>
+<th>Comments</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Ensure on-premises vCenter and ESX meet minimum version requirements.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#source-site-audit">https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#source-site-audit</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Gather the enterprise vCenter/PSC URL and admin username/password.</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Ensure vDS is available.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#source-site-audit">https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#source-site-audit</a></td>
+<td>Only required if network extension is planned.</td>
+</tr>
+
+<tr>
+<td>Ensure WAN connectivity meets minimum bandwidth requirements for HCX.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#source-site-audit">https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#source-site-audit</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Ensure source site has sufficient resources to install HCX.</td>
+<td><a href="https://docs.vmware.com/en/VMware-HCX/index.html">https://docs.vmware.com/en/VMware-HCX/index.html</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Determine the cluster(s) and datastore(s) to be used for enterprise-side HCX appliances.</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Allocate IP addresses required for enterprise-side HCX appliances.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#hcx-required-resources">https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#hcx-required-resources</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Allocate IP addresses for cloud-side HCX appliances for Direct Connect usage.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#direct-connect-private-vif-requirements">https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#direct-connect-private-vif-requirements</a></td>
+<td>Only required if Direct Connect is planned.</td>
+</tr>
+
+<tr>
+<td>Activate HCX and capture the activation key.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/#cloud-side-activation">https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/#cloud-side-activation</a></td>
+<td>Key will be used later for enterprise HCX manager installation.</td>
+</tr>
+
+<tr>
+<td>Capture the <a href="https://en.wikipedia.org/wiki/Fully_qualified_domain_name">FQDN</a> and login credentials of the cloud-side HCX manager.</td>
+<td></td>
+<td>Cloud-side HCX uses the auto generated cloudadmin credentials of the SDDC.</td>
+</tr>
+
+<tr>
+<td>Download the enterprise-side HCX manager.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/#downloading-the-hcx-manager">https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/#downloading-the-hcx-manager</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Ensure enterprise network security policies permit enterprise HCX appliance connectivity.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#appliance-lan-connectivity">https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#appliance-lan-connectivity</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Ensure enterprise network security policies permit connectivity to WAN.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#appliance-wan-connectivity">https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#appliance-wan-connectivity</a></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Ensure that enterprise DNS can resolve central HCX services.</td>
+<td><a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#dns-resolution">https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/#dns-resolution</a></td>
+<td></td>
+</tr>
+</tbody>
+</table><div class="tab"><a href="#" onclick="exportCSV(this)" >Export Table</a></div></figure>
+
+
+<h2 id="installation">Installation</h2>
+
+<p>The details surrounding the items within this plan may be found in the <a href="https://dspinhirne.github.io/vmcbook/guides/hcx/howto/install/">HowTo</a> guides.</p>
+
+<figure  class="full-width" ><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>References</th>
+<th>Comments</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Install and configure the enterprise-side HCX manager.</td>
+<td></td>
+<td>Be sure to configure cloud-side for private name resolution if using Direct Connect.</td>
+</tr>
+
+<tr>
+<td>Configure Multi-Site Service Mesh.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><div class="tab"><a href="#" onclick="exportCSV(this)" >Export Table</a></div></figure>
+
+
+<h2 id="testing">Testing</h2>
+
+<p>The details surrounding the items within this plan may be found in the chapter on <a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/testing/">Testing</a>.</p>
+
+<figure  class="full-width" ><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>References</th>
+<th>Comments</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Determine networks to be extended for testing.</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Develop a test plan for the migration.</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Execute the test plan and document the results.</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Update estimates for migration times based on test results.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><div class="tab"><a href="#" onclick="exportCSV(this)" >Export Table</a></div></figure>
+
+
+<h2 id="migration">Migration</h2>
+
+<p>The details surrounding the items within this plan may be found in the chapter on <a href="https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/migration/">Migration</a>.</p>
+
+<p>The following is a rough plan which should be repeat for each wave of the migration.</p>
+
+<figure  class="full-width" ><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>References</th>
+<th>Comments</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Start migration wave and periodically monitor progress of data replication.</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>During the window scheduled for cutover, perform basic post-migration testing.</td>
+<td></td>
+<td>Basic connectivity and performance tests.</td>
+</tr>
+
+<tr>
+<td>During the window scheduled for cutover, perform post-migration user validation testing.</td>
+<td></td>
+<td>Testing of application function and performance.</td>
+</tr>
+</tbody>
+</table><div class="tab"><a href="#" onclick="exportCSV(this)" >Export Table</a></div><figcaption>Migration Wave Tasks</figcaption></figure>
+
+
+<p>The following is an example project plan for the post-migration network cutover. It is only applicable for situations where networks are being migrated permanently to the SDDC.</p>
+
+<figure  class="full-width" ><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>References</th>
+<th>Comments</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Review and plan post-cutover access to migrated workloads.</td>
+<td></td>
+<td>Includes routed access to the SDDC (DX or VPN) and corporate firewall policies.</td>
+</tr>
+
+<tr>
+<td>Review security policy of the SDDC.</td>
+<td></td>
+<td>Ensure that end-users will be permitted through SDDC firewalls.</td>
+</tr>
+
+<tr>
+<td>Develop post-cutover test and backout plans.</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Schedule maintenance for the cutover.</td>
+<td></td>
+<td>The cutover will be disruptive to end-users.</td>
+</tr>
+
+<tr>
+<td>Perform cutover and execute test plan.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><div class="tab"><a href="#" onclick="exportCSV(this)" >Export Table</a></div><figcaption>Network Cutover Tasks</figcaption></figure>
+
+    
+    <footer class="content-footer"><div>Written by<a href='https://dspinhirne.github.io/vmcbook/site/authors/#dustin-spinhirne'>Dustin Spinhirne</a></div><div>
+          Originally publishedMonday, Apr 2, 2018.Updated onTuesday, Oct 1, 2019.</div></footer>
+
+  </article></main>
+    </article>
+    
+  </body>
+</html>

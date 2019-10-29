@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Validated Designs on VMware Cloud Knowledge</title>
+    <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/</link>
+    <description>Recent content in Validated Designs on VMware Cloud Knowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

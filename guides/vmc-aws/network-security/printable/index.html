@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>VMware Cloud Knowledge</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="VMware Cloud articles and guides.">
+  <meta name="generator" content="Hugo 0.60.0-DEV" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://dspinhirne.github.io/vmcbook/main.css">
+  <script type="text/javascript" src="https://dspinhirne.github.io/vmcbook/main.js"></script>
+</head>
+
+  <body>
+    
+    <header class="main-header">
+      <div>
+        <a href="https://cloud.vmware.com"><img src="https://dspinhirne.github.io/vmcbook/images/vm.svg"></a>
+      </div>
+      <div><a href="https://dspinhirne.github.io/vmcbook/">VMware Cloud Knowledge</a></div>
+      <div>
+        <a href="https://github.com/dspinhirne/vmcbook" class="github-link"><img src="https://dspinhirne.github.io/vmcbook/images/github.svg"><span>Star</span></a>
+      </div>
+    </header>
+
+    <article class="main-article">
+      <nav class="left-nav">
+        <ul class="top-level"><li >
+        <span onclick="leftNavClick(this)">Getting Started</span><ul class="sub-level">
+        <li><a href="/vmcbook/guides/getting-started/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/getting-started/introduction/" >Introduction</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/getting-started/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/getting-started/howto/activate-services/" >Activate Services</a></li><li ><a href="/vmcbook/guides/getting-started/howto/billing/" >Billing</a></li><li ><a href="/vmcbook/guides/getting-started/howto/manage-users/" >Manage Users</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">HCX</span><ul class="sub-level">
+        <li><a href="/vmcbook/guides/hcx/" >Index</a></li>
+        <li >
+        <span onclick="leftNavClick(this)">A Technical Overview</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/hcx/a-technical-overview/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/hcx/a-technical-overview/introduction/" >Introduction</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/planning/" >Planning</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/preparation/" >Preparation</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/testing/" >Testing</a></li><li ><a href="/vmcbook/guides/hcx/a-technical-overview/migration/" >Migration</a></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/hcx/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/hcx/howto/activate/" >Activate</a></li><li ><a href="/vmcbook/guides/hcx/howto/install/" >Install</a></li><li ><a href="/vmcbook/guides/hcx/howto/network-extension/" >Network Extension</a></li><li ><a href="/vmcbook/guides/hcx/howto/workload-migration/" >Workload Migration</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">VMware Cloud on AWS</span><ul class="sub-level">
+        <li><a href="/vmcbook/guides/vmc-aws/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/a-technical-overview/" >A Technical Overview</a></li><li >
+        <span onclick="leftNavClick(this)">On-Boarding</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/on-boarding/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/on-boarding/introduction/" >Introduction</a></li><li ><a href="/vmcbook/guides/vmc-aws/on-boarding/requirements/" >Requirements</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/on-boarding/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/on-boarding/howto/term-subscription/" >Term Subscription</a></li><li ><a href="/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/" >SDDC</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Networking</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/sddc-architecture/" >SDDC Architecture</a></li><li >
+        <span onclick="leftNavClick(this)">IPSec VPN</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/concepts/" >Concepts</a></li><li >
+        <span onclick="leftNavClick(this)">Howto</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/configure/" >Configure</a></li><li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/troubleshoot/" >Troubleshoot</a></li><li ><a href="/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/sample-configs/" >Sample Configs</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Direct Connect</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/concepts/" >Concepts</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/direct-connect/howto/configure/" >Configure</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/networking/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/networking/howto/network-segments/" >Network Segments</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Network Security</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/network-security/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/network-security/concepts/" >Concepts</a></li><li >
+        <span onclick="leftNavClick(this)">HowTo</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/network-security/howto/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/services/" >Services</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/groups/" >Groups</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/" >Gateway Firewall</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/dfw/" >DFW</a></li><li ><a href="/vmcbook/guides/vmc-aws/network-security/howto/nat/" >NAT</a></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Validated Designs</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/validated-designs/" >Index</a></li>
+        <li >
+        <span onclick="leftNavClick(this)">Network</span><ul class="sub-level indent">
+        <li><a href="/vmcbook/guides/vmc-aws/validated-designs/network/" >Index</a></li>
+        <li ><a href="/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/" >Hub-and-Spoke Designs</a></li><li ><a href="/vmcbook/guides/vmc-aws/validated-designs/network/transit-gateway/" >Transit Gateway</a></li>
+      </ul></li>
+      </ul></li>
+      </ul></li><li >
+        <span onclick="leftNavClick(this)">Site</span><ul class="sub-level">
+        <li><a href="/vmcbook/site/" >Index</a></li>
+        <li ><a href="/vmcbook/site/authors/" >Authors</a></li><li ><a href="/vmcbook/site/authoring-guide/" >Authoring Guide</a></li><li ><a href="/vmcbook/site/information/" >Information</a></li><li ><a href="/vmcbook/site/links/" >Links</a></li><li ><a href="/vmcbook/site/editor/" >Markdown Editor</a></li><li ><a href="/vmcbook/site/resources/" >Resources</a></li>
+      </ul></li></ul>
+      </nav>
+
+      <main class="main-content">
+  <article class="content">
+    <header class="guide-header">
+      <div>
+        <strong class="heading">VMware Cloud on AWS</strong>
+          <strong class="sub-heading">Networking Security Guide</strong>
+      </div>
+    </header>
+    <article class="guide"><header class="content-header">
+        <div><strong class="heading">Network Security</strong>
+          <strong class="sub-heading">Concepts</strong></div>
+      </header>
+
+<h1 id="the-network-security-model">The Network Security Model</h1>
+
+<p>Network security within an SDDC is enforced by 2 types of firewalls: the NSX gateway firewall and the NSX distributed firewall (DFW).</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/concepts/images/network-security-model.png" alt="The SDDC Network Security Model" /><figcaption>The SDDC Network Security Model</figcaption></figure>
+
+
+<p>These firewalls are designed to address network security policy enforcement in 2 different ways, with the gateway firewalls enforcing policy at the network border and DFW enforcing policy within the compute network of the SDDC. Keep the following points in mind with the NSX firewalls:</p>
+
+<ol>
+<li>As with most firewalls, NSX firewall rules are evaluated top-to-bottom with the first matching rule being applied to a new connection.</li>
+<li>Firewall policy is applied bidirectionally. In other words, new network connections will be evaluated against the ruleset both ingress to the SDDC and egress from the SDDC.</li>
+<li>The firewalls are stateful. This means that if a request is permitted through the firewall policy, then the response is automatically permitted through.</li>
+<li>NSX uses group and service definitions as part of firewall rule creation.</li>
+</ol>
+
+<p>Network security within an SDDC is configured from the Network &amp; Security tab of the SDDC view from within the VMC console. The following sections will provide more details on the concepts used within each of the firewalls.</p>
+
+<h1 id="classification-constructs">Classification Constructs</h1>
+
+<h2 id="services">Services</h2>
+
+<p>A service definition may be thought of as collections of 1 or more protocols (IP, ICMP, UDP, TCP, etc&hellip;) along with their associated ports. Although many of the standard service definitions have been pre-created within the SDDC, it is sometimes necessary or convenient to create custom definitions. See the <a href="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/services/">HowTo</a> on configuring services for more information.</p>
+
+<h2 id="groups">Groups</h2>
+
+<p>Groups represent 2 classes of resources:</p>
+
+<ul>
+<li>VMs within a given network of the SDDC, and</li>
+<li>IP addresses which are external to a given network within the SDDC</li>
+</ul>
+
+<p>Unlike services, which are defined globally within the SDDC, groups are scoped per the management and compute networks. See the <a href="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/">HowTo</a> on configuring groups for more information.</p>
+
+<h1 id="the-gateway-firewalls">The Gateway Firewalls</h1>
+
+<p>Since the gateway firewalls are enforced on the NSX edge routers, they may be thought of as behaving like traditional centralized firewalls. Within the SDDC, they are responsible for enforcing network security policy at the border of their respective networks. It is important to understand the following points regarding the gateway firewalls:</p>
+
+<ol>
+<li>The default security policy of the gateway firewalls are that of &ldquo;default deny&rdquo;.</li>
+<li>There are 2 points of enforcement for the gateway firewalls: on the tier-0 edge router and on the MGW.</li>
+</ol>
+
+<p>Beginning with the first point, the &ldquo;default deny&rdquo; policy requires the security administrator to explicitly define traffic which should be permitted through the firewalls. Keeping in mind that the firewall rule set applies bidirectionally, the security administrator must define permitted traffic both ingress and egress. Since the firewalls are stateful, responses for permitted traffic will always be permitted.</p>
+
+<p>Regarding the second point, it is important to understand how and why the gateway firewalls are applied as they are.</p>
+
+<p>The entry point for the entire SDDC is the tier-0 edge router. This is the first point of enforcement for the gateway firewall, and as a result this edge device had the potential to protect all networks within the SDDC. However, a design decision was made to exclude the management network of the SDDC from the gateway firewall of the tier-0 edge. This means that the gateway firewall of the tier-0 edge only protects the compute networks of the SDDC. This design decision makes sense when you consider that the MGW router (which borders the management network) has its own gateway firewall. Since the MGW is already protecting the management network, protection of the management network at the tier-0 edge would be redundant and confusing, and was thus removed.</p>
+
+<p>This begs the question of &ldquo;Why enable the gateway firewall on the MGW?&rdquo;. Since it is desirable to protect the management network from not only the external world but also from the compute network, enforcement of security policy at the border of the management network is necessary. By enabling the gateway firewall on the MGW, the security administrator has the ability to protect the management network from all other networks from a single point of administration.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/concepts/images/gateway-firewall-design.png" alt="The Gateway Firewalls" /><figcaption>The Gateway Firewalls</figcaption></figure>
+
+
+<p>Although it is good to understand the how and why behind the design of the gateway firewalls, these details aren&rsquo;t specifically necessary in order to effectively manage security policy. From the perspective of the end-user, the VMC console abstracts these details away and presents a simplified view which displays a pair of rulesets: one labeled Management Gateway and another labeled Compute Gateway.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/concepts/images/gateway-firewalls.png" alt="The Gateway Firewall UI" /><figcaption>The Gateway Firewall UI</figcaption></figure>
+
+
+<p>This UI layout is designed to focus the security administrator on the policies themselves rather than drawing attention to where and how they are enforced. See the <a href="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/">HowTo</a> on configuring the gateway firewall for more information.</p>
+
+<h1 id="the-distributed-firewall">The Distributed Firewall</h1>
+
+<p>The distributed firewall (DFW) represents a break from traditional, centralized firewalls in that it is not enforced in a central location (as with the gateway firewalls) but is enforced at the vNIC of each VM in the compute network. By enforcing security policy at the absolute edge of the network, it becomes possible to manage network security policy in ways which are difficult to replicate in a traditional data center network.</p>
+
+<p>The distributed firewall is available from the Network &amp; Security tab of the SDDC view within the VMC console.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/concepts/images/dfw.png" alt="The Distributed Firewall" /><figcaption>The Distributed Firewall</figcaption></figure>
+
+
+<p>The ruleset for DFW is organized around the concept of sections. As highlighted above, there are 4 pre-created sections for DFW. These are conveniences which have been added to the UI in order to direct the security administrator into the good practice of organizing the rules of the security policy. The key thing to remember is that sections are an organizational tool only. Rules within NSX firewalls are evaluated top-to-bottom independently of sections. This means that rules in the Emergency Rules section will be evaluated before rules in the sections below it (and so on). Keep this in mind particularly when creating &ldquo;deny&rdquo; or &ldquo;reject&rdquo; rules.</p>
+
+<section  class="callout" ><header>Key Takeaways</header><ul>
+<li>DFW has a &ldquo;default permit&rdquo; policy, meaning it is effectively disabled by default.</li>
+<li>DFW is applied only to the compute network.</li>
+<li>DFW may filter network traffic both north-south and east-west.</li>
+</ul>
+</section>
+
+
+<p>In order to prevent confusion with the dual layers of gateway and distributed firewalls, the default security policy of DFW is set such that it is effectively disabled. To implement DFW, the security administrator must specifically construct &ldquo;drop&rdquo; or &ldquo;reject&rdquo; rules. Currently, the default policy of DFW cannot be changed but this behavior will adjust with future releases of the product.</p>
+
+<p>The purpose of DFW is to enable the security administrator to construct security policy which may be applied within the compute network itself. As an example, a typical use of DFW is to provide security between the tiers of a multi-tiered application, or to provide security between separate tenants within the SDDC. DFW is unique in that it is applied at the absolute edge of the network. This feature effectively decouples network security from network architecture. To illustrate this point, imagine a traditional data center network. Typically, if security was needed between tenants or between tiers of an application, then network architecture would be designed to reflect this separation (i.e. a VLAN per tenant or application tier). In this model, if security requirements changed then the network infrastructure would need to be altered and workloads migrated and re-IPed. With DFW, security policy is agnostic of network architecture and may be enforced regardless of VM placement within the SDDC. Due to this decoupling, it is possible to provide security between tenants or application tiers even when the workloads reside within the same subnet. If security policy changes, then workload migrations and IP changes are not necessarily required.</p>
+
+<p>See the <a href="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/dfw/">HowTo</a> on configuring DFW for more information.</p>
+
+<h1 id="the-cross-linked-vpc">The Cross-Linked VPC</h1>
+
+<p>Since network security between the SDDC and the cross-linked customer VPC is managed in multiple places, it is worth specifically calling it out as a stand-alone topic. Specifically, the security administrator must consider all of the points where security policy may be enforced for traffic between the SDDC and that VPC:</p>
+
+<ul>
+<li>DFW - Security policy defined by DFW would be enforced at the vNIC level of all VMs within the compute network.</li>
+<li>Gateway Firewall - Management Gateway policies would affect connectivity to/from the management network, and Compute Gateway policies would affect connectivity to/from the compute network.</li>
+<li>AWS Security Groups - The security groups of the VPC itself will impact connectivity to/from the VPC.</li>
+</ul>
+
+<p>The policies of the gateway firewalls and DFW have already been discussed, so this section will focus on <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security Groups</a> within the cross-linked VPC itself. As discussed in the chapter on SDDC network architecture, the cross-linking to the customer-owned VPC is enabled via a series of cross-account ENIs which are created within a subnet of that VPC, and are for use by the hosts of the SDDC. As part of this setup, these ENIs are configured to utilize the default Security Group of the VPC. It is important to keep the following points in mind with Security Groups within the cross-linked VPC:</p>
+
+<h2 id="direction">Direction</h2>
+
+<p>As mentioned, the cross-account ENIs used by the SDDC have the default Security Group applied to them. It is important to visualize this setup and remember that &ldquo;inbound&rdquo; rules of the Security Group apply to traffic from the VPC toward the SDDC, and that &ldquo;outbound&rdquo; rules apply to traffic from the SDDC toward the VPC.</p>
+
+<h2 id="default-rules">Default Rules</h2>
+
+<p>By default, Security Groups are configured to permit all traffic outbound. Per the previous callout, this means that the SDDC can initiate connections to workloads within the VPC. Inbound, there is also a default rule which permits members of the same Security Group to communicate with each other. This means that any workloads which have the default Security Group applied to them may initiate connections to the SDDC.</p>
+
+<h2 id="non-default-security-groups">Non-Default Security Groups</h2>
+
+<p>Often times, other services within the VPC are utilizing custom Security Groups. In these cases, the security administrator may need to modify both the customer Security Group as well as the default Security Group in order to ensure that the required connectivity is permitted.</p>
+
+<h1 id="nat">NAT</h1>
+
+<p>Network Address Translation (NAT) services are provided to the SDDC by the tier-0 edge. For outbound requests, by default, the workloads of the compute network will utilize a dedicated NAT IP which exists on the internet uplink of the tier-0 edge. This IP is visible from the Overview section of the Network &amp; Security tab of the SDDC view in the VMC console.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/concepts/images/nat-overview.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/concepts/images/nat-overview.png" /></figure>
+
+
+<p>See the <a href="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/nat/">HowTo</a> on configuring NAT for more information.</p>
+
+<h1 id="recommendations">Recommendations</h1>
+
+<p>The following are some basic recommendations for working with network security within an SDDC.</p>
+
+<h2 id="service-definitions">Service Definitions</h2>
+
+<p>There are a great many pre-created service definitions within the SDDC. However, it sometimes makes sense to create custom definitions for custom applications. Consider creating a single service definition which encapsulates a given function of a custom application. For example, if an application utilizes a pair of TCP ports then define both ports as part of the service definition.</p>
+
+<h2 id="using-groups">Using Groups</h2>
+
+<p>There are a few different options available for group definitions (with additional new ones on the roadmap) within the SDDC. When creating groups, keep the following in mind:</p>
+
+<ul>
+<li>Anything which is external to a given network within the SDDC (management or compute) may only be referenced by IP. Utilize summary addresses as much as possible when defining IP-based groups.</li>
+<li>Anything native to a given network within the SDDC may be referenced by higher-level constructs such as VM name or security tag. Utilize these constructs as much as possible. Doing so will make your security policies more resilient to network changes within the SDDC.</li>
+<li>Security tags provide an excellent tool for defining security policy. Put some serious thought into standardizing your tagging scheme. A common approach is to assume a &ldquo;lego brick&rdquo; model for tags: small, atomic tags which may be combined to effectively classify a workload. However, keep the maximum tags-per-VM limit in mind when designing your scheme.</li>
+</ul>
+
+<h2 id="managing-sections">Managing Sections</h2>
+
+<p>DFW utilizes sections as a means of organizing firewall rules. Consider organizing sections around your specific business requirements. For example, create a section per application or per business unit. Always remember that sections are only a means of organizing rules; rules are evaluated top-to-bottom independently of their parent section.</p>
+
+<h2 id="porting-existing-rulesets">Porting Existing Rulesets</h2>
+
+<p>If your organization is like most, then you have accumulated years worth of &ldquo;cruft&rdquo; in your existing security policies. This tends to happen with IP-based rulesets. The rules quickly become complex, and security administrators are afraid to remove anything for fear of breaking something.</p>
+
+<p>Avoid the temptation to port existing rulesets to the SDDC. You have a unique opportunity to rework your policies based on higher-level grouping constructs which will very likely simplify your security policy. Don&rsquo;t miss this opportunity.</p>
+</article><article class="guide"><header class="content-header">
+        <div><strong class="heading">Network Security HowTo</strong>
+          <strong class="sub-heading">Services</strong></div>
+      </header>
+
+<h1 id="create-a-service">Create a Service</h1>
+
+<ol>
+<li>Navigate to the Network &amp; Security tab of the SDDC.</li>
+<li>Click on Service within the left-hand navigation menu.</li>
+<li>Click on Add New Service.</li>
+<li>Name the service.</li>
+<li>Define the service by clicking on Set Service Entries (see below).</li>
+<li>Save the service when finished.</li>
+</ol>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/services/images/create.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/services/images/create.png" /></figure>
+
+
+<h1 id="set-service-entries">Set Service Entries</h1>
+
+<ol>
+<li>Click Add New Service Entry.
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/services/images/set-services.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/services/images/set-services.png" /></figure>
+</li>
+<li>Choose a service type (protocol) and define the criteria. The additional criteria available are specific to the selected protocol.
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/services/images/service-opts.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/services/images/service-opts.png" /></figure>
+</li>
+<li>Save when finished.</li>
+</ol>
+
+<p>The example shown above illustrates a service definition for a custom application which uses both UDP and TCP. Although possible to specify source ports with UDP and TCP, you will very rarely do so. In the vast majority of cases you should set only the destination ports since source ports for a given connection tend to be randomized over a very broad range of values.</p>
+</article><article class="guide"><header class="content-header">
+        <div><strong class="heading">Network Security HowTo</strong>
+          <strong class="sub-heading">Groups</strong></div>
+      </header>
+
+<h1 id="configuring-groups">Configuring Groups</h1>
+
+<p>Groups are configured from the Network &amp; Security tab of the SDDC. The VMC console separates groups into Management Groups for the management network, and Workload Groups for the compute network. The Virtual Machines section allows you to set security tags on individual VMs. It should be noted that security tags are a completely separate set of tags and are not related to VM tags in vCenter.</p>
+
+<figure   ><img src="" alt="images/groups.png could not be located" /></figure>
+
+
+<h1 id="management-groups">Management Groups</h1>
+
+<p>For Management Groups, you are restricted to defining groups based on IP address. This is because groups for the management appliances have been pre-created within the SDDC and, by definition, anything which is external to the management network may only be reference by IP.</p>
+
+<p>The following example illustrates a new IP-based group which defines the address range used for a hypothetical, remote on-premises network.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/images/mgmt-groups.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/images/mgmt-groups.png" /></figure>
+
+
+<h1 id="workload-groups">Workload Groups</h1>
+
+<p>With Workload Groups you have more flexibility: groups definitions here may be based on the following constructs:
+* Virtual Machine - with this construct, you explicitly define individual VM membership.
+* IP Address - here you may specify a comma-delimited list of IP networks in CIDR format.
+* Membership Criteria - this construct supports matching on VM name or security tag.</p>
+
+<p>The following illustration shows the membership type options available for Workload Groups.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/images/wkld-groups.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/images/wkld-groups.png" /></figure>
+
+
+<p>Be sure to note the maximums for each kind of membership type within a group definition.</p>
+
+<h1 id="membership-criteria">Membership Criteria</h1>
+
+<p>Currently, Membership Criteria for groups may only be based on VM name and security tag.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/images/mbrshp-criteria.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/images/mbrshp-criteria.png" /></figure>
+
+
+<p>It is also important to understand that Membership Criteria follows a &ldquo;logical OR&rdquo; model (a.k.a. &ldquo;match any&rdquo;). In the example, you can see that there are 3 criteria defined. Due to the logical OR model, VMs will match this group if they meet any one of the defined criteria.</p>
+</article><article class="guide"><header class="content-header">
+        <div><strong class="heading">Network Security HowTo</strong>
+          <strong class="sub-heading">Gateway Firewall</strong></div>
+      </header>
+
+<h1 id="create-rules">Create Rules</h1>
+
+<ol>
+<li>Navigate to the Network &amp; Security tab of the SDDC within the VMC console.</li>
+<li>Click on Gateway Firewall from the left-hand navigation, and choose either the Management Gateway or Compute Gateway ruleset.</li>
+<li>Click on Add New Rule.</li>
+<li>Provide the required fields for the new rule.</li>
+<li>When finished adding rules, publish the ruleset.</li>
+</ol>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/images/add-rule.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/images/add-rule.png" /></figure>
+
+
+<p>In the example, a rule is being created which will permit inbound HTTPS traffic to web servers. Let&rsquo;s examine the fields of the rule in detail.</p>
+
+<ul>
+<li>Name - A meaningful name for the new rule.</li>
+<li>Source - The source of the request. In this example we are using the pre-defined value of Any which permits any source. We could have also chosen to use a custom defined group.</li>
+<li>Destination - The destination for the request. In this example we are using a custom group which contains web servers.</li>
+<li>Services - One or more services. In this example we are using a pre-created service for HTTPS.</li>
+<li>Action - Allow the traffic or Drop the traffic.</li>
+<li>Applied To - This field is unique to the Compute Gateway ruleset and will be explained later.</li>
+<li>Logging - Enable or disable logging for matches on this rule. Logging may be useful for testing and troubleshooting.</li>
+</ul>
+
+<p>Keep in mind that there is no inherent direction for firewall rules. Since security policy is applied bidirectionally, direction is specified through the use of the source and destination fields.</p>
+
+<p>Additional options for rules are available from the context menu of each rule.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/images/rule-submenu.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/images/rule-submenu.png" /></figure>
+
+
+<p>Although it impacts security policy in a very critical way, the Applied To field and its purpose are not always well understood. Firstly, it is important to understand why this field is not available on the Management Gateway ruleset. Since the MGW has a single uplink (its uplink to the tier-0 edge), its ruleset is simply applied to that interface. Security policy for the compute network is a bit more complex, however. Since this policy is enforced on the tier-0 edge itself, and this edge has multiple uplinks, you must select where each individual rule is applied by setting the Applied To field of the rule. By default, the All Uplinks value is selected; however, other options are available.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/images/applied-to.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/images/applied-to.png" /></figure>
+
+
+<p>It is important to understand these options:</p>
+
+<ul>
+<li>Internet Interface - As the name implies, this is the uplink to the AWS public network.</li>
+<li>VPC Interface - This refers to the uplink for the cross-account ENI connection to the customer-owned AWS account.</li>
+<li>Direct Connect Interface - When a Direct Connect has been attached to the SDDC, this is the uplink for the private VIF of that Direct Connect.</li>
+<li>All Uplinks - A shorthand option for the Internet, VPC, and Direct Connect interfaces.</li>
+<li>VPN Tunnel Interface - This option refers to VTI interfaces for any route-based VPNs which may have been created.</li>
+</ul>
+
+<p>The All Uplinks option is particularly important to call out since there tends to be some confusion around its meaning. All Uplinks refers to &ldquo;physical&rdquo; uplink interfaces of the tier-0 edge, which are outlined in more detail in the chapter on SDDC network architecture. What is not included as a physical uplink are Virtual Tunnel Interfaces (VTI) used by route-based VPNs. These interfaces are implemented in a very different way within NSX and are treated as a separate category of interface. When working with route-based VPN, the security administrator must remember to specifically apply policies to the VPN Tunnel Interface. Note the distinct callout for route-based VPN. This callout is intentional due to the fact that route-based VPNs are the only type of VPN to use VTI interfaces. Policy-based VPN relies on VPN policies which are applied to the physical uplinks of the tier-0 edge. In the case of policy-based VPN, rules applied to the uplinks would also apply to those VPNs. See the chapter on IPSec VPN for more information on the differences between route-based and policy-based VPN.</p>
+
+<p>One last important consideration with rules applied to the VTI interfaces of route-based VPN has to do with the address space used by the VTIs themselves. It is a common practices to use the IPv4 link-local range (169.254.0.0/16) for point-to-point links such as VTI interfaces. As a convenience, this range has been whitelisted in the Compute Gateway ruleset in order to ensure that a BGP session may be established over the VPN. If you use address space for VTI interfaces which is outside of the link-local range, then you must remember to specifically permit control traffic such as BGP.</p>
+</article><article class="guide"><header class="content-header">
+        <div><strong class="heading">Network Security HowTo</strong>
+          <strong class="sub-heading">DFW</strong></div>
+      </header><p>DFW rules are organized into sections. Within the pre-created sections for DFW (e.g. Emergency Rules, Infrastructure Rules, etc&hellip;), additional sections may be created.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/dfw/images/dfw-add-section.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/dfw/images/dfw-add-section.png" /></figure>
+
+
+<p>It is a good practice to organize rules into sections based upon some meaningful distinction. Once a section has been created, rules may be added from its context menu.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/dfw/images/dfw-section-submenu.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/dfw/images/dfw-section-submenu.png" /></figure>
+
+
+<p>You will note that the fields of DFW rules are similar to the gateway firewall rules, although there is the notable lack of an Applied To field. This is because DFW is applied to the vNIC of every VM in the compute network.</p>
+
+<p>In this example a section has been created for web servers. Per the ruleset, HTTPS is permitted inbound with all other traffic being denied. We have chosen to add this policy as part of our Application Rules section.</p>
+
+<p>Like the gateway firewalls, rules must be published before they are enforced in the data plane.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/dfw/images/dfw-add-rule.png" alt="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/dfw/images/dfw-add-rule.png" /></figure>
+
+</article><article class="guide"><header class="content-header">
+        <div><strong class="heading">Network Security HowTo</strong>
+          <strong class="sub-heading">NAT</strong></div>
+      </header><p>Inbound NAT services are provided by first requesting a public EIP&hellip;</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/nat/images/eip.png" alt="Request a Public EIP" /><figcaption>Request a Public EIP</figcaption></figure>
+
+
+<p>&hellip;and then configuring NAT for that EIP.</p>
+
+<figure   ><img src="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/nat/images/nat.png" alt="Configure NAT" /><figcaption>Configure NAT</figcaption></figure>
+
+
+<p>In the example we can see that 2 inbound NAT rules have been configured which will NAT specific services from a public EIP to a real IP within the compute network. In this case, the real IP of both rules is the same but each rule could have also utilized different real IPs. Additionally, there is a new rule which is being created which will NAT all traffic from a particular public EIP to a real IP within the compute network. This new rule is effectively creating a <em>static NAT</em>.</p>
+
+<p>Keep the following points in mind with NAT:</p>
+
+<ul>
+<li>Workloads within the compute network are permitted to NAT outbound by default (assuming defined security policy permits this).</li>
+<li>Outbound NAT utilizes a specific public EIP, which is used by all compute workloads by default.</li>
+<li>Inbound NAT requires that a dedicated public EIP be requested and that NAT rules be created for that EIP.</li>
+<li>Inbound NAT rules must be unique based on the combination of EIP and Service.</li>
+<li>If an inbound <em>static NAT</em> is configured, then the real IP which is the target for that NAT will utilize that same EIP for outbound NAT.</li>
+<li>Processing order for inbound NAT is as follows: NAT -&gt; firewall -&gt; routing. This means that since NAT is the first step in the pipeline that firewall rules must be written to reflect the real IP, not the public EIP.</li>
+</ul>
+</article>
+
+  </article>
+</main>
+    </article>
+    
+  </body>
+</html>

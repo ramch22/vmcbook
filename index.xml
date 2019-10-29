@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VMware Cloud Knowledge</title>
+    <link>https://dspinhirne.github.io/vmcbook/</link>
+    <description>Recent content on VMware Cloud Knowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dspinhirne.github.io/vmcbook/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Activate</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/</guid>
+      <description>The activation process for HCX in VMware Cloud.</description>
+    </item>
+    
+    <item>
+      <title>Activate Services</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/activate-services/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/activate-services/</guid>
+      <description>How to activate VMware Cloud services.</description>
+    </item>
+    
+    <item>
+      <title>Configure</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/howto/configure/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/howto/configure/</guid>
+      <description>Adding a Direct Connect to an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Configure</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/configure/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/configure/</guid>
+      <description>How to configure IPSec VPN.</description>
+    </item>
+    
+    <item>
+      <title>Hub-and-Spoke Designs</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/</guid>
+      <description>Common hub and spoke network designs.</description>
+    </item>
+    
+    <item>
+      <title>Network Segments</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/howto/network-segments/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/howto/network-segments/</guid>
+      <description>How to manage network segments within an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Services</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/services/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/services/</guid>
+      <description>How to define network services within an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Term Subscription</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/term-subscription/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/term-subscription/</guid>
+      <description>How to manage term subscriptions.</description>
+    </item>
+    
+    <item>
+      <title>Concepts</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/concepts/</link>
+      <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/concepts/</guid>
+      <description>Basic concepts of IPSec VPN.</description>
+    </item>
+    
+    <item>
+      <title>Concepts</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/concepts/</link>
+      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/concepts/</guid>
+      <description>Basics of Direct Connect.</description>
+    </item>
+    
+    <item>
+      <title>A Technical Overview</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/a-technical-overview/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/a-technical-overview/</guid>
+      <description>Provides a high-level technical overview of VMware Cloud on AWS.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/introduction/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/introduction/</guid>
+      <description>Describes the on-boarding process.</description>
+    </item>
+    
+    <item>
+      <title>SDDC Architecture</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/</link>
+      <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/</guid>
+      <description>Describes the network architecture of an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/introduction/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/introduction/</guid>
+      <description>An introduction to HCX within the context of VMware Cloud.</description>
+    </item>
+    
+    <item>
+      <title>Concepts</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/concepts/</link>
+      <pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/concepts/</guid>
+      <description>Describes the concepts behind the network security feature set.</description>
+    </item>
+    
+    <item>
+      <title>Billing</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/billing/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/billing/</guid>
+      <description>How to manage billing.</description>
+    </item>
+    
+    <item>
+      <title>Groups</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/</guid>
+      <description>Defining groups within an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Install</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/install/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/install/</guid>
+      <description>Installing HCX.</description>
+    </item>
+    
+    <item>
+      <title>SDDC</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/</guid>
+      <description>How to manage SDDCs.</description>
+    </item>
+    
+    <item>
+      <title>Transit Gateway</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/transit-gateway/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/transit-gateway/</guid>
+      <description>Discusses SDDC integration with Transit Gateway</description>
+    </item>
+    
+    <item>
+      <title>Troubleshoot</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/troubleshoot/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/troubleshoot/</guid>
+      <description>Working through common issues with IPSec VPN.</description>
+    </item>
+    
+    <item>
+      <title>Authoring Guide</title>
+      <link>https://dspinhirne.github.io/vmcbook/site/authoring-guide/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/site/authoring-guide/</guid>
+      <description>Documentation geared toward authors of content within this site.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/getting-started/introduction/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/introduction/</guid>
+      <description>Describes the concepts needed in order to get started with VMware Cloud.</description>
+    </item>
+    
+    <item>
+      <title>Requirements</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/requirements/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/requirements/</guid>
+      <description>Defines the requirements for the on-boarding process.</description>
+    </item>
+    
+    <item>
+      <title>Planning</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/</guid>
+      <description>How to Plan an HCX Engagement.</description>
+    </item>
+    
+    <item>
+      <title>Gateway Firewall</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/</guid>
+      <description>Working with security groups within an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Manage Users</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/manage-users/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/manage-users/</guid>
+      <description>How to manage Organization users.</description>
+    </item>
+    
+    <item>
+      <title>Network Extension</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/network-extension/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/network-extension/</guid>
+      <description>How to perform network extension.</description>
+    </item>
+    
+    <item>
+      <title>Sample Configs</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/sample-configs/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/sample-configs/</guid>
+      <description>Sample configurations for various remote VPN gear.</description>
+    </item>
+    
+    <item>
+      <title>Preparation</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/</guid>
+      <description>Preparation for HCX Installation.</description>
+    </item>
+    
+    <item>
+      <title>Information</title>
+      <link>https://dspinhirne.github.io/vmcbook/site/information/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/site/information/</guid>
+      <description>Basic information about this site.</description>
+    </item>
+    
+    <item>
+      <title>DFW</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/dfw/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/dfw/</guid>
+      <description>Working with the distributed firewall.</description>
+    </item>
+    
+    <item>
+      <title>Workload Migration</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/workload-migration/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/workload-migration/</guid>
+      <description>How to migrate workloads.</description>
+    </item>
+    
+    <item>
+      <title>Testing</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/testing/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/testing/</guid>
+      <description>Testing an HCX installation.</description>
+    </item>
+    
+    <item>
+      <title>Links</title>
+      <link>https://dspinhirne.github.io/vmcbook/site/links/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/site/links/</guid>
+      <description>Common external links which are referenced within this site.</description>
+    </item>
+    
+    <item>
+      <title>NAT</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/nat/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/nat/</guid>
+      <description>Configuring network address translation within an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Markdown Editor</title>
+      <link>https://dspinhirne.github.io/vmcbook/site/editor/</link>
+      <pubDate>Wed, 11 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/site/editor/</guid>
+      <description>A sample markdown editor which is provided as a convenience to authors.</description>
+    </item>
+    
+    <item>
+      <title>Migration</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/migration/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/migration/</guid>
+      <description>Workload migration with HCX.</description>
+    </item>
+    
+    <item>
+      <title>Resources</title>
+      <link>https://dspinhirne.github.io/vmcbook/site/resources/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/site/resources/</guid>
+      <description>Site resources.</description>
+    </item>
+    
+    <item>
+      <title>Printable View</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/getting-started/printable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/printable/</guid>
+      <description>A single-page view of this portion of the guide which is designed to enable easy printing. It is not intended for daily use.</description>
+    </item>
+    
+    <item>
+      <title>Printable View</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/printable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/printable/</guid>
+      <description>A single-page view of the guide which is designed to enable easy printing. It is not intended for daily use.</description>
+    </item>
+    
+    <item>
+      <title>Printable View</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/printable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/printable/</guid>
+      <description>A single-page view of the guide which is designed to enable easy printing. It is not intended for daily use.</description>
+    </item>
+    
+    <item>
+      <title>Printable View</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/printable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/printable/</guid>
+      <description>A single-page view of this portion of the guide which is designed to enable easy printing. It is not intended for daily use.</description>
+    </item>
+    
+    <item>
+      <title>Printable View</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/printable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/printable/</guid>
+      <description>A single-page view of this portion of the guide which is designed to enable easy printing. It is not intended for daily use.</description>
+    </item>
+    
+    <item>
+      <title>Printable View</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/printable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/printable/</guid>
+      <description>A single-page view of this portion of the guide which is designed to enable easy printing. It is not intended for daily use.</description>
+    </item>
+    
+    <item>
+      <title>Authors</title>
+      <link>https://dspinhirne.github.io/vmcbook/site/authors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/site/authors/</guid>
+      <description>Information on content authors.</description>
+    </item>
+    
+  </channel>
+</rss>
