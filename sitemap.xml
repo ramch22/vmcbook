@@ -4,320 +4,327 @@
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/activate/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/activate-services/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/howto/configure/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/configure/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/howto/network-segments/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/services/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/term-subscription/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/concepts/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/concepts/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/a-technical-overview/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dspinhirne.github.io/vmcbook/guides/getting-started/</loc>
-    <lastmod>2019-10-14T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/introduction/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/</loc>
-    <lastmod>2019-10-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/introduction/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/concepts/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/</loc>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/guides/getting-started/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/billing/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/groups/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/install/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/sddc/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/transit-gateway/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/troubleshoot/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/site/authoring-guide/</loc>
-    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/getting-started/introduction/</loc>
-    <lastmod>2019-10-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/requirements/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/</loc>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/gateway-firewall/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/manage-users/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/network-extension/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/sample-configs/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/</loc>
-    <lastmod>2019-10-14T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/site/information/</loc>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/dfw/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/workload-migration/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/testing/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/site/links/</loc>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/nat/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/site/editor/</loc>
-    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/migration/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/site/resources/</loc>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/site/color-scheme/</loc>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/howto/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/howto/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/howto/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/</loc>
-    <lastmod>2019-10-01T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/howto/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/howto/</loc>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/getting-started/printable/</loc>
+    <lastmod>2019-10-29T10:30:51-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/printable/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/hcx/howto/printable/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/printable/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/printable/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/printable/</loc>
-  </url>
-  
-  <url>
-    <loc>https://dspinhirne.github.io/vmcbook/</loc>
-    <lastmod>2019-10-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://dspinhirne.github.io/vmcbook/site/</loc>
-    <lastmod>2019-09-11T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/site/authors/</loc>
+    <lastmod>2020-01-16T09:49:22-06:00</lastmod>
   </url>
   
   <url>
@@ -326,10 +333,21 @@
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/guides/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/site/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
   <url>
     <loc>https://dspinhirne.github.io/vmcbook/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>https://dspinhirne.github.io/vmcbook/</loc>
+    <lastmod>2019-10-23T15:33:45-05:00</lastmod>
   </url>
   
 </urlset>

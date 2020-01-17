@@ -133,24 +133,29 @@ article.main-article {
   overflow: hidden;
 }
 
-/* the main left-hand nav */
+/* the main left-hand nav. the left nav is a ul which contains sub-menu ul. sub-menu text is wrapped in a span. */
+/* ul.top-level is the top-level ul */
+/* li.open is for open sub-menus */
+/* li.parent is a parent menu item of the current page */
 nav.left-nav {
   background-color: #fafafa;
   color: #555;
-  width:225px;
-  padding: 2rem .25rem 0 .25rem;
+  width:200px;
+  padding-left:.25rem;
 }
 nav.left-nav a{padding-right:.2rem;}
-nav.left-nav a:hover{color: #f58537;}
-nav.left-nav a.active{color: #f58537; font-weight:600;}
+nav.left-nav a:hover{color: #e05244;}
+nav.left-nav a.active{color: #e05244; font-weight:600;}
 nav.left-nav span{
   cursor: pointer;
   display:block;
-  padding-right:.2rem;
+  font-weight:600;
+  padding: .1rem .2rem .1rem 0;
   overflow-x: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;}
-nav.left-nav span:hover{color: #000;}
+  text-overflow: ellipsis;
+}
+nav.left-nav span:hover{color: #1d428a;}
 nav.left-nav li {
   display:block;
   font-size: .75rem;
@@ -158,34 +163,19 @@ nav.left-nav li {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-nav.left-nav li ul {
+nav.left-nav li ul { /* a sub-menu */
   transition: opacity .5s ease-out;
   opacity: 0; 
   height: 0;
   overflow: hidden;
-  padding: .1rem 0;
 }
-nav.left-nav ul.top-level{
-  border-bottom: 1px solid #eee;
-  border-top: 1px solid #eee;
-}
-nav.left-nav ul.top-level > li{
-  border-bottom: 1px solid #eee;
-  border-top: 1px solid #eee;
-  font-size: .9rem;
-  padding: .25rem 0rem;
-}
-nav.left-nav ul.top-level > li > span{color: #737373; font-weight:600;}
-nav.left-nav ul.top-level > li.open > span{background-color: #485969; color: #fff;}
-nav.left-nav ul.top-level > li.parent.open{background-color: #eee;}
-nav.left-nav ul.top-level > li.parent:not(.open) > span{color: #1d428a;}
-nav.left-nav li.open > span{color: #000;}
-nav.left-nav ul.sub-level li.parent > span{font-weight:600; color: #1d428a;} 
-nav.left-nav li.open > ul {
-  height: auto;
-  opacity: 1;
-}
-nav.left-nav ul.indent {padding-left: .3rem;}
+nav.left-nav ul.top-level > li > span{background-color:#eee; font-size:.9rem;}
+nav.left-nav ul.top-level > li.open {border-bottom:2px solid #eee;}
+nav.left-nav ul.top-level > li.parent:not(.open) > span{color:#1d428a;}
+nav.left-nav ul:not(.top-level) > li > ul {padding-left:.2rem;}
+nav.left-nav li.parent > span{font-weight:600; color:#1d428a;} 
+nav.left-nav li.open > ul {height:auto; opacity:1;}
+
 
 
 /* the main content */
@@ -194,10 +184,10 @@ main {
   flex: 1;
   font-size: .75em;
   overflow-y: auto;
-  margin: 2rem 0;
+  margin: 0 0 2rem 0;
 }
 main a, main a:visited{color: #0091da;}
-main a:hover{color: #f58537;}
+main a:hover{color: #e05244;}
 main h1, main h2, main h3, main h4, main h5{
   font-weight: 500;
   margin: .5rem 0;
@@ -210,14 +200,13 @@ main h5{font-size: .75rem;}
 
 /* the right-hand toc menu */
 div.TableOfContents{
-  border-left: 2px solid #eee;
   font-size: .7rem;
   min-height: 100px;
   width: 200px;
   overflow-y: auto;
   position: sticky;
   float:right;
-  top:1rem;
+  top:0;
 }
 div.TableOfContents li{
   display: block;
@@ -226,20 +215,16 @@ div.TableOfContents li{
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-div.TableOfContents ul{
-  padding-left: .20rem;
-}
-div.#TableOfContents li{
-  padding: .1rem 0;
-}
+div.TableOfContents li > ul{padding-left: .2rem;}
+div.TableOfContents li{padding-bottom: .1rem;}
 div.TableOfContents h1{
-  padding-left: .25rem;
-  font-size: 1rem;
-  text-decoration: underline;
-  margin-bottom: .25rem;
+  background-color: #eee;
+  padding: .1rem 0 .1rem .25rem;
+  font-size: .9rem;
+  margin: 0;
 }
 
-/* the top-level article */
+/* the top-level article for single-page views */
 article.content{margin: 0 1rem;}
 article.content h1:not(:first-of-type){margin-top: 7rem;}
 article.content h1{text-decoration: underline;}
@@ -251,43 +236,21 @@ article.content li{
   padding-left: .25rem;
 }
 article.content.with-toc{padding-right: 200px;} /* make room for toc if present */
-article.content-grid{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: left;
+
+/* the top-level articles for list views */
+article.content-list{
+  margin: 0 1rem;
+  padding: 0 1rem;
 }
 
-/* article summaries for listing pages */
-article.summary {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+/* article summaries for list views */
+article.summary, article.truncated {
   background-color: #fff;
   border: 1px solid #eee;
-  margin: .25rem;
-  height: 200px;
-  overflow: hidden;
-  padding: 5px;
-  width: 320px;
+  margin: .5rem;
+  padding: .5rem;
 }
-article.summary header {
-  font-size: 1.25rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 310px;
-}
-article.summary p {
-  flex-grow: 1;
-  margin: .25rem 0 .5rem 0;
-  overflow: hidden;
-}
-
-/* author summaries */
-article.summary.author{justify-content: flex-start;}
-article.summary.author header{margin-bottom: 1rem; text-decoration: underline;}
-article.summary.author ul{margin:0 0 0 1rem;}
+article.summary header {font-size: 1.25rem;}
 
 /* guide articles within full-guide views */
 article.guide:not(:first-of-type){
@@ -300,12 +263,8 @@ header.content-header{
   margin-bottom: 3rem;
   padding-bottom: .25rem;
 }
-header.content-header strong{
-  display: block;
-  font-style: italic;
-}
-header.content-header strong.heading{font-size: 2.5rem;}
-header.content-header strong.sub-heading{font-size: 1.5rem;}
+header.content-header h1{font-size:2.5rem; font-style:italic; font-weight:600; text-decoration:none;}
+header.content-header h2{font-size:1.5rem; font-style:italic; font-weight:600; margin:0;}
 
 /* the article headers for full-guide views */
 header.guide-header{
@@ -313,12 +272,8 @@ header.guide-header{
   margin-bottom: 4rem;
   padding: .25rem 0;
 }
-header.guide-header strong{
-  display: block;
-  font-style: italic;
-}
-header.guide-header strong.heading{font-size: 2.75rem;}
-header.guide-header strong.sub-heading{font-size: 2rem;}
+header.guide-header h1{font-size: 2.75rem;font-style: italic; font-weight:600; text-decoration:none;}
+header.guide-header h2{font-size: 2rem;font-style: italic; font-weight:600; margin:0;}
 
 /* main content footer */
 footer.content-footer{

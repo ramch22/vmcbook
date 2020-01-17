@@ -6,7 +6,6 @@
     <description>Recent content in HowTo on VMware Cloud Knowledge</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/index.xml" rel="self" type="application/rss+xml" />
     
@@ -17,7 +16,7 @@
       <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/activate-services/</guid>
-      <description>How to activate VMware Cloud services.</description>
+      <description>The procedure for activating VMware Cloud services.</description>
     </item>
     
     <item>
@@ -26,7 +25,7 @@
       <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/billing/</guid>
-      <description>How to manage billing.</description>
+      <description>Explains how to manage billing from within the VMware Cloud console.</description>
     </item>
     
     <item>
@@ -35,7 +34,7 @@
       <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/howto/manage-users/</guid>
-      <description>How to manage Organization users.</description>
+      <description>Explains how to manage VMware Cloud Organization users.</description>
     </item>
     
   </channel>
