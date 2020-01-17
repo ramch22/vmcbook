@@ -225,7 +225,7 @@ div.TableOfContents h1{
 }
 
 /* the top-level article for single-page views */
-article.content{margin: 0 1rem;}
+article.content{margin: 1rem;}
 article.content h1:not(:first-of-type){margin-top: 7rem;}
 article.content h1{text-decoration: underline;}
 article.content h2{margin-top: 2.5rem;}
