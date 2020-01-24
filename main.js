@@ -37,33 +37,3 @@ function leftNavClick(e){
   }
 }
 
-function mdEditorTabsToggle(e, target){
-  if (!e.classList.contains("md-editor-inactive")){
-    return;
-  }
-  if (target == "md-preview"){
-    var src = document.getElementById("md-textarea");
-    var dst = document.getElementById("md-preview");
-    dst.innerHTML = md.render(src.value);
-  }
-  var parent = e.parentElement;
-  var spans = parent.querySelectorAll("span");
-  for (var i = 0; i < spans.length; i++) {
-    var span = spans[i];
-    if (e === span){
-      span.classList.remove("md-editor-inactive");
-    } else{
-      span.classList.add("md-editor-inactive");
-    }
-  }
-  
-  var editor = document.getElementById("md-editor");
-  for (var i = 0; i < editor.children.length; i++) {
-    var child = editor.children[i];
-    if (child.id == target){
-      child.classList.remove("md-editor-inactive");
-    } else{
-      child.classList.add("md-editor-inactive");
-    }
-  }
-}

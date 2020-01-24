@@ -11,12 +11,21 @@
     
     
     <item>
-      <title>SDDC Architecture</title>
-      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/</link>
+      <title>SDDC Network Architecture</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-network-architecture/</link>
       <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-architecture/</guid>
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-network-architecture/</guid>
       <description>Describes the network architecture of an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>DNS and DHCP</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/dns-and-dhcp/</link>
+      <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/dns-and-dhcp/</guid>
+      <description>Describes the DNS and DHCP services of an SDDC.</description>
     </item>
     
     <item>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Compute on VMware Cloud Knowledge</title>
+    <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/</link>
+    <description>Recent content in Compute on VMware Cloud Knowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vCenter Architecture</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/vcenter-architecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/vcenter-architecture/</guid>
+      <description>The document discusses the general architecture of the vCenter deployment of an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>EDRS</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/edrs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/edrs/</guid>
+      <description>The document discusses the Elastic Distributed Resource Scheduler (EDRS).</description>
+    </item>
+    
+    <item>
+      <title>Instance Types</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/instance-types/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/instance-types/</guid>
+      <description>This document provides the host hardware specifications for available AWS instance types.</description>
+    </item>
+    
+    <item>
+      <title>Management Footprint</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/management-footprint/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/management-footprint/</guid>
+      <description>This document provides the appliance footprint for SDDC management components.</description>
+    </item>
+    
+  </channel>
+</rss>

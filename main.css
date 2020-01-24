@@ -94,6 +94,7 @@ header.main-header{
   height: 60px;
   font-size: 1em;
   line-height: 60px;
+  margin-bottom:.5rem;
 }
 header.main-header a {
   color: #fff;
@@ -144,8 +145,8 @@ nav.left-nav {
   padding-left:.25rem;
 }
 nav.left-nav a{padding-right:.2rem;}
-nav.left-nav a:hover{color: #e05244;}
-nav.left-nav a.active{color: #e05244; font-weight:600;}
+nav.left-nav a:hover{color: #000;}
+nav.left-nav a.active{color: #e05244;}
 nav.left-nav span{
   cursor: pointer;
   display:block;
@@ -169,8 +170,8 @@ nav.left-nav li ul { /* a sub-menu */
   height: 0;
   overflow: hidden;
 }
-nav.left-nav ul.top-level > li > span{background-color:#eee; font-size:.9rem;}
-nav.left-nav ul.top-level > li.open {border-bottom:2px solid #eee;}
+nav.left-nav ul.top-level > li > span{background-color:#eee; font-size:.9rem; padding:.25rem 0;}
+nav.left-nav ul.top-level > li.open {border-bottom:3px solid #eee;}
 nav.left-nav ul.top-level > li.parent:not(.open) > span{color:#1d428a;}
 nav.left-nav ul:not(.top-level) > li > ul {padding-left:.2rem;}
 nav.left-nav li.parent > span{font-weight:600; color:#1d428a;} 
@@ -193,10 +194,12 @@ main h1, main h2, main h3, main h4, main h5{
   margin: .5rem 0;
 }
 main h1{font-size: 2.25rem;}
-main h2{font-size: 1.5rem;}
-main h3{font-size: 1.25rem;}
-main h4{font-size: 1rem;}
-main h5{font-size: .75rem;}
+main h2{font-size: 2rem;}
+main h3{font-size: 1.5rem;}
+main h4{font-size: 1.25rem;}
+main h5{font-size: 1rem;}
+main h6{font-size: .75rem;}
+
 
 /* the right-hand toc menu */
 div.TableOfContents{
@@ -221,15 +224,24 @@ div.TableOfContents h1{
   background-color: #eee;
   padding: .1rem 0 .1rem .25rem;
   font-size: .9rem;
+  font-weight: 600;
   margin: 0;
 }
 
+/* the top-level article for home page */
+article.home{margin: 0 1rem;}
+article.home h1{font-size: 2rem;}
+article.home h2{font-size: 1.75rem;}
+article.home article.summary h1{font-size: 1.75rem;}
+article.home article.summary h2{font-size: 1.5rem;}
+article.home article.summary h3{font-size: 1.25rem;}
+
 /* the top-level article for single-page views */
-article.content{margin: 1rem;}
-article.content h1:not(:first-of-type){margin-top: 7rem;}
-article.content h1{text-decoration: underline;}
-article.content h2{margin-top: 2.5rem;}
-article.content h3, article.content h4, article.content h5, article.content h6{margin-top: 1.5rem;}
+article.content{margin: 0 1rem;}
+article.content h2:not(:first-of-type){margin-top: 7rem;}
+article.content h2{text-decoration: underline;}
+article.content h3{margin-top: 2.5rem;}
+article.content h4, article.content h5, article.content h6{margin-top: 1.5rem;}
 article.content ol, article.content ul{margin: 0 0 1.75rem 1.5rem;}
 article.content li{
   margin: .2rem 0;
@@ -244,13 +256,13 @@ article.content-list{
 }
 
 /* article summaries for list views */
-article.summary, article.truncated {
+article.summary{
   background-color: #fff;
   border: 1px solid #eee;
-  margin: .5rem;
+  margin: .5rem 0;
   padding: .5rem;
 }
-article.summary header {font-size: 1.25rem;}
+article.summary h1 a{color:#555}
 
 /* guide articles within full-guide views */
 article.guide:not(:first-of-type){
@@ -264,7 +276,7 @@ header.content-header{
   padding-bottom: .25rem;
 }
 header.content-header h1{font-size:2.5rem; font-style:italic; font-weight:600; text-decoration:none;}
-header.content-header h2{font-size:1.5rem; font-style:italic; font-weight:600; margin:0;}
+header.content-header h2{font-size:1.5rem; font-style:italic; font-weight:600; margin:0; text-decoration:none;}
 
 /* the article headers for full-guide views */
 header.guide-header{
@@ -273,7 +285,7 @@ header.guide-header{
   padding: .25rem 0;
 }
 header.guide-header h1{font-size: 2.75rem;font-style: italic; font-weight:600; text-decoration:none;}
-header.guide-header h2{font-size: 2rem;font-style: italic; font-weight:600; margin:0;}
+header.guide-header h2{font-size: 2rem;font-style: italic; font-weight:600; margin:0; text-decoration:none;}
 
 /* main content footer */
 footer.content-footer{
@@ -327,7 +339,7 @@ section.callout{
   font-style: italic;
   padding: .25rem .5rem;
   width: 96%;
-  margin: 2rem 2%;
+  margin: 2rem 0;
 }
 section.callout.red{border-left: 3px solid #e05244;}
 section.callout.green{border-left: 3px solid #6db33f;}
@@ -349,37 +361,6 @@ pre.bordered{
 }
 pre.select-all{user-select: all;}
 
-/* markdown editor */
-div.md-editor-tabs span{
-  border-top: 1px solid #eee;
-  border-left: 1px solid #eee;
-  border-right: 1px solid #eee;
-  color: #f58537;
-  font-weight: 600;
-  margin:0;
-  padding: .25rem;
-}
-div.md-editor-tabs span.md-editor-inactive{background-color: #eee;}
-div.md-editor-tabs span.md-editor-inactive{
-  color: #1d428a;
-  cursor:pointer;
-  font-style:italic;
-  font-weight: 500;
-}
-textarea.md-editor-inactive, div.md-editor-inactive, pre.md-editor-inactive{display:none;}
-#md-editor textarea{
-  border: 1px solid #eee;
-  border-top: 2px solid #eee;
-  min-height: 40rem;
-  max-width:100%;
-  min-width:100%;
-}
-#md-editor div{
-  border-top: 2px solid #eee;
-  margin-top:2px;
-}
-
-
 
 
 /* Too narrow to support three columns */
@@ -397,8 +378,8 @@ textarea.md-editor-inactive, div.md-editor-inactive, pre.md-editor-inactive{disp
     padding: 0 !important;
   }
   article.guide:not(:first-of-type){page-break-before: always;}
-  article.content h1{margin-top:0 !important;}
-  article.content h1:not(:first-of-type){page-break-before: always;}
+  article.content h2{margin-top:0 !important;}
+  article.content h2:not(:first-of-type){page-break-before: always;}
   figure,table{page-break-inside: avoid;}
 }
 
