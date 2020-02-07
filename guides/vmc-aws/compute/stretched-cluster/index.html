@@ -163,14 +163,14 @@
 <li>It is built to be independently resilient, meaning failures in one AZ should not impact any other AZ.</li>
 </ol>
 
-<figure><img src="https:/media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/compute/stretched-cluster/az.png" alt="Availability Zones" />
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/compute/stretched-cluster/az.png" alt="Availability Zones" />
     <figcaption>Availability Zones</figcaption></figure>
 
 <p>The network infrastructure of an AWS Region is designed in such a way to support connectivity between Availability Zones. However, while network traffic within an AZ is not billable, network traffic which crosses between AZs will be <a href="https://aws.amazon.com/govcloud-us/pricing/data-transfer/">billed</a>. Data transfer charges and inter-AZ network performance are important considerations when designing a multi-AZ deployment within AWS.</p>
 <h3 id="what-is-a-stretched-cluster-sddc">What is a Stretched-Cluster SDDC?</h3>
 <p>A standard (non-stretched) SDDC is one in which all hosts are deployed within a single AZ. On the other hand, a stretched-cluster SDDC is one in which the hosts of the SDDC are evenly split between 2 AZs within an AWS Region (with a hidden &ldquo;witness&rdquo; host in a 3rd AZ).</p>
 
-<figure><img src="https:/media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/compute/stretched-cluster/stretched-cluster-sddc.png" alt="A Stretched-Cluster SDDC" />
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/compute/stretched-cluster/stretched-cluster-sddc.png" alt="A Stretched-Cluster SDDC" />
     <figcaption>A Stretched-Cluster SDDC</figcaption></figure>
 
 <p>The choice of a stretched-cluster vs a standard SDDC is a decision which must be made at the time of SDDC deployment. Once it has been deployed, it is not possible to convert a standard SDDC to a stretched-cluster SDDC (or vice-versa). Furthermore, all Clusters of the SDDC will be uniformly implemented as stretched or non-stretched.</p>
@@ -185,7 +185,7 @@
 <h3 id="enabling-dual-site-mirroring">Enabling Dual Site Mirroring</h3>
 <p>A stretched-cluster SDDC offers additional resiliency for workloads; however, this feature is end-user controllable and is implemented through the vSAN policies applied to workloads. By choosing the &ldquo;Dual Site Mirroring (stretched cluster)&rdquo; for the &ldquo;Site disaster tolerance&rdquo; option of a vSAN storage policy, data for VMs which use the policy will have their data synchronized between the fault domains of the SDDC.</p>
 
-<figure><img src="https:/media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/compute/stretched-cluster/vsan-policy.png" alt="A Dual Site Mirroring Policy" />
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/compute/stretched-cluster/vsan-policy.png" alt="A Dual Site Mirroring Policy" />
     <figcaption>A Dual Site Mirroring Policy</figcaption></figure>
 
 <p>The storage policy for the management appliances is automatically configured to implement dual site mirroring and cannot be changed.</p>
@@ -196,7 +196,7 @@
 <h3 id="az-affinity">AZ Affinity</h3>
 <p>AZ affinity refers to the AZ in which a VM prefers to run. This &ldquo;preference&rdquo; by the VM is based solely on the AZ in which it was most recently booted. For instance, if the SDDC is deployed within Availability Zones AZ-1a and AZ-1b, and a VM is deployed to a host within AZ-1a, then that VM is considered to prefer AZ-1a as its &ldquo;home&rdquo; AZ. This means that the VM will tend to stay within that AZ (i.e., DRS will keep it within that AZ) unless a failure occurs which triggers a recovery into the other AZ.</p>
 
-<figure><img src="https:/media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/compute/stretched-cluster/az-affinity.png" alt="Workload AZ Affinity" />
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/compute/stretched-cluster/az-affinity.png" alt="Workload AZ Affinity" />
     <figcaption>Workload AZ Affinity</figcaption></figure>
 
 <p>vSphere HA will always attempt to keep a VM within its home AZ. Should the AZ suffer a host failure, vSphere HA will:</p>
@@ -210,7 +210,7 @@
 <h3 id="data-reads-and-writes">Data Reads and Writes</h3>
 <p>It is important to understand the read/write behavior of workloads which utilize a Dual Site Mirroring enabled vSAN policy. For reads, the data is read from the local copy (i.e., the &ldquo;home&rdquo; AZ of the workload). For writes, the data is written locally as well as synchronously replicated to the hosts of the twin AZ. These synchronous writes will result in cross-AZ network traffic, the amount of which is highly dependent on the I/O profile of the workloads.</p>
 
-<figure><img src="https:/media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/compute/stretched-cluster/data-io.png" alt="Local Read, Synchronous Write" />
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/compute/stretched-cluster/data-io.png" alt="Local Read, Synchronous Write" />
     <figcaption>Local Read, Synchronous Write</figcaption></figure>
 
 <h2 id="additional-considerations">Additional Considerations</h2>
