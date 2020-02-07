@@ -142,14 +142,18 @@
 <h2 id="public-vif">Public VIF</h2>
 <p>Public VIF enables a Direct Connect to be used for accessing the public IP address space of  the AWS network. Let&rsquo;s look into the details of how this is implemented.</p>
 <p>Normally, customers will have one or more public internet circuits over which they will receive either default routes, or specific BGP prefixes. These circuits are used to access the public IP address space which AWS advertises to its upstream internet providers. In this example, the on-premises router is receiving a default route to the internet.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/concepts/dx-public-vif.png" alt="Public VIF" /><figcaption>Public VIF</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/direct-connect/concepts/dx-public-vif.png" alt="Public VIF" />
+    <figcaption>Public VIF</figcaption></figure>
 
 <p>When Direct Connect is enabled, and a Public VIF created, AWS will begin to announce all of their public IP prefixes, via BGP, over the Direct Connect. In this example, due to the specific routes being advertised by AWS, the customer network will prefer the Direct Connect as its path toward AWS public address space. This effectively means that the Direct Connect will be used when connecting to the public IP addresses allocated to the SDDC; for example, the public interface of the edge or the Elastic IP of vCenter.</p>
 <p>One important consideration when using Public VIF is to keep in mind that the on-premises network must also be reachable via its own public IP address space. For larger customers with their own public IP ranges and BGP ASN, they may choose to advertise this address space to AWS over the Direct Connect. Doing so will ensure that routing between the customer on-premises environment and AWS is symmetrical, and rides exclusively over the Direct Connect. However, the average AWS customer either does not have their own BGP ASN and public IP ranges, or does not want to advertise them over the Direct Connect.</p>
 <p>For these cases, customers may submit a request to AWS for a public IP. AWS will then allocate an IP from their own public address space which may be used by the customer for their end of the connection. It is important to note that in these cases customers must set up NAT such that all traffic originating from their end ( which uses the Public VIF) is NAT-ted to that public IP. A common mistake is to forget to configure NAT, and in these cases customers will end up routing traffic into the AWS public network which is sourced from their internal private IPs. In this scenario, AWS will drop the traffic, and the end result will be that AWS public address space will be unreachable from the customer environment.</p>
 <h2 id="private-vif">Private VIF</h2>
 <p>The standard means of accessing the private address space of an SDDC is via IPSec VPN. This VPN creates a secure virtual tunnel directly between the customer on-premises and the SDDC, either over the public internet or atop Direct Connect Public VIF. Direct Connect Private VIF provides an alternative to IPSec VPN by enabling a direct routed path between the customer on-premises network and a VPC within the AWS environment.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/concepts/dx-private-vif.png" alt="Private VIF" /><figcaption>Private VIF</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/direct-connect/concepts/dx-private-vif.png" alt="Private VIF" />
+    <figcaption>Private VIF</figcaption></figure>
 
 <p>As mentioned previously, each SDDC resides within a dedicated VPC which is owned by a master VMware account. Because the SDDC resides within a VPC, it is possible to terminate Direct Connect Private VIF directly to that VPC. In order to use Direct Connect with an SDDC, <strong>customers must specifically link the Private VIF to the VMware AWS account used by the SDDC</strong>. This account information is documented within the Network &amp; Security tab of the SDDC within the VMC console.</p>
 <p>Once the VIF has been terminated, the SDDC begins advertising routes through the Private VIF via BGP. The customer on-premises router should also be configured to advertise routes (representing the customer private address space) to the SDDC. As a general rule, the best practice is to advertise specific routes into the Direct Connect from the on-premises network instead of advertising a default route.</p>
@@ -217,7 +221,7 @@
           Written by <a href="/vmcbook/author/dspinhirne/">Dustin Spinhirne</a>
           </div><div>
           Originally published Sunday, Sep 16, 2018.
-          &nbspUpdated on Thursday, Feb 6, 2020.</div></footer>
+          &nbspUpdated on Tuesday, Oct 1, 2019.</div></footer>
 
   </article></main>
     </article>

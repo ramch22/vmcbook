@@ -131,12 +131,16 @@
       </header><h2 id="the-aws-base-layer">The AWS Base Layer</h2>
 <h3 id="the-vmware-aws-account">The VMware AWS Account</h3>
 <p>As part of the partnership with AWS, VMware maintains a master AWS account which is used as part of the VMware Cloud On AWS service. Whenever a new cloud services Organization (Org) is created, VMware creates a sub-account within this master account which acts as the parent for all AWS resources used by that Org.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/aws-accounts.png" alt="VMware AWS Accounts" /><figcaption>VMware AWS Accounts</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/sddc-network-architecture/aws-accounts.png" alt="VMware AWS Accounts" />
+    <figcaption>VMware AWS Accounts</figcaption></figure>
 
 <p>Whenever an SDDC is provisioned, resources for that SDDC are created within the AWS sub-account for the Org. This model allows VMware to manage billing for SDDC consumption (hardware, bandwidth, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">EBS</a>, etc&hellip;).</p>
 <h3 id="the-sddc-underlay-vpc">The SDDC Underlay VPC</h3>
 <p>As part of the process for provisioning an SDDC it is required to provide the number of hosts for the SDDC base cluster and an IP address range to use for SDDC management. Using this information, VMware will create a new <a href="%7B%7Bsite.data.links.aws.vpc_subnets.url%7D%7D">VPC</a> within the VMware-owned AWS account for that SDDC&rsquo;s Org. This VPC will be created using the SDDC management IP address range provided during the provisioning process and several subnets will be created within that VPC. VMware will then allocate hardware hosts for the SDDC and connect them to the subnets of that VPC.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/underlay-vpc.png" alt="The Underlay VPC" /><figcaption>The Underlay VPC</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/sddc-network-architecture/underlay-vpc.png" alt="The Underlay VPC" />
+    <figcaption>The Underlay VPC</figcaption></figure>
 
 <p>An <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">IGW</a> and VGW will also be created for this VPC. These gateways enable internet and Direct Connect connectivity to the VPC.</p>
 <h2 id="the-sddc-underlay">The SDDC Underlay</h2>
@@ -153,11 +157,15 @@
 <p>These VMkernel adapters are visible from the networking section of the configuration tab of the ESXi host. You can also get a sense of the setup by viewing the TCP/IP configuration for the host.</p>
 <p>The last portion of the underlay network are the virtual switches. Again, these are visible from the networking section of the configuration tab of the ESXi host. Here, you will see a mix of switches; some that are part of the underlay network and others which represent NSX network segments. The switches which are part of the underlay network are there to provide connectivity to the various management appliances of the SDDC. Of particular note is the management switch, which exists in order to provide the appliances with access to the management network. You can get a sense of some of the other important virtual switches in a host by examining their names as well as the management appliances which are attached to them.</p>
 <p>The AWS infrastructure is completely unlike a traditional switched network in that it is not based on MAC-learning. Instead, 100% of all IP/MAC pairs must be explicitly programmed by AWS into the infrastructure. This presents a problem for the SDDC; specifically when it comes to vMotion. Although the exact nature of the problem (as well as the details around the solution) are beyond the scope of this document, it is sufficient to understand that each ESXi host utilizes a series of kernel-level (non NSX-managed) virtual routers designed to enable vMotion on top of AWS. These virtual routers are visible in the network path of a VM whenever you perform a traceroute. If you execute a traceroute then you will notice that the interconnects between the NSX edges and the host-level routers (vDR) are utilizing a mix of IPv4 addresses from the <a href="https://en.wikipedia.org/wiki/Reserved_IP_addresses">reserved</a> ranges for link-local and carrier-grade NAT.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/esx-networking.png" alt="ESXi Host Networking" /><figcaption>ESXi Host Networking</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/sddc-network-architecture/esx-networking.png" alt="ESXi Host Networking" />
+    <figcaption>ESXi Host Networking</figcaption></figure>
 
 <h3 id="the-vpc-cross-link">The VPC Cross-Link</h3>
 <p>Every SDDC must be cross-linked to a VPC within the customer-owned AWS account. This cross-linking is accomplished using the Cross-Account <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">ENI</a> feature of AWS and creates a connection between every host within the base Cluster of the SDDC to a <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">subnet</a> within the cross-linked VPC. This cross-link provides the SDDC with a network forwarding path to services maintained within the customer-owned AWS account.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/cross-account-eni.png" alt="SDDC Cross-Account ENIs" /><figcaption>SDDC Cross-Account ENIs</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/sddc-network-architecture/cross-account-eni.png" alt="SDDC Cross-Account ENIs" />
+    <figcaption>SDDC Cross-Account ENIs</figcaption></figure>
 
 <p>The Cross-Account ENIs are visible from the customer-owned AWS account (by viewing network interfaces within EC2). You will notice that there are several ENIs created when the SDDC is deployed but not all are active. In addition to ENIs created for active hosts of the SDDC, there will also be ENIs created for future expansion and for upgrades/maintenance. Even though it is possible, you should avoid modifying or deleting these ENIs since doing so may impact the cross-link to the SDDC.</p>
 <p><strong>Note</strong> - The cross-link architecture is slightly different for stretched-cluster SDDCs (covered in later sections).</p>
@@ -166,22 +174,30 @@
 <p>As part of the standard SDDC software stack, VMware utilizes <a href="https://docs.vmware.com/en/VMware-NSX-T/index.html">NSX-t</a> to create an overlay network atop the base-layer provided by AWS. The end result is a logical network architecture which is completely abstracted from the underlying infrastructure.</p>
 <p>Network overlays operate on the notion of encapsulation; they hide network traffic between VMs within the overlay from the underlying infrastructure. Networking is full of examples of overlay networks. Older protocols, such as GRE and IPSec ESP, have been around for years and were designed to create network overlays (typically over a WAN). With the introduction of software defined networking, specialty protocols such as VXLAN, STT, and NVGRE were created to help alleviate some of the limitations of VLAN-based data center networks. In recent years a newer overlay protocol known as <a href="https://tools.ietf.org/html/draft-gross-geneve-00">GENEVE</a> was introduced to address limitations with the first round of data center overlay protocols. NSX-t uses GENEVE as its overlay networking protocol within the SDDC.</p>
 <p>Higher-level constructs aside, software defined networking defines 2 types of objects: logical switches and logical routers. These objects are designed to mimic the behavior of their counterparts in traditional hardware-based networks. Logical switches operate at <a href="https://en.wikipedia.org/wiki/Data_link_layer">layer-2</a> and will forward traffic between nodes within the same <a href="https://en.wikipedia.org/wiki/Network_segment">network segment</a>. Logical routers operate at <a href="https://en.wikipedia.org/wiki/Network_layer">layer-3</a> and will route traffic between network segments. With NSX, logical switches and logical routers are distributed. This means that each host of the SDDC maintains enough information to understand which VMs belong to which logical switch(es) and how to forward traffic through the underlay network. When 2 VMs communicate with one another, the exact path through the underlay becomes a function of where the VMs reside (i.e. on which host they reside).</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/overlay-networking.png" alt="Overlay Networking" /><figcaption>Overlay Networking</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/sddc-network-architecture/overlay-networking.png" alt="Overlay Networking" />
+    <figcaption>Overlay Networking</figcaption></figure>
 
 <p>In the figure above, we see several examples of different types of traffic flows. As illustrated, intra-segment traffic will either be switched locally for VMS on the same host, or encapsulated and sent through the underlay for VMs on different hosts. Similarly, for inter-segment traffic the routing will take place locally before being switched or encapsulated and sent through the underlay.</p>
 <h3 id="the-nsx-overlay-network">The NSX Overlay Network</h3>
 <p>The SDDC utilizes NSX to create an overlay network with 2 tiers of routing. At the first tier of the network is an NSX tier-0 router which acts as the north-south border device for the entire SDDC. At the second tier are the NSX tier-1 routers which are known as the Management Gateway (MGW) and Compute Gateway (CGW). These tier-1 routers act as the gateways for their respective networks.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/sddc-overlay.png" alt="SDDC Overlay Network" /><figcaption>SDDC Overlay Network</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/sddc-network-architecture/sddc-overlay.png" alt="SDDC Overlay Network" />
+    <figcaption>SDDC Overlay Network</figcaption></figure>
 
 <p>There are two distinct types of networks within the SDDC: the management network and the compute network. The management network is considered to be part of the SDDC infrastructure and provides network connectivity to the various infrastructure components of the SDDC. Due to the permissions model of the service, the layout of this network may not be altered. The compute network is used by the compute workloads of the SDDC. Customers have the ability to add and remove network segments within the compute network as needed.</p>
 <h3 id="nsx-logical-routers">NSX Logical Routers</h3>
 <p>All routers within the SDDC are distributed. This means that routing between segments is performed locally on ESXi host by the appropriate distributed router (DR). Certain functions, however, are not distributed and must be handle centrally by a Service Router (SR) component on the NSX edge appliances. Specifically, gateway firewall and NAT operations are handled in a centralized manner. Also, any traffic which passes between the overlay and underlay networks must be handled by the tier-0 edge SR on the edge appliances. The edge appliances are deployed in a redundant pair, with all SRs running on the active appliance and with SRs on the standby appliance sitting idle. In the event of a failure of 1 or more SRs on the active appliance, all SRs will fail over to the standby appliance. This is an optimization strategy designed to prevent unnecessary traffic flows between the edge appliances.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/edge-appliances.png" alt="NSX Edge Appliances" /><figcaption>NSX Edge Appliances</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/sddc-network-architecture/edge-appliances.png" alt="NSX Edge Appliances" />
+    <figcaption>NSX Edge Appliances</figcaption></figure>
 
 <p>In the figure above, we see an example traffic flow where a VM is communicating to the internet. It this example, the traffic is routed between the CGW and Edge DRs locally before being sent through the underlay to the Edge SR in the active edge appliance. From there, the traffic is routed through to the vDR on the local ESXi host before finally being sent out to the internet. This routing pattern would be visible in a traceroute from the VM.</p>
 <h3 id="the-vpc-cross-link-to-the-sddc-edge">The VPC Cross-Link to the SDDC Edge</h3>
 <p>As discussed previously, every host of the SDDC is connected to a VPC within the customer-owned AWS account via Cross-Account ENI connections. These connections are there in order to provide a forwarding path to the tier-0 edge of the SDDC.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/edge-cross-link.png" alt="Edge Cross-Link" /><figcaption>Edge Cross-Link</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/sddc-network-architecture/edge-cross-link.png" alt="Edge Cross-Link" />
+    <figcaption>Edge Cross-Link</figcaption></figure>
 
 <p>Since we must always pass through the Edge SR whenever traffic leaves the SDDC, all traffic to and from the cross-linked VPC must pass through the active edge appliance of the SDDC. Since this edge appliance is a VM, it resides on a specific ESXi host. As such, it will always use the Cross-Account ENI for that host (as well as the local vDR for that host). It should be noted that the hosts of the SDDC will be deployed within the same <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zone</a> (AZ) as the cross-link subnet (the subnet which contains the Cross-Account ENIs). This practice not only provides a control mechanism for AZ placement of the SDDC (customer chooses the subnet and thus controls the AZ placement), but also serves to eliminate cross-AZ bandwidth charges between the edge and any native AWS resources within that same AZ.</p>
 <p><strong>Note</strong> - The cross-link architecture is slightly different for stretched-cluster SDDCs (covered in later sections).</p>
@@ -199,13 +215,17 @@
 <h3 id="stretched-cluster-networking">Stretched-Cluster Networking</h3>
 <p>A stretched-cluster SDDC is one in which the hosts of each Cluster are split evenly between two Availability Zones (AZ) of an AWS Region. In order to ensure availability, the SDDC must be able to freely migrate workloads between AZs whenever a significant outage is detected in one AZ or the other.</p>
 <p>In migration scenarios, one of the biggest challenges is with maintaining a workload&rsquo;s network connectivity post-migration. For end-user workloads, NSX reduces this challenge through its use of network overlays which serve to abstract the underlying infrastructure. However, SDDC management appliances are a special case. Due to the fact that they have a direct presence on the underlying Subnets of the VPC, special steps must be taken to ensure that management appliances retain their network connectivity should they migrate between AZs.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/stretched-cluster-sddc.png" alt="A Stretched-Cluster SDDC" /><figcaption>A Stretched-Cluster SDDC</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/sddc-network-architecture/stretched-cluster-sddc.png" alt="A Stretched-Cluster SDDC" />
+    <figcaption>A Stretched-Cluster SDDC</figcaption></figure>
 
 <p>Since Subnets are bound to a particular AZ, it is not possible for a management appliance to be migrated between AZs and maintain connectivity to its original Subnet(s). For this reason, stretched-cluster SDDCs will be deployed with dual sets of Subnets which are designed to provide network connectivity to management appliances in the event that they migrate between AZs. The management appliances are issued &ldquo;floating&rdquo; IP addresses which, when combined with the routing functionality of the host-level vDR, enables them to transparently migrate between AZs while maintaining their network connectivity. Note that these &ldquo;floating&rdquo; IP addresses are taken from the management address range of the SDDC and are not to be confused with public floating IP addresses used within native AWS.</p>
 <h3 id="stretched-cluster-vpc-cross-link">Stretched-Cluster VPC Cross-Link</h3>
 <p>VPC cross-linking is another example of the networking challenges the SDDC must deal with in a stretched-cluster design. As a standard part of the SDDC deployment, the hosts of the base Cluster are crossed-linked to a Subnet within the customer-owned VPC. This cross-linking is performed in order to provide the SDDC edge with a forwarding path to that VPC. This forwarding path enables the SDDC to access AWS services within the customer AWS account.</p>
 <p>As with all Subnets, the cross-link Subnet is bound to a single AZ. This means that if the edge appliance migrates between AZs then it will lose access to this Subnet. The solution to this problem is to simply require a pair of cross-link Subnets to be provided whenever a stretched-cluster SDDC is deployed. These Subnets must reside within separate AZs and, like a standard SDDC, they will control AZ placement of the hosts within the SDDC. In the event that the edge appliance migrates between AZs, the routing table of the customer-owned VPC will be updated to route traffic through the appropriate cross-link Subnet.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/stretched-cluster-x-link.png" alt="VPC Cross-Linking for Stretched-Cluster SDDCs" /><figcaption>VPC Cross-Linking for Stretched-Cluster SDDCs</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/sddc-network-architecture/stretched-cluster-x-link.png" alt="VPC Cross-Linking for Stretched-Cluster SDDCs" />
+    <figcaption>VPC Cross-Linking for Stretched-Cluster SDDCs</figcaption></figure>
 
 <h3 id="stretched-cluster-traffic-flows">Stretched-Cluster Traffic Flows</h3>
 <p>In addition to the network flows discussed previously, stretched-cluster SDDCs come with an additional set of behaviors which must be kept in mind when designing with this feature. Specifically, you must consider both the cross-AZ bandwidth charges that will result from a stretched-cluster design as well as the reduced network throughput for traffic which passes between AZs. In particular, the following traffic flows should be kept in mind.</p>
@@ -229,12 +249,16 @@
 <h3 id="policy-based-vpn">Policy-Based VPN</h3>
 <p>Policy-based VPN relies on defining &ldquo;interesting&rdquo; traffic as part of a policy for determining which traffic should be sent through a VPN. This policy is then applied to an interface (typically an uplink port) of the VPN endpoint, and traffic destined for the VPN is then forced through this interface. In the case of the SDDC, this policy is applied to the &ldquo;internet&rdquo; uplink of the tier-0 edge router.</p>
 <p>As part of its standard configuration, the SDDC is configured with a default route which points to its upstream Internet Gateway. This means that all traffic which is non-local to the SDDC will be sent out through the &ldquo;internet&rdquo; uplink and will be matched against any IPSec VPN policies which are applied. If the traffic matches a policy, then it is encapsulated and sent through a VPN. Otherwise it is routed normally to the IGW. The notable exception to this rule is in cases where the SDDC knows specific routes through alternative uplinks. The first example of this will be with the cross-linked VPC. Traffic destined for this VPC will not cross the internet uplink and will not be matched against any policies. Similarly, if Direct Connect is attached to the SDDC, then traffic destined to any networks learned via the Direct Connect will also not pass through the internet uplink.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/ipsec-vpn/concepts/policy-based-vpn.png" alt="Policy-Based VPN" /><figcaption>Policy-Based VPN</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/ipsec-vpn/concepts/policy-based-vpn.png" alt="Policy-Based VPN" />
+    <figcaption>Policy-Based VPN</figcaption></figure>
 
 <p>This highlights an important caveat to policy-based VPN; if any routes are learned via alternative uplinks (i.e. Direct Connect, cross-linked VPC, other route-based VPNs) which encompass networks configured on the policy-based VPN, then the traffic will not pass through the internet uplink and will not hit the policy. Effectively, this means that you must carefully plan what routes you advertise to the SDDC if you intend to use policy-based VPN in conjunction with Direct Connect or route-based VPN.</p>
 <h3 id="route-based-vpn">Route-Based VPN</h3>
 <p>Route-based VPN works on the notion that a Virtual Tunnel Interface (VTI) exists between the two VPN peers. This VTI is protected by IPSec encryption, but is otherwise treated as a normal uplink, over which BGP peering is established, and over which traffic may be routed.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/ipsec-vpn/concepts/route-based-vpn.png" alt="Route-Based VPN" /><figcaption>Route-Based VPN</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/ipsec-vpn/concepts/route-based-vpn.png" alt="Route-Based VPN" />
+    <figcaption>Route-Based VPN</figcaption></figure>
 
 <p>Within the SDDC, the VTI interfaces are created on the tier-0 edge as a type of uplink over which a BGP session is established. Routes learned over these BGP sessions populate the routing table and add an extra layer of functionality to the IPSec VPN. For example, with route-based VPN it becomes possible to enable redundant tunnels by taking advantage of BGP to handle the fail-over between tunnels, and it becomes possible to more granularity control routing between all uplinks of the edge.</p>
 <p>The added flexibility and configurability of route-based VPN is one of the main reasons for it being the preferred solution for IPSec VPN configurations.</p>
@@ -347,11 +371,15 @@
           <h2>Configure</h2></div>
       </header><h2 id="configuration">Configuration</h2>
 <p>IPSec VPN is configured from within the <a href="https://vmc.vmware.com">VMC console</a> by navigating to the Network &amp; Security tab of the SDDC. The public VPN IP of the tier-0 edge is visible from the Overview page. The VPN item on the left-hand navigation will provide options for configuring both Policy and Route Based VPN.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/ipsec-vpn/howto/configure/vmc-console-vpn.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/ipsec-vpn/howto/configure/vmc-console-vpn.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/ipsec-vpn/howto/configure/vmc-console-vpn.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/ipsec-vpn/howto/configure/vmc-console-vpn.png" />
+    </figure>
 
 <h2 id="policy-based-vpn">Policy-Based VPN</h2>
 <p>To create a policy-based VPN, click on the Policy Based menu item on the left-hand navigation pane and then click the Add VPN button.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/ipsec-vpn/howto/configure/vmc-console-policy-based-vpn.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/ipsec-vpn/howto/configure/vmc-console-policy-based-vpn.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/ipsec-vpn/howto/configure/vmc-console-policy-based-vpn.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/ipsec-vpn/howto/configure/vmc-console-policy-based-vpn.png" />
+    </figure>
 
 <p>The options are as follows:</p>
 <table>
@@ -437,7 +465,9 @@
 </table>
 <h2 id="route-based-vpn">Route-Based VPN</h2>
 <p>To create a route-based VPN, click on the Route Based menu item on the left-hand navigation pane and then click the Add VPN button.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/ipsec-vpn/howto/configure/vmc-console-route-based-vpn.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/ipsec-vpn/howto/configure/vmc-console-route-based-vpn.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/ipsec-vpn/howto/configure/vmc-console-route-based-vpn.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/ipsec-vpn/howto/configure/vmc-console-route-based-vpn.png" />
+    </figure>
 
 <p>The first step you should complete is to set the SDDCs BGP <a href="https://en.wikipedia.org/wiki/Autonomous_system_(Internet)">ASN</a>. You should typically use an ASN from the designated private range (64512 - 65534).</p>
 <p>Most of the fields are identical to the ones defined for policy-based VPN, however, there are a few differences:</p>
@@ -460,7 +490,9 @@
         <div><h1>IPSec VPN HowTo</h1>
           <h2>Troubleshoot</h2></div>
       </header><p>The vast majority of issues with the initial setup of IPSec VPN are due to misconfiguration on the remote end. The following are sample error messages captured from the VMC console which are intended to help the reader identify errors due to misconfiguration of their end of the VPN. These error messages are visible by clicking on the &ldquo;i&rdquo; pop-up of the Status section of a saved VPN.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/ipsec-vpn/howto/troubleshoot/vmc-console-status.png" alt="VPN Status" /><figcaption>VPN Status</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/ipsec-vpn/howto/troubleshoot/vmc-console-status.png" alt="VPN Status" />
+    <figcaption>VPN Status</figcaption></figure>
 
 <p>There are 3 parts to consider:</p>
 <ol>
@@ -927,14 +959,18 @@ set protocols bgp timers keepalive 10
 <h2 id="public-vif">Public VIF</h2>
 <p>Public VIF enables a Direct Connect to be used for accessing the public IP address space of  the AWS network. Let&rsquo;s look into the details of how this is implemented.</p>
 <p>Normally, customers will have one or more public internet circuits over which they will receive either default routes, or specific BGP prefixes. These circuits are used to access the public IP address space which AWS advertises to its upstream internet providers. In this example, the on-premises router is receiving a default route to the internet.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/concepts/dx-public-vif.png" alt="Public VIF" /><figcaption>Public VIF</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/direct-connect/concepts/dx-public-vif.png" alt="Public VIF" />
+    <figcaption>Public VIF</figcaption></figure>
 
 <p>When Direct Connect is enabled, and a Public VIF created, AWS will begin to announce all of their public IP prefixes, via BGP, over the Direct Connect. In this example, due to the specific routes being advertised by AWS, the customer network will prefer the Direct Connect as its path toward AWS public address space. This effectively means that the Direct Connect will be used when connecting to the public IP addresses allocated to the SDDC; for example, the public interface of the edge or the Elastic IP of vCenter.</p>
 <p>One important consideration when using Public VIF is to keep in mind that the on-premises network must also be reachable via its own public IP address space. For larger customers with their own public IP ranges and BGP ASN, they may choose to advertise this address space to AWS over the Direct Connect. Doing so will ensure that routing between the customer on-premises environment and AWS is symmetrical, and rides exclusively over the Direct Connect. However, the average AWS customer either does not have their own BGP ASN and public IP ranges, or does not want to advertise them over the Direct Connect.</p>
 <p>For these cases, customers may submit a request to AWS for a public IP. AWS will then allocate an IP from their own public address space which may be used by the customer for their end of the connection. It is important to note that in these cases customers must set up NAT such that all traffic originating from their end ( which uses the Public VIF) is NAT-ted to that public IP. A common mistake is to forget to configure NAT, and in these cases customers will end up routing traffic into the AWS public network which is sourced from their internal private IPs. In this scenario, AWS will drop the traffic, and the end result will be that AWS public address space will be unreachable from the customer environment.</p>
 <h2 id="private-vif">Private VIF</h2>
 <p>The standard means of accessing the private address space of an SDDC is via IPSec VPN. This VPN creates a secure virtual tunnel directly between the customer on-premises and the SDDC, either over the public internet or atop Direct Connect Public VIF. Direct Connect Private VIF provides an alternative to IPSec VPN by enabling a direct routed path between the customer on-premises network and a VPC within the AWS environment.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/concepts/dx-private-vif.png" alt="Private VIF" /><figcaption>Private VIF</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/direct-connect/concepts/dx-private-vif.png" alt="Private VIF" />
+    <figcaption>Private VIF</figcaption></figure>
 
 <p>As mentioned previously, each SDDC resides within a dedicated VPC which is owned by a master VMware account. Because the SDDC resides within a VPC, it is possible to terminate Direct Connect Private VIF directly to that VPC. In order to use Direct Connect with an SDDC, <strong>customers must specifically link the Private VIF to the VMware AWS account used by the SDDC</strong>. This account information is documented within the Network &amp; Security tab of the SDDC within the VMC console.</p>
 <p>Once the VIF has been terminated, the SDDC begins advertising routes through the Private VIF via BGP. The customer on-premises router should also be configured to advertise routes (representing the customer private address space) to the SDDC. As a general rule, the best practice is to advertise specific routes into the Direct Connect from the on-premises network instead of advertising a default route.</p>
@@ -1006,19 +1042,27 @@ set protocols bgp timers keepalive 10
 <li>Delegate this VIF to &ldquo;Another AWS Account&rdquo; by choosing that option and providing the AWS account for your VMware Cloud Org. This account ID is available from the Direct Connect tab of an SDDC within the VMC console.</li>
 <li>Deselect the option to auto-generate peer IPs. You should manually assign these addresses to avoid creating conflicts with address space used within the SDDC.</li>
 </ol>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/howto/configure/dx-aws.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/howto/configure/dx-aws.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/direct-connect/howto/configure/dx-aws.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/direct-connect/howto/configure/dx-aws.png" />
+    </figure>
 
 <h2 id="attach-a-private-vif">Attach a Private VIF</h2>
 <ol>
 <li>Navigate to the Network &amp; Security tab of the SDDC within the VMC console and select the Direct Connect tab. Any Private VIF which has been delegated to the VMware Cloud Org will be visible here.</li>
 <li>Select &ldquo;Attach&rdquo; for the relevant VIF.
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/howto/configure/vmc-console-dx.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/howto/configure/vmc-console-dx.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/direct-connect/howto/configure/vmc-console-dx.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/direct-connect/howto/configure/vmc-console-dx.png" />
+    </figure>
 </li>
 <li>Confirm the attachment.
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/howto/configure/vmc-console-dx-attach.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/howto/configure/vmc-console-dx-attach.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/direct-connect/howto/configure/vmc-console-dx-attach.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/direct-connect/howto/configure/vmc-console-dx-attach.png" />
+    </figure>
 </li>
 <li>Allow several minutes for the attachment to complete. Once complete, you should see routes being advertised and received.
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/howto/configure/vmc-console-dx-up.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/howto/configure/vmc-console-dx-up.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/direct-connect/howto/configure/vmc-console-dx-up.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/direct-connect/howto/configure/vmc-console-dx-up.png" />
+    </figure>
 </li>
 </ol>
 </article><article class="guide"><header class="content-header">
@@ -1027,10 +1071,14 @@ set protocols bgp timers keepalive 10
       </header><h2 id="add-a-network-segment">Add a Network Segment</h2>
 <p>A network segment is the term used to describe an IP broadcast domain within an SDDC. It is implemented using an NSX Logical Switch.</p>
 <p>Network segments are viewed from within the Network &amp; Security tab of the SDDC.
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/howto/network-segments/segments.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/howto/network-segments/segments.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/howto/network-segments/segments.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/howto/network-segments/segments.png" />
+    </figure>
 </p>
 <p>Clicking &ldquo;Add Segment&rdquo; will display the creation form for a new network segment.
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/howto/network-segments/add-segment.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/howto/network-segments/add-segment.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/howto/network-segments/add-segment.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/howto/network-segments/add-segment.png" />
+    </figure>
 </p>
 <p>The following fields are expected:</p>
 <ul>
@@ -1050,17 +1098,25 @@ set protocols bgp timers keepalive 10
 <p>Save the form to create the network segment.</p>
 <h2 id="edit-a-network-segment">Edit a Network Segment</h2>
 <p>Network segments are viewed from within the Network &amp; Security tab of the SDDC.
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/howto/network-segments/segments.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/howto/network-segments/segments.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/howto/network-segments/segments.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/howto/network-segments/segments.png" />
+    </figure>
 </p>
 <p>They are edited from within their context menu.
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/howto/network-segments/segment-context.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/howto/network-segments/segment-context.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/howto/network-segments/segment-context.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/howto/network-segments/segment-context.png" />
+    </figure>
 </p>
 <h2 id="delete-a-network-segment">Delete a Network Segment</h2>
 <p>Network segments are viewed from within the Network &amp; Security tab of the SDDC.
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/howto/network-segments/segments.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/howto/network-segments/segments.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/howto/network-segments/segments.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/howto/network-segments/segments.png" />
+    </figure>
 </p>
 <p>They are deleted from within their context menu.
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/howto/network-segments/segment-context.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/howto/network-segments/segment-context.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/howto/network-segments/segment-context.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/networking/howto/network-segments/segment-context.png" />
+    </figure>
 </p>
 </article>
   </article>

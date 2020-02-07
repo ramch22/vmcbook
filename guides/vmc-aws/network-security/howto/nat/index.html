@@ -124,10 +124,14 @@
       <h1>VMware Cloud on AWS</h1><h2>Network Security HowTo:&nbspNAT</h2></header>
 
     <p>Inbound NAT services are provided by first requesting a public EIP&hellip;</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/nat/eip.png" alt="Request a Public EIP" /><figcaption>Request a Public EIP</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/network-security/howto/nat/eip.png" alt="Request a Public EIP" />
+    <figcaption>Request a Public EIP</figcaption></figure>
 
 <p>&hellip;and then configuring NAT for that EIP.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/nat/nat.png" alt="Configure NAT" /><figcaption>Configure NAT</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/network-security/howto/nat/nat.png" alt="Configure NAT" />
+    <figcaption>Configure NAT</figcaption></figure>
 
 <p>In the example we can see that 2 inbound NAT rules have been configured which will NAT specific services from a public EIP to a real IP within the compute network. In this case, the real IP of both rules is the same but each rule could have also utilized different real IPs. Additionally, there is a new rule which is being created which will NAT all traffic from a particular public EIP to a real IP within the compute network. This new rule is effectively creating a <em>static NAT</em>.</p>
 <p>Keep the following points in mind with NAT:</p>
@@ -142,7 +146,7 @@
     
     <footer class="content-footer"><div>
           Originally published Tuesday, Oct 1, 2019.
-          &nbspUpdated on Thursday, Jan 16, 2020.</div></footer>
+          </div></footer>
 
   </article></main>
     </article>

@@ -6,10 +6,19 @@
     <description>Recent content in News on VMware Cloud Knowledge</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://dspinhirne.github.io/vmcbook/news/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Friday, Feb 7, 2020 - Content Update</title>
+      <link>https://dspinhirne.github.io/vmcbook/news/2020-02-07/</link>
+      <pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/news/2020-02-07/</guid>
+      <description>New content has been added for VMC on AWS stretched-cluster SDDCs. Updates include dedicated sections within the SDDC Network Architecture docuement as well as a dedicated content under the Compute topic.</description>
+    </item>
     
     <item>
       <title>Friday, Jan 24, 2020 - Content Update</title>

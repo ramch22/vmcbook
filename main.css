@@ -233,9 +233,6 @@ div.TableOfContents h1{
 article.home{margin: 0 1rem;}
 article.home h1{font-size: 2rem;}
 article.home h2{font-size: 1.75rem;}
-article.home article.summary h1{font-size: 1.75rem;}
-article.home article.summary h2{font-size: 1.5rem;}
-article.home article.summary h3{font-size: 1.25rem;}
 
 /* the top-level article for single-page views */
 article.content{margin: 0 1rem;}
@@ -248,7 +245,13 @@ article.content li{
   margin: .2rem 0;
   padding-left: .25rem;
 }
+article.content.news h2:not(:first-of-type){margin-top: 2rem;}
+article.content.news h2{font-size: 1.75rem;}
+article.content.news h3{font-size: 1.5rem; margin-top: 1.5rem;}
+article.content.news h4, article.content h5, article.content h6{margin-top: 1rem;}
 article.content.with-toc{padding-right: 200px;} /* make room for toc if present */
+
+
 
 /* the top-level articles for list views */
 article.content-list{
@@ -264,6 +267,10 @@ article.summary{
   padding: .5rem;
 }
 article.summary h1 a{color:#555}
+article.summary.news h1{font-size: 1.5rem;}
+article.summary.news h2{font-size: 1.25rem;}
+article.summary.news h3{font-size: 1rem;}
+
 
 /* guide articles within full-guide views */
 article.guide:not(:first-of-type){

@@ -148,129 +148,201 @@
 <p>The enterprise-side HCX manager appliance is downloaded via a download link provided by the cloud-side manager. Once downloaded, it should be deployed from the enterprise-side vCenter server which manages the workloads targeted for migration.</p>
 <p>This appliance will require an IP address for network connectivity, and will ideally be connected to the &ldquo;management&rdquo; network of the vSphere environment. Take note of the IP address which you assigned to this appliance, as well as the admin and root user passwords which you set during the deployment. Also, be sure to provide DNS and NTP settings for the appliance.</p>
 <p>Once the appliance has deployed, it may be accessed via HTTPS on its assigned IP using port 9443. Note that it may take up to 10 minutes before first-boot scripts finish executing and services are started. Login as the admin user and provide the password set during appliance deployment.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-login.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-login.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-login.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-login.png" />
+    </figure>
 
 <p>Upon the first login, you will need to provide some initial configuration for the HCX manager. The first step is to provide the rough physical location of your data center (this is used to provide map illustrations within HCX).</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-location.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-location.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-location.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-location.png" />
+    </figure>
 
 <p>Next, you must activate HCX by providing the activation key which was generated within the VMC console. Continue with the setup when prompted.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-activate.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-activate.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-activate.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-activate.png" />
+    </figure>
 
 <p>HCX will need to connect to the local vCenter Server&hellip;</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-vc-connect.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-vc-connect.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-vc-connect.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-vc-connect.png" />
+    </figure>
 
 <p>&hellip;and to the SSO/PSC appliance.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-psc-connect.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-psc-connect.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-psc-connect.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-psc-connect.png" />
+    </figure>
 
 <p>Finally, a restart is required.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-restart.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-restart.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-restart.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-restart.png" />
+    </figure>
 
 <h2 id="configure-the-enterprise-hcx-manager">Configure the Enterprise HCX Manager</h2>
 <h3 id="role-mapping">Role Mapping</h3>
 <p>After installation and initial setup, the HCX manager will be rebooted. It may take several minutes for services to restart.</p>
 <p>Once the manager has finished restarting, login and configure vSphere role mapping. Role mapping is necessary in order to define which vSphere users may access the HCX UI components.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-role-map.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/ent-mgr-role-map.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-role-map.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/ent-mgr-role-map.png" />
+    </figure>
 
 <p>You should now log out of vCenter and log back in. Once you have logged back in, then you should see the HCX UI component installed within the vCenter web client.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/vc-hcx-ui.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/vc-hcx-ui.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/vc-hcx-ui.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/vc-hcx-ui.png" />
+    </figure>
 
 <h3 id="dns-resolution-for-direct-connect">DNS Resolution for Direct Connect</h3>
 <p>For users who wish to utilize Direct Connect Private VIF for HCX traffic, there is an additional required step.</p>
 <p>Since the enterprise-side HCX manager must communicate with the cloud-side manager via FQDN, the enterprise-side manager must be able to resolve the cloud-side FQDN to a private IP in order to utilize Direct Connect. As of SDDC version 1.8, enabling this is the simple matter of toggling name resolution for the cloud-side HCX manager from within the vmc console. This is identical to the process used for changing the name resolution for vCenter of the SDDC.
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-dns.png" alt="HCX FQDN setting within the SDDC" /><figcaption>HCX FQDN setting within the SDDC</figcaption></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-dns.png" alt="HCX FQDN setting within the SDDC" />
+    <figcaption>HCX FQDN setting within the SDDC</figcaption></figure>
 </p>
 <p>Once this step is completed, the enterprise-side manager may utilize the Direct Connect when connecting to the cloud-side manager.</p>
 <p>Since the enterprise-side HCX manager is connecting to the cloud-side manager&rsquo;s private IP, you may need to adjust the MGW gateway firewall rules in the SDDC to permit the connectivity.</p>
 <h2 id="configuring-the-multi-site-service-mesh">Configuring the Multi-Site Service Mesh</h2>
 <p>Login to vCenter and navigate to the HCX dashboard.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-dashboard.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-dashboard.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-dashboard.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-dashboard.png" />
+    </figure>
 
 <h3 id="create-a-compute-profile">Create a Compute Profile</h3>
 <p>Navigate to the Interconnect screen and click on the Multi-Site Service Mesh tab. The first step will be to create a Compute Profile.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-service-mesh.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-service-mesh.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-service-mesh.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-service-mesh.png" />
+    </figure>
 
 <p>Provide a name for your profile.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof01.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof01.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof01.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof01.png" />
+    </figure>
 
 <p>Select the HCX services you wish to activate.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof02.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof02.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof02.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof02.png" />
+    </figure>
 
 <p>Select the target cluster for the additional HCX appliances.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof03.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof03.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof03.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof03.png" />
+    </figure>
 
 <p>Select the target datastore for the additional HCX appliances.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof04.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof04.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof04.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof04.png" />
+    </figure>
 
 <p>Create a Network Profile. This will be used for determining network interfaces and IP addresses for the additional HCX appliances.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof05.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof05.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof05.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof05.png" />
+    </figure>
 
 <p>In this example, a single network (the vSphere management network) will be used for all connectivity. If your setup will utilize multiple networks, then at least 1 of them must provide a default gateway and DNS settings. You must also provide a pool of usable addresses for HCX appliances. In this example setup we will only use a single IX and Network Extension appliance, so will only require 2 addresses.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-net-prof01.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-net-prof01.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-net-prof01.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-net-prof01.png" />
+    </figure>
 
 <p>Once Network Profiles have been created, we may use them within the Compute Profile. In this example, we will use the same profile in multiple places.</p>
 <p>Firstly, specify the profile for the management network&hellip;</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof06.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof06.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof06.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof06.png" />
+    </figure>
 
 <p>&hellip;then the uplink network (the network with access to the internet or Direct Connect)&hellip;</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof07.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof07.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof07.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof07.png" />
+    </figure>
 
 <p>&hellip;and the vMotion network&hellip;</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof08.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof08.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof08.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof08.png" />
+    </figure>
 
 <p>&hellip;and the vSphere Replication network.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof09.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof09.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof09.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof09.png" />
+    </figure>
 
 <p>Since we have chosen to utilize the network extension services for this example, we must specify the vDS which contains networks to be extended. Remember, that there will be one Network Extension appliance required per vDS.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof10.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof10.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof10.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof10.png" />
+    </figure>
 
 <p>HCX will provide you with a reminder that it requires certain connectivity over both the WAN and between components in the LAN.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof11.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof11.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof11.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof11.png" />
+    </figure>
 
 <p>Finish the Compute Profile definition.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof12.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-cmpt-prof12.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof12.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-cmpt-prof12.png" />
+    </figure>
 
 <h3 id="create-a-site-pair">Create a Site Pair</h3>
 <p>Define a site pairing for the SDDC.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-site-pair01.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-site-pair01.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-site-pair01.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-site-pair01.png" />
+    </figure>
 
 <p>Specify the FQDN of the cloud-side HCX manager and the credentials for the SDDC cloudadmin user.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-site-pair02.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-site-pair02.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-site-pair02.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-site-pair02.png" />
+    </figure>
 
 <p>HCX will verify connectivity and create the site pair.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-site-pair03.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-site-pair03.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-site-pair03.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-site-pair03.png" />
+    </figure>
 
 <h3 id="create-a-service-mesh">Create a Service Mesh</h3>
 <p>Define a service mesh using the previously created Compute and Network profiles, and the site pairing.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh01.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh01.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh01.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh01.png" />
+    </figure>
 
 <p>Provide the site pairing.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh02.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh02.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh02.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh02.png" />
+    </figure>
 
 <p>Specify the Compute Profile which you defined and the Compute Profile of the SDDC (which was automatically created by the cloud-side manager).</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh03.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh03.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh03.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh03.png" />
+    </figure>
 
 <p>Verify the services you want to support. In this example the Disaster Recovery services is deselected.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh04.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh04.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh04.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh04.png" />
+    </figure>
 
 <p>Define the Network Profiles to use. You should use the one associated with the Compute Profile which was created. For the cloud-side, use a profile for the network path you wish to use toward the SDDC. In this example, we are using the profile associated with the Direct Connect.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh05.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh05.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh05.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh05.png" />
+    </figure>
 
 <p>Optionally, define the number of additional Network Extension appliances you wish to support.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh06.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh06.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh06.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh06.png" />
+    </figure>
 
 <p>Provide the bandwidth cap for the WAN-Opt appliance.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh07.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh07.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh07.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh07.png" />
+    </figure>
 
 <p>Name the Service Mesh and finish.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh08.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh08.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh08.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh08.png" />
+    </figure>
 
 <p>You can monitor the deployment of the additional HCX appliances. The tunnels for the IX and Network Extension appliances should come up once these appliances have finished deploying, booting, and have started services.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh09.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/howto/install/hcx-srvc-mesh09.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh09.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/install/hcx-srvc-mesh09.png" />
+    </figure>
 
     
     <footer class="content-footer"><div>
           Originally published Tuesday, Oct 1, 2019.
-          &nbspUpdated on Thursday, Jan 16, 2020.</div></footer>
+          </div></footer>
 
   </article></main>
     </article>

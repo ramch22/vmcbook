@@ -131,7 +131,9 @@
 <li>Provide the required fields for the new rule.</li>
 <li>When finished adding rules, publish the ruleset.</li>
 </ol>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/gateway-firewall/add-rule.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/gateway-firewall/add-rule.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/network-security/howto/gateway-firewall/add-rule.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/network-security/howto/gateway-firewall/add-rule.png" />
+    </figure>
 
 <p>In the example, a rule is being created which will permit inbound HTTPS traffic to web servers. Let&rsquo;s examine the fields of the rule in detail.</p>
 <ul>
@@ -145,10 +147,14 @@
 </ul>
 <p>Keep in mind that there is no inherent direction for firewall rules. Since security policy is applied bidirectionally, direction is specified through the use of the source and destination fields.</p>
 <p>Additional options for rules are available from the context menu of each rule.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/gateway-firewall/rule-submenu.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/gateway-firewall/rule-submenu.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/network-security/howto/gateway-firewall/rule-submenu.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/network-security/howto/gateway-firewall/rule-submenu.png" />
+    </figure>
 
 <p>Although it impacts security policy in a very critical way, the Applied To field and its purpose are not always well understood. Firstly, it is important to understand why this field is not available on the Management Gateway ruleset. Since the MGW has a single uplink (its uplink to the tier-0 edge), its ruleset is simply applied to that interface. Security policy for the compute network is a bit more complex, however. Since this policy is enforced on the tier-0 edge itself, and this edge has multiple uplinks, you must select where each individual rule is applied by setting the Applied To field of the rule. By default, the All Uplinks value is selected; however, other options are available.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/gateway-firewall/applied-to.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/network-security/howto/gateway-firewall/applied-to.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/network-security/howto/gateway-firewall/applied-to.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/vmc-aws/network-security/howto/gateway-firewall/applied-to.png" />
+    </figure>
 
 <p>It is important to understand these options:</p>
 <ul>
@@ -163,7 +169,7 @@
     
     <footer class="content-footer"><div>
           Originally published Tuesday, Oct 1, 2019.
-          &nbspUpdated on Thursday, Jan 16, 2020.</div></footer>
+          </div></footer>
 
   </article></main>
     </article>

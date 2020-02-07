@@ -181,7 +181,7 @@
 <h3 id="implementation-overview">Implementation Overview</h3>
 <p>Stretched-cluster SDDCs are implemented using a vSAN <a href="https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vsan-planning.doc/GUID-1BDC7194-67A7-4E7C-BF3A-3A0A32AEECA9.html">feature</a> of the same name. Per the requirements of vSAN, the SDDC provides 2 data sites and one witness host per cluster. The data sites are composed of 2 groups of hosts, which are evenly split between a pair of AZs. The witness host is implemented behind the scenes, using a custom <a href="https://aws.amazon.com/ec2/">EC2</a> instance, and is deployed to a 3rd AZ which is separate from that of the data sites. This witness host is not reflected within the total host count of the SDDC.</p>
 <p>Due to the requirement that stretched-cluster SDDCS utilize a total of 3 AZs, they are only supported in AWS Regions which are able to provide at least 3 AZs.</p>
-<p>When deploying a stretched-cluster SDDC, AZ mapping for the data sites is controlled by the end user through the selection of cross-link Subnets for the SDDC. The details of this portion of the design are covered in the <a href="/vmcbook/guides/vmc-aws/networking/sddc-network-architecture/">SDDC Network Architecture</a> guide.</p>
+<p>When deploying a stretched-cluster SDDC, AZ mapping for the data sites is controlled by the end user through the selection of cross-link Subnets for the SDDC. The details of this portion of the design are covered in the <a href="https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-network-architecture/">SDDC Network Architecture</a> guide.</p>
 <h3 id="enabling-dual-site-mirroring">Enabling Dual Site Mirroring</h3>
 <p>A stretched-cluster SDDC offers additional resiliency for workloads; however, this feature is end-user controllable and is implemented through the vSAN policies applied to workloads. By choosing the &ldquo;Dual Site Mirroring (stretched cluster)&rdquo; for the &ldquo;Site disaster tolerance&rdquo; option of a vSAN storage policy, data for VMs which use the policy will have their data synchronized between the fault domains of the SDDC.</p>
 
@@ -229,7 +229,7 @@
           Written by <a href="/vmcbook/author/dspinhirne/">Dustin Spinhirne</a>
           </div><div>
           Originally published Friday, Feb 7, 2020.
-          &nbspUpdated on Friday, Feb 7, 2020.</div></footer>
+          </div></footer>
 
   </article></main>
     </article>

@@ -232,7 +232,9 @@
 <h2 id="common-uses">Common Uses</h2>
 <h3 id="workload-migration">Workload Migration</h3>
 <p>Let&rsquo;s walk through a typical example of a workload migration project using the following diagram. We will operate under the assumption that proper wave planning and testing have already been performed.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/a-technical-overview/introduction/workload-migration.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/a-technical-overview/introduction/workload-migration.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/a-technical-overview/introduction/workload-migration.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/a-technical-overview/introduction/workload-migration.png" />
+    </figure>
 
 <p>In this example, HCX is being used to migrate application workloads and their associated networks to the SDDC. As indicated, the WAN Interconnect appliance (IX) is responsible for data replication between the enterprise environment and the SDDC. This replication traffic is carried over a dedicated IPSec tunnel which is initiated by the enterprise appliance and is optimized using the WAN Optimization appliance (not shown). The Network Extension appliance (L2C) is responsible for creating a forwarding path for networks which have been extended to the SDDC. Again, this traffic is carried over a dedicated IPSec tunnel which is initiated by the enterprise appliance.</p>
 <p>Within the SDDC exists a &ldquo;Services&rdquo; network which contains critical services such as DNS or Active Directory which are designed to serve the local environment. In general, it is a good idea to keep such services as close to the consumers (SDDC workloads in this case) as possible. Doing so will not only cut down on network traffic sent to the WAN, but will also reduce dependencies between sites.</p>
@@ -243,7 +245,9 @@
 <h3 id="disaster-recovery-1">Disaster Recovery</h3>
 <p>HCX Disaster Recovery replicates and protects Virtual Machines using an SDDC as the recovery site, and provides flexible configuration of recovery point objectives (RPO) for workloads in intervals from 5 minutes to 24 hours. As an HCX feature, it can take advantage of WAN optimization and de-duplication for replication traffic and can utilize network extension as a means of recovering workloads without requiring IP address changes.</p>
 <p>Consider the following illustration.</p>
-<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/a-technical-overview/introduction/dr.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/hcx/a-technical-overview/introduction/dr.png" /></figure>
+
+<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/a-technical-overview/introduction/dr.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/a-technical-overview/introduction/dr.png" />
+    </figure>
 
 <p>In the above scenario, the application servers are being protected by Disaster Recovery using two separate methods.</p>
 <p>Servers in the subnet 10.1.8.0/24 are not required to keep their IP addresses upon recovery, so are being recovered to the 10.2.8.0/24 network which is native to the SDDC. In the event of a failure at the active site, these workloads will be recovered in the SDDC and DHCP will be used to re-assign their IP addresses.</p>
@@ -540,7 +544,7 @@
           Written by <a href="/vmcbook/author/dspinhirne/">Dustin Spinhirne</a>
           </div><div>
           Originally published Monday, Apr 2, 2018.
-          &nbspUpdated on Thursday, Feb 6, 2020.</div></footer>
+          &nbspUpdated on Tuesday, Oct 1, 2019.</div></footer>
 
   </article></main>
     </article>

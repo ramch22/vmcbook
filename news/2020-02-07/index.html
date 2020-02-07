@@ -34,17 +34,17 @@
         <li><a  title="Index" href="/vmcbook/guides/getting-started/howto/" >Index</a></li>
         <li ><a title="Activate Services" href="/vmcbook/guides/getting-started/howto/activate-services/" >Activate Services</a></li><li ><a title="Billing" href="/vmcbook/guides/getting-started/howto/billing/" >Billing</a></li><li ><a title="Manage Users" href="/vmcbook/guides/getting-started/howto/manage-users/" >Manage Users</a></li>
       </ul></li>
-      </ul></li><li class="open parent">
+      </ul></li><li >
         <span title="HCX" onclick="leftNavClick(this)">HCX</span><ul>
         <li><a  title="Index" href="/vmcbook/guides/hcx/" >Index</a></li>
         <li >
         <span title="A Technical Overview" onclick="leftNavClick(this)">A Technical Overview</span><ul>
         <li><a  title="Index" href="/vmcbook/guides/hcx/a-technical-overview/" >Index</a></li>
         <li ><a title="Introduction" href="/vmcbook/guides/hcx/a-technical-overview/introduction/" >Introduction</a></li><li ><a title="Planning" href="/vmcbook/guides/hcx/a-technical-overview/planning/" >Planning</a></li><li ><a title="Preparation" href="/vmcbook/guides/hcx/a-technical-overview/preparation/" >Preparation</a></li><li ><a title="Testing" href="/vmcbook/guides/hcx/a-technical-overview/testing/" >Testing</a></li><li ><a title="Migration" href="/vmcbook/guides/hcx/a-technical-overview/migration/" >Migration</a></li>
-      </ul></li><li class="open parent">
+      </ul></li><li >
         <span title="HowTo" onclick="leftNavClick(this)">HowTo</span><ul>
         <li><a  title="Index" href="/vmcbook/guides/hcx/howto/" >Index</a></li>
-        <li ><a title="Activate" href="/vmcbook/guides/hcx/howto/activate/" >Activate</a></li><li ><a title="Install" href="/vmcbook/guides/hcx/howto/install/" >Install</a></li><li class="open parent"><a title="Network Extension" href="/vmcbook/guides/hcx/howto/network-extension/" class="active">Network Extension</a></li><li ><a title="Workload Migration" href="/vmcbook/guides/hcx/howto/workload-migration/" >Workload Migration</a></li>
+        <li ><a title="Activate" href="/vmcbook/guides/hcx/howto/activate/" >Activate</a></li><li ><a title="Install" href="/vmcbook/guides/hcx/howto/install/" >Install</a></li><li ><a title="Network Extension" href="/vmcbook/guides/hcx/howto/network-extension/" >Network Extension</a></li><li ><a title="Workload Migration" href="/vmcbook/guides/hcx/howto/workload-migration/" >Workload Migration</a></li>
       </ul></li>
       </ul></li><li >
         <span title="VMware Cloud on AWS" onclick="leftNavClick(this)">VMware Cloud on AWS</span><ul>
@@ -117,60 +117,15 @@
       </ul></li></ul>
       </nav>
 
-      <main class="main-content">  <div class="TableOfContents">
-    <h1>Page Contents</h1>
-    <nav id="TableOfContents">
-  <ul>
-    <li><a href="#extend-a-network">Extend a Network</a></li>
-    <li><a href="#unstretch-a-network">Unstretch a Network</a></li>
-  </ul>
-</nav>
-  </div>
-
+      <main class="main-content">
   
-  <article class="content with-toc">
+  <article class="content news ">
     <header class="content-header">
-      <h1>HCX</h1><h2>HCX HowTo:&nbspNetwork Extension</h2></header>
+      <h1>Friday, Feb 7, 2020 - Content Update</h1></header>
 
-    <h2 id="extend-a-network">Extend a Network</h2>
-<p>Identify 1 or more networks to extend and then click on the Network Extension UI from within the HCX dashboard.</p>
-
-<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/network-extension/net-ext01.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/network-extension/net-ext01.png" />
-    </figure>
-
-<p>You will be presented with a list of port groups which are available for extension to the SDDC. You must tell HCX what the gateway/mask is for extended networks, as doing so will allow HCX to &ldquo;reserve&rdquo; this range within the SDDC. This reservation is in place as a means of enabling you to &ldquo;cutover&rdquo; the network (i.e. make the network routable/native within the SDDC) at a future date by preventing anyone from creating a conflicting routed network within the SDDC.</p>
-<p>In this example, a network is being extended whose gateway is 192.168.132.1/24. Clicking on the &ldquo;stretch&rdquo; button will cause HCX to create a &ldquo;disconnected&rdquo; (non-routed) network within the SDDC and set up a layer-2 stretch between it and the the on-premises network.</p>
-
-<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/network-extension/net-ext02.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/network-extension/net-ext02.png" />
-    </figure>
-
-<p>Stretched networks are visible from the Network Extension UI.</p>
-
-<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/network-extension/net-ext03.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/network-extension/net-ext03.png" />
-    </figure>
-
-<p>You may now place workloads within the stretched network of the SDDC. Assuming you assign these workloads valid address space from the stretched network, they will be able to connect to their peers within the on-premises network as if they were local.</p>
-<h2 id="unstretch-a-network">Unstretch a Network</h2>
-<p>Unstretching a network is done by selecting the &ldquo;unstretch&rdquo; option from an extended network.</p>
-
-<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/network-extension/net-unext01.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/network-extension/net-unext01.png" />
-    </figure>
-
-<p>Unstretching will simply disconnect the layer-2 extension. It will not delete the network from the SDDC. You have 2 options for how you unstretch:</p>
-<ol>
-<li>Unstretch as disconnected - This will leave the network as a disconnected network within the SDDC. Workloads on the network will be isolated since their default gateway will no longer be reachable via the layer-2 extension.</li>
-<li>Unstretch as routed - This will convert the network to a routed network by attaching it to the CGW and assigning it the IP/netmask reserved for the default gateway. The network will then become &ldquo;native&rdquo; to the SDDC. In this case, you will end up with a &ldquo;split brain&rdquo; situation where both the SDDC and the on-premises networks think that they are authoritative for the network. Generally, you will use this option only when performing a network cutover where you are removing the network from the on-premises environment.</li>
-</ol>
-<p>You control the unstretch method using the highlighted checkbox in the below illustration. Checking the box will convert the SDDC network to a routed network.</p>
-
-<figure><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/network-extension/net-unext02.png" alt="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/guides/hcx/howto/network-extension/net-unext02.png" />
-    </figure>
-
+    <p>New content has been added for VMC on AWS stretched-cluster SDDCs. Updates include dedicated sections within the SDDC Network Architecture docuement as well as a dedicated content under the Compute topic.</p>
     
-    <footer class="content-footer"><div>
-          Originally published Tuesday, Oct 1, 2019.
-          </div></footer>
-
+    
   </article></main>
     </article>
     
