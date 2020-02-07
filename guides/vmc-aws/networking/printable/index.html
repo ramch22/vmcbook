@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Unofficial documentation for VMware Cloud">
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.63.2" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://dspinhirne.github.io/vmcbook/main.css">
   <script type="text/javascript" src="https://dspinhirne.github.io/vmcbook/main.js"></script>
@@ -60,7 +60,7 @@
       </ul></li><li >
         <span title="Compute" onclick="leftNavClick(this)">Compute</span><ul>
         <li><a  title="Index" href="/vmcbook/guides/vmc-aws/compute/" >Index</a></li>
-        <li ><a title="vCenter Architecture" href="/vmcbook/guides/vmc-aws/compute/vcenter-architecture/" >vCenter Architecture</a></li><li ><a title="EDRS" href="/vmcbook/guides/vmc-aws/compute/edrs/" >EDRS</a></li><li ><a title="Instance Types" href="/vmcbook/guides/vmc-aws/compute/instance-types/" >Instance Types</a></li><li ><a title="Management Footprint" href="/vmcbook/guides/vmc-aws/compute/management-footprint/" >Management Footprint</a></li>
+        <li ><a title="vCenter Architecture" href="/vmcbook/guides/vmc-aws/compute/vcenter-architecture/" >vCenter Architecture</a></li><li ><a title="Stretched Clusters" href="/vmcbook/guides/vmc-aws/compute/stretched-cluster/" >Stretched Clusters</a></li><li ><a title="EDRS" href="/vmcbook/guides/vmc-aws/compute/edrs/" >EDRS</a></li>
       </ul></li><li >
         <span title="Storage" onclick="leftNavClick(this)">Storage</span><ul>
         <li><a  title="Index" href="/vmcbook/guides/vmc-aws/storage/" >Index</a></li>
@@ -105,11 +105,15 @@
         <li><a  title="Index" href="/vmcbook/guides/vmc-aws/validated-designs/network/" >Index</a></li>
         <li ><a title="Hub-and-Spoke Designs" href="/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/" >Hub-and-Spoke Designs</a></li><li ><a title="Transit Gateway" href="/vmcbook/guides/vmc-aws/validated-designs/network/transit-gateway/" >Transit Gateway</a></li>
       </ul></li>
+      </ul></li><li >
+        <span title="Appendix" onclick="leftNavClick(this)">Appendix</span><ul>
+        <li><a  title="Index" href="/vmcbook/guides/vmc-aws/appendix/" >Index</a></li>
+        <li ><a title="Instance Types" href="/vmcbook/guides/vmc-aws/appendix/instance-types/" >Instance Types</a></li><li ><a title="Management Footprint" href="/vmcbook/guides/vmc-aws/appendix/management-footprint/" >Management Footprint</a></li>
       </ul></li>
       </ul></li><li >
         <span title="Site" onclick="leftNavClick(this)">Site</span><ul>
         <li><a  title="Index" href="/vmcbook/site/" >Index</a></li>
-        <li ><a title="Authors" href="/vmcbook/site/authors/" >Authors</a></li><li ><a title="Authoring Guide" href="/vmcbook/site/authoring-guide/" >Authoring Guide</a></li><li ><a title="Information" href="/vmcbook/site/information/" >Information</a></li><li ><a title="Links" href="/vmcbook/site/links/" >Links</a></li><li ><a title="Resources" href="/vmcbook/site/resources/" >Resources</a></li><li ><a title="Color Scheme" href="/vmcbook/site/color-scheme/" >Color Scheme</a></li>
+        <li ><a title="Authoring Guide" href="/vmcbook/site/authoring-guide/" >Authoring Guide</a></li><li ><a title="Information" href="/vmcbook/site/information/" >Information</a></li><li ><a title="Links" href="/vmcbook/site/links/" >Links</a></li><li ><a title="Resources" href="/vmcbook/site/resources/" >Resources</a></li><li ><a title="Color Scheme" href="/vmcbook/site/color-scheme/" >Color Scheme</a></li>
       </ul></li></ul>
       </nav>
 
@@ -131,31 +135,32 @@
 
 <p>Whenever an SDDC is provisioned, resources for that SDDC are created within the AWS sub-account for the Org. This model allows VMware to manage billing for SDDC consumption (hardware, bandwidth, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html">EBS</a>, etc&hellip;).</p>
 <h3 id="the-sddc-underlay-vpc">The SDDC Underlay VPC</h3>
-<p>As part of the process for provisioning an SDDC it is required to provide the number of hosts for the SDDC base cluster and an IP address range to use for SDDC management. Using this information, VMware will create a new <a href="%7B%7Bsite.data.links.aws.vpc_subnets.url%7D%7D">VPC</a> within the VMware-owned AWS account for that SDDC's Org. This VPC will be created using the SDDC management IP address range provided during the provisioning process and several subnets will be created within that VPC. VMware will then allocate hardware hosts for the SDDC and connect them to the subnets of that VPC.</p>
+<p>As part of the process for provisioning an SDDC it is required to provide the number of hosts for the SDDC base cluster and an IP address range to use for SDDC management. Using this information, VMware will create a new <a href="%7B%7Bsite.data.links.aws.vpc_subnets.url%7D%7D">VPC</a> within the VMware-owned AWS account for that SDDC&rsquo;s Org. This VPC will be created using the SDDC management IP address range provided during the provisioning process and several subnets will be created within that VPC. VMware will then allocate hardware hosts for the SDDC and connect them to the subnets of that VPC.</p>
 <figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/underlay-vpc.png" alt="The Underlay VPC" /><figcaption>The Underlay VPC</figcaption></figure>
 
 <p>An <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">IGW</a> and VGW will also be created for this VPC. These gateways enable internet and Direct Connect connectivity to the VPC.</p>
 <h2 id="the-sddc-underlay">The SDDC Underlay</h2>
 <h3 id="esxi-networking">ESXi Networking</h3>
-<p>Once the underlay VPC has been created for the SDDC and hardware hosts have been provisioned, the SDDC is bootstapped with ESXi and the remaining VMware software stack is installed. Once the SDDC is up and running, it is possible to get a glimpse of the underlay networking design by viewing the networking configuration of a single ESXi host. This setup is fairly complex, so it is not entirely necessary that it be well understood. However, having some insight into the inner workings of the underlay network will help when it comes to understanding the networking behaviors and quirks of the SDDC itself.</p>
-<p>Although the hosts  of the SDDC are deployed with a redundant physical pair of NICs, they are presented in the vCenter UI as a single physical NIC. Within the host, this physical NIC is attached to an internal N-VDS host-switch where it is made available to the various virtual switches which make up the management network of the SDDC. The hosts themselves have a number of VMkernel interfaces which they use for the following purposes:</p>
+<p>Once the underlay VPC has been created for the SDDC and hardware hosts have been provisioned, the SDDC is bootstapped with ESXi and the remaining VMware software stack is installed. Once the SDDC is up and running, it is possible to get a glimpse of the underlay networking design by viewing the networking configuration of a single ESXi host. This setup is fairly complex, so it is not entirely necessary that it be well understood. However, having some insight into the inner workings of the underlay network will help when it comes to understanding the networking behaviors of the SDDC.</p>
+<p>The hosts of an SDDC are provisioned with an Elastic Network Adapter (<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking.html">ENA</a>) which provides their connectivity to the AWS underlay VPC. Within the host, this ENA is attached to an internal N-VDS host-switch where it is made available to the various virtual switches which provide network connectivity to the SDDC. The hosts themselves have a number of VMkernel interfaces which they use for the following purposes:</p>
 <ul>
-<li>host management (vmk0)</li>
+<li>management (vmk0)</li>
 <li>vSAN (vmk1)</li>
 <li>vMotion (vmk2)</li>
 <li>AWS API (vmk4)</li>
 <li>NSX Tunnel End Point (not shown)</li>
 </ul>
 <p>These VMkernel adapters are visible from the networking section of the configuration tab of the ESXi host. You can also get a sense of the setup by viewing the TCP/IP configuration for the host.</p>
-<p>The last portion of the underlay network are the virtual switches. Again, these are visible from the networking section of the configuration tab of the ESXi host. Here, you will see a mix of switches which are part of the underlay network as well as switches which are used for the NSX overlay (NSX network segments). The switches which are part of the underlay are there to provide network connectivity to the infrastructure appliance VMs of the SDDC and are part of the SDDC management network.</p>
-<p>The AWS infrastructure is completely unlike a traditional switched network in that it is not based on MAC-learning. Instead, 100% of all IP/MAC pairs must be explicitly programmed by AWS into the infrastructure. This presents a problem for the SDDC; specifically when it comes to vMotion. Although the exact nature of the problem (as well as the details around the solution) are beyond the scope of this document, it is sufficient to understand that each ESXi host utilizes a series of kernel-level (non-NSX managed) virtual routers designed to enable vMotion on top of AWS. These virtual routers are visible in the network path of a VM whenever you perform a traceroute. If you do a traceroute then you will notice that the interconnects between the NSX edges and the host-level routers (vDR) are utilizing a mix of IPv4 addresses from the <a href="https://en.wikipedia.org/wiki/Reserved_IP_addresses">reserved</a> ranges for link-local and carrier-grade NAT.</p>
+<p>The last portion of the underlay network are the virtual switches. Again, these are visible from the networking section of the configuration tab of the ESXi host. Here, you will see a mix of switches; some that are part of the underlay network and others which represent NSX network segments. The switches which are part of the underlay network are there to provide connectivity to the various management appliances of the SDDC. Of particular note is the management switch, which exists in order to provide the appliances with access to the management network. You can get a sense of some of the other important virtual switches in a host by examining their names as well as the management appliances which are attached to them.</p>
+<p>The AWS infrastructure is completely unlike a traditional switched network in that it is not based on MAC-learning. Instead, 100% of all IP/MAC pairs must be explicitly programmed by AWS into the infrastructure. This presents a problem for the SDDC; specifically when it comes to vMotion. Although the exact nature of the problem (as well as the details around the solution) are beyond the scope of this document, it is sufficient to understand that each ESXi host utilizes a series of kernel-level (non NSX-managed) virtual routers designed to enable vMotion on top of AWS. These virtual routers are visible in the network path of a VM whenever you perform a traceroute. If you execute a traceroute then you will notice that the interconnects between the NSX edges and the host-level routers (vDR) are utilizing a mix of IPv4 addresses from the <a href="https://en.wikipedia.org/wiki/Reserved_IP_addresses">reserved</a> ranges for link-local and carrier-grade NAT.</p>
 <figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/esx-networking.png" alt="ESXi Host Networking" /><figcaption>ESXi Host Networking</figcaption></figure>
 
 <h3 id="the-vpc-cross-link">The VPC Cross-Link</h3>
-<p>Every SDDC must be cross-linked to a VPC within the customer-owned AWS account. This cross-linking is accomplished using the Cross-Account <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">ENI</a> feature of AWS and creates a connection between every host of the SDDC to a <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">subnet</a> within the cross-linked VPC. This cross-link provides the SDDC with a network forwarding path to services maintained within the customer-owned AWS account.</p>
+<p>Every SDDC must be cross-linked to a VPC within the customer-owned AWS account. This cross-linking is accomplished using the Cross-Account <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">ENI</a> feature of AWS and creates a connection between every host within the base Cluster of the SDDC to a <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html">subnet</a> within the cross-linked VPC. This cross-link provides the SDDC with a network forwarding path to services maintained within the customer-owned AWS account.</p>
 <figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/cross-account-eni.png" alt="SDDC Cross-Account ENIs" /><figcaption>SDDC Cross-Account ENIs</figcaption></figure>
 
-<p>The Cross-Account ENIs are visible from the customer-owned AWS account (by viewing network interfaces within EC2). You will notice that there are several ENIs created when the SDDC is deployed, but that only a few are active. In addition to ENIs created for active hosts of the SDDC, there will also be ENIs created for future expansion and for upgrades/maintenance. Even though it is possible, you should avoid modifying or deleting these ENIs since doing so may impact the cross-link to the SDDC.</p>
+<p>The Cross-Account ENIs are visible from the customer-owned AWS account (by viewing network interfaces within EC2). You will notice that there are several ENIs created when the SDDC is deployed but not all are active. In addition to ENIs created for active hosts of the SDDC, there will also be ENIs created for future expansion and for upgrades/maintenance. Even though it is possible, you should avoid modifying or deleting these ENIs since doing so may impact the cross-link to the SDDC.</p>
+<p><strong>Note</strong> - The cross-link architecture is slightly different for stretched-cluster SDDCs (covered in later sections).</p>
 <h2 id="the-sddc-overlay">The SDDC Overlay</h2>
 <h3 id="an-overview-of-nsx-networking">An Overview of NSX Networking</h3>
 <p>As part of the standard SDDC software stack, VMware utilizes <a href="https://docs.vmware.com/en/VMware-NSX-T/index.html">NSX-t</a> to create an overlay network atop the base-layer provided by AWS. The end result is a logical network architecture which is completely abstracted from the underlying infrastructure.</p>
@@ -178,16 +183,38 @@
 <p>As discussed previously, every host of the SDDC is connected to a VPC within the customer-owned AWS account via Cross-Account ENI connections. These connections are there in order to provide a forwarding path to the tier-0 edge of the SDDC.</p>
 <figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/edge-cross-link.png" alt="Edge Cross-Link" /><figcaption>Edge Cross-Link</figcaption></figure>
 
-<p>Since we must always pass through the Edge SR whenever traffic leaves the SDDC, all traffic to and from the cross-linked VPC must pass through the active edge appliance of the SDDC. Since this edge appliance is a VM, it resides on a specific ESXi host. As such, it will always use the Cross-Account ENI for that host (as well as the local vDR for that host). It should be noted that the base cluster of the SDDC will be deployed within the same <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zone</a> (AZ) as the cross-link subnet (the subnet which contains the Cross-Account ENIs). Since the edge appliances reside within the base cluster, cross-AZ bandwidth charges will be avoided between the edge and any resources within that same AZ.</p>
+<p>Since we must always pass through the Edge SR whenever traffic leaves the SDDC, all traffic to and from the cross-linked VPC must pass through the active edge appliance of the SDDC. Since this edge appliance is a VM, it resides on a specific ESXi host. As such, it will always use the Cross-Account ENI for that host (as well as the local vDR for that host). It should be noted that the hosts of the SDDC will be deployed within the same <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Availability Zone</a> (AZ) as the cross-link subnet (the subnet which contains the Cross-Account ENIs). This practice not only provides a control mechanism for AZ placement of the SDDC (customer chooses the subnet and thus controls the AZ placement), but also serves to eliminate cross-AZ bandwidth charges between the edge and any native AWS resources within that same AZ.</p>
+<p><strong>Note</strong> - The cross-link architecture is slightly different for stretched-cluster SDDCs (covered in later sections).</p>
 <p>Routing between the SDDC and the VPC is enabled through static routes which are created on-demand as networks are added to the SDDC. These static routes are added to the <strong>main routing table</strong> of the customer VPC and use one of the Cross-Account ENIs as the next-hop for the route. It is important to keep in mind that the next-hop ENI used for the static routes will always be that of the ESXi host which houses the active edge appliance of the SDDC. This means that if the edge were to migrate to a different host (as happens during a fail-over event or whenever the SDDC is upgraded) then the next-hop of the static routes will be updated to reflect this change. For this reason <strong>it is not recommended</strong> to manually copy these static routes to other routing tables of the VPC.</p>
 <h3 id="edge-uplinks-and-traffic-flows">Edge Uplinks and Traffic Flows</h3>
 <p>It is important to understand the various uplinks in the SDDC and what traffic flows through them. This information is useful not only for understanding inter-connectivity within the SDDC, but also in understanding how traffic exits the SDDC (and potentially incurs bandwidth charges). There are currently 3 uplinks from the tier-0 edge of the SDDC. These are described below.</p>
+<p><strong>Note</strong> - There are additional traffic flow considerations for stretched-cluster SDDCs (covered in later sections).</p>
 <h4 id="internet-uplink">Internet Uplink</h4>
 <p>The internet uplink provides the SDDC with internet connectivity via the <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html">IGW</a> within the underlay VPC. The SDDC edge has a default route which points to the IGW as a next-hop, so will use this uplink for all unknown destination networks. Traffic over this uplink is billable and the charges will be passed through as part of the billing for the SDDC.</p>
 <h4 id="vpc-uplink">VPC Uplink</h4>
 <p>The VPC uplink connects the SDDC edge to the cross-linked VPC in the customer-owned AWS account. There is a static route on the SDDC edge for the private address space of the VPC which points to the VPC router as a next-hop. The SDDC administrator may also enable static routing of certain public AWS services (e.g. S3) over this uplink. Traffic over this uplink is non-billable only for AWS resources which are <strong>within the same availability Zone</strong> as the SDDC. Traffic to resources in other Availability Zones is billable and charges will be accrued on the customer-owned AWS account.</p>
 <h4 id="direct-connect-uplink">Direct Connect Uplink</h4>
 <p>This Direct Connect uplink is only used when <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html">Direct Connect</a> private VIF is plumbed into the SDDC. The SDDC edge will use this uplink for whatever network prefixes are received via BGP over this uplink. Since Direct Connect is a resource which is managed by the customer-owned AWS account, bandwidth charges over this uplink will be accrued on the customer-owned AWS account.</p>
+<h2 id="stretched-clusters">Stretched Clusters</h2>
+<h3 id="stretched-cluster-networking">Stretched-Cluster Networking</h3>
+<p>A stretched-cluster SDDC is one in which the hosts of each Cluster are split evenly between two Availability Zones (AZ) of an AWS Region. In order to ensure availability, the SDDC must be able to freely migrate workloads between AZs whenever a significant outage is detected in one AZ or the other.</p>
+<p>In migration scenarios, one of the biggest challenges is with maintaining a workload&rsquo;s network connectivity post-migration. For end-user workloads, NSX reduces this challenge through its use of network overlays which serve to abstract the underlying infrastructure. However, SDDC management appliances are a special case. Due to the fact that they have a direct presence on the underlying Subnets of the VPC, special steps must be taken to ensure that management appliances retain their network connectivity should they migrate between AZs.</p>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/stretched-cluster-sddc.png" alt="A Stretched-Cluster SDDC" /><figcaption>A Stretched-Cluster SDDC</figcaption></figure>
+
+<p>Since Subnets are bound to a particular AZ, it is not possible for a management appliance to be migrated between AZs and maintain connectivity to its original Subnet(s). For this reason, stretched-cluster SDDCs will be deployed with dual sets of Subnets which are designed to provide network connectivity to management appliances in the event that they migrate between AZs. The management appliances are issued &ldquo;floating&rdquo; IP addresses which, when combined with the routing functionality of the host-level vDR, enables them to transparently migrate between AZs while maintaining their network connectivity. Note that these &ldquo;floating&rdquo; IP addresses are taken from the management address range of the SDDC and are not to be confused with public floating IP addresses used within native AWS.</p>
+<h3 id="stretched-cluster-vpc-cross-link">Stretched-Cluster VPC Cross-Link</h3>
+<p>VPC cross-linking is another example of the networking challenges the SDDC must deal with in a stretched-cluster design. As a standard part of the SDDC deployment, the hosts of the base Cluster are crossed-linked to a Subnet within the customer-owned VPC. This cross-linking is performed in order to provide the SDDC edge with a forwarding path to that VPC. This forwarding path enables the SDDC to access AWS services within the customer AWS account.</p>
+<p>As with all Subnets, the cross-link Subnet is bound to a single AZ. This means that if the edge appliance migrates between AZs then it will lose access to this Subnet. The solution to this problem is to simply require a pair of cross-link Subnets to be provided whenever a stretched-cluster SDDC is deployed. These Subnets must reside within separate AZs and, like a standard SDDC, they will control AZ placement of the hosts within the SDDC. In the event that the edge appliance migrates between AZs, the routing table of the customer-owned VPC will be updated to route traffic through the appropriate cross-link Subnet.</p>
+<figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/sddc-network-architecture/stretched-cluster-x-link.png" alt="VPC Cross-Linking for Stretched-Cluster SDDCs" /><figcaption>VPC Cross-Linking for Stretched-Cluster SDDCs</figcaption></figure>
+
+<h3 id="stretched-cluster-traffic-flows">Stretched-Cluster Traffic Flows</h3>
+<p>In addition to the network flows discussed previously, stretched-cluster SDDCs come with an additional set of behaviors which must be kept in mind when designing with this feature. Specifically, you must consider both the cross-AZ bandwidth charges that will result from a stretched-cluster design as well as the reduced network throughput for traffic which passes between AZs. In particular, the following traffic flows should be kept in mind.</p>
+<h4 id="intra-sddc-flows">Intra-SDDC Flows</h4>
+<p>East-west communications between the workloads of an SDDC whenever these workloads reside in different AZs.</p>
+<h4 id="inter-sddc-flows">Inter-SDDC Flows</h4>
+<p>North-south traffic for workloads which reside in a different AZ than the NSX edge appliance. This includes all traffic which must pass through the edge, including internet, Direct Connect, and traffic to the cross-linked VPC. Cross-linked VPC traffic is particularly complex since the traffic could easily cross Availability Zones twice depending on the AZ of the destination AWS resource. Additionally, this traffic profile could easily reverse itself if the edge were to migrate between AZs.</p>
+<h4 id="vsan-replication-traffic">vSAN Replication Traffic</h4>
+<p>Traffic for vSAN synchronous writes between the hosts of a stretched-cluster SDDC will result in cross-AZ traffic flows. The amount of traffic heavily depends on the storage I/O profile of your workloads.</p>
 </article><article class="guide"><header class="content-header">
         <div><h1>Networking</h1>
           <h2>DNS and DHCP</h2></div>
@@ -477,9 +504,9 @@
 
 <p>For route-based VPN there is also a BGP component required. The status messages for BGP in the VMC console are not very helpful, but if the status is yellow then it means that there is a problem with establishing a BGP session with the peer. Here are a few things to check:</p>
 <ul>
-<li>verify the Local ASN setting in the SDDC matches the remote peer's BGP neighbor configuration.</li>
+<li>verify the Local ASN setting in the SDDC matches the remote peer&rsquo;s BGP neighbor configuration.</li>
 <li>verify that the remote ASN setting in the SDDC is correct.</li>
-<li>verify that the remote peer's BGP neighbor is using the SDDCs VTI address.</li>
+<li>verify that the remote peer&rsquo;s BGP neighbor is using the SDDCs VTI address.</li>
 </ul>
 <p>Again, if you make changes to the BGP configuration then it is best to disable and re-enable the VPN to force the BGP session to attempt to establish.</p>
 <p>If BGP is up but nothing is being routed across the VTI, then check that you are receiving/advertising BGP prefixes on the remote device. If not, then it could be that a prefix-list or other filter is in place.</p>
@@ -491,7 +518,7 @@
 <p>Testing was performed to an EC2 instance in AWS. EC2 instances use NAT, so we must be sure to open up UDP 500/4500 (for NAT-t) inbound in the security group for the device.</p>
 <h2 id="cisco-csr-ios-xr">Cisco CSR (IOS XR)</h2>
 <h3 id="route-based-vpn-ikev1">Route-Based VPN, IKEv1</h3>
-<p>Contributed by: <a href="https://dspinhirne.github.io/vmcbook/site/authors/#dustin-spinhirne">Dustin Spinhirne</a></p>
+<span>Contributed by: <a href="/vmcbook/contributors/dspinhirne/">Dustin Spinhirne</a></span>
 <figure  class="no-center" ><table>
 <thead>
 <tr>
@@ -640,7 +667,7 @@ exit
 </pre>
 </p>
 <h3 id="route-based-vpn-ikev2">Route-Based VPN, IKEv2</h3>
-<p>Contributed by: <a href="https://dspinhirne.github.io/vmcbook/site/authors/#dustin-spinhirne">Dustin Spinhirne</a></p>
+<span>Contributed by: <a href="/vmcbook/contributors/dspinhirne/">Dustin Spinhirne</a></span>
 <figure  class="no-center" ><table>
 <thead>
 <tr>
@@ -792,7 +819,7 @@ exit
 </pre>
 </p>
 <h2 id="ubiquiti-edgemax">Ubiquiti EdgeMAX</h2>
-<p>Contributed by: Z House</p>
+<span>Contributed by: <a href="/vmcbook/contributors/vmatoz/">Z House</a></span>
 <figure  class="no-center" ><table>
 <thead>
 <tr>
@@ -898,7 +925,7 @@ set protocols bgp timers keepalive 10
 <p>Private VIF, on the other hand, enables Direct Connect to be used for accessing the private IP address space of a VPC. When a Private VIF is associated to an SDDC, then it becomes possible to access the SDDC directly without the need for IPSec VPN (although you can use IPSec VPN over Private VIF is so desired).</p>
 <p>The next sections will explore this in more detail.</p>
 <h2 id="public-vif">Public VIF</h2>
-<p>Public VIF enables a Direct Connect to be used for accessing the public IP address space of  the AWS network. Let's look into the details of how this is implemented.</p>
+<p>Public VIF enables a Direct Connect to be used for accessing the public IP address space of  the AWS network. Let&rsquo;s look into the details of how this is implemented.</p>
 <p>Normally, customers will have one or more public internet circuits over which they will receive either default routes, or specific BGP prefixes. These circuits are used to access the public IP address space which AWS advertises to its upstream internet providers. In this example, the on-premises router is receiving a default route to the internet.</p>
 <figure   ><img src="https://media.githubusercontent.com/media/dspinhirne/vmcbook/master/resources/images/guides/vmc-aws/networking/direct-connect/concepts/dx-public-vif.png" alt="Public VIF" /><figcaption>Public VIF</figcaption></figure>
 

@@ -55,14 +55,5 @@
       <description>Color scheme used within this site.</description>
     </item>
     
-    <item>
-      <title>Authors</title>
-      <link>https://dspinhirne.github.io/vmcbook/site/authors/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dspinhirne.github.io/vmcbook/site/authors/</guid>
-      <description>Information on content authors.</description>
-    </item>
-    
   </channel>
 </rss>

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dspinhirne on VMware Cloud Knowledge</title>
+    <link>https://dspinhirne.github.io/vmcbook/author/dspinhirne/</link>
+    <description>Recent content in dspinhirne on VMware Cloud Knowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 07 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dspinhirne.github.io/vmcbook/author/dspinhirne/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vCenter Architecture</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/vcenter-architecture/</link>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/vcenter-architecture/</guid>
+      <description>The document discusses the general architecture of the vCenter deployment of an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>vSAN Architecture</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/storage/vsan-architecture/</link>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/storage/vsan-architecture/</guid>
+      <description>The document discusses the general architecture of the vSAN installation within an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Hub-and-Spoke Designs</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/</guid>
+      <description>Common hub and spoke network designs.</description>
+    </item>
+    
+    <item>
+      <title>Concepts</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/concepts/</link>
+      <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/concepts/</guid>
+      <description>Basic concepts of IPSec VPN.</description>
+    </item>
+    
+    <item>
+      <title>Concepts</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/concepts/</link>
+      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/direct-connect/concepts/</guid>
+      <description>Basics of Direct Connect.</description>
+    </item>
+    
+    <item>
+      <title>A Technical Overview</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/a-technical-overview/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/a-technical-overview/</guid>
+      <description>Provides a high-level technical overview of VMware Cloud on AWS.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/introduction/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/introduction/</guid>
+      <description>Describes the on-boarding process.</description>
+    </item>
+    
+    <item>
+      <title>SDDC Network Architecture</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-network-architecture/</link>
+      <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/sddc-network-architecture/</guid>
+      <description>Describes the network architecture of an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/introduction/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/introduction/</guid>
+      <description>An introduction to HCX within the context of VMware Cloud.</description>
+    </item>
+    
+    <item>
+      <title>Concepts</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/concepts/</link>
+      <pubDate>Thu, 01 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/network-security/concepts/</guid>
+      <description>Describes the concepts behind the network security feature set.</description>
+    </item>
+    
+    <item>
+      <title>Stretched Clusters</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/stretched-cluster/</link>
+      <pubDate>Fri, 07 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/stretched-cluster/</guid>
+      <description>This document discusses the stretched cluster feature of an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Transit Gateway</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/transit-gateway/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/validated-designs/network/transit-gateway/</guid>
+      <description>Discusses SDDC integration with Transit Gateway</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/getting-started/introduction/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/getting-started/introduction/</guid>
+      <description>Describes the concepts needed in order to get started with VMware Cloud.</description>
+    </item>
+    
+    <item>
+      <title>Requirements</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/requirements/</link>
+      <pubDate>Mon, 27 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/on-boarding/requirements/</guid>
+      <description>Defines the requirements for the on-boarding process.</description>
+    </item>
+    
+    <item>
+      <title>DNS and DHCP</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/dns-and-dhcp/</link>
+      <pubDate>Tue, 14 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/dns-and-dhcp/</guid>
+      <description>Describes the DNS and DHCP services of an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Planning</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/planning/</guid>
+      <description>How to Plan an HCX Engagement.</description>
+    </item>
+    
+    <item>
+      <title>EDRS</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/edrs/</link>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/compute/edrs/</guid>
+      <description>This document discusses the Elastic Distributed Resource Scheduler (EDRS) feature of an SDDC.</description>
+    </item>
+    
+    <item>
+      <title>Preparation</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/preparation/</guid>
+      <description>Preparation for HCX Installation.</description>
+    </item>
+    
+    <item>
+      <title>Testing</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/testing/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/testing/</guid>
+      <description>Testing an HCX installation.</description>
+    </item>
+    
+    <item>
+      <title>Migration</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/migration/</link>
+      <pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/hcx/a-technical-overview/migration/</guid>
+      <description>Workload migration with HCX.</description>
+    </item>
+    
+  </channel>
+</rss>

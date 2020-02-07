@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vmAtoZ on VMware Cloud Knowledge</title>
+    <link>https://dspinhirne.github.io/vmcbook/contributors/vmatoz/</link>
+    <description>Recent content in vmAtoZ on VMware Cloud Knowledge</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 01 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://dspinhirne.github.io/vmcbook/contributors/vmatoz/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sample Configs</title>
+      <link>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/sample-configs/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://dspinhirne.github.io/vmcbook/guides/vmc-aws/networking/ipsec-vpn/howto/sample-configs/</guid>
+      <description>Sample configurations for various remote VPN gear.</description>
+    </item>
+    
+  </channel>
+</rss>

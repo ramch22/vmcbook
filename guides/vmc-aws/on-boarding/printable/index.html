@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Unofficial documentation for VMware Cloud">
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.63.2" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://dspinhirne.github.io/vmcbook/main.css">
   <script type="text/javascript" src="https://dspinhirne.github.io/vmcbook/main.js"></script>
@@ -60,7 +60,7 @@
       </ul></li><li >
         <span title="Compute" onclick="leftNavClick(this)">Compute</span><ul>
         <li><a  title="Index" href="/vmcbook/guides/vmc-aws/compute/" >Index</a></li>
-        <li ><a title="vCenter Architecture" href="/vmcbook/guides/vmc-aws/compute/vcenter-architecture/" >vCenter Architecture</a></li><li ><a title="EDRS" href="/vmcbook/guides/vmc-aws/compute/edrs/" >EDRS</a></li><li ><a title="Instance Types" href="/vmcbook/guides/vmc-aws/compute/instance-types/" >Instance Types</a></li><li ><a title="Management Footprint" href="/vmcbook/guides/vmc-aws/compute/management-footprint/" >Management Footprint</a></li>
+        <li ><a title="vCenter Architecture" href="/vmcbook/guides/vmc-aws/compute/vcenter-architecture/" >vCenter Architecture</a></li><li ><a title="Stretched Clusters" href="/vmcbook/guides/vmc-aws/compute/stretched-cluster/" >Stretched Clusters</a></li><li ><a title="EDRS" href="/vmcbook/guides/vmc-aws/compute/edrs/" >EDRS</a></li>
       </ul></li><li >
         <span title="Storage" onclick="leftNavClick(this)">Storage</span><ul>
         <li><a  title="Index" href="/vmcbook/guides/vmc-aws/storage/" >Index</a></li>
@@ -105,11 +105,15 @@
         <li><a  title="Index" href="/vmcbook/guides/vmc-aws/validated-designs/network/" >Index</a></li>
         <li ><a title="Hub-and-Spoke Designs" href="/vmcbook/guides/vmc-aws/validated-designs/network/hub-and-spoke-designs/" >Hub-and-Spoke Designs</a></li><li ><a title="Transit Gateway" href="/vmcbook/guides/vmc-aws/validated-designs/network/transit-gateway/" >Transit Gateway</a></li>
       </ul></li>
+      </ul></li><li >
+        <span title="Appendix" onclick="leftNavClick(this)">Appendix</span><ul>
+        <li><a  title="Index" href="/vmcbook/guides/vmc-aws/appendix/" >Index</a></li>
+        <li ><a title="Instance Types" href="/vmcbook/guides/vmc-aws/appendix/instance-types/" >Instance Types</a></li><li ><a title="Management Footprint" href="/vmcbook/guides/vmc-aws/appendix/management-footprint/" >Management Footprint</a></li>
       </ul></li>
       </ul></li><li >
         <span title="Site" onclick="leftNavClick(this)">Site</span><ul>
         <li><a  title="Index" href="/vmcbook/site/" >Index</a></li>
-        <li ><a title="Authors" href="/vmcbook/site/authors/" >Authors</a></li><li ><a title="Authoring Guide" href="/vmcbook/site/authoring-guide/" >Authoring Guide</a></li><li ><a title="Information" href="/vmcbook/site/information/" >Information</a></li><li ><a title="Links" href="/vmcbook/site/links/" >Links</a></li><li ><a title="Resources" href="/vmcbook/site/resources/" >Resources</a></li><li ><a title="Color Scheme" href="/vmcbook/site/color-scheme/" >Color Scheme</a></li>
+        <li ><a title="Authoring Guide" href="/vmcbook/site/authoring-guide/" >Authoring Guide</a></li><li ><a title="Information" href="/vmcbook/site/information/" >Information</a></li><li ><a title="Links" href="/vmcbook/site/links/" >Links</a></li><li ><a title="Resources" href="/vmcbook/site/resources/" >Resources</a></li><li ><a title="Color Scheme" href="/vmcbook/site/color-scheme/" >Color Scheme</a></li>
       </ul></li></ul>
       </nav>
 
@@ -307,7 +311,7 @@
 <li>Security admin - Reviews and approves security policy for the SDDC.</li>
 </ul>
 <h2 id="customer-owned-aws-account">Customer-Owned AWS Account</h2>
-<p>One of the requirements of the VMware Cloud On AWS service is that all deployed SDDCs be linked to a customer's AWS account. If there is a preexisting account then it may be used for this linking; however, if there is no account in place then one must be created prior to on-boarding.</p>
+<p>One of the requirements of the VMware Cloud On AWS service is that all deployed SDDCs be linked to a customer&rsquo;s AWS account. If there is a preexisting account then it may be used for this linking; however, if there is no account in place then one must be created prior to on-boarding.</p>
 <p>Once an AWS account has been identified, then the next step is to ensure that all technical personnel have been added to the account and that they have been configured with the permissions necessary to properly manage the account. At minimum, there must be one user within the AWS account who has sufficient permissions to execute the CloudFormation template which performs account linking to the VMC ORG. The details of account linking are discussed in the chapter A Technical Overview.</p>
 <h2 id="region-vpc-and-subnet-selection">Region, VPC, and Subnet Selection</h2>
 <p>Each SDDC will be deployed within a specific AWS region. Within this region, a VPC and Subnet are required in order to facilitate cross-linking to the SDDC. Here are some things to consider when selecting these resources:</p>

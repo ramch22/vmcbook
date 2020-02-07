@@ -203,6 +203,7 @@ main h6{font-size: .75rem;}
 
 /* the right-hand toc menu */
 div.TableOfContents{
+  border-bottom:3px solid #eee;
   font-size: .7rem;
   min-height: 100px;
   width: 200px;
